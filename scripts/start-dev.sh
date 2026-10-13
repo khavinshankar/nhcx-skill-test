@@ -10,10 +10,12 @@ echo "running collectstatic..."
 python manage.py collectstatic --noinput
 python manage.py compilemessages -v 0
 
+# Insurance plans can contain tens of MB of JSON. SQL pretty-printing can
+# exhaust dev-container memory while formatting inserts and updates.
 echo "starting server..."
 if [[ "${ATTACH_DEBUGGER}" == "true" ]]; then
   echo "waiting for debugger..."
-  python -m debugpy --wait-for-client --listen 0.0.0.0:9876 manage.py runserver_plus 0.0.0.0:9000 --print-sql
+  python -m debugpy --wait-for-client --listen 0.0.0.0:9876 manage.py runserver_plus 0.0.0.0:9000
 else
-  python manage.py runserver_plus 0.0.0.0:9000 --print-sql
+  python manage.py runserver_plus 0.0.0.0:9000
 fi
