@@ -55,6 +55,26 @@ def find_checkpoint(prefix, ref):
     return matches[0]
 
 
+def partial_usage(usage, events, subagents):
+    """Token data Copilot logs before session.shutdown; Entire records none of it."""
+    parts = []
+    if usage.get("totalNanoAiu") is not None:
+        parts.append(f"{usage['totalNanoAiu'] / 1e9:,.1f} AI units billed")
+    for state in usage.get("promptCacheBreakState") or []:
+        if state.get("conversation") == "main":
+            for model, m in (state.get("models") or {}).items():
+                parts.append(f"last {model} prompt {m.get('prompt_tokens')} tokens "
+                             f"({m.get('tool_tokens')} tool definitions)")
+    sub = sum(s.get("tokens") or 0 for s in subagents.values())
+    if sub:
+        parts.append(f"subagents {sub} tokens")
+    for ev in events:
+        if ev.get("type") == "session.compaction_complete":
+            used = (ev.get("data") or {}).get("compactionTokensUsed") or {}
+            parts.append(f"compaction {used.get('inputTokens')} in/{used.get('outputTokens')} out")
+    return "; ".join(parts) or "n/a"
+
+
 def short(value, limit):
     text = value if isinstance(value, str) else json.dumps(value, ensure_ascii=False)
     text = " ".join(text.split())
@@ -183,6 +203,7 @@ def render(events, meta, commits, opts):
         + (f"; tokens in/out/cache-read/cache-write: " + "/".join(
             str((tokens.get(k) or {}).get("tokenCount", 0)) for k in ("input", "output", "cache_read", "cache_write"))
            if tokens else " (token totals are only logged at session end)"),
+        f"- Usage before session end: {partial_usage(usage, events, subagents)}",
         f"- System prompt and instructions captured: {system_chars} chars (show with --system)",
         f"- Skills loaded: {', '.join(skills) or 'none'}",
         f"- MCP servers: {', '.join(f'{s}×{c}' for s, c in mcp.most_common()) or 'none'}",

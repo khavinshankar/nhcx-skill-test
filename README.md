@@ -131,9 +131,21 @@ session lose nothing earlier. It records:
 Gaps:
 
 - Turns after the last parent commit (see above).
-- Token totals are logged only at session end (`session.shutdown`), after the
-  last commit, so checkpoints carry premium requests but not token counts.
-  Subagent token totals are included.
+- **Token totals are missing** (`token_usage` is 0). Entire 0.11.4 reads Copilot
+  tokens from two places, and neither has data during a session:
+  - `session.shutdown` has the session totals, but Copilot writes it only when
+    the session closes. That's after the last turn, and Entire doesn't revisit
+    checkpoints it has already finalized.
+  - As a fallback, Entire sums `outputTokens` on `assistant.message`, but
+    Copilot 1.0.94 no longer writes that field. The upstream code at
+    `4203b3d` is unchanged.
+  - Checkpoints do keep some usage data: cumulative AI units and premium
+    requests (`session.usage_checkpoint`), the latest prompt size, subagent
+    `totalTokens`, compaction token use, and each tool's
+    `result_token_count`. The report shows these.
+  - For exact totals after a session is closed, run
+    `scripts/checkpoint-report.py --session <id>`. It reads the live log,
+    which then contains `session.shutdown`.
 - Entire redacts secrets, and also redacts parts of `reasoningOpaque`, which
   is encrypted and unreadable anyway. `reasoningText` is kept.
 - `files_touched` lists only files changed with the `edit` and `create`

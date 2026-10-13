@@ -180,3 +180,36 @@ checkpoint backend were left unchanged.
     non-executable script was being skipped.
   - The report resolves commit `0daf11b` to checkpoint `cacc67ea1c19`.
   - Real hook: this record's commit should print `ff-main: main -> <sha>`.
+
+## Follow-up: why token usage is not captured (08:21 IST)
+
+- **Cause.** Entire's Copilot code (`agent/copilotcli/transcript.go`,
+  `extractTokenUsageFromEvents`) reads tokens from two places, and neither has
+  data during a session:
+  1. `session.shutdown` has the session totals (`modelMetrics`, `tokenDetails`),
+     but Copilot writes it only when the session closes. Entire finalizes a
+     turn's checkpoints at turn end (`HandleTurnEnd`) and never revisits them,
+     so the totals never reach a checkpoint.
+  2. As a fallback, Entire sums `outputTokens` on `assistant.message`, but
+     Copilot 1.0.94 doesn't write that field. The only logs with
+     `outputTokens` are in `session.shutdown` of already-closed sessions,
+     such as the title generator's. The upstream code at `4203b3d` is
+     unchanged.
+- **Data that is captured.** Searching this session's log for token fields
+  found:
+  - `session.usage_checkpoint`: `totalNanoAiu`, `totalPremiumRequests`, and
+    per-model `prompt_tokens`/`tool_tokens`
+  - `subagent.completed/failed.totalTokens`
+  - `session.compaction_*` token counts. This session was compacted once.
+  - `tool.execution_complete...result_token_count`
+- **Change.** `scripts/checkpoint-report.py` adds a "Usage before session end"
+  line showing AI units, the latest prompt size, subagent tokens and compaction
+  tokens. README documents the cause and says to use `--session <id>` after a
+  session closes for exact totals. No Entire or Copilot configuration was
+  changed; no setting could fix this.
+- **Validation.**
+  - Live session: 478.8 AI units, 45 premium requests, last prompt 94,093
+    tokens, subagents 302,693 tokens, compaction 162,449 in / 3,840 out.
+  - Closed title-generator session `2626c199`: shutdown totals of 10 in,
+    794 out, 71,151 cache read, 24,493 cache write tokens.
+  - Checkpoint `88097` still renders.
