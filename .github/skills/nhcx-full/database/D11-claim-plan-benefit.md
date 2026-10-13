@@ -8,7 +8,7 @@ The InsurancePlan comes in one of two shapes, and both flatten to this table:
 - Approach 1, package master: `plan -> specificCost -> category -> benefit -> cost`.
 - Approach 2, indemnity: `coverage -> benefit -> limit`.
 
-When a bundle carries both, they are merged on the package code. `specificCost` wins, and `coverage` adds only codes it did not carry. A code already seen is skipped, so each code appears at most once per plan.
+When a bundle carries both, they are merged on the pair (speciality `category_code`, package `code`). `specificCost` wins, and `coverage` adds only pairs it did not carry. A package the payer lists under several specialities (PMJAY lists Dengue MG004A under Cardiology, General Medicine and Paediatric Medical management) gets one row per speciality, so a code can appear more than once per plan but a pair at most once. An implant `coverage` repeats within one speciality, once per parent procedure, is kept as one row whose `ParentProcedure` condition joins the parents with "; ". The claim state lists every column but `conditions` and `supporting_info`, which the package detail fetches per row. Readers that need one row per quoted code take the row of the line's speciality, else the first.
 
 Approach 1 row:
 - `category_*` from `specificCost.category`; `code` / `display` from `benefit.type`.

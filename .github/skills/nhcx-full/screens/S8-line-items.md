@@ -91,7 +91,7 @@ The picker. Three blocks, top to bottom: what is on the pre-authorisation, what 
 | Item | Name, code underneath |
 | Speciality | Speciality name or `-` |
 | Ward / ICU tier | Tier chips as on S8, each with its own red "Remove" button (confirm "Take this tier off the preauth?") |
-| Rate | The plan's rate as text. Where the plan prices the line at zero or names no rate, a number input instead (8rem, min 0, step 0.01), since such a package is billed at the hospital's own price [PAYER](../references/PAYERS.md#markers) |
+| Rate | The plan's rate as text. Where the plan names no rate, or prices the line at zero and offers no ward/ICU tiers, a number input instead. A zero-rate package with tiers (PMJAY prices 369 packages, Dengue among them, only per day of ward or ICU stay) keeps its ₹0 and is billed through its tier lines (8rem, min 0, step 0.01), since such a package is billed at the hospital's own price [PAYER](../references/PAYERS.md#markers) |
 | Quantity | Number input (6rem, min 1, step 1), whole numbers |
 | Amount | `₹` whole rupees |
 | (action) | Red "Remove" button, confirm "Take this line off the preauth?" |
@@ -105,6 +105,7 @@ Update lines rules (red flash on failure, shown verbatim):
 - Quantity with a fraction: "The quantity of <code> must be a whole number."
 - Quantity zero, negative or unreadable: "Enter a quantity for <code>."
 - An empty quantity keeps the current quantity. Every amount is recomputed as `unit price × quantity`, rounded to two decimals.
+- All changed lines go in one update request (`{lines: [{id, quantity, unit_price?}]}`), never as new lines; one refusal saves none.
 - Success flash: "Lines updated."
 
 Remove (line or tier): deletes that line only. Flash "Line removed."
@@ -120,7 +121,7 @@ Built from the procedures already on the pre-authorisation, from what their plan
 
 A filter row above the card, a GET form: "Search" (text, at least 18rem, matches code or name as a substring), "Speciality" (blank "All specialities", options `<name> (<count>)`), "Type" (blank "Any type", `Procedure` or `Implant`), and a primary "Search" button. Unlike S7 there is no Clear button.
 
-Card title "<n> in the payer's package master". Columns: Code, Package, Speciality, Type (chip, Procedure info, otherwise warning), Rate, and "Add". A benefit whose kind a pre-authorisation cannot quote (a policy-wide allowance such as an ambulance or room sub-limit) gets no Add button. Every package is listed, with no row limit: paged 100 rows a page with "Previous" and "Next" and "Page <p> of <q>" [REF](../references/PAYERS.md#markers), and the search and filters narrow the whole package master. Empty: "Nothing matches that search."
+Card title "<n> in the payer's package master". Columns: Code, Package, Speciality, Type (chip, Procedure info, otherwise warning), Rate, and "Add". A package listed under several specialities shows once per speciality, and Add sends that row's `category_code` so the line carries the speciality picked. A benefit whose kind a pre-authorisation cannot quote (a policy-wide allowance such as an ambulance or room sub-limit) gets no Add button. Every package is listed, with no row limit: paged 100 rows a page with "Previous" and "Next" and "Page <p> of <q>" [REF](../references/PAYERS.md#markers), and the search and filters narrow the whole package master. Empty: "Nothing matches that search."
 
 **Adding a line** posts the kind, the code, and for a tier the parent procedure code. The price is read from the plan at add time, never from the form: a Procedure or Implant takes the benefit's rate, a tier takes the rate its parent procedure lists for it (different procedures price the same ward differently [PAYER](../references/PAYERS.md#markers)). The new line starts at quantity 1. Rules, each shown verbatim as a red flash:
 - Kind not one of the three: "That is not something a preauth can quote."

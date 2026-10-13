@@ -13,7 +13,7 @@ Only the **first** InsurancePlan in the bundle is read. Two published shapes are
 | Package master | `plan[] > specificCost[] > category, benefit[] > type, cost[]` | package code, name, speciality, rate, tiers, implants |
 | Indemnity | `coverage[] > type, benefit[] > type, limit[]` | benefit code, name, category, limit |
 
-The two are merged on the package code. `specificCost` is read first and wins, and `coverage` adds only codes `specificCost` did not carry. They are never concatenated, which would double every package.
+The two are merged on the pair (category code, package code). `specificCost` is read first and wins, and `coverage` adds only pairs `specificCost` did not carry. They are never concatenated, which would double every package. A package listed under several categories is kept once per category (PMJAY repeats 545 of its 1537 codes across specialities).
 
 **Costs (package master).** The cost whose `type.coding[0].code` is `Procedure` is the package rate (matched on the code, never on the display, which is a sentence). A rate of 0 is real: many packages are priced by their ward tiers alone [PAYER](../references/PAYERS.md#markers). Every other cost (`Stratification` for the ward, HDU and ICU tiers; `Implant`) is money over and above the rate. It is kept as an extra, named by its first `qualifiers[]` coding. A benefit is typed `Procedure` when it has a rate, else `Implant` when one of its extras is an Implant, else left untyped.
 
@@ -46,7 +46,7 @@ Into D11 `claim_plan_benefit`, from `plan[].specificCost[]`:
 | Element read | Stored in | Notes |
 |---|---|---|
 | `specificCost[].category.coding[0]` code / display | `category_code` / `category_display` | the speciality |
-| `benefit[].type.coding[0]` code / display (else `text`) | `code` / `display` | a benefit without a code is skipped; a code already seen is skipped |
+| `benefit[].type.coding[0]` code / display (else `text`) | `code` / `display` | a benefit without a code is skipped; a (category, code) pair already seen is skipped, except that a repeated `coverage` implant adds its `ParentProcedure` to the kept row |
 | `benefit[].cost[]` with `type` code `Procedure`: `value.value`, `value.unit` (else `value.code`) | `rate`, `currency` | first such cost; `cost_type` = `Procedure` when present |
 | other `cost[]`: `type` code, `qualifiers[0].coding[0]` code / display, `value.value`, `value.unit` | `extras` (JSON list of `{type, code, label, rate, currency}`) | `Stratification`, `Implant` |
 | computed | `kind` | `Procedure` with a rate, else `Implant` with an Implant extra, else null |

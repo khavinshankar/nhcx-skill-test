@@ -44,7 +44,7 @@ read_plan(body):
               plan_type (type[0] display), sum_insured (first plan[].generalCost[].cost.value),
               policy_documents (requirements on the InsurancePlan itself)}
     benefits = packages from plan[].specificCost[].benefit[] (package master shape)
-               merged on package code with coverage[].benefit[] (indemnity shape),
+               merged on (category, package code) with coverage[].benefit[] (indemnity shape),
                specificCost winning; each with category, code, display, kind, rate,
                currency, cost_type, conditions, extras (tiers), supporting_info
     forms = each Questionnaire once per url

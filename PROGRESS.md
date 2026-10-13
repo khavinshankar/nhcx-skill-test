@@ -6,6 +6,19 @@ The first implementation is recorded in `tasks/2026-10-13-care-nhcx-integration.
 
 This file lists every change made on top of it, newest first. Each entry links to its task record.
 
+## 2026-10-13: Insurance plan packages per speciality, tiers and documents in the UI
+
+Task: `tasks/2026-10-13-fix-insurance-plan-line-items.md`
+
+| Repository (branch) | Commit | Change |
+| --- | --- | --- |
+| care (`nhcx-integration`) | `53d6d332f` | Plan benefits are keyed on (category, code). The claim state now includes tiers and extras and no longer carries the raw bundle. New `GET plan/benefits/<id>/` endpoint. `add_line` takes `category_code`. A ₹0 package with tiers is a fixed price. |
+| care_fe (`nhcx-integration`) | `8848d8cc9` | PackageDetail fetches its conditions and documents. The picker is speciality-aware. Update lines uses `PUT lines/`. |
+
+- **Spec deviation:** D11 and F5 now merge on (category, code) instead of code alone, because PMJAY lists 545 codes under more than one speciality.
+- **Open price:** a line is open-priced only when the plan names no rate, or ₹0 with no ward/ICU tiers (user decision; S8 updated).
+- **Existing data:** plan 91 was re-parsed in place: 1678 rows became 2543.
+
 ## 2026-10-13: Facility NHCX settings screen and ABDM HIP ID reuse
 
 Task: `tasks/2026-10-13-run-server-and-ui.md`
