@@ -89,3 +89,49 @@ The user asked us to add their `ChunkedTransferEncodingMiddleware` and set
     Raise both caps to cover it.
   - Cloudflare's edge body limit.
   - The payer must resend, or we re-request, the plan for NM-26-0VL00003S.
+
+## Follow-up: DECRYPT_FAILED on the insurance plan callback
+
+Q: Why does decryption fail when coverage eligibility works with the same key?
+
+A: The key was fine. Authlib 1.6.12 (`authlib/jose/util.py: extract_segment`)
+hard-codes a 256 000-character cap on every JOSE segment, as DoS hardening. It
+raises "Value of ciphertext is too long", and `decrypt_for` reported that as
+DECRYPT_FAILED. Coverage responses (about 41 KB) and the earlier 228 KB plan
+fit under the cap. This plan doesn't:
+- The body came in chunked from `Java/21` via cloudflared: 44.6 MB, with a
+  ciphertext segment of 44 599 918 characters.
+- It is `alg=RSA-OAEP-256`, `enc=A256GCM`, with no `zip`.
+- It decrypts to a 33.4 MB InsurancePlan bundle.
+
+We found this by temporarily dumping the raw body on a re-request
+(correlation 569f472d). That debug code was reverted and the dump deleted.
+
+- care `9e5718f69` (nhcx-integration):
+  - `crypto.decrypt` decrypts compact JWEs that have any segment over 256 000
+    characters directly with `cryptography`, per RFC 7516.
+  - Supported: RSA-OAEP/RSA-OAEP-256 key unwrap, and AES-GCM or AES-CBC-HMAC
+    with constant-time tag checking.
+  - Smaller messages still go through Authlib.
+  - Tests cover a large round trip, every allowed alg/enc pair, a tampered tag
+    and a wrong key.
+- Validation:
+  - ruff: clean.
+  - `test_gateway_crypto` + `test_gateway_receive`: 25 tests OK.
+  - The captured payload now decrypts.
+- Applying the plan:
+  - Replaying it to runserver_plus got the backend container **OOM-killed**:
+    the Docker VM has 4 GB, and `--print-sql` pretty-prints SQL that includes
+    the 33 MB JSON.
+  - Restarted the container, then applied the captured message via
+    `gw.handle_inbound` in `manage.py shell`. Result: 202 in 4.7 s, peak RSS
+    about 560 MB.
+  - NM-26-0VL00003S plan is now `ready`: "PMJAY - Universal Health Policy"
+    (100155-IN0210004054), 1678 benefits, 15 forms, response_json 7.3 MB
+    compressed.
+- Open:
+  - The dev server's `--print-sql` will OOM again on the next payer delivery
+    of a plan this size. Run without `--print-sql` or give Docker more memory.
+  - The ledger and archive each store about 83 MB pretty-printed JSON per
+    delivery. 006-insurance-in.json is from the OOM'd attempt.
+  - Plan reuse copies the whole response_json for each claim.
