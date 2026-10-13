@@ -249,3 +249,12 @@ export const ANSWER_TYPE: Record<string, string> = {
 export function answerTypeKey(type?: string | null): string | null {
   return ANSWER_TYPE[(type || "").toLowerCase()] ?? null;
 }
+
+// raviger's default serializer only drops `null`, so `undefined` would land in
+// the URL as the literal string "undefined". Use with useQueryParams.
+export const serializeQuery = (query: Record<string, unknown>) =>
+  new URLSearchParams(
+    Object.entries(query).flatMap(([k, v]) =>
+      v === undefined || v === null || v === "" ? [] : [[k, String(v)]],
+    ),
+  ).toString();

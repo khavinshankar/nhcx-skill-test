@@ -41,6 +41,7 @@ import {
   formatMoney,
   patientAbha,
   patientMobile,
+  serializeQuery,
 } from "./utils";
 
 const DISCOVERY_ID_TYPES: SearchIdType[] = [
@@ -73,7 +74,7 @@ export default function BeneficiaryDiscovery({
     case?: string;
     id_type?: string;
     id_value?: string;
-  }>();
+  }>(undefined, serializeQuery);
   const caseId = qParams.case;
 
   const caseState = useQuery({

@@ -60,6 +60,7 @@ import {
   Tone,
   formatDateTime,
   formatMoney,
+  serializeQuery,
 } from "@/pages/Facility/claims/utils";
 
 const PAGE = 100;
@@ -129,7 +130,7 @@ export default function InsurancePlanTab({
     plan_q?: string;
     plan_speciality?: string;
     plan_type?: string;
-  }>();
+  }>(undefined, serializeQuery);
   const [search, setSearch] = useState(qParams.plan_q || "");
   const [speciality, setSpeciality] = useState(qParams.plan_speciality || "");
   const [kind, setKind] = useState(qParams.plan_type || "");

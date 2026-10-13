@@ -33,7 +33,7 @@ import nhcxApi from "@/types/nhcx/nhcxApi";
 
 import { ErrorText, Muted } from "./components/ClaimWidgets";
 import { nhcxCall, refusalText } from "./useClaimAction";
-import { ID_TYPES } from "./utils";
+import { ID_TYPES, serializeQuery } from "./utils";
 
 const isIdType = (v?: string): v is SearchIdType =>
   !!v && ID_TYPES.some((o) => o.value === v);
@@ -47,7 +47,7 @@ export default function SearchPolicy({ facilityId }: { facilityId: string }) {
     id_value?: string;
     patient?: string;
     searched?: string;
-  }>();
+  }>(undefined, serializeQuery);
   const [idType, setIdType] = useState<string>(qParams.id_type || "MemberId");
   const [idValue, setIdValue] = useState(qParams.id_value || "");
   const [formError, setFormError] = useState<string>();
