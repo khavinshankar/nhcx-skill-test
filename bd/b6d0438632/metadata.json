@@ -1,0 +1,27 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "bdb6d0438632",
+  "strategy": "manual-commit",
+  "branch": "khavinshankar-entire-checkpoint-audit",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "README.md",
+    "tasks/2026-10-13-entire-checkpoint-audit.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/bd/b6d0438632/0/metadata.json",
+      "transcript": "/bd/b6d0438632/0/full.jsonl",
+      "compact_transcript": "/bd/b6d0438632/0/transcript.jsonl",
+      "content_hash": "/bd/b6d0438632/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 0,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "api_call_count": 0
+  }
+}
