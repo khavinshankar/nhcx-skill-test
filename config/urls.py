@@ -63,6 +63,13 @@ urlpatterns = [
         name="change_password_view",
     ),
     path("api/v1/", include(api_router.urlpatterns)),
+    # NHCX claims: facility-scoped application API (care.nhcx.api)
+    path(
+        "api/v1/facility/<uuid:facility_external_id>/nhcx/",
+        include("care.nhcx.api.urls"),
+    ),
+    # NHCX outside facility scope: practitioner profile and ABHA (A19)
+    path("api/v1/nhcx/", include("care.nhcx.api.urls_global")),
     # NHCX gateway: the NHCX-facing inbound and health routes (G1)
     path("", include("care.nhcx.gateway.urls")),
     path("api/gateway/", include("care.nhcx.gateway.urls")),
