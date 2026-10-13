@@ -39,6 +39,19 @@ entire status
 entire explain --commit HEAD
 ```
 
-These commands match the installed Entire 0.5.5. End-to-end capture has not yet
-been verified. Parent checkpoints do not contain child repository source
-snapshots; use the linked child commits to inspect or restore code.
+These commands match the installed Entire 0.5.5. Parent checkpoints do not
+contain child repository source snapshots; use the linked child commits to
+inspect or restore code.
+
+### Capture requirements (verified 2026-10-13)
+
+- GitHub Copilot app sessions did not run the repository's
+  `.github/hooks/entire.json`, so the same hooks are also installed at user
+  level in `~/.copilot/hooks/entire.json`. Copilot loads hooks when a session
+  starts, so sessions already running need `entire attach <id> -a copilot-cli`.
+- `feature.manyFiles` made Git write an index without a checksum, which Entire
+  could not read ("index decoder: invalid checksum"). The parent repository
+  sets `index.skipHash=false` in its local Git config to prevent this.
+- Copilot transcripts include messages, tool calls and results, and the
+  reasoning summaries the app records. Entire stores the transcript with each
+  checkpoint.
