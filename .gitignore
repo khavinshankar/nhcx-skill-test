@@ -1,0 +1,10 @@
+# Independent code repositories; care/care_abdm is covered by /care/.
+/care/
+/care_fe/
+/care_abdm_fe/
+
+# Machine-local session state and settings.
+.DS_Store
+.entire/settings.local.json
+.entire/logs/
+.entire/tmp/
