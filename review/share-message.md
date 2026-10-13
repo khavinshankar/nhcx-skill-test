@@ -1,0 +1,3 @@
+I tested a skill-assisted AI implementation of NHCX in CARE HMIS and documented 13 findings from hands-on testing, including beneficiary selection, reuse of existing ABDM modules, large-plan handling and missing workflows. The repo includes the skill, generated code, transcripts, test results and follow-up fixes: https://github.com/khavinshankar/nhcx-skill-test
+
+Start with findings.md and the README. Please review how well the AI followed the skill, understood the existing system and delivered usable workflows—not just whether its automated tests passed. The notes distinguish the original gaps from later fixes.

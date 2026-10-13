@@ -1,0 +1,203 @@
+diff --git a/public/locale/en.json b/public/locale/en.json
+index 7836469a5..12429bcde 100644
+--- a/public/locale/en.json
++++ b/public/locale/en.json
+@@ -3768,6 +3768,9 @@
+   "nhcx_balance_release": "Balance release",
+   "nhcx_balance_to_release": "Balance to release (₹)",
+   "nhcx_beneficiary": "Beneficiary",
++  "nhcx_beneficiaries_on_policy": "Beneficiaries on this policy",
++  "nhcx_beneficiaries_on_policy_help": "The payer lists every family member on this policy. Choose another if the patient is someone else.",
++  "nhcx_beneficiary_not_chosen": "Choose the patient from the beneficiaries on this policy.",
+   "nhcx_beneficiary_verification": "Beneficiary verification",
+   "nhcx_beneficiary_verified_by": "Beneficiary verified by {{method}}",
+   "nhcx_benefit": "Benefit",
+@@ -3800,7 +3803,9 @@
+   "nhcx_check_again": "Check again",
+   "nhcx_check_word": "check",
+   "nhcx_checked_at": "Checked at",
++  "nhcx_checked_member": "Checked member",
+   "nhcx_choose_a_pdf": "Choose a PDF",
++  "nhcx_choose_beneficiary_help": "The payer lists more than one beneficiary on this policy. Choose the patient before continuing with the claim.",
+   "nhcx_choose_file": "Choose a PDF or image to attach.",
+   "nhcx_choose_identifier_type": "Choose what kind of identifier you are searching with.",
+   "nhcx_choose_line_items": "Choose line items",
+diff --git a/src/pages/Facility/claims/tabs/EligibilityTab.tsx b/src/pages/Facility/claims/tabs/EligibilityTab.tsx
+index 14197d12b..1253ad8d0 100644
+--- a/src/pages/Facility/claims/tabs/EligibilityTab.tsx
++++ b/src/pages/Facility/claims/tabs/EligibilityTab.tsx
+@@ -3,6 +3,7 @@ import {
+   Send,
+   ShieldCheck,
+   TrendingDown,
++  UserCheck,
+   Wallet,
+ } from "lucide-react";
+ import { Link } from "raviger";
+@@ -120,6 +121,15 @@ export default function EligibilityTab({
+     });
+   };
+ 
++  const choose = useClaimAction(claimId, (member_id: string) =>
++    nhcxCall(nhcxApi.selectBeneficiary, {
++      pathParams: { facilityId, claimId },
++      body: { member_id },
++    }),
++  );
++  const family = state.beneficiaries ?? [];
++  const canChoose = !state.preauth;
++
+   const status = CLAIM_STATUS[claim.status];
+   const idLabel = ID_TYPES.find((o) => o.value === claim.search_id_type);
+   const src = photoSrc(claim.patient_photo);
+@@ -127,9 +137,90 @@ export default function EligibilityTab({
+ 
+   return (
+     <div className="flex flex-col gap-4">
++      {family.length > 1 && (
++        <Card
++          className={state.beneficiary_pending ? "border-yellow-500" : undefined}
++        >
++          <CardHeader>
++            <CardTitle>{t("nhcx_beneficiaries_on_policy")}</CardTitle>
++            <Muted>
++              {state.beneficiary_pending
++                ? t("nhcx_choose_beneficiary_help")
++                : t("nhcx_beneficiaries_on_policy_help")}
++            </Muted>
++          </CardHeader>
++          <CardContent className="divide-y">
++            {family.map((person) => {
++              const chosen = person.member_id === claim.beneficiary_member_id;
++              return (
++                <div
++                  key={person.member_id}
++                  className="flex items-center gap-3 py-3"
++                >
++                  <div className="size-12 shrink-0 overflow-hidden rounded-md">
++                    {photoSrc(person.patient_photo) ? (
++                      <img
++                        src={photoSrc(person.patient_photo)}
++                        alt=""
++                        className="size-12 object-cover"
++                      />
++                    ) : (
++                      <Avatar
++                        name={person.beneficiary_name || person.member_id}
++                        className="size-12"
++                      />
++                    )}
++                  </div>
++                  <div className="min-w-0 flex-1">
++                    <div className="flex flex-wrap items-center gap-2 font-medium">
++                      {person.beneficiary_name || "-"}
++                      {chosen && (
++                        <Chip tone="success">{t("nhcx_selected")}</Chip>
++                      )}
++                      {person.checked && (
++                        <Chip tone="neutral">{t("nhcx_checked_member")}</Chip>
++                      )}
++                    </div>
++                    <div className="text-xs text-gray-600">
++                      {[
++                        `${t("nhcx_member_id")}: ${person.member_id}`,
++                        titleCase(person.patient_gender),
++                        person.patient_dob && formatDate(person.patient_dob),
++                        person.abha_number &&
++                          `${t("nhcx_abha")}: ${person.abha_number}`,
++                        person.relationship &&
++                          `${t("nhcx_relationship")}: ${titleCase(person.relationship)}`,
++                      ]
++                        .filter(Boolean)
++                        .join(" · ")}
++                    </div>
++                  </div>
++                  {!chosen && canChoose && (
++                    <Button
++                      variant={
++                        state.beneficiary_pending ? "primary" : "outline"
++                      }
++                      size="sm"
++                      disabled={choose.isPending}
++                      onClick={() => choose.mutate(person.member_id)}
++                    >
++                      <UserCheck className="size-4" />
++                      {t("select")}
++                    </Button>
++                  )}
++                </div>
++              );
++            })}
++          </CardContent>
++        </Card>
++      )}
++
+       <Card>
+         <CardHeader>
+           <CardTitle>{t("nhcx_beneficiary")}</CardTitle>
++          {state.beneficiary_pending && (
++            <Muted>{t("nhcx_beneficiary_not_chosen")}</Muted>
++          )}
+         </CardHeader>
+         <CardContent className="flex gap-4">
+           <div className="size-20 shrink-0 overflow-hidden rounded-md">
+diff --git a/src/types/nhcx/nhcx.ts b/src/types/nhcx/nhcx.ts
+index dd220dd79..44600e817 100644
+--- a/src/types/nhcx/nhcx.ts
++++ b/src/types/nhcx/nhcx.ts
+@@ -40,6 +40,7 @@ export interface Claim {
+   search_id_type: SearchIdType | "" | null;
+   search_id_value: string | null;
+   member_id: string | null;
++  beneficiary_member_id: string | null;
+   policy_code: string | null;
+   beneficiary_name: string | null;
+   abha_number: string | null;
+@@ -491,12 +492,30 @@ export interface Admission {
+ 
+ export type NextSend = string | { refused: string };
+ 
++// One family member listed on the payer's eligibility reply.
++export interface Beneficiary {
++  member_id: string;
++  checked: boolean;
++  beneficiary_name?: string | null;
++  patient_gender?: string | null;
++  patient_dob?: string | null;
++  patient_address?: string | null;
++  abha_number?: string | null;
++  patient_photo?: string | null;
++  plan_name?: string | null;
++  plan_period_start?: string | null;
++  plan_period_end?: string | null;
++  relationship?: string | null;
++}
++
+ // A17 claim state
+ export interface ClaimState {
+   claim: Claim;
+   plan: ClaimPlan | null;
+   benefits: Benefit[];
+   admissions: Admission[];
++  beneficiaries: Beneficiary[];
++  beneficiary_pending: boolean;
+   lines: ClaimLine[];
+   ruling: ClaimAuth | null;
+   required_documents: {
+diff --git a/src/types/nhcx/nhcxApi.ts b/src/types/nhcx/nhcxApi.ts
+index f855f32fa..3a53f6ee7 100644
+--- a/src/types/nhcx/nhcxApi.ts
++++ b/src/types/nhcx/nhcxApi.ts
+@@ -61,6 +61,12 @@ export default {
+     TRes: Type<NhcxOk>(),
+     TBody: Type<EligibilityRequest>(),
+   },
++  selectBeneficiary: {
++    path: `${claimBase}/beneficiary/`,
++    method: HttpMethod.POST,
++    TRes: Type<NhcxOk>(),
++    TBody: Type<{ member_id: string }>(),
++  },
+   authRequirements: {
+     path: `${claimBase}/auth-requirements/`,
+     method: HttpMethod.POST,

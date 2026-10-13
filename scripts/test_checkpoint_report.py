@@ -124,6 +124,20 @@ class TranscriptTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'No live transcript'):
                 transcripts.resolve_session('missing')
 
+    def test_repository_export_without_entire_or_native_logs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            script = root / 'scripts' / 'checkpoint_transcripts.py'
+            export = root / 'review' / 'sessions' / 'portable.jsonl'
+            export.parent.mkdir(parents=True)
+            export.write_text('{"type":"session_meta","payload":{"id":"portable"}}\n')
+            with patch.object(transcripts, '__file__', str(script)), \
+                    patch.object(transcripts.subprocess, 'run', side_effect=AssertionError('must be offline')):
+                events, meta, source = transcripts.resolve_session('portable')
+            self.assertEqual(events[0]['payload']['id'], 'portable')
+            self.assertIn('fixed snapshot', meta['capture_note'])
+            self.assertEqual(source, str(export.resolve()))
+
     def test_invalid_id_and_json(self):
         for sid in ('../secret', '*', ''):
             with self.assertRaises(ValueError):

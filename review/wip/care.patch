@@ -1,0 +1,663 @@
+diff --git a/care/nhcx/api/CONTRACT.md b/care/nhcx/api/CONTRACT.md
+index 4b9d59090..129ed8cf2 100644
+--- a/care/nhcx/api/CONTRACT.md
++++ b/care/nhcx/api/CONTRACT.md
+@@ -15,8 +15,9 @@ Conventions
+ | POST | `policy-search/` | A1, S1, S2, S17 | `{identifiertype, identifiervalue}` or `{abha_number, mobile, aadhaar}` | `{ok, policies:[{payer_id, payer_name, policy_number/policy_code, member_id, beneficiary_name, ...normalised}], message}` |
+ | POST | `claims/` | A1 open case, S2 | `{policy: <one policy object from search>, encounter?: uuid}` | `{ok, claim_id}` |
+ | GET | `claims/` | S5 | `?status=&stage=&search=&limit=&offset=` | `{count, results:[claim rows]}` |
+-| GET | `claims/{claim_id}/state/` | A17, S6 | — runs polls | A17 JSON (claim, plan, benefits, admissions, lines, ruling, ... poll_notes, next_send, enhancement_lines, required_documents, required_forms) |
++| GET | `claims/{claim_id}/state/` | A17, S6 | — runs polls | A17 JSON (claim, plan, benefits, admissions, beneficiaries, beneficiary_pending, lines, ruling, ... poll_notes, next_send, enhancement_lines, required_documents, required_forms) |
+ | POST | `claims/{claim_id}/eligibility/` | A2, S3, S17 | `{purpose: validation|benefits|discovery, ...}` | ok/refusal |
++| POST | `claims/{claim_id}/beneficiary/` | S3 family reply | `{member_id}` (one of the state's `beneficiaries`) | ok/refusal |
+ | POST | `claims/{claim_id}/auth-requirements/` | A2 auth, S8.2 | `{}` (uses current lines) | ok/refusal |
+ | POST | `claims/{claim_id}/plan/` | A3, S7 | `{refresh?: bool}` | ok/refusal |
+ | POST | `claims/{claim_id}/lines/` | S8, D16 | `{kind, code, ..., quantity}` | ok + `line` |
+diff --git a/care/nhcx/api/urls.py b/care/nhcx/api/urls.py
+index fe5c26fdf..c4bf00020 100644
+--- a/care/nhcx/api/urls.py
++++ b/care/nhcx/api/urls.py
+@@ -19,6 +19,11 @@ urlpatterns = [
+         v.EligibilityView.as_view(),
+         name="nhcx-claim-eligibility",
+     ),
++    path(
++        "claims/<uuid:claim_id>/beneficiary/",
++        v.BeneficiaryView.as_view(),
++        name="nhcx-claim-beneficiary",
++    ),
+     path(
+         "claims/<uuid:claim_id>/auth-requirements/",
+         v.AuthRequirementsView.as_view(),
+diff --git a/care/nhcx/api/views_core.py b/care/nhcx/api/views_core.py
+index 527ea047c..093f83b3f 100644
+--- a/care/nhcx/api/views_core.py
++++ b/care/nhcx/api/views_core.py
+@@ -29,7 +29,7 @@ from care.facility.models import Facility
+ from care.nhcx.gateway import get_gateway
+ from care.nhcx.gateway.errors import GatewayError
+ from care.nhcx.models import Claim
+-from care.nhcx.services import eligibility, lines, plan, policy
++from care.nhcx.services import beneficiary, eligibility, lines, plan, policy
+ from care.nhcx.services.common import ServiceRefusal
+ from care.nhcx.services.state import claim_state, row
+ 
+@@ -266,6 +266,14 @@ class EligibilityView(SendingView):
+         return ok(ELIGIBILITY_QUEUED, claim)
+ 
+ 
++class BeneficiaryView(NhcxFacilityView):
++    @refusals
++    def post(self, request, facility_external_id, claim_id):
++        claim = self.claim(claim_id)
++        member_id = (request.data or {}).get("member_id")
++        return ok(beneficiary.select(claim, member_id), claim)
++
++
+ class AuthRequirementsView(SendingView):
+     @refusals
+     def post(self, request, facility_external_id, claim_id):
+diff --git a/care/nhcx/callbacks/eligibility.py b/care/nhcx/callbacks/eligibility.py
+index 185961daf..f5550c07e 100644
+--- a/care/nhcx/callbacks/eligibility.py
++++ b/care/nhcx/callbacks/eligibility.py
+@@ -9,7 +9,8 @@ from care.nhcx.callbacks import dispatch
+ from care.nhcx.fhir import bundle as fb
+ from care.nhcx.fhir.read import eligibility as read_elig
+ from care.nhcx.models import Claim, ClaimAuth, ClaimAuthItem, ClaimAuthRequirement
+-from care.nhcx.services import stage
++from care.nhcx.services import beneficiary, stage
++from care.nhcx.services.beneficiary import PERSON_COLUMNS
+ from care.nhcx.services.common import adapter
+ 
+ logger = logging.getLogger(__name__)
+@@ -74,12 +75,23 @@ def on_check(row, envelope):
+     if not _has_response(body):
+         raise dispatch.Rejected(NO_RESPONSE)
+     verdict = read_elig.read_verdict(body)
++    people = read_elig.read_beneficiaries(body)
+     with transaction.atomic():
+         dispatch.revive(row, "checking")
+         row.refresh_from_db()
++        family = len(people) > 1
+         for column in VERDICT_COLUMNS:
+-            if column in verdict:
++            if column in verdict and not (family and column in PERSON_COLUMNS):
+                 setattr(row, column, verdict[column])
++        if family:
++            person = beneficiary.resolve(row, people)
++            if person is not None:
++                beneficiary.apply(row, person)
++            else:
++                # the desk chooses; do not show one member's details as the patient's
++                row.beneficiary_member_id = None
++                for column in PERSON_COLUMNS:
++                    setattr(row, column, None)
+         row.response_json = body
+         row.save()
+         stage.recompute(row)
+diff --git a/care/nhcx/fhir/read/eligibility.py b/care/nhcx/fhir/read/eligibility.py
+index 687d14a3e..a777dfdfc 100644
+--- a/care/nhcx/fhir/read/eligibility.py
++++ b/care/nhcx/fhir/read/eligibility.py
+@@ -8,6 +8,7 @@ FULL_URL = re.compile(r"fullUrl:\s*(\S+)", re.IGNORECASE)
+ STAGE = re.compile(r"Type:\s*([^\n\r]*)", re.IGNORECASE)
+ FOR_CODE = re.compile(r"Procedure Code:\s*([^\s,;]+)", re.IGNORECASE)
+ WALLET_CODES = ("benefit", "30")
++MEMBER_ID_CODES = ("PMJAY", "MB")
+ 
+ 
+ def _first_coding(concept):
+@@ -87,6 +88,68 @@ def _coverage_fields(resource):
+     }
+ 
+ 
++def _member_id(patient):
++    for code in MEMBER_ID_CODES:
++        for identifier in patient.get("identifier") or []:
++            value = identifier.get("value")
++            if value and _first_coding(identifier.get("type")).get("code") == code:
++                return str(value).strip()
++    return str(patient.get("id") or "").strip() or None
++
++
++def _resolve(bundle, reference, resource_type):
++    found = fb.resolve_reference(bundle, reference)
++    if isinstance(found, dict) and found.get("resourceType") == resource_type:
++        return found
++    return None
++
++
++def read_beneficiaries(bundle):
++    """Every beneficiary the reply lists, each with its own Coverage.
++
++    A family policy (PMJAY) answers with one Patient and Coverage per family
++    member; the request's own Patient and Coverage are left out. ``checked``
++    marks the member the CoverageEligibilityResponse is about.
++    """
++    bundle = fb.unwrap(bundle)
++    response = fb.find_resource(bundle, "CoverageEligibilityResponse")
++    if response is None:
++        return []
++    request = fb.find_resource(bundle, "CoverageEligibilityRequest") or {}
++    asked = {
++        id(r)
++        for r in (
++            _resolve(bundle, request.get("patient"), "Patient"),
++            *(
++                _resolve(bundle, i.get("coverage"), "Coverage")
++                for i in request.get("insurance") or []
++            ),
++        )
++        if r is not None
++    }
++    checked = _resolve(bundle, response.get("patient"), "Patient")
++    coverages = {}
++    for coverage in fb.find_resources(bundle, "Coverage"):
++        if id(coverage) in asked:
++            continue
++        patient = _resolve(bundle, coverage.get("beneficiary"), "Patient")
++        if patient is not None:
++            coverages.setdefault(id(patient), coverage)
++    out, seen = [], set()
++    for patient in fb.find_resources(bundle, "Patient"):
++        if id(patient) in asked:
++            continue
++        member_id = _member_id(patient)
++        if not member_id or member_id in seen:
++            continue
++        seen.add(member_id)
++        person = {"member_id": member_id, "checked": patient is checked}
++        person.update(_patient_fields(patient))
++        person.update(_coverage_fields(coverages.get(id(patient))))
++        out.append(person)
++    return out
++
++
+ def read_verdict(bundle):
+     """D9 claim fields from an eligibility reply; empty values are left out."""
+     bundle = fb.unwrap(bundle)
+@@ -94,6 +157,8 @@ def read_verdict(bundle):
+     if response is None:
+         return {}
+     insurance = _insurance(response)
++    patient = _resolve(bundle, response.get("patient"), "Patient")
++    coverage = _resolve(bundle, insurance.get("coverage"), "Coverage")
+     items = insurance.get("item") or []
+     out = {
+         "outcome": response.get("outcome"),
+@@ -112,8 +177,13 @@ def read_verdict(bundle):
+             out["allowed_amount"] = fb.amount((allowed or 0) + (used or 0))
+         if used is not None:
+             out["used_amount"] = used
+-    out.update(_patient_fields(fb.find_resource(bundle, "Patient", last=True)))
+-    out.update(_coverage_fields(fb.find_resource(bundle, "Coverage", last=True)))
++    # A family reply lists every member; read the one the response is about.
++    out.update(
++        _patient_fields(patient or fb.find_resource(bundle, "Patient", last=True))
++    )
++    out.update(
++        _coverage_fields(coverage or fb.find_resource(bundle, "Coverage", last=True))
++    )
+     if out.get("outcome") == "error":
+         out["status"] = "error"
+     else:
+diff --git a/care/nhcx/models/claim.py b/care/nhcx/models/claim.py
+index 61cb128fd..e6f8d3ba3 100644
+--- a/care/nhcx/models/claim.py
++++ b/care/nhcx/models/claim.py
+@@ -90,6 +90,8 @@ class Claim(NhcxBaseModel):
+     search_id_type = code_field(choices=SearchIdType.choices)
+     search_id_value = code_field()
+     member_id = models.CharField(max_length=255)
++    # The family member chosen when the eligibility reply lists more than one.
++    beneficiary_member_id = code_field()
+     policy_code = code_field()
+     beneficiary_name = code_field()
+     abha_number = code_field()
+diff --git a/care/nhcx/services/eligibility.py b/care/nhcx/services/eligibility.py
+index e93858f9e..fcbbf8b0d 100644
+--- a/care/nhcx/services/eligibility.py
++++ b/care/nhcx/services/eligibility.py
+@@ -26,7 +26,7 @@ from care.nhcx.models import (
+     ClaimStatus,
+     allocate_claim_no,
+ )
+-from care.nhcx.services import hooks, stage
++from care.nhcx.services import beneficiary, hooks, stage
+ from care.nhcx.services.common import (
+     ServiceRefusal,
+     adapter,
+@@ -237,6 +237,7 @@ def request_auth(claim):
+             "Check the policy's eligibility before validating a procedure set "
+             "against it."
+         )
++    beneficiary.require_chosen(claim)
+     lines = line_inputs(claim)
+     if not lines:
+         raise ServiceRefusal(
+diff --git a/care/nhcx/services/lines.py b/care/nhcx/services/lines.py
+index 52838609c..86039ef97 100644
+--- a/care/nhcx/services/lines.py
++++ b/care/nhcx/services/lines.py
+@@ -17,6 +17,7 @@ from django.db import transaction
+ from django.db.models import Max
+ 
+ from care.nhcx.models import ClaimLine
++from care.nhcx.services import beneficiary
+ from care.nhcx.services.common import ServiceRefusal
+ 
+ KINDS = ("Procedure", "Implant", "Stratification")
+@@ -252,6 +253,7 @@ def link_admission(claim, encounter_id) -> str:
+ 
+     if claim.status != "eligible":
+         raise ServiceRefusal(NOT_ELIGIBLE_LINK)
++    beneficiary.require_chosen(claim)
+     if _s(encounter_id) not in {a["id"] for a in admissions(claim)}:
+         raise ServiceRefusal(NOT_A_MATCH)
+     from care.emr.models import Encounter
+diff --git a/care/nhcx/services/preauth.py b/care/nhcx/services/preauth.py
+index ad27e5efd..64ff7e5d7 100644
+--- a/care/nhcx/services/preauth.py
++++ b/care/nhcx/services/preauth.py
+@@ -17,7 +17,7 @@ from care.nhcx.models import (
+     ClaimPreauth,
+     ClaimPredetermination,
+ )
+-from care.nhcx.services import _gather, common, hooks, payers, stage
++from care.nhcx.services import _gather, beneficiary, common, hooks, payers, stage
+ 
+ logger = logging.getLogger(__name__)
+ 
+@@ -185,6 +185,7 @@ def submit_preauth(claim, reply="") -> ClaimPreauth:  # noqa: PLR0912
+     claim = common.get_claim(claim)
+     if claim.status != "eligible":
+         raise common.ServiceRefusal(NOT_ELIGIBLE)
++    beneficiary.require_chosen(claim)
+     row = existing(claim)
+     kind = send_kind(claim)
+     answer = None
+@@ -299,6 +300,7 @@ def ask_predetermination(claim) -> ClaimPredetermination:
+     claim = common.get_claim(claim)
+     if claim.status != "eligible":
+         raise common.ServiceRefusal(QUOTE_NOT_ELIGIBLE)
++    beneficiary.require_chosen(claim)
+     if ClaimPredetermination.objects.filter(claim=claim, status="asking").exists():
+         raise common.ServiceRefusal(QUOTE_WAITING)
+     data, org, _adapter, total = claim_input(
+diff --git a/care/nhcx/services/state.py b/care/nhcx/services/state.py
+index d1394019a..1b846c695 100644
+--- a/care/nhcx/services/state.py
++++ b/care/nhcx/services/state.py
+@@ -15,7 +15,7 @@ from decimal import Decimal
+ from django.db import models
+ from django.db.models import F
+ 
+-from care.nhcx.services import hooks, polling, stage
++from care.nhcx.services import beneficiary, hooks, polling, stage
+ from care.nhcx.services.common import adapter
+ 
+ SKIP_FIELDS = {"id", "external_id", "history", "meta", "deleted", "data"}
+@@ -179,6 +179,7 @@ def claim_state(claim) -> dict:
+     claim.refresh_from_db()
+ 
+     plan = _one(claim, "plan")
++    people = beneficiary.options(claim)
+     preauth = _one(claim, "preauth")
+     submission = _one(claim, "submission")
+     ad = adapter(claim)
+@@ -196,6 +197,8 @@ def claim_state(claim) -> dict:
+         if plan is not None
+         else [],
+         "admissions": admissions(claim),
++        "beneficiaries": people,
++        "beneficiary_pending": beneficiary.pending(claim, people),
+         "lines": _lines(claim),
+         "ruling": _ruling(claim),
+         "required_documents": {
+diff --git a/care/nhcx/tests/core_helpers.py b/care/nhcx/tests/core_helpers.py
+index d83b9c7c0..c26df5760 100644
+--- a/care/nhcx/tests/core_helpers.py
++++ b/care/nhcx/tests/core_helpers.py
+@@ -22,6 +22,37 @@ def bundle(name: str) -> dict:
+     return json.loads((BUNDLES / name).read_text())
+ 
+ 
++FAMILY = (("PMJAY0000Y", "RAVI", "91-0000-0000-0001", "1980-05-05", "male"),)
++
++
++def family_bundle(name="eligibility-auth-response-pmjay.json", members=FAMILY):
++    """A PMJAY reply that also lists other family members, the checked one first."""
++    out = bundle(name)
++    base = "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse"
++    patient = next(
++        e for e in out["entry"] if e["fullUrl"] == f"{base}/patient/PMJAY0000X"
++    )
++    coverage = next(
++        e
++        for e in out["entry"]
++        if e["resource"]["resourceType"] == "Coverage"
++        and e["fullUrl"].startswith(f"{base}/coverage/")
++    )
++    for member_id, name_, abha, dob, gender in members:
++        p = json.loads(json.dumps(patient).replace("PMJAY0000X", member_id))
++        p["resource"]["name"] = [{"text": name_}]
++        p["resource"]["birthDate"] = dob
++        p["resource"]["gender"] = gender
++        for identifier in p["resource"]["identifier"]:
++            if identifier["type"]["coding"][0]["code"] == "ABHA":
++                identifier["value"] = abha
++        c = json.loads(json.dumps(coverage).replace("PMJAY0000X", member_id))
++        c["fullUrl"] = f"{base}/coverage/{member_id}"
++        c["resource"]["beneficiary"] = {"reference": f"{base}/patient/{member_id}"}
++        out["entry"] += [p, c]
++    return out
++
++
+ class FakeLedger:
+     def __init__(self):
+         self.related_rows: dict = {}
+diff --git a/care/nhcx/tests/test_api_core.py b/care/nhcx/tests/test_api_core.py
+index bde5d7971..a43ebe8fe 100644
+--- a/care/nhcx/tests/test_api_core.py
++++ b/care/nhcx/tests/test_api_core.py
+@@ -141,6 +141,35 @@ class ApiFlowTests(NhcxCoreTestBase):
+             {"ok": False, "error": "Choose a policy to open the claim with."},
+         )
+ 
++    def test_choose_beneficiary(self):
++        from care.nhcx.tests.core_helpers import family_bundle
++
++        claim = self.make_claim(
++            member_id="PMJAY0000X", status="eligible", response_json=family_bundle()
++        )
++        state = self.client.get(self.url(f"claims/{claim.external_id}/state/"))
++        self.assertTrue(state.data["beneficiary_pending"])
++        self.assertEqual(
++            [p["member_id"] for p in state.data["beneficiaries"]],
++            ["PMJAY0000X", "PMJAY0000Y"],
++        )
++        refused = self.post(f"claims/{claim.external_id}/auth-requirements/")
++        self.assertEqual(refused.status_code, 400)
++        self.assertIn("more than one beneficiary", refused.data["error"])
++
++        bad = self.post(
++            f"claims/{claim.external_id}/beneficiary/", {"member_id": "NOPE"}
++        )
++        self.assertEqual(bad.status_code, 400)
++        chosen = self.post(
++            f"claims/{claim.external_id}/beneficiary/", {"member_id": "PMJAY0000Y"}
++        )
++        self.assertEqual(chosen.status_code, 200, chosen.data)
++        state = self.client.get(self.url(f"claims/{claim.external_id}/state/"))
++        self.assertFalse(state.data["beneficiary_pending"])
++        self.assertEqual(state.data["claim"]["member_id"], "PMJAY0000Y")
++        self.assertEqual(state.data["claim"]["beneficiary_name"], "RAVI")
++
+     def test_open_claim_with_ui_payload(self):
+         self.gw.policies_answer = {"status": 200, "body": [POLICY]}
+         found = self.post("policy-search/", {"member_id": "PMJAY123"})
+diff --git a/care/nhcx/tests/test_callbacks_core.py b/care/nhcx/tests/test_callbacks_core.py
+index 0aa9c72cd..d5d09db70 100644
+--- a/care/nhcx/tests/test_callbacks_core.py
++++ b/care/nhcx/tests/test_callbacks_core.py
+@@ -7,7 +7,7 @@ from django.test import override_settings
+ from care.nhcx.callbacks import dispatch
+ from care.nhcx.models import ClaimAuth, ClaimPlan
+ from care.nhcx.services import eligibility, plan
+-from care.nhcx.tests.core_helpers import NhcxCoreTestBase, bundle
++from care.nhcx.tests.core_helpers import NhcxCoreTestBase, bundle, family_bundle
+ 
+ PROTOCOL_ERROR = {
+     "type": "ProtocolResponse",
+@@ -201,6 +201,62 @@ class DispatchTests(NhcxCoreTestBase):
+         self.assertTrue(list(scratch.rglob("transactions.txt")))
+ 
+ 
++class FamilyReplyTests(NhcxCoreTestBase):
++    def reply(self, claim):
++        env = self.envelope(family_bundle(), claim.correlation_id)
++        dispatch.receive(env, delivery("coverage"))
++        claim.refresh_from_db()
++        return claim
++
++    def checking_claim(self, **kwargs):
++        claim = self.make_claim(member_id="PMJAY0000X", **kwargs)
++        eligibility.run_check(claim, "validation", "POL-1", "PMJAY0000X")
++        claim.refresh_from_db()
++        return claim
++
++    def test_no_hmis_patient_leaves_the_choice_to_the_desk(self):
++        from care.nhcx.services import beneficiary
++        from care.nhcx.services.common import ServiceRefusal
++
++        claim = self.reply(self.checking_claim())
++        self.assertEqual(claim.status, "eligible")
++        self.assertTrue(claim.inforce)
++        self.assertIsNone(claim.beneficiary_member_id)
++        self.assertIsNone(claim.beneficiary_name)
++        self.assertTrue(beneficiary.pending(claim))
++        with self.assertRaises(ServiceRefusal):
++            beneficiary.require_chosen(claim)
++
++        beneficiary.select(claim, "PMJAY0000Y")
++        claim.refresh_from_db()
++        self.assertEqual(claim.member_id, "PMJAY0000Y")
++        self.assertEqual(claim.beneficiary_name, "RAVI")
++        self.assertEqual(claim.abha_number, "91-0000-0000-0001")
++        self.assertFalse(beneficiary.pending(claim))
++
++        eligibility.run_check(claim, "validation", "POL-1", claim.member_id)
++        claim = self.reply(claim)
++        self.assertEqual(claim.beneficiary_member_id, "PMJAY0000Y")
++        self.assertEqual(claim.beneficiary_name, "RAVI")
++
++    def test_hmis_patient_prefills_the_matching_member(self):
++        from care.nhcx.models.abha import set_abha
++
++        patient = self.create_patient(name="Someone Else")
++        set_abha(patient, number="91-0000-0000-0001")
++        claim = self.reply(self.checking_claim(patient=patient))
++        self.assertEqual(claim.beneficiary_member_id, "PMJAY0000Y")
++        self.assertEqual(claim.member_id, "PMJAY0000Y")
++        self.assertEqual(claim.beneficiary_name, "RAVI")
++        self.assertEqual(claim.patient_gender, "male")
++
++    def test_hmis_patient_matched_by_name(self):
++        patient = self.create_patient(name="Pallvi")
++        claim = self.reply(self.checking_claim(patient=patient))
++        self.assertEqual(claim.beneficiary_member_id, "PMJAY0000X")
++        self.assertEqual(claim.relationship, "Child")
++
++
+ class AuthRulingTests(NhcxCoreTestBase):
+     def test_c3_applies_ruling(self):
+         claim = self.make_claim(status="eligible")
+diff --git a/care/nhcx/tests/test_fhir_read.py b/care/nhcx/tests/test_fhir_read.py
+index 2a9178022..86d280d45 100644
+--- a/care/nhcx/tests/test_fhir_read.py
++++ b/care/nhcx/tests/test_fhir_read.py
+@@ -11,6 +11,7 @@ from care.nhcx.fhir.read import (
+     payment,
+     plan,
+ )
++from care.nhcx.tests.core_helpers import family_bundle
+ 
+ COND_URL = "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition"
+ FIXTURES = Path(__file__).parent / "fixtures" / "bundles"
+@@ -35,6 +36,25 @@ class EligibilityReadTests(SimpleTestCase):
+         self.assertEqual(verdict["relationship"], "Child")
+         self.assertEqual(verdict["abha_number"], "91-0000-0000-0000")
+ 
++    def test_family_reply_reads_the_checked_member(self):
++        reply = family_bundle()
++        verdict = eligibility.read_verdict(reply)
++        self.assertEqual(verdict["beneficiary_name"], "PALLVI")
++        self.assertEqual(verdict["relationship"], "Child")
++        people = eligibility.read_beneficiaries(reply)
++        self.assertEqual(
++            [(p["member_id"], p["beneficiary_name"], p["checked"]) for p in people],
++            [("PMJAY0000X", "PALLVI", True), ("PMJAY0000Y", "RAVI", False)],
++        )
++        self.assertEqual(people[1]["abha_number"], "91-0000-0000-0001")
++        self.assertEqual(people[1]["plan_name"], "PMJAY for Himachal")
++
++    def test_single_reply_lists_one_beneficiary(self):
++        people = eligibility.read_beneficiaries(
++            load("eligibility-auth-response-pmjay.json")
++        )
++        self.assertEqual([p["member_id"] for p in people], ["PMJAY0000X"])
++
+     def test_verdict_wallet(self):
+         verdict = eligibility.read_verdict(load("eligibility-benefits-response.json"))
+         self.assertEqual(verdict["allowed_amount"], 500000)
+diff --git a/care/nhcx/migrations/0003_claim_beneficiary_member_id.py b/care/nhcx/migrations/0003_claim_beneficiary_member_id.py
+new file mode 100644
+index 000000000..0f004a48d
+--- /dev/null
++++ b/care/nhcx/migrations/0003_claim_beneficiary_member_id.py
+@@ -0,0 +1,18 @@
++# Generated by Django 6.0 on 2026-10-13 10:45
++
++from django.db import migrations, models
++
++
++class Migration(migrations.Migration):
++
++    dependencies = [
++        ('nhcx', '0002_abha_identifier_config'),
++    ]
++
++    operations = [
++        migrations.AddField(
++            model_name='claim',
++            name='beneficiary_member_id',
++            field=models.CharField(blank=True, max_length=255, null=True),
++        ),
++    ]
+diff --git a/care/nhcx/services/beneficiary.py b/care/nhcx/services/beneficiary.py
+new file mode 100644
+index 000000000..349c71977
+--- /dev/null
++++ b/care/nhcx/services/beneficiary.py
+@@ -0,0 +1,120 @@
++"""The beneficiary of a case when the eligibility reply lists a whole family.
++
++A family policy (PMJAY) answers an eligibility check with every member on
++the card. The case is prefilled with the member that matches the HMIS
++patient it was opened for; otherwise the desk chooses one.
++
++Public:
++- ``options(claim) -> [dict]``: the members the last reply listed.
++- ``pending(claim) -> bool``: more than one member and none chosen yet.
++- ``require_chosen(claim)``: refuses while ``pending``.
++- ``resolve(claim, people) -> dict | None``: the member to apply after a reply.
++- ``apply(claim, person)``: copy a member onto the case (no save).
++- ``select(claim, member_id) -> str``: the desk's choice.
++"""
++
++import re
++
++from django.db import transaction
++
++from care.nhcx.fhir.read import eligibility as read_elig
++from care.nhcx.services import stage
++from care.nhcx.services.common import ServiceRefusal, get_claim
++
++PERSON_COLUMNS = (
++    "beneficiary_name",
++    "patient_gender",
++    "patient_dob",
++    "patient_address",
++    "abha_number",
++    "patient_photo",
++    "plan_name",
++    "plan_period_start",
++    "plan_period_end",
++    "relationship",
++)
++CHOOSE_FIRST = (
++    "The payer lists more than one beneficiary on this policy. Choose the "
++    "patient on the Eligibility tab first."
++)
++NOT_LISTED = "That member is not on the payer's last eligibility reply."
++TOO_LATE = "The beneficiary cannot be changed once a pre-authorisation has been sent."
++
++
++def options(claim) -> list:
++    if not isinstance(claim.response_json, dict):
++        return []
++    return read_elig.read_beneficiaries(claim.response_json)
++
++
++def _chosen(claim, people):
++    wanted = (claim.beneficiary_member_id or "").strip()
++    return next((p for p in people if wanted and p["member_id"] == wanted), None)
++
++
++def pending(claim, people=None) -> bool:
++    people = options(claim) if people is None else people
++    return len(people) > 1 and _chosen(claim, people) is None
++
++
++def require_chosen(claim):
++    if pending(claim):
++        raise ServiceRefusal(CHOOSE_FIRST)
++
++
++def _digits(value) -> str:
++    return re.sub(r"\D", "", value or "")
++
++
++def _name(value) -> str:
++    return " ".join((value or "").lower().split())
++
++
++def _match(patient, people):
++    """The one member that is this HMIS patient, by ABHA number, then by name."""
++    if patient is None:
++        return None
++    from care.nhcx.models.abha import get_abha_number
++
++    abha = _digits(get_abha_number(patient))
++    if abha:
++        found = [p for p in people if _digits(p.get("abha_number")) == abha]
++        if len(found) == 1:
++            return found[0]
++    name = _name(patient.name)
++    dob = patient.date_of_birth.isoformat() if patient.date_of_birth else ""
++    found = [
++        p
++        for p in people
++        if name
++        and _name(p.get("beneficiary_name")) == name
++        and (not dob or not p.get("patient_dob") or p["patient_dob"][:10] == dob)
++    ]
++    return found[0] if len(found) == 1 else None
++
++
++def resolve(claim, people):
++    """The member to apply after a reply: the one already chosen, else the HMIS patient."""
++    return _chosen(claim, people) or _match(claim.patient, people)
++
++
++def apply(claim, person):
++    for column in PERSON_COLUMNS:
++        setattr(claim, column, person.get(column) or None)
++    claim.member_id = person["member_id"]
++    claim.beneficiary_member_id = person["member_id"]
++
++
++def select(claim, member_id) -> str:
++    claim = get_claim(claim)
++    member_id = (member_id or "").strip()
++    person = next((p for p in options(claim) if p["member_id"] == member_id), None)
++    if person is None:
++        raise ServiceRefusal(NOT_LISTED)
++    if getattr(claim, "preauth", None) is not None:
++        raise ServiceRefusal(TOO_LATE)
++    with transaction.atomic():
++        apply(claim, person)
++        claim.save()
++        stage.recompute(claim)
++    return f"{person.get('beneficiary_name') or member_id} is the beneficiary."

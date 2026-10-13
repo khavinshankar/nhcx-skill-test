@@ -5,13 +5,51 @@ repositories: `care`, `care/care_abdm`, `care_fe`, and `care_abdm_fe`.
 Their directories are ignored here. Code history remains in those repositories;
 task records link their final commit IDs to workspace-wide decisions.
 
+## Review this skill-assisted implementation
+
+Start with [findings.md](findings.md): 13 human-tested observations, with documented fixes separated from unresolved gaps. The [original implementation task](tasks/2026-10-13-care-nhcx-integration.md) records the request, skill, commits and test results. The skill itself is [.github/skills/nhcx-full/SKILL.md](.github/skills/nhcx-full/SKILL.md).
+
+All four code repositories are published as branches in this same GitHub repository, preserving their independent histories. This avoids gitlinks to unavailable repositories and keeps the parent as a task journal. The exact commits are pinned in [review/repositories.json](review/repositories.json).
+
+| Local directory | GitHub branch |
+| --- | --- |
+| `care` | [repos/care](https://github.com/khavinshankar/nhcx-skill-test/tree/repos/care) |
+| `care/care_abdm` | [repos/care-abdm](https://github.com/khavinshankar/nhcx-skill-test/tree/repos/care-abdm) |
+| `care_fe` | [repos/care-fe](https://github.com/khavinshankar/nhcx-skill-test/tree/repos/care-fe) |
+| `care_abdm_fe` | [repos/care-abdm-fe](https://github.com/khavinshankar/nhcx-skill-test/tree/repos/care-abdm-fe) |
+
+From a fresh clone:
+
+```sh
+git clone https://github.com/khavinshankar/nhcx-skill-test.git
+cd nhcx-skill-test
+python3 scripts/checkout-review-repos.py
+python3 scripts/checkpoint-report.py --session 01a134f3-9946-7563-a447-73465489e8ac
+```
+
+The report command needs only Python 3 and Git. Its fixed transcript export is included under `review/sessions/`, so it does not require Entire or access to the author's home directory. The export takes precedence over live lookup for that session. **That session concerns checkpoint storage/report tooling; it is not the original NHCX implementation session.**
+
+To inspect the original implementation transcript, fetch the checkpoint branch and render its checkpoint:
+
+```sh
+git fetch origin entire/checkpoints/v1:refs/heads/entire/checkpoints/v1
+python3 scripts/checkpoint-report.py 2ed3e27169ce
+# Optional: include captured tool results.
+python3 scripts/checkpoint-report.py 2ed3e27169ce --results
+```
+
+Original implementation session: `b76b6c16-5c3f-467f-98f4-30325eb3c0d1`. The code branches contain subsequent fixes too; use the original task's commit IDs to distinguish the initial implementation from repairs. Transcripts are recorded evidence with capture limits, not proof that every step was captured or that all workflows passed.
+
+[Uncommitted beneficiary-selection patches](review/wip/README.md) preserve work in progress separately from committed code. They are not applied by the checkout script. Ignored runtime secrets, databases and installed dependencies are excluded; configure the applications using their own documentation to run them.
+
 ## Setup status
 
 The parent Git repository has Entire 0.11.4 enabled for Codex, Claude Code,
 GitHub Copilot CLI, Cursor, Factory AI Droid and OpenCode. Entire 0.11 dropped
 Gemini CLI, so its hooks were removed. These are agent integrations, not
 model-provider integrations; capture depends on using a supported agent.
-Checkpoint uploads and telemetry are disabled, and no remote is configured.
+Automatic checkpoint uploads and telemetry are disabled. This review repository
+is published explicitly to `khavinshankar/nhcx-skill-test`.
 
 To check configuration from a terminal:
 

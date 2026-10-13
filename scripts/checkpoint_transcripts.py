@@ -49,6 +49,14 @@ def read_snapshot(path):
 def resolve_session(sid):
     if not re.fullmatch(r'[A-Za-z0-9_-]+', sid):
         raise ValueError('Session IDs may contain only letters, digits, underscores and hyphens.')
+    # Published exports make --session reproducible without the author's home
+    # directory, an Entire installation, or network access.
+    exported = Path(__file__).resolve().parent.parent / 'review' / 'sessions' / f'{sid}.jsonl'
+    if exported.is_file():
+        return load_events(read_snapshot(exported)), {
+            'session_id': sid,
+            'capture_note': 'Repository session export; a fixed snapshot, not a live session.',
+        }, str(exported)
     meta, diagnostic = {'session_id': sid}, ''
     try:
         result = subprocess.run(['entire', 'session', 'info', sid, '--json'],

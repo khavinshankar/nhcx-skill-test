@@ -1,0 +1,29 @@
+{
+  "remote": "https://github.com/khavinshankar/nhcx-skill-test.git",
+  "repositories": [
+    {
+      "path": "care",
+      "branch": "repos/care",
+      "commit": "d5fe6e7239a4e9c8e06643349967f0dce1806285",
+      "wip_patch": "review/wip/care.patch",
+      "wip_patch_sha256": "386b2723780364dce9c77b8f0db92e79409d441b8636c6ad69f98e5f911a748a"
+    },
+    {
+      "path": "care/care_abdm",
+      "branch": "repos/care-abdm",
+      "commit": "b2b4250192afce169948dc5e9f320e3b09ff868a"
+    },
+    {
+      "path": "care_fe",
+      "branch": "repos/care-fe",
+      "commit": "8848d8cc96b0fefe68c786441b9b3e2f45e3323b",
+      "wip_patch": "review/wip/care_fe.patch",
+      "wip_patch_sha256": "7ba994ff80f22cb4601d92b06eb7f05bbd512355b53d3353f96a5fb82db89706"
+    },
+    {
+      "path": "care_abdm_fe",
+      "branch": "repos/care-abdm-fe",
+      "commit": "d77e05a1c4c4de2fd6f932accf4991c64e66df32"
+    }
+  ]
+}
