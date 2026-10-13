@@ -102,7 +102,30 @@ scripts/checkpoint-report.py <id> --system                # plus system prompt a
 scripts/checkpoint-report.py --session <session-id>       # live log, incl. uncommitted turns
 ```
 
-The report lists the models and model changes, reasoning effort, premium
+The report now accepts all agents through Entire's
+`entire session info <id> --transcript` API. If Entire has not registered a
+session, it searches native Copilot, Codex (including archived sessions),
+Claude Code, Cursor JSONL and Factory Droid JSONL locations. Codex discovery
+honors `CODEX_HOME`; Claude discovery honors `CLAUDE_CONFIG_DIR`. OpenCode and
+other storage layouts use Entire's API or an explicit JSON/JSONL export:
+
+```sh
+python3 scripts/checkpoint-report.py --session <codex-or-other-agent-session-id>
+python3 scripts/checkpoint-report.py --transcript /absolute/path/to/transcript.jsonl
+python3 scripts/checkpoint-report.py --transcript /absolute/path/to/opencode-export.json
+```
+
+Copilot keeps its detailed report. Codex responses/tool calls, Claude-style
+message blocks (also used by other agents), role/content messages and OpenCode
+message/parts exports get a common report. Provider-specific metrics are shown
+only when parsed from the log; unsupported event types are counted explicitly.
+Use `--raw-events` to include all original records, including instructions,
+recorded reasoning and tool results. This is a fallback view, not a promise of
+equally detailed parsing for every agent/version. Live discovery does not
+register a session with Entire or prove a checkpoint exists. Missing sessions
+produce an actionable error instead of a Python traceback.
+
+The detailed Copilot report lists the models and model changes, reasoning effort, premium
 requests, skills loaded (with the SKILL.md path), MCP servers used, subagents
 with their status and tokens, errors, tool counts and failures, child
 repositories referenced, and linked parent and child commits. Its timeline

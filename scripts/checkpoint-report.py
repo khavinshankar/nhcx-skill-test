@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Render a Copilot session transcript stored by Entire as Markdown.
+"""Render agent transcripts stored by Entire or native agents as Markdown.
 
-Entire 0.11.4 stores Copilot transcripts (the raw events.jsonl, up to the
+Originally a Copilot workaround: Entire 0.11.4 stores raw events.jsonl up to the
 commit) but `entire checkpoint explain` cannot display them, and its metadata
 leaves the model, token usage and touched files empty. This reads the
 transcript and reports metadata, usage, models, skills, MCP servers, subagents,
@@ -11,12 +11,11 @@ counted as user prompts.
 
 Sources:
   <checkpoint-id-or-prefix>   from entire/checkpoints/v1 (or --ref <commit>)
-  --session <id>              the live log in ~/.copilot/session-state/<id>/,
-                              including turns after the last commit
-  --transcript <path>         any Copilot events.jsonl
+  --session <id>              Entire's live transcript API, then native log discovery
+  --transcript <path>         a JSON/JSONL transcript or export from any agent
 
 Usage: scripts/checkpoint-report.py (<checkpoint> | --session ID | --transcript PATH)
-                                    [--reasoning] [--results] [--system]
+                                    [--reasoning] [--results] [--system] [--raw-events]
 """
 import argparse
 import collections
@@ -25,10 +24,11 @@ import os
 import re
 import subprocess
 import sys
+from checkpoint_transcripts import (agent_format, load_events, read_snapshot,
+                                    render_generic, resolve_session)
 
 BRANCH = "entire/checkpoints/v1"
 CHILD_REPOS = ("care/care_abdm", "care_abdm_fe", "care_fe", "care")
-SESSION_STATE = os.path.expanduser("~/.copilot/session-state")
 
 
 def git(*args):
@@ -96,7 +96,7 @@ def child_commits(session_id):
     for repo in CHILD_REPOS:
         try:
             log = git("-C", f"{parent_checkout()}/{repo}", "log", "--all", "--format=%h %s",
-                      f"--grep=Entire-Session: {session_id}").strip()
+                      "--fixed-strings", f"--grep=Entire-Session: {session_id}").strip()
         except subprocess.CalledProcessError:
             continue
         lines += [f"- {repo}: {line}" for line in log.splitlines()]
@@ -104,10 +104,9 @@ def child_commits(session_id):
 
 
 def render(events, meta, commits, opts):
-    if not events or events[0].get("type") != "session.start":
-        return [f"Session {meta.get('session_id')} ({meta.get('agent')}): not a Copilot transcript; "
-                f"use `entire checkpoint explain --full`."]
-    start = events[0]["data"]
+    if agent_format(events, meta) != 'Copilot CLI':
+        return render_generic(events, meta, commits, opts, short, child_commits)
+    start = next((e.get('data') or {} for e in events if e.get('type') == 'session.start'), {})
     session_id = meta.get("session_id") or start.get("sessionId")
     types = collections.Counter(e.get("type") for e in events)
     tools, mcp, models, skills = (collections.Counter() for _ in range(4))
@@ -172,10 +171,12 @@ def render(events, meta, commits, opts):
             timeline.append(f"- {who}skill loaded: `{d.get('name')}` from {d.get('path')} "
                             f"({len(d.get('content', ''))} chars)")
         elif t == "subagent.started":
+            sub = sub if sub is not None else subagents.setdefault(d.get('agentId', 'unknown'), {})
             sub.update(name=d.get("agentDisplayName"), type=d.get("agentType"), model=d.get("model"),
                        description=d.get("agentDescription"), status="running")
             timeline.append(f"- {who}started: {d.get('agentType')} — {d.get('agentDescription')}")
         elif t in ("subagent.completed", "subagent.failed"):
+            sub = sub if sub is not None else subagents.setdefault(d.get('agentId', 'unknown'), {})
             sub.update(status=t.split(".")[1], tools=d.get("totalToolCalls"), tokens=d.get("totalTokens"),
                        ms=d.get("durationMs"), error=d.get("error"))
             timeline.append(f"- {who}{t.split('.')[1]} ({d.get('totalToolCalls')} tool calls, "
@@ -232,19 +233,24 @@ def render(events, meta, commits, opts):
         "## Timeline",
         *timeline,
     ]
+    if meta.get('capture_note'):
+        out.insert(1, '- ' + meta['capture_note'])
+    if opts.raw_events:
+        out += ['', '## Raw events', '', '```json', json.dumps(events, ensure_ascii=False, indent=2), '```']
     return out
 
 
 def load_jsonl(text):
-    return [json.loads(line) for line in text.splitlines() if line.strip()]
+    return load_events(text)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("checkpoint", nargs="?")
     parser.add_argument("--ref", default=BRANCH, help=f"commit or branch holding checkpoints (default {BRANCH})")
-    parser.add_argument("--session", help="read the live transcript of this Copilot session")
-    parser.add_argument("--transcript", help="read this Copilot events.jsonl")
+    parser.add_argument("--session", help="read an agent session through Entire or native storage")
+    parser.add_argument("--transcript", help="read an agent JSON/JSONL transcript or export")
+    parser.add_argument("--raw-events", action="store_true", help="include original events, including instructions, reasoning and results")
     parser.add_argument("--reasoning", action="store_true", help="include recorded reasoning")
     parser.add_argument("--results", action="store_true", help="include truncated tool results")
     parser.add_argument("--system", action="store_true", help="include the system prompt and instructions")
@@ -263,10 +269,16 @@ def main():
             events = load_jsonl(git("show", f"{opts.ref}:{session['transcript'].lstrip('/')}"))
             out += render(events, meta, commits, opts) + [""]
     else:
-        path = opts.transcript or os.path.join(SESSION_STATE, opts.session, "events.jsonl")
-        with open(path, encoding="utf-8") as f:
-            events = load_jsonl(f.read())
-        sid = opts.session or (events[0].get("data") or {}).get("sessionId", "") if events else ""
+        if opts.session:
+            events, meta, path = resolve_session(opts.session)
+        else:
+            path = os.path.expanduser(opts.transcript)
+            events, meta = load_events(read_snapshot(path)), {}
+        sid = meta.get('session_id') or next((
+            e.get('sessionId') or (e.get('data') or {}).get('sessionId') or
+            ((e.get('payload') or {}).get('id') if e.get('type') == 'session_meta' else None)
+            for e in events if e.get('sessionId') or (e.get('data') or {}).get('sessionId') or e.get('type') == 'session_meta'), '')
+        meta['session_id'] = sid
         commits = ""
         if sid:
             try:
@@ -274,9 +286,13 @@ def main():
                               f"--grep=Entire-Session: {sid}").strip()
             except subprocess.CalledProcessError:
                 pass
-        out = [f"# Live transcript {path}", ""] + render(events, {"session_id": sid}, commits, opts)
+        out = [f"# Transcript {path}", ""] + render(events, meta, commits, opts)
     sys.stdout.write("\n".join(out) + "\n")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (OSError, ValueError, subprocess.CalledProcessError) as exc:
+        detail = exc.stderr.strip() if isinstance(exc, subprocess.CalledProcessError) and exc.stderr else str(exc)
+        sys.exit(f"checkpoint-report: {detail}")

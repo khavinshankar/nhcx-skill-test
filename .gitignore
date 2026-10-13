@@ -8,3 +8,6 @@
 .entire/settings.local.json
 .entire/logs/
 .entire/tmp/
+
+# Python report tooling caches.
+__pycache__/
