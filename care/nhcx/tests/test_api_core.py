@@ -112,7 +112,17 @@ class ApiFlowTests(NhcxCoreTestBase):
         self.assertEqual(state.status_code, 200)
         self.assertEqual(state.data["claim"]["status"], "eligible")
         self.assertEqual(state.data["plan"]["status"], "ready")
+        self.assertNotIn("response_json", state.data["plan"])
         self.assertEqual([x["code"] for x in state.data["lines"]], ["ST009B"])
+        listed = state.data["benefits"][0]
+        self.assertEqual(listed["extras"][0]["code"], "STRAT006a")
+        self.assertNotIn("conditions", listed)
+        detail = self.client.get(
+            self.url(f"claims/{claim_id}/plan/benefits/{listed['id']}/")
+        )
+        self.assertEqual(detail.status_code, 200)
+        self.assertEqual(detail.data["conditions"]["ProcedureType"], "Conservative")
+        self.assertEqual(detail.data["supporting_info"][0]["code"], "MAND0409")
 
         removed = self.client.delete(self.url(f"claims/{claim_id}/lines/{line_id}/"))
         self.assertEqual(removed.data["message"], "Line removed.")

@@ -144,15 +144,31 @@ def quoted_codes(claim) -> list:
     return list(dict.fromkeys(claim.lines.values_list("code", flat=True)))
 
 
-def _benefits(plan, codes):
-    if plan is None or not codes:
+def _benefits(plan, claim):
+    """One plan row per quoted code, preferring the line's speciality."""
+    if plan is None:
         return []
-    return list(plan.benefits.filter(code__in=codes).order_by("seq", "id"))
+    wanted = {}
+    for code, category in claim.lines.order_by("seq").values_list(
+        "code", "category_code"
+    ):
+        wanted.setdefault(code, category or "")
+    if not wanted:
+        return []
+    picked = {}
+    for benefit in plan.benefits.filter(code__in=wanted).order_by("seq", "id"):
+        have = picked.get(benefit.code)
+        if have is None or (
+            have.category_code != wanted[benefit.code]
+            and benefit.category_code == wanted[benefit.code]
+        ):
+            picked[benefit.code] = benefit
+    return sorted(picked.values(), key=lambda b: (b.seq or 0, b.id))
 
 
 def procedure_types(claim) -> dict:
     out = {}
-    for benefit in _benefits(_one(claim, "plan"), quoted_codes(claim)):
+    for benefit in _benefits(_one(claim, "plan"), claim):
         conditions = benefit.conditions or {}
         if isinstance(conditions, dict):
             value = conditions.get("ProcedureType") or conditions.get("procedureType")
@@ -206,7 +222,7 @@ def required_form_urls(claim, stage) -> list:
             ).order_by("seq", "id")
             if _s(r.form_url)
         ]
-    for benefit in _benefits(plan, quoted_codes(claim)):
+    for benefit in _benefits(plan, claim):
         for info in benefit.supporting_info or []:
             if isinstance(info, dict) and _s(info.get("form")):
                 urls.append(_s(info["form"]))
@@ -350,7 +366,7 @@ def required_documents(claim, stage) -> list:
     if stage != "preauth":
         return []
     seen = set()
-    for benefit in _benefits(plan, quoted_codes(claim)):
+    for benefit in _benefits(plan, claim):
         for info in benefit.supporting_info or []:
             if not isinstance(info, dict):
                 continue
@@ -388,7 +404,7 @@ def discharge_summary(claim):
             for r in ruling.requirements.filter(kind="document")
             if "discharge summary" in _s(r.display).lower() and _s(r.code)
         ]
-    for benefit in _benefits(_one(claim, "plan"), quoted_codes(claim)):
+    for benefit in _benefits(_one(claim, "plan"), claim):
         for info in benefit.supporting_info or []:
             if (
                 isinstance(info, dict)

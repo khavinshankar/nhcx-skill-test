@@ -20,13 +20,20 @@ from care.nhcx.services.common import adapter
 
 SKIP_FIELDS = {"id", "external_id", "history", "meta", "deleted", "data"}
 LINE_KIND_ORDER = ("Procedure", "Implant", "Stratification")
+# Conditions and supporting documents are large (MBs on a PMJAY master) and
+# are fetched per package from the benefit detail endpoint instead.
 BENEFIT_COLUMNS = (
+    "seq",
     "kind",
     "code",
     "display",
     "category_code",
     "category_display",
     "rate",
+    "currency",
+    "cost_type",
+    "requirement",
+    "extras",
 )
 DOCUMENT_COLUMNS = (
     "code",
@@ -50,6 +57,13 @@ def _value(v):
     if isinstance(v, bytes | memoryview):
         return None
     return v
+
+
+def _without(data, *keys):
+    if data is not None:
+        for key in keys:
+            data.pop(key, None)
+    return data
 
 
 def row(obj, columns=None) -> dict | None:
@@ -174,7 +188,8 @@ def claim_state(claim) -> dict:
     }
     return {
         "claim": row(claim),
-        "plan": row(plan),
+        # The raw package master runs to tens of MBs; the screens never read it.
+        "plan": _without(row(plan), "response_json"),
         "benefits": [
             row(b, BENEFIT_COLUMNS) for b in plan.benefits.order_by("seq", "id")
         ]

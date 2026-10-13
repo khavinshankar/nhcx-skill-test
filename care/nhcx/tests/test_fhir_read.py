@@ -12,6 +12,7 @@ from care.nhcx.fhir.read import (
     plan,
 )
 
+COND_URL = "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition"
 FIXTURES = Path(__file__).parent / "fixtures" / "bundles"
 
 
@@ -89,11 +90,91 @@ class PlanReadTests(SimpleTestCase):
         self.assertEqual(first["extras"][0]["code"], "STRAT006a")
         self.assertEqual(first["extras"][0]["rate"], 1800)
         self.assertEqual(first["supporting_info"][0]["code"], "MAND0409")
-        codes = [b["code"] for b in out["benefits"]]
-        self.assertEqual(len(codes), len(set(codes)))
+        keys = [(b["category_code"], b["code"]) for b in out["benefits"]]
+        self.assertEqual(len(keys), len(set(keys)))
         self.assertEqual(
             [f["kind"] for f in out["forms"]], ["questionnaire", "questionnaire"]
         )
+
+    def test_package_under_several_specialities(self):
+        def benefit(code, parent=None):
+            ext = []
+            if parent:
+                ext = [
+                    {
+                        "url": f"{COND_URL}",
+                        "extension": [
+                            {
+                                "url": f"{COND_URL}/ParentProcedure",
+                                "valueString": parent,
+                            }
+                        ],
+                    }
+                ]
+            return {
+                "type": {"coding": [{"code": code, "display": code}]},
+                "extension": ext,
+                "limit": [
+                    {"code": {"coding": [{"code": code}]}, "value": {"value": 5}}
+                ],
+            }
+
+        def category(code):
+            return {"coding": [{"code": code, "display": code}]}
+
+        bundle = {
+            "resourceType": "Bundle",
+            "entry": [
+                {
+                    "resource": {
+                        "resourceType": "InsurancePlan",
+                        "plan": [
+                            {
+                                "specificCost": [
+                                    {
+                                        "category": category(cat),
+                                        "benefit": [
+                                            {
+                                                "type": {
+                                                    "coding": [{"code": "MG004A"}]
+                                                },
+                                                "cost": [
+                                                    {
+                                                        "type": {
+                                                            "coding": [
+                                                                {"code": "Procedure"}
+                                                            ]
+                                                        },
+                                                        "value": {"value": 0},
+                                                    }
+                                                ],
+                                            }
+                                        ],
+                                    }
+                                    for cat in ("MC", "MG")
+                                ]
+                            }
+                        ],
+                        "coverage": [
+                            {
+                                "type": category("MG"),
+                                "benefit": [
+                                    benefit("MG004A"),
+                                    benefit("IMP1", "P1"),
+                                    benefit("IMP1", "P2"),
+                                ],
+                            }
+                        ],
+                    }
+                }
+            ],
+        }
+        rows = plan.read_benefits(bundle)
+        self.assertEqual(
+            [(r["category_code"], r["code"]) for r in rows],
+            [("MC", "MG004A"), ("MG", "MG004A"), ("MG", "IMP1")],
+        )
+        self.assertEqual(rows[2]["conditions"]["ParentProcedure"], "P1; P2")
 
     def test_generic_plan_with_coverage_limits(self):
         out = plan.read(load("plan-response-generic.json"))

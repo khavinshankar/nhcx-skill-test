@@ -26,6 +26,11 @@ urlpatterns = [
     ),
     path("claims/<uuid:claim_id>/plan/", v.PlanView.as_view(), name="nhcx-claim-plan"),
     path(
+        "claims/<uuid:claim_id>/plan/benefits/<uuid:benefit_id>/",
+        v.PlanBenefitView.as_view(),
+        name="nhcx-claim-plan-benefit",
+    ),
+    path(
         "claims/<uuid:claim_id>/lines/", v.LinesView.as_view(), name="nhcx-claim-lines"
     ),
     path(

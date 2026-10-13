@@ -9,6 +9,7 @@ from care.nhcx.models import (
     ClaimPreauth,
 )
 from care.nhcx.services import (
+    _gather,
     common,
     eligibility,
     hooks,
@@ -304,6 +305,26 @@ class LineTests(NhcxCoreTestBase):
         ClaimPlanBenefit.objects.create(
             plan=self.plan, seq=2, code="ST009B", kind="Procedure", rate=50000
         )
+        ClaimPlanBenefit.objects.create(
+            plan=self.plan,
+            seq=3,
+            code="MG004A",
+            kind="Procedure",
+            category_code="MP",
+            category_display="Paediatric",
+            rate=0,
+            extras=[
+                {
+                    "type": "Stratification",
+                    "code": "STRAT6a",
+                    "label": "Ward",
+                    "rate": 1800,
+                }
+            ],
+        )
+        ClaimPlanBenefit.objects.create(
+            plan=self.plan, seq=4, code="OPEN1", kind="Procedure", rate=0
+        )
 
     def test_add_refusals(self):
         cases = [
@@ -341,7 +362,13 @@ class LineTests(NhcxCoreTestBase):
             lines.add_line(self.claim, "Procedure", "ST009B")
         tier, _ = lines.add_line(self.claim, "Stratification", "STRAT6a", "MG004A")
         self.assertEqual((tier.unit_price, tier.parent_code), (Decimal(1800), "MG004A"))
-        open_line, _ = lines.add_line(self.claim, "Procedure", "MG004A")
+        open_line, _ = lines.add_line(self.claim, "Procedure", "OPEN1")
+        tiered, _ = lines.add_line(self.claim, "Procedure", "MG004A")
+        lines.update_lines(
+            self.claim, [{"id": str(tiered.external_id), "unit_price": "999"}]
+        )
+        tiered.refresh_from_db()
+        self.assertEqual(tiered.unit_price, Decimal(0))
 
         lid = str(line.external_id)
         for qty, message in [
@@ -352,10 +379,10 @@ class LineTests(NhcxCoreTestBase):
             with self.subTest(qty), self.assertRaisesMessage(ServiceRefusal, message):
                 lines.update_lines(self.claim, [{"id": lid, "quantity": qty}])
         oid = str(open_line.external_id)
-        with self.assertRaisesMessage(ServiceRefusal, "Enter a price for MG004A."):
+        with self.assertRaisesMessage(ServiceRefusal, "Enter a price for OPEN1."):
             lines.update_lines(self.claim, [{"id": oid, "unit_price": "abc"}])
         with self.assertRaisesMessage(
-            ServiceRefusal, "The price of MG004A cannot be negative."
+            ServiceRefusal, "The price of OPEN1 cannot be negative."
         ):
             lines.update_lines(self.claim, [{"id": oid, "unit_price": "-1"}])
         self.assertEqual(
@@ -376,6 +403,16 @@ class LineTests(NhcxCoreTestBase):
             lines.remove_line(self.claim, line.external_id), "Line removed."
         )
         self.assertFalse(ClaimLine.objects.filter(id=line.id).exists())
+
+    def test_category_is_picked(self):
+        line, _ = lines.add_line(self.claim, "Procedure", "MG004A", category_code="MP")
+        self.assertEqual(
+            (line.category_code, line.category_display), ("MP", "Paediatric")
+        )
+        tier, _ = lines.add_line(self.claim, "Stratification", "STRAT6a", "MG004A")
+        self.assertEqual(tier.category_code, "MP")
+        picked = _gather._benefits(self.plan, self.claim)  # noqa: SLF001
+        self.assertEqual([b.category_code for b in picked], ["MP"])
 
     def test_link_admission_refusals(self):
         claim = self.make_claim(status="checking")

@@ -283,13 +283,29 @@ class PlanView(SendingView):
         return ok(PLAN_REUSED if ack is None else PLAN_REQUESTED, claim)
 
 
+class PlanBenefitView(NhcxFacilityView):
+    """One package of the plan in full: tiers, claim conditions, documents."""
+
+    def get(self, request, facility_external_id, claim_id, benefit_id):
+        claim = self.claim(claim_id)
+        plan_row = getattr(claim, "plan", None)
+        if plan_row is None:
+            raise Http404
+        benefit = get_object_or_404(plan_row.benefits, external_id=benefit_id)
+        return Response(row(benefit))
+
+
 class LinesView(NhcxFacilityView):
     @refusals
     def post(self, request, facility_external_id, claim_id):
         claim = self.claim(claim_id)
         data = request.data or {}
         line, message = lines.add_line(
-            claim, data.get("kind"), data.get("code"), data.get("parent_code")
+            claim,
+            data.get("kind"),
+            data.get("code"),
+            data.get("parent_code"),
+            data.get("category_code"),
         )
         if data.get("quantity") not in (None, "", 1, "1"):
             lines.update_lines(

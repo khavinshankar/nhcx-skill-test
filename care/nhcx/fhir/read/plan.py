@@ -145,9 +145,10 @@ def _specific_rows(plan, seen):
             btype = benefit.get("type") or {}
             c = _first_coding(btype)
             code = c.get("code")
-            if not code or code in seen:
+            key = (category.get("code") or "", code)
+            if not code or key in seen:
                 continue
-            seen.add(code)
+            seen[key] = None
             rate, currency, cost_type, extras = None, "INR", None, []
             for cost in benefit.get("cost") or []:
                 type_code = _first_coding(cost.get("type")).get("code")
@@ -198,9 +199,14 @@ def _coverage_rows(coverage, seen, implants):
         btype = benefit.get("type") or {}
         c = _first_coding(btype)
         code = c.get("code")
-        if not code or code in seen:
+        key = (category.get("code") or "", code)
+        if not code:
             continue
-        seen.add(code)
+        if key in seen:
+            # An implant is listed once per parent procedure; keep every parent.
+            if seen[key] is not None:
+                _merge_conditions(seen[key], conditions(benefit))
+            continue
         rate, currency, extras, rate_taken = None, "INR", [], False
         for limit in benefit.get("limit") or []:
             limit_code = _first_coding(limit.get("code")).get("code")
@@ -218,31 +224,44 @@ def _coverage_rows(coverage, seen, implants):
                 }
             )
         requirement = benefit.get("requirement")
-        rows.append(
-            {
-                "category_code": category.get("code") or "",
-                "category_display": category.get("display") or "",
-                "code": code,
-                "display": c.get("display") or btype.get("text") or "",
-                "kind": "Implant" if code in implants else "Procedure",
-                "rate": rate,
-                "currency": currency,
-                "cost_type": requirement,
-                "requirement": requirement,
-                "conditions": {**cov_conditions, **conditions(benefit)},
-                "extras": extras,
-                "supporting_info": cov_reqs + requirements(benefit),
-            }
-        )
+        row = {
+            "category_code": category.get("code") or "",
+            "category_display": category.get("display") or "",
+            "code": code,
+            "display": c.get("display") or btype.get("text") or "",
+            "kind": "Implant" if code in implants else "Procedure",
+            "rate": rate,
+            "currency": currency,
+            "cost_type": requirement,
+            "requirement": requirement,
+            "conditions": {**cov_conditions, **conditions(benefit)},
+            "extras": extras,
+            "supporting_info": cov_reqs + requirements(benefit),
+        }
+        seen[key] = row
+        rows.append(row)
     return rows
 
 
+def _merge_conditions(row, more):
+    merged = row["conditions"]
+    for name, value in more.items():
+        if name not in merged:
+            merged[name] = value
+            continue
+        have = [v.strip() for v in str(merged[name]).split(";")]
+        if str(value) not in have:
+            merged[name] = f"{merged[name]}; {value}"
+
+
 def read_benefits(bundle):
-    """D11 rows: specificCost first, coverage[] adds only unseen codes."""
+    """D11 rows, one per (category, code): specificCost first, then coverage[]
+    adds pairs not yet seen. A package listed under several specialities
+    yields one row per speciality."""
     plan = fb.find_resource(bundle, "InsurancePlan")
     if plan is None:
         return []
-    seen, rows = set(), []
+    seen, rows = {}, []
     plans = plan.get("plan") or []
     for element in plans:
         rows += _specific_rows(element, seen)

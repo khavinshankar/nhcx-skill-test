@@ -1,7 +1,9 @@
 """S8 line items (D16) and the S4 admission link (D9 encounter).
 
 Public:
-- ``add_line(claim, kind, code, parent_code=None) -> (line, message)``
+- ``add_line(claim, kind, code, parent_code=None, category_code=None)
+  -> (line, message)``; ``category_code`` picks the speciality when the plan
+  lists the package under several.
 - ``update_lines(claim, changes) -> message``; ``changes`` is a list of
   ``{id, quantity?, unit_price?}`` (id = line external_id).
 - ``remove_line(claim, line_id) -> message``
@@ -63,13 +65,24 @@ def _extras(benefit, type_) -> list:
     ]
 
 
-def _quote(plan, kind, code, parent_code):
+def _pick(rows, category_code):
+    """The row in ``category_code`` when given and present, else the first."""
+    rows = rows.order_by("seq", "id")
+    category_code = _s(category_code)
+    if category_code:
+        match = rows.filter(category_code=category_code).first()
+        if match is not None:
+            return match
+    return rows.first()
+
+
+def _quote(plan, kind, code, parent_code, category_code=None):
     """(display, category_code, category_display, rate, parent_code) from the plan."""
     benefits = plan.benefits.all()
     if kind == "Stratification":
         parent_code = _s(parent_code)
         parent = (
-            benefits.filter(code=parent_code).order_by("seq", "id").first()
+            _pick(benefits.filter(code=parent_code), category_code)
             if parent_code
             else None
         )
@@ -85,7 +98,7 @@ def _quote(plan, kind, code, parent_code):
                     parent_code,
                 )
         raise ServiceRefusal(TIER_NOT_OFFERED)
-    benefit = benefits.filter(code=code, kind=kind).order_by("seq", "id").first()
+    benefit = _pick(benefits.filter(code=code, kind=kind), category_code)
     if benefit is not None:
         return (
             benefit.display,
@@ -109,14 +122,19 @@ def _quote(plan, kind, code, parent_code):
     raise ServiceRefusal(msg)
 
 
-def add_line(claim, kind, code, parent_code=None):
+def add_line(claim, kind, code, parent_code=None, category_code=None):
     kind, code = _s(kind), _s(code)
     if kind not in KINDS:
         raise ServiceRefusal(NOT_QUOTABLE)
     if not code:
         raise ServiceRefusal(NOTHING_SELECTED)
     plan = _ready_plan(claim)
-    display, cat_code, cat_display, rate, parent = _quote(plan, kind, code, parent_code)
+    if kind == "Stratification" and not _s(category_code):
+        parent_line = claim.lines.filter(kind="Procedure", code=_s(parent_code)).first()
+        category_code = parent_line.category_code if parent_line else None
+    display, cat_code, cat_display, rate, parent = _quote(
+        plan, kind, code, parent_code, category_code
+    )
     if claim.lines.filter(kind=kind, code=code).exists():
         msg = f"{code} is already on this preauth."
         raise ServiceRefusal(msg)
@@ -139,7 +157,18 @@ def add_line(claim, kind, code, parent_code=None):
     return line, f"{code} added."
 
 
+def _tiered(plan, line) -> bool:
+    """A zero-rate package priced through ward/ICU tiers: the tiers carry it."""
+    if line.kind == "Stratification":
+        return False
+    benefit = _pick(
+        plan.benefits.filter(code=line.code, kind=line.kind), line.category_code
+    )
+    return benefit is not None and bool(_extras(benefit, "Stratification"))
+
+
 def _open_price(claim, line) -> bool:
+    """No rate, or a zero rate with no tiers: the hospital names the price."""
     try:
         plan = claim.plan
     except Exception:
@@ -147,10 +176,12 @@ def _open_price(claim, line) -> bool:
     if plan is None:
         return False
     try:
-        _, _, _, rate, _ = _quote(plan, line.kind, line.code, line.parent_code)
+        _, _, _, rate, _ = _quote(
+            plan, line.kind, line.code, line.parent_code, line.category_code
+        )
     except ServiceRefusal:
         return False
-    return not rate
+    return rate is None or (not rate and not _tiered(plan, line))
 
 
 def _quantity(line, raw):
