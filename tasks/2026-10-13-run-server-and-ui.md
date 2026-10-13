@@ -29,3 +29,18 @@ Session: f1f2f5ee-39ed-4c11-893a-95c1b8c4cdc0
 ## Open items
 
 - None in any repository; no code changed. To stop the FE servers, kill the vite processes on :4000 and :5173.
+
+## Follow-up: which facility is configured for NHCX?
+
+Question: "which facility is configured with NHCX, I dont see any facility with ABDM HIP Id configured?"
+
+Answer, from querying the dev DB in `care-nhcx-backend`:
+- Only **NHCX E2E Hospital** has NHCX set up: facility id 3, external id `95deeee5-a4e6-4ab3-8401-13018f45c121`.
+  Its `nhcx.FacilityProfile` has `hfr_id=IN2910001986`, `participant_code=1000004455@hcx`, identifier type NHRR,
+  and system `https://facility.abdm.gov.in`. The e2e harness created it.
+- No facility has an ABDM HIP ID: the `abdm.HealthFacility` table is empty. This is expected.
+  NHCX does not read the care_abdm HIP config. It keeps the HFR ID and participant code in its own
+  `FacilityProfile` table, so the ABDM plugin's "Health Facility ID" field stays blank.
+- care_fe has no screen to edit the NHCX facility profile, only the `FacilityProfile` type.
+  It is set through `GET/PUT /api/v1/facility/<id>/nhcx/profile/` or the e2e harness.
+  Other facilities (Egov Facility, SECONDARY FACILITY) have no NHCX profile.
