@@ -1,5 +1,21 @@
 # Run server and UI with plugins
 
+## Network-error recovery — 2026-10-13, Codex
+
+- User reported a network error and asked whether the backend was running.
+- Confirmed `care-nhcx-backend` had exited at 17:09:06 IST, with
+  `OOMKilled=true`, exit code 247, and restart policy `no`. Port 9000 was
+  unreachable; UI and ABDM plugin listeners remained active.
+- Restarted the existing container. `/ping/` returned HTTP 200 with
+  `{"status": "OK"}`; `/api/v1/` returned the expected unauthenticated 403
+  with `access-control-allow-origin: *` for the UI origin. Memory after
+  startup was 400 MiB out of Docker's reported 3.825 GiB.
+- Result: backend is responding again; refresh http://localhost:4000.
+  The restart restores service but does not fix the underlying memory issue.
+  The exact request responsible for the OOM was not established.
+- No source changes or child commits. Codex session remains
+  `01a13503-34e5-7422-908c-6eebcdf06a5b`; Entire now reports it active.
+
 ## Restart verification — 2026-10-13, Codex
 
 - Request: run the server and UI along with plugins.
