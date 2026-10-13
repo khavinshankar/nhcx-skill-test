@@ -1,5 +1,6 @@
 import base64
 import json
+import os
 
 from authlib.jose import JsonWebKey
 
@@ -111,3 +112,29 @@ SMS_BACKEND = "care.utils.sms.backend.console.ConsoleBackend"
 
 # https://github.com/anexia-it/django-rest-passwordreset#configuration--settings
 DJANGO_REST_PASSWORDRESET_NO_INFORMATION_LEAKAGE = True
+
+# NHCX (L7.1): tests never open the real gateway config, keys or ledger, never
+# run the gateway's scheduled work, and never reach an external service. Tests
+# that need a gateway open their own on a throwaway config with test keys.
+for _nhcx_var in (
+    "NHCX_ENV",
+    "NHCX_URL",
+    "NHCX_PARTICIPANT_URL",
+    "NHCX_SESSIONS_URL",
+    "NHCX_PUBLIC_URL",
+    "NHCX_CM_ID",
+):
+    os.environ.pop(_nhcx_var, None)
+NHCX_GATEWAY_CONFIG = ""
+NHCX_HOSTED_PARTICIPANTS = ""
+NHCX_ROLE = False
+NHCX_SHARED_TOKEN_CACHE = False
+NHCX_ARCHIVE_DIR = ""
+NHCX_ADJUDICATOR_CONSOLE = False
+NHCX_PAYER_SERVICE_TOKEN = ""
+NHCX_PAYER_SERVICE_USER_ROLE_URL = ""
+NHCX_PAYER_SERVICE_PROCESS_CASE_URL = ""
+NHCX_BIOMETRIC_BASE_URL = ""
+NHCX_FACEAUTH_BASE_URL = ""
+NHCX_FACEAUTH_QR_URL = ""
+NHCX_ABHA_BASE_URL = ""

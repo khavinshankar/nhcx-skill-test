@@ -64,25 +64,22 @@ def decide(outcome, reason):
 def is_error(response, status_header=None):
     if status_header == ERROR_STATUS or response.get("error"):
         return True
-    reason = claim_reason(response)
-    return response.get("outcome") == "error" and reason not in (
-        "rejected",
-        "denied",
-        "cancelled",
-    )
+    outcome = (response.get("outcome") or "").lower()
+    return decide(outcome, claim_reason(response)) == "error"
 
 
 def status_for(response, workflow_id=None, status_header=None):
-    outcome = response.get("outcome") or ""
+    outcome = (response.get("outcome") or "").lower()
     reason = claim_reason(response)
     if is_error(response, status_header):
         return "error"
+    verdict = decide(outcome, reason)
     by_workflow = WORKFLOW_STATUS.get(str(workflow_id or ""))
     if by_workflow:
-        if by_workflow == "approved" and outcome == "partial":
+        if by_workflow == "approved" and verdict == "partial":
             return "partial"
         return by_workflow
-    return decide(outcome, reason)
+    return verdict
 
 
 def clean_pieces(text):
@@ -143,10 +140,14 @@ def error_message(response):
     for error in response.get("error") or []:
         code = error.get("code") or {}
         coding = _first_coding(code)
-        line = " ".join(p for p in (coding.get("code"), coding.get("display")) if p)
-        lines.append(line or code.get("text") or "")
-    if response.get("disposition"):
-        lines.append(response["disposition"])
+        label = coding.get("display") or code.get("text") or ""
+        if coding.get("code"):
+            lines.append(f"{coding['code']}: {label}" if label else coding["code"])
+        else:
+            lines.append(label)
+    disposition = (response.get("disposition") or "").strip()
+    if disposition and disposition.lower() != "ok":
+        lines.append(disposition)
     lines += [n.get("text") for n in response.get("processNote") or [] if n.get("text")]
     return "\n".join(line for line in lines if line)
 

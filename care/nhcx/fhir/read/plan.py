@@ -280,7 +280,7 @@ def read_plan(bundle, benefits=None):
             value = (general.get("cost") or {}).get("value")
             if value not in (None, "") and sum_insured is None:
                 sum_insured = fb.amount(value)
-    out = {
+    return {
         "plan_identifier": (identifiers[0].get("value") if identifiers else None)
         or plan.get("id")
         or "",
@@ -290,9 +290,6 @@ def read_plan(bundle, benefits=None):
         "policy_documents": requirements(plan),
         "status": "ready" if benefits else "empty",
     }
-    if not benefits:
-        out["message"] = EMPTY_MESSAGE
-    return out
 
 
 def _flatten(items, depth=0):

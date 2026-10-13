@@ -229,6 +229,16 @@ class ClaimResponseReadTests(SimpleTestCase):
                 {"resource": {"resourceType": "ClaimResponse", "outcome": "partial"}}
             ]
         }
+        # C5P: partial only when verdict_status is partial (reason approved)
+        self.assertEqual(
+            claim_response.read(partial, workflow_id="21")["status"], "approved"
+        )
+        partial["entry"][0]["resource"]["adjudication"] = [
+            {
+                "category": {"coding": [{"code": "status"}]},
+                "reason": {"coding": [{"code": "Approved"}]},
+            }
+        ]
         self.assertEqual(
             claim_response.read(partial, workflow_id="21")["status"], "partial"
         )
@@ -273,7 +283,7 @@ class ClaimResponseReadTests(SimpleTestCase):
         }
         out = claim_response.read(bundle)
         self.assertEqual(out["status"], "error")
-        self.assertEqual(out["error_message"], "E1 Bad item\nCould not process")
+        self.assertEqual(out["error_message"], "E1: Bad item\nCould not process")
 
     def test_query_pieces(self):
         self.assertEqual(

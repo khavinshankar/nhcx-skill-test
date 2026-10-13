@@ -20,6 +20,10 @@ def _value(money):
     return fb.amount(value) if value not in (None, "") else None
 
 
+def _flag(value):
+    return None if value is None else bool(value)
+
+
 def _insurance(response):
     insurance = (response or {}).get("insurance") or []
     return insurance[0] if insurance else {}
@@ -86,7 +90,7 @@ def _coverage_fields(resource):
 def read_verdict(bundle):
     """D9 claim fields from an eligibility reply; empty values are left out."""
     bundle = fb.unwrap(bundle)
-    response = fb.find_resource(bundle, "CoverageEligibilityResponse", last=True)
+    response = fb.find_resource(bundle, "CoverageEligibilityResponse")
     if response is None:
         return {}
     insurance = _insurance(response)
@@ -156,8 +160,8 @@ def read_auth(bundle, preauth_stages=("pre",)):
                 "code": code,
                 "display": product_coding.get("display") or product.get("text") or "",
                 "category_code": _first_coding(item.get("category")).get("code") or "",
-                "auth_required": bool(item.get("authorizationRequired")),
-                "excluded": bool(item.get("excluded")),
+                "auth_required": _flag(item.get("authorizationRequired")),
+                "excluded": _flag(item.get("excluded")),
                 "benefit_type": _first_coding(benefit.get("type")).get("code") or "",
                 "allowed_amount": _value(benefit.get("allowedMoney")),
             }
