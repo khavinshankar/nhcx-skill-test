@@ -119,6 +119,11 @@ Gaps:
   Subagent token totals are included.
 - Entire redacts secrets, and also redacts parts of `reasoningOpaque`, which
   is encrypted and unreadable anyway. `reasoningText` is kept.
+- `files_touched` lists only files changed with the `edit` and `create`
+  tools, not files changed through `bash`; use the commit diff. Subagent
+  `tasks/<tool id>/task.json` entries say "transcript unavailable" because
+  the subagent's events are in the parent transcript, not a separate file.
+  Failed subagents get no `task.json`.
 - Files outside the repository, such as `~/.copilot/session-state/<id>/files/`
   and `session.db`, are not stored. Their contents appear only through the
   tool calls that wrote them.

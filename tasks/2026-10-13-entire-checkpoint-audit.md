@@ -100,8 +100,17 @@ checkpoint backend were left unchanged.
   with no source gives a usage error.
 - **Not tested.** Plan mode (no plan was drafted). Capture with Claude Code,
   Codex and the other agents.
-- **Checkpoint.** Verified on this commit after it was made; see the reply to
-  the user.
+- **Checkpoint.** Commit `0d3f293` got checkpoint `88097bc7f01f`. It holds one
+  session: the subagent and title-generator sessions were not attached. It has
+  the full transcript (674 events, `nhcx-full` load, nhcx-docs call, 5
+  subagents with errors, the `ask_user` answer) and `task.json` for the 2
+  completed subagents ("transcript path unresolvable"; their events are in
+  the parent transcript). `entire checkpoint list` shows it.
+  - Its `files_touched` lists AGENTS.md, the installer and this record. It
+    omits README.md and the report script, which were changed through `bash`.
+    That gap is documented in README.
+  - This follow-up commit tests that a later checkpoint includes the turns
+    after the first commit.
 
 ## Open items
 
