@@ -1,0 +1,132 @@
+<copilot_tauri_workspace>
+project_session_id: f1f2f5ee-39ed-4c11-893a-95c1b8c4cdc0
+project_id: d31eff92-45fe-4e4a-91dc-1f66725c7b3d
+project_name: nhcx
+project_github_repo: unknown
+project_default_branch: main
+workspace_type: worktree
+workspace_name: New session
+workspace_branch: khavinshankar-scaling-disco
+workspace_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-scaling-disco
+repo_root: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-scaling-disco
+default_branch: main
+base_branch: main
+original_generated_branch: khavinshankar-scaling-disco
+current_branch: khavinshankar-scaling-disco
+</copilot_tauri_workspace>
+
+<copilot_working_context>
+container_kind: repository
+current_working_directory: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-scaling-disco
+current_working_directory_is_git_repo: true
+checkout_strategy: worktree
+member_repositories:
+- repo_name: nhcx
+  repo_full_name: unknown
+  main_checkout_path: /Users/khavinshankar/Documents/egov/nhcx
+  main_checkout_branch: main
+  current_checkout_kind: worktree
+  current_checkout_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-scaling-disco
+  current_checkout_branch: khavinshankar-scaling-disco
+</copilot_working_context>
+
+<copilot_artifacts>
+artifacts_dir: /Users/khavinshankar/.copilot/session-state/f1f2f5ee-39ed-4c11-893a-95c1b8c4cdc0/files
+Write scratch artifacts (plans, task lists, notes) in this folder instead of the repo.
+</copilot_artifacts>
+
+<branch_rename_request>
+Before creating or editing any files, call the rename_branch tool with a kebab-case version of the session name you chose.
+</branch_rename_request>
+
+run the server and ui along with plugs
+
+---
+
+<copilot_tauri_workspace>
+project_session_id: f1f2f5ee-39ed-4c11-893a-95c1b8c4cdc0
+project_id: d31eff92-45fe-4e4a-91dc-1f66725c7b3d
+project_name: nhcx
+project_github_repo: unknown
+project_default_branch: main
+workspace_type: worktree
+workspace_name: New session
+workspace_branch: khavinshankar-scaling-disco
+workspace_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-scaling-disco
+repo_root: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-scaling-disco
+default_branch: main
+base_branch: main
+original_generated_branch: khavinshankar-scaling-disco
+current_branch: khavinshankar-scaling-disco
+</copilot_tauri_workspace>
+
+<copilot_working_context>
+container_kind: repository
+current_working_directory: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-scaling-disco
+current_working_directory_is_git_repo: true
+checkout_strategy: worktree
+member_repositories:
+- repo_name: nhcx
+  repo_full_name: unknown
+  main_checkout_path: /Users/khavinshankar/Documents/egov/nhcx
+  main_checkout_branch: main
+  current_checkout_kind: worktree
+  current_checkout_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-scaling-disco
+  current_checkout_branch: khavinshankar-scaling-disco
+</copilot_working_context>
+
+<copilot_artifacts>
+artifacts_dir: /Users/khavinshankar/.copilot/session-state/f1f2f5ee-39ed-4c11-893a-95c1b8c4cdc0/files
+Write scratch artifacts (plans, task lists, notes) in this folder instead of the repo.
+</copilot_artifacts>
+
+<branch_rename_request>
+Before creating or editing any files, call the rename_branch tool with a kebab-case version of the session name you chose.
+</branch_rename_request>
+
+run the server and ui along with plugs
+
+---
+
+<copilot_tauri_workspace>
+project_session_id: f1f2f5ee-39ed-4c11-893a-95c1b8c4cdc0
+project_id: d31eff92-45fe-4e4a-91dc-1f66725c7b3d
+project_name: nhcx
+project_github_repo: unknown
+project_default_branch: main
+workspace_type: worktree
+workspace_name: New session
+workspace_branch: khavinshankar-scaling-disco
+workspace_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-scaling-disco
+repo_root: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-scaling-disco
+default_branch: main
+base_branch: main
+original_generated_branch: khavinshankar-scaling-disco
+current_branch: khavinshankar-scaling-disco
+</copilot_tauri_workspace>
+
+<copilot_working_context>
+container_kind: repository
+current_working_directory: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-scaling-disco
+current_working_directory_is_git_repo: true
+checkout_strategy: worktree
+member_repositories:
+- repo_name: nhcx
+  repo_full_name: unknown
+  main_checkout_path: /Users/khavinshankar/Documents/egov/nhcx
+  main_checkout_branch: main
+  current_checkout_kind: worktree
+  current_checkout_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-scaling-disco
+  current_checkout_branch: khavinshankar-scaling-disco
+</copilot_working_context>
+
+<copilot_artifacts>
+artifacts_dir: /Users/khavinshankar/.copilot/session-state/f1f2f5ee-39ed-4c11-893a-95c1b8c4cdc0/files
+Write scratch artifacts (plans, task lists, notes) in this folder instead of the repo.
+</copilot_artifacts>
+
+<branch_rename_request>
+Before creating or editing any files, call the rename_branch tool with a kebab-case version of the session name you chose.
+</branch_rename_request>
+
+run the server and ui along with plugs

@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "0ccfd7098c95",
+  "strategy": "manual-commit",
+  "branch": "khavinshankar-run-server-and-ui",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "tasks/2026-10-13-run-server-and-ui.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0c/cfd7098c95/0/metadata.json",
+      "transcript": "/0c/cfd7098c95/0/full.jsonl",
+      "compact_transcript": "/0c/cfd7098c95/0/transcript.jsonl",
+      "content_hash": "/0c/cfd7098c95/0/content_hash.txt",
+      "prompt": "/0c/cfd7098c95/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 0,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "api_call_count": 0
+  }
+}
