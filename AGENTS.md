@@ -8,6 +8,12 @@ Start workspace-wide AI sessions from this directory. Entire capture requires
 installed, trusted agent hooks; do not assume a transcript was captured merely
 because a commit succeeded. Run `entire status` to check configuration.
 
+Entire checkpoints are stored only in this parent repository. The parent
+task-record commit carries the checkpoint for the whole task, including work
+done in child repositories. Child commits get an `Entire-Session` trailer from
+the hook that `scripts/install-child-entire-hooks.sh` installs. Do not enable
+Entire in child repositories.
+
 For each completed task that changes files:
 
 1. Validate the changes and record the actual results.
