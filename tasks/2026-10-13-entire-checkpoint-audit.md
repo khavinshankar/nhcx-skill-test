@@ -119,3 +119,16 @@ checkpoint backend were left unchanged.
 - Check why the ABDM skills do not load, if they are needed.
 - If subagents keep failing with the 400 model error, that is a Copilot app
   issue.
+
+## Follow-up: checkpoints missing from `entire checkpoint list` (08:12 IST)
+
+- **Request.** The user ran `entire checkpoint list` in the main checkout and saw
+  no checkpoints.
+- **Cause.** `entire checkpoint list` shows only checkpoints whose commits are on
+  the current branch. Both checkpoints, `88097bc7f01f` and `bdb6d0438632`, exist
+  on `entire/checkpoints/v1`, but their commits were only on
+  `khavinshankar-entire-checkpoint-audit`, not on `main`. The worktree listed 2
+  checkpoints; the main checkout listed 0.
+- **Decision.** The user approved fast-forwarding `main` to this branch: no merge
+  commit and no push. Fast-forwarding keeps the commit IDs, so the
+  `Entire-Checkpoint` trailers stay valid. A squash or rebase would orphan them.
