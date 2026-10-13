@@ -1,5 +1,26 @@
 # Run server and UI with plugins
 
+## Restart verification — 2026-10-13, Codex
+
+- Request: run the server and UI along with plugins.
+- Kept the healthy `care-nhcx-backend`, `care-nhcx-celery`, PostgreSQL,
+  Redis and MinIO containers running. Backend mounts the NHCX integration
+  worktree and the main checkout's `care/care_abdm` plugin.
+- Started `npm run dev` in the matching NHCX `care_fe` worktree on
+  http://localhost:4000 and `npm start` in `care_abdm_fe` on port 5173.
+  Portless was unavailable. Both servers remain in persistent terminal sessions.
+- Validation: UI root, plugin `/assets/remoteEntry.js`, and backend
+  http://localhost:9000/ping/ each returned HTTP 200. Plugin watch build
+  succeeded. Backend `ADDITIONAL_PLUGS` includes ABDM and Python imports
+  it from `/app/care_abdm/abdm/__init__.py`.
+- No source edits or child commits; existing frontend modifications preserved.
+  Runtime source references: care `53d6d332f`, care_fe `8848d8cc9`.
+- Codex session: `01a13503-34e5-7422-908c-6eebcdf06a5b`. Entire reports no
+  session state and seven hooks needing approval, so transcript capture is
+  unverified. No hook settings changed.
+- Result: open http://localhost:4000 to use the UI with the ABDM plugin.
+  No startup blockers remain.
+
 Date: 2026-10-13 (Asia/Kolkata)
 Session: f1f2f5ee-39ed-4c11-893a-95c1b8c4cdc0
 
