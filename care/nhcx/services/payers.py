@@ -51,11 +51,6 @@ USE_CASES = {
     "claim_query_response": "Resubmit",
     "claim_resubmit": "Resubmit",
 }
-RESPONSE_KINDS = {
-    "preauth_query_response",
-    "enhancement_resubmit",
-    "claim_query_response",
-}
 
 
 @dataclass(frozen=True)
@@ -213,7 +208,10 @@ def use_case_for(kind: str) -> str:
 
 
 def status_for(kind: str) -> str:
-    return "response.complete" if kind in RESPONSE_KINDS else "request.initiated"
+    """Every message on a submit path starts a new correlation, a query answer
+    (19, 131, 151) included, so the gateway takes only ``request.initiated``
+    there and refuses ``response.complete`` with NHCX-1011."""
+    return "request.initiated"
 
 
 def intimation_input(adapter: Adapter, action: str) -> str:

@@ -214,6 +214,107 @@ class LegServiceGapTests(ReadyClaimMixin, NhcxCoreTestBase):
         )
         self.assertEqual(list(claim.items.all()), [item])
 
+    def test_d12_consent_form_dropped_once_verified(self):
+        """A ruling naming form 100024 is not sent once a user token is held."""
+        from types import SimpleNamespace
+
+        from care.nhcx.models.plan import ClaimPlanForm
+        from care.nhcx.services import _gather
+
+        claim = self.ready_claim()
+        row = ClaimPlan.objects.create(claim=claim, status="ready")
+        consent = ClaimPlanForm.objects.create(
+            plan=row,
+            url="https://payer.test/q/100024",
+            form_id="100024",
+            title="Consent",
+        )
+        other = ClaimPlanForm.objects.create(
+            plan=row,
+            url="https://payer.test/q/100003",
+            form_id="100003",
+            title="Findings",
+        )
+        urls = [consent.url, other.url]
+        biometric_payer = SimpleNamespace(biometric_required=True)
+        with (
+            mock.patch.object(_gather, "required_form_urls", return_value=urls),
+            mock.patch.object(
+                _gather.payers, "adapter_for_claim", return_value=biometric_payer
+            ),
+        ):
+            with mock.patch.object(_gather, "has_token", return_value=False):
+                before = [f.url for f in _gather.form_inputs(claim, "preauth")]
+            with mock.patch.object(_gather, "has_token", return_value=True):
+                after = [f.url for f in _gather.form_inputs(claim, "preauth")]
+        self.assertEqual(before, urls)
+        self.assertEqual(after, [other.url])
+
+    def test_d17_screen_answers_round_trip(self):
+        """The screens send form_answers and name a file answer by external id."""
+        from care.nhcx.fhir.inputs import DocumentInput, FormInput
+        from care.nhcx.models import ClaimDocument
+        from care.nhcx.services import _gather
+        from care.nhcx.services import state as state_service
+
+        claim = self.ready_claim()
+        doc = ClaimDocument.objects.create(
+            claim=claim, content_type="application/pdf", data=b"%PDF", size=4
+        )
+        url = "https://forms.test/q2"
+        message = draft.save_draft(
+            claim,
+            {
+                "form_answers": [
+                    {
+                        "form_url": url,
+                        "link_id": "t",
+                        "answer": "y",
+                        "stage": "preauth",
+                    },
+                    {
+                        "form_url": url,
+                        "link_id": "f",
+                        "answer": str(doc.external_id),
+                        "stage": "preauth",
+                    },
+                ]
+            },
+        )
+        self.assertEqual(message, draft.ANSWERS_SAVED)
+        form = FormInput(
+            url=url,
+            items=[
+                {"linkId": "t", "type": "string"},
+                {"linkId": "f", "type": "attachment"},
+            ],
+        )
+        got = {a.link_id: a.answer for a in _gather.answers(claim, "preauth", [form])}
+        self.assertEqual(got["t"], "y")
+        self.assertIsInstance(got["f"], DocumentInput)
+        rows = state_service.claim_state(claim)["form_answers"]
+        self.assertEqual(
+            {(r["link_id"], r["answer"]) for r in rows},
+            {("t", "y"), ("f", str(doc.external_id))},
+        )
+
+    def test_a17_state_names_linked_admission(self):
+        """The screens read claim.encounter / claim.patient to show the S4 link."""
+        from care.nhcx.services import state as state_service
+
+        claim = self.ready_claim()
+        row = state_service.claim_state(claim)["claim"]
+        self.assertEqual(row["encounter"], str(claim.encounter.external_id))
+        self.assertEqual(row["patient"], str(claim.patient.external_id))
+        self.assertEqual(row["encounter_id"], row["encounter"])
+        self.assertIsNotNone(row["preauth_saved_at"])
+        got = state_service.claim_state(claim)
+        self.assertEqual([d["icd10_code"] for d in got["diagnoses"]], ["K35.8"])
+        member = got["care_team"][0]
+        self.assertEqual(member["practitioner"], str(self.user.external_id))
+        self.assertTrue(member["practitioner_name"])
+        self.assertEqual(member["role"], "treating")
+
     def test_d12_plan_forms(self):
         claim = self.make_claim()
         plan.request_plan(claim)
@@ -279,6 +380,42 @@ class AdjudicatorTests(NhcxCoreTestBase):
         row = ClaimAdjudication.objects.get(claim=self.claim)
         self.assertEqual(
             (row.role, row.action, row.success), ("PPD-Trust", "Approve", True)
+        )
+
+    @override_settings(NHCX_ADJUDICATOR_ROLE_SETTLE_SECONDS=0)
+    def test_a15_walk_waits_for_forwarded_case_to_move(self):
+        """The payer service answers Forward before it moves the case on."""
+        ClaimSubmission.objects.create(
+            claim=self.claim, status="submitting", correlation_id="corr-cl"
+        )
+        roles = iter(
+            [
+                "CEX-Trust",
+                "CEX-Trust",
+                "CEX-Trust",
+                "CPD-Trust",
+                "Claim Review Committee",
+            ]
+        )
+        with (
+            mock.patch.object(
+                adjudicator, "role_for", side_effect=lambda *a: {"role": next(roles)}
+            ),
+            mock.patch.object(
+                adjudicator,
+                "process",
+                side_effect=lambda c, s, role, action, *a: {
+                    "success": True,
+                    "role": role,
+                    "action": action,
+                },
+            ),
+        ):
+            done = adjudicator.cycle(self.claim, "claim", "approve")
+        self.assertEqual(done["stopped"], "completed")
+        self.assertEqual(
+            [s["role"] for s in done["steps"]],
+            ["CEX-Trust", "CPD-Trust", "Claim Review Committee"],
         )
 
     def test_a15_service_error_recorded(self):

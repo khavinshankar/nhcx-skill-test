@@ -21,6 +21,8 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 TESTS_DIR = str(Path(__file__).resolve().parent) + "/"
+# the L8 end-to-end harness talks to the live sandbox on purpose
+E2E_DIR = TESTS_DIR + "e2e/"
 LOOPBACK_NAMES = {"localhost", "localhost.localdomain", "ip6-localhost", ""}
 
 _installed = False
@@ -100,7 +102,8 @@ def allowed(host) -> bool:
 def _from_nhcx_test() -> bool:
     frame = sys._getframe(2)  # noqa: SLF001
     while frame is not None:
-        if frame.f_code.co_filename.startswith(TESTS_DIR):
+        name = frame.f_code.co_filename
+        if name.startswith(TESTS_DIR) and not name.startswith(E2E_DIR):
             return True
         frame = frame.f_back
     return False

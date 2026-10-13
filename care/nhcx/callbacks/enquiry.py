@@ -144,6 +144,9 @@ def answer(envelope, corr):
     if row is None:
         return _legs.result(dispatch.UNMATCHED, "No enquiry is waiting on this reply.")
     if row.status != "asking" and not dispatch.failed_send(row):
+        verdict = _verdict_after_reopen(envelope, row)
+        if verdict is not None:
+            return verdict
         return _legs.result(dispatch.IGNORED, "The enquiry was already answered.")
     body = dispatch.payload(envelope)
     if _legs.is_protocol(body):
@@ -182,3 +185,27 @@ def answer(envelope, corr):
         setattr(row, key, value)
     row.save()
     return _legs.result(dispatch.SETTLED, values.get("answer") or "answered")
+
+
+def _verdict_after_reopen(envelope, row):
+    """The reprocessed claim's verdict, when it rides on the reprocess thread.
+
+    C6 expects it on the claim's own thread; the IRDAI sandbox payer instead
+    sends a second ``task/on_submit`` on the reprocess's correlation id whose
+    ClaimResponse carries the new decision (``outcome`` complete) [SANDBOX].
+    It is applied to the reopened claim leg through C6.
+    """
+    if row.kind not in ("reprocess", "release") or row.answer != "reopened":
+        return None
+    submission = ClaimSubmission.objects.filter(claim_id=row.claim_id).first()
+    if submission is None or submission.status != "submitting":
+        return None
+    body = dispatch.payload(envelope)
+    if not isinstance(body, dict) or _legs.is_protocol(body):
+        return None
+    response = fb.find_resource(fb.unwrap(body), "ClaimResponse") or {}
+    if (response.get("outcome") or "").lower() not in ("complete", "partial"):
+        return None
+    from care.nhcx.callbacks import claim as claim_reply
+
+    return claim_reply.handle(envelope, {"correlation_id": submission.correlation_id})

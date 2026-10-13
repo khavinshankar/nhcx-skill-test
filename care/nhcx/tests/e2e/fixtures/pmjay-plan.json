@@ -1,0 +1,142 @@
+{
+  "source": "PMJAY InsurancePlan for PMJAY/HP/S/G, from the NHCX package fhir/C4/C4-response-pmjay.json, cut to two packages",
+  "plan": {
+    "identifier": [
+      {"system": "https://hcx.pmjay.gov.in/v1/InsurancePlan", "value": "100155-HOSP2P146514"},
+      {"system": "https://payer.nha.gov.in", "value": "PMJAY/HP/S/G", "type": "NH"}
+    ],
+    "name": "PMJAY - Universal Health Policy",
+    "period": {"start": "2023-04-01", "end": "2028-04-01"},
+    "plan_type": {"code": "03", "display": "Group", "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type"},
+    "package_code_system": "http://hl7.org/fhir/ValueSet/procedure-category",
+    "speciality_system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-benefitcategory"
+  },
+  "packages": [
+    {
+      "code": "SB043F",
+      "name": "Hand (Single Stage Amputation)",
+      "speciality": {"code": "SG", "display": "General Surgery"},
+      "kind": "procedure",
+      "rate": 18600,
+      "currency": "INR",
+      "conditions": {
+        "ProcedureType": "Surgical", "GovtReserved": "N", "ApprovalNotRequired": "Y",
+        "EnhancementAllowed": "N", "ScheduledTATApproval": "Y", "QuantityAllowed": "1",
+        "IsDayCare": "N", "ImplantApplicable": "N", "StratificationAllowed": "N",
+        "MultipleImplantsAllowed": "N", "MultipleStratificationAllowed": "N",
+        "MaximumImplantsAllowed": "1", "MaximumStratificationAllowed": "1",
+        "CyclicProcedure": "N", "MaximumCyclesAllowed": "0", "Standalone": "N",
+        "ParentProcedure": "NA", "Unspecified": "N"
+      },
+      "documents": [
+        {"code": "MAND0384", "name": "MLC/ FIR if traumatic", "category": "DIA"},
+        {"code": "MAND0592", "name": "X Ray of affected limb", "category": "DIA"},
+        {"code": "MAND0006", "name": "Detailed discharge summary", "category": "DIA"},
+        {"code": "MAND0008", "name": "Detailed Procedure / Operative Notes", "category": "DIA"},
+        {"code": "MAND0112", "name": "Post Procedure clinical photgraph", "category": "DIA"},
+        {"code": "MAND0582", "name": "clinical photograph of affected part", "category": "DIA"},
+        {"code": "MAND0604", "name": "clinical notes justifying the indication", "category": "DIA"}
+      ],
+      "requirements": [{"category": "INF", "code": "STG", "display": "Standard Treatment Guidelines"}]
+    },
+    {
+      "code": "MG072C",
+      "name": "Acute Haemodialysis (Acute Haemodialysis)",
+      "speciality": {"code": "MG", "display": "General Medicine"},
+      "kind": "procedure",
+      "rate": 1500,
+      "currency": "INR",
+      "conditions": {
+        "ProcedureType": "Medical", "GovtReserved": "N", "ApprovalNotRequired": "Y",
+        "EnhancementAllowed": "Y", "ScheduledTATApproval": "Y", "QuantityAllowed": "6",
+        "IsDayCare": "Y", "ImplantApplicable": "N", "StratificationAllowed": "N",
+        "MultipleImplantsAllowed": "N", "MultipleStratificationAllowed": "N",
+        "MaximumImplantsAllowed": "1", "MaximumStratificationAllowed": "1",
+        "CyclicProcedure": "Y", "MaximumCyclesAllowed": "6", "Standalone": "N",
+        "ParentProcedure": "NA", "Unspecified": "N"
+      },
+      "documents": [
+        {"code": "MAND0409", "name": "any investigations done", "category": "DIA"},
+        {"code": "MAND0064", "name": "All investigations reports", "category": "DIA"},
+        {"code": "MAND0006", "name": "Detailed discharge summary", "category": "DIA"},
+        {"code": "MAND0062", "name": "Detailed ICPs", "category": "DIA"},
+        {"code": "MAND0063", "name": "Treatment details", "category": "DIA"},
+        {"code": "MAND0408", "name": "Clinical notes detailing history and Admission notes showing vitals and examination findings", "category": "CD"}
+      ],
+      "requirements": []
+    }
+  ],
+  "questionnaires": [
+    {
+      "url": "https://payer.gov.in/policy/questionnaire/100020", "title": "Admission Details",
+      "items": [
+        {"linkId": "100075", "type": "dateTime", "text": "Admission Date", "required": true},
+        {"linkId": "100074", "type": "dateTime", "text": "Surgery/Treatment Start Date", "required": true},
+        {"linkId": "100073", "type": "choice", "text": "Admission Type", "required": true, "options": ["PLANNED", "EMERGENCY"]},
+        {"linkId": "100076", "type": "choice", "text": "Medico Legal Case", "required": true, "options": ["Yes", "No"]}
+      ]
+    },
+    {
+      "url": "https://payer.gov.in/policy/questionnaire/100008", "title": "General Findings",
+      "items": [
+        {"linkId": "100019", "type": "string", "text": "Temperature"},
+        {"linkId": "100020", "type": "string", "text": "Pulse Rate Per Minute"},
+        {"linkId": "100021", "type": "string", "text": "Height(in CM)"},
+        {"linkId": "100022", "type": "string", "text": "Weight(in KG)"},
+        {"linkId": "100023", "type": "string", "text": "BMI"},
+        {"linkId": "100024", "type": "choice", "text": "Cyanosis"},
+        {"linkId": "100025", "type": "choice", "text": "Pallor"},
+        {"linkId": "100027", "type": "choice", "text": "Malnutrition"},
+        {"linkId": "100029", "type": "choice", "text": "Oedema in Feet"}
+      ]
+    },
+    {
+      "url": "https://payer.gov.in/policy/questionnaire/100010", "title": "Personal History",
+      "items": [
+        {"linkId": "100035", "type": "choice", "text": "Appetite"},
+        {"linkId": "100038", "type": "choice", "text": "Bowels"},
+        {"linkId": "100039", "type": "choice", "text": "Nutrition"},
+        {"linkId": "100040", "type": "choice", "text": "Known Allergies"},
+        {"linkId": "100037", "type": "choice", "text": "Diet"},
+        {"linkId": "100041", "type": "choice", "text": "Habits/Addictions"}
+      ]
+    },
+    {
+      "url": "https://payer.gov.in/policy/questionnaire/100011", "title": "Family History",
+      "items": [
+        {"linkId": "100036", "type": "choice", "text": "Diabetes"},
+        {"linkId": "100042", "type": "choice", "text": "Hypertension"},
+        {"linkId": "100043", "type": "choice", "text": "Heart Disease"},
+        {"linkId": "100044", "type": "choice", "text": "Stroke"},
+        {"linkId": "100055", "type": "choice", "text": "Cancer"},
+        {"linkId": "100056", "type": "choice", "text": "Tuberculosis"},
+        {"linkId": "100057", "type": "choice", "text": "Asthma"}
+      ]
+    },
+    {
+      "url": "https://payer.gov.in/policy/questionnaire/100024", "title": "Authentication Consent",
+      "items": [
+        {"linkId": "100093", "type": "attachment", "text": "Medical Superintendent Declaration Form (During Admission)", "required": true},
+        {"linkId": "100095", "type": "string", "text": "Remarks"}
+      ]
+    },
+    {
+      "url": "https://payer.gov.in/policy/questionnaire/100466", "title": "Discharge Consent", "stage": "claim",
+      "items": [
+        {"linkId": "135477", "type": "attachment", "text": "Medical Superintendent Declaration Form (During Discharge)", "required": true}
+      ]
+    },
+    {
+      "url": "https://payer.gov.in/policy/questionnaire/100005", "title": "Discharge Information", "stage": "claim",
+      "items": [
+        {"linkId": "100097", "type": "attachment", "text": "Post Treatment Photo with Doctor/PMAM", "required": true},
+        {"linkId": "100096", "type": "attachment", "text": "Discharge Summary", "required": true},
+        {"linkId": "101799", "type": "choice", "text": "Discharge Stage", "required": true, "options": ["After Surgery/Treatment"]},
+        {"linkId": "100101", "type": "dateTime", "text": "Surgery/Treatment Date", "required": true},
+        {"linkId": "100012", "type": "dateTime", "text": "Discharge Date", "required": true},
+        {"linkId": "103045", "type": "attachment", "text": "Feedback Form", "required": true},
+        {"linkId": "103119", "type": "choice", "text": "Have Hospital provided the medicines during treatment/for post operative care", "required": true, "options": ["Yes", "No"]}
+      ]
+    }
+  ]
+}

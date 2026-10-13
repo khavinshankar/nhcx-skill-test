@@ -6,6 +6,8 @@ documents (A17 hooks) live here too.
 
 from __future__ import annotations
 
+import uuid
+
 from care.nhcx.fhir.inputs import DiagnosisInput, DocumentInput, FormAnswer, FormInput
 from care.nhcx.models import ClaimDocument, ClaimFormAnswer
 from care.nhcx.services import common, payers
@@ -214,6 +216,18 @@ def required_form_urls(claim, stage) -> list:
     return list(dict.fromkeys(urls))
 
 
+def _is_consent(form, stage) -> bool:
+    spec_id = CONSENT_FORMS[stage]["id"]
+    return _s(form.form_id) == spec_id or _s(form.url).rstrip("/").endswith(spec_id)
+
+
+def _verified(claim, stage) -> bool:
+    """A biometric payer holding a live user token takes no consent form (D12)."""
+    return payers.adapter_for_claim(claim).biometric_required and has_token(
+        claim, stage
+    )
+
+
 def _consent_form(claim, stage, plan):
     if not payers.adapter_for_claim(claim).biometric_required:
         return None
@@ -221,9 +235,7 @@ def _consent_form(claim, stage, plan):
         return None
     spec = CONSENT_FORMS[stage]
     for form in plan.forms.all():
-        if _s(form.form_id) == spec["id"] or _s(form.url).rstrip("/").endswith(
-            spec["id"]
-        ):
+        if _is_consent(form, stage):
             return FormInput(
                 url=form.url,
                 title=_s(form.title),
@@ -244,10 +256,11 @@ def form_inputs(claim, stage) -> list:
     if plan is None:
         return []
     by_url = {f.url: f for f in plan.forms.all()}
+    verified = _verified(claim, stage)
     forms = []
     for url in required_form_urls(claim, stage):
         row = by_url.get(url)
-        if row is None:
+        if row is None or (verified and _is_consent(row, stage)):
             continue
         forms.append(
             FormInput(
@@ -276,11 +289,7 @@ def answers(claim, stage, forms) -> list:
     for row in rows.order_by("id"):
         value = row.answer
         if types.get((row.form_url, row.link_id)) == "attachment":
-            doc = (
-                ClaimDocument.objects.filter(claim=claim, id=int(value)).first()
-                if _s(value).isdigit()
-                else None
-            )
+            doc = _answer_document(claim, value)
             if doc is None:
                 continue
             value = document_input(doc)
@@ -293,6 +302,18 @@ def answers(claim, stage, forms) -> list:
             )
         )
     return out
+
+
+def _answer_document(claim, value):
+    """A file answer names its document by id, or by external id as the screens do."""
+    value = _s(value)
+    if value.isdigit():
+        return ClaimDocument.objects.filter(claim=claim, id=int(value)).first()
+    try:
+        ref = uuid.UUID(value)
+    except ValueError:
+        return None
+    return ClaimDocument.objects.filter(claim=claim, external_id=ref).first()
 
 
 def required_forms(claim, stage) -> list:

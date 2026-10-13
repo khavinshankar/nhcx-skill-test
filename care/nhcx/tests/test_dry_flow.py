@@ -458,6 +458,9 @@ class PmjayDryFlowTests(DryFlowBase):
         )
         hdr, _ = self.sent("preauth/submit")
         self.assertEqual(hdr[H.WORKFLOW_ID], "19")
+        # a query answer on the submit path starts a new correlation (NHCX-1011
+        # refuses response.complete there)
+        self.assertEqual(hdr[H.STATUS], "request.initiated")
         preauth.refresh_from_db()
         self.assertEqual(preauth.submission_kind, "preauth_query_response")
         claim.refresh_from_db()

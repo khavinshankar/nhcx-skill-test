@@ -165,6 +165,30 @@ class ClaimCallbackTests(LegCallbackBase):
         ask.refresh_from_db()
         self.assertEqual(ask.answered_at, answered_at)
 
+    def test_c8_reprocess_verdict_on_reprocess_thread(self):
+        self.row.status = "rejected"
+        self.row.save()
+        ClaimEnquiry.objects.create(
+            claim=self.claim,
+            kind="reprocess",
+            stage="claim",
+            status="asking",
+            correlation_id="corr-rp",
+        )
+        self.receive("task-reprocess-wf37.json", "corr-rp", "task", route="C8")
+        self.row.refresh_from_db()
+        self.assertEqual(self.row.status, "submitting")
+        out = self.receive(
+            "claim-approved-deduction-wf26-pmjay.json",
+            "corr-rp",
+            "task",
+            api_call_id="reply-api-2",
+            route="C8",
+        )
+        self.assertEqual(out["outcome"], dispatch.SETTLED, out)
+        self.row.refresh_from_db()
+        self.assertIn(self.row.status, {"approved", "partial"})
+
     def test_unmatched_claim_reply(self):
         out = self.receive("claim-rejected-wf291.json", "corr-unknown", "claim")
         self.assertEqual(out["outcome"], dispatch.UNMATCHED, out)

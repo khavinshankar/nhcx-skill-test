@@ -66,7 +66,10 @@ def row(obj, columns=None) -> dict | None:
                 continue
             target = getattr(obj, field.name, None)
             ext = getattr(target, "external_id", None) if target is not None else None
-            out[f"{field.name}_id"] = str(ext) if ext is not None else None
+            value = str(ext) if ext is not None else None
+            # D column name (what the screens read), plus the older *_id alias.
+            out[field.name] = value
+            out[f"{field.name}_id"] = value
             continue
         out[field.name] = _value(getattr(obj, field.attname))
     if "created_date" in out:
@@ -79,6 +82,15 @@ def _one(claim, name):
         return getattr(claim, name)
     except Exception:
         return None
+
+
+def _member(m) -> dict:
+    out = row(m)
+    user = m.practitioner
+    out["practitioner_name"] = (
+        user.get_full_name() or user.username if user is not None else None
+    )
+    return out
 
 
 def _items(value) -> list:
@@ -177,7 +189,18 @@ def claim_state(claim) -> dict:
         },
         "forms": required_forms,
         "required_forms": required_forms,
+        "diagnoses": [row(d) for d in claim.diagnoses.order_by("seq", "id")],
+        "care_team": [_member(m) for m in claim.care_team.order_by("seq", "id")],
         "documents": [row(d, DOCUMENT_COLUMNS) for d in claim.documents.order_by("id")],
+        "form_answers": [
+            {
+                "form_url": a.form_url,
+                "link_id": a.link_id,
+                "answer": a.answer,
+                "stage": a.stage,
+            }
+            for a in claim.form_answers.order_by("id")
+        ],
         "stage": claim.stage,
         "sub_stage": claim.sub_stage,
         "preauth": row(preauth),

@@ -6,6 +6,7 @@ from __future__ import annotations
 from datetime import date
 
 from django.db import transaction
+from django.utils import timezone
 from django.utils.dateparse import parse_date
 
 from care.nhcx.models import (
@@ -134,10 +135,15 @@ def save_draft(claim, data) -> str:
     diagnoses = _diagnoses(data["diagnoses"]) if "diagnoses" in data else None
     team = _team(data["care_team"]) if "care_team" in data else None
     default_stage = _s(data.get("stage")) or LegStage.preauth
-    answers = _answers(claim, data.get("answers"), default_stage)
-    only_answers = bool(answers) and not (
+    given = data["answers"] if "answers" in data else data.get("form_answers")
+    answers = _answers(claim, given, default_stage)
+    drafting = bool(
         fields or diagnoses is not None or team is not None or data.get("items")
     )
+    only_answers = bool(answers) and not drafting
+    if drafting:
+        # S9 submit stays disabled until the draft has been saved once.
+        fields["preauth_saved_at"] = timezone.now()
     with transaction.atomic():
         if fields:
             for k, v in fields.items():

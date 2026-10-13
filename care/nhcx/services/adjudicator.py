@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import logging
 import re
+import time
 import uuid
 
 import requests
@@ -298,14 +299,14 @@ def _no_desk(claim):
     return AdjudicatorError(NO_DESK.format(name=name))
 
 
-def role_for(claim, case_number, payer_code=None) -> dict:
+def role_for(claim, case_number, payer_code=None, correlation_id="") -> dict:
     case_number = _s(case_number)
     if not case_number:
         raise AdjudicatorError(NO_CASE_NUMBER)
     payer_code = _bare(payer_code or claim.payer_id or common.default_payer_code())
     desk = payers.adapter_for_claim(claim).desk
     if desk == "irdai-payer":
-        return irdai_role(claim, case_number)
+        return irdai_role(claim, case_number, correlation_id)
     if desk != "nhcx-payer-service":
         raise _no_desk(claim)
     tok = token(claim)
@@ -385,7 +386,7 @@ def _desk_token(claim, payer_full) -> str:
     return desk_token
 
 
-def _irdai_case(claim, case_number):
+def _irdai_case(claim, case_number, correlation_id=""):
     payer_full = _s(claim.payer_id) or common.default_payer_code()
     desk_token = _desk_token(claim, payer_full)
     status, data, raw = _http(
@@ -397,21 +398,37 @@ def _irdai_case(claim, case_number):
         cache.delete(DESK_TOKEN_KEY.format(code=_norm(payer_full)))
         raise AdjudicatorError(IRDAI_LIST.format(status=status, text=raw[:200]))
     rows = data.get("items") if isinstance(data, dict) else data
+    # The desk numbers its cases itself (claim_no "CL/26/..."); the provider's
+    # reference travels as exchange.claim_ref.
+    matches = [
+        r
+        for r in rows or []
+        if isinstance(r, dict)
+        and case_number
+        in {
+            _s(r.get("claim_no")),
+            _s(r.get("id")),
+            _s((r.get("exchange") or {}).get("claim_ref")),
+        }
+    ]
+    # One reference can carry several cases (pre-auth, enhancement, claim):
+    # the leg's correlation id picks its own.
     found = next(
         (
             r
-            for r in rows or []
-            if isinstance(r, dict) and _s(r.get("claim_no")) == case_number
+            for r in matches
+            if correlation_id
+            and _s((r.get("exchange") or {}).get("correlation_id")) == correlation_id
         ),
-        None,
+        matches[0] if matches else None,
     )
     if found is None:
         raise AdjudicatorError(IRDAI_NO_CASE.format(case=case_number))
     return found, desk_token
 
 
-def irdai_role(claim, case_number) -> dict:
-    found, _tok = _irdai_case(claim, case_number)
+def irdai_role(claim, case_number, correlation_id="") -> dict:
+    found, _tok = _irdai_case(claim, case_number, correlation_id)
     stage = _s(found.get("stage"))
     return {
         "caseNumber": case_number,
@@ -437,7 +454,9 @@ def read_role(claim, stage) -> dict:
     found = leg(claim, stage)
     if found is None:
         raise AdjudicatorError(NOT_SENT)
-    return role_for(claim, found["case_number"], found["payer_code"])
+    return role_for(
+        claim, found["case_number"], found["payer_code"], found["correlation_id"]
+    )
 
 
 # ---- A15 ----
@@ -537,7 +556,7 @@ def irdai_process(claim, found, action, remarks, cycle_id) -> dict:
         raise AdjudicatorError(IRDAI_ACTION.format(action=action))
     if action in {"reject", "query"} and not _s(remarks):
         raise AdjudicatorError(IRDAI_REMARKS)
-    case, desk_token = _irdai_case(claim, found["case_number"])
+    case, desk_token = _irdai_case(claim, found["case_number"], found["correlation_id"])
     status, data, raw = _http(
         "POST",
         f"{DESK}/cases/{case.get('id')}/adjudicate",
@@ -562,6 +581,20 @@ def irdai_process(claim, found, action, remarks, cycle_id) -> dict:
         )
     _record(claim, found, reply, remarks, cycle_id)
     return reply
+
+
+def _await_move(claim, found, seen, role):
+    """The payer service moves a forwarded case a few seconds after it answers."""
+    if not (seen and role and _norm(seen[-1]) == _norm(role)):
+        return role
+    tries = int(getattr(settings, "NHCX_ADJUDICATOR_ROLE_SETTLE_TRIES", 5))
+    pause = float(getattr(settings, "NHCX_ADJUDICATOR_ROLE_SETTLE_SECONDS", 3))
+    for _ in range(tries):
+        time.sleep(pause)
+        now = _s(role_for(claim, found["case_number"], found["payer_code"]).get("role"))
+        if _norm(now) != _norm(role):
+            return now
+    return role
 
 
 def cycle(claim, stage, decision, remarks="") -> dict:
@@ -609,6 +642,8 @@ def cycle(claim, stage, decision, remarks="") -> dict:
             )
             stopped = "role-unreadable"
             break
+        role = _await_move(claim, found, seen, role)
+        final_role = role or None
         if not role:
             stopped = "no-role"
             break
