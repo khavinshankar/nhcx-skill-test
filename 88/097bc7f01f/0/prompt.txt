@@ -1,0 +1,138 @@
+<copilot_tauri_workspace>
+project_session_id: df6f3ba4-1c63-4cdc-8c95-7d4cce61f0ea
+project_id: d31eff92-45fe-4e4a-91dc-1f66725c7b3d
+project_name: nhcx
+project_github_repo: unknown
+project_default_branch: main
+workspace_type: worktree
+workspace_name: New session
+workspace_branch: khavinshankar-laughing-memory
+workspace_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory
+repo_root: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory
+default_branch: main
+base_branch: main
+original_generated_branch: khavinshankar-laughing-memory
+current_branch: khavinshankar-laughing-memory
+</copilot_tauri_workspace>
+
+<copilot_working_context>
+container_kind: repository
+current_working_directory: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory
+current_working_directory_is_git_repo: true
+checkout_strategy: worktree
+member_repositories:
+- repo_name: nhcx
+  repo_full_name: unknown
+  main_checkout_path: /Users/khavinshankar/Documents/egov/nhcx
+  main_checkout_branch: main
+  current_checkout_kind: worktree
+  current_checkout_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory
+  current_checkout_branch: khavinshankar-laughing-memory
+</copilot_working_context>
+
+<copilot_artifacts>
+artifacts_dir: /Users/khavinshankar/.copilot/session-state/df6f3ba4-1c63-4cdc-8c95-7d4cce61f0ea/files
+Write scratch artifacts (plans, task lists, notes) in this folder instead of the repo.
+</copilot_artifacts>
+
+<branch_rename_request>
+Before creating or editing any files, call the rename_branch tool with a kebab-case version of the session name you chose.
+</branch_rename_request>
+
+Double check if the entire checkpoints contain the entire ai session or checkpoint data; don't miss out any data, track intent (initial prompt), inputs, reasoning, tool calling, mcp calls, skill reads, plans drafts and every possible metadata and data that can be tracked by entire.
+
+Test this as well and fix any inconsistencies. The goal of this project is to understand how NHCX skills help with full NHCX integration so we need to track all the decisions and agent reasoning to find the gaps. Before we start with NHCX integration, make sure that entire config is properly set for that. Confirm with me before any config changes
+
+---
+
+<copilot_tauri_workspace>
+project_session_id: df6f3ba4-1c63-4cdc-8c95-7d4cce61f0ea
+project_id: d31eff92-45fe-4e4a-91dc-1f66725c7b3d
+project_name: nhcx
+project_github_repo: unknown
+project_default_branch: main
+workspace_type: worktree
+workspace_name: New session
+workspace_branch: khavinshankar-laughing-memory
+workspace_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory
+repo_root: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory
+default_branch: main
+base_branch: main
+original_generated_branch: khavinshankar-laughing-memory
+current_branch: khavinshankar-laughing-memory
+</copilot_tauri_workspace>
+
+<copilot_working_context>
+container_kind: repository
+current_working_directory: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory
+current_working_directory_is_git_repo: true
+checkout_strategy: worktree
+member_repositories:
+- repo_name: nhcx
+  repo_full_name: unknown
+  main_checkout_path: /Users/khavinshankar/Documents/egov/nhcx
+  main_checkout_branch: main
+  current_checkout_kind: worktree
+  current_checkout_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory
+  current_checkout_branch: khavinshankar-laughing-memory
+</copilot_working_context>
+
+<copilot_artifacts>
+artifacts_dir: /Users/khavinshankar/.copilot/session-state/df6f3ba4-1c63-4cdc-8c95-7d4cce61f0ea/files
+Write scratch artifacts (plans, task lists, notes) in this folder instead of the repo.
+</copilot_artifacts>
+
+<branch_rename_request>
+Before creating or editing any files, call the rename_branch tool with a kebab-case version of the session name you chose.
+</branch_rename_request>
+
+Double check if the entire checkpoints contain the entire ai session or checkpoint data; don't miss out any data, track intent (initial prompt), inputs, reasoning, tool calling, mcp calls, skill reads, plans drafts and every possible metadata and data that can be tracked by entire.
+
+Test this as well and fix any inconsistencies. The goal of this project is to understand how NHCX skills help with full NHCX integration so we need to track all the decisions and agent reasoning to find the gaps. Before we start with NHCX integration, make sure that entire config is properly set for that. Confirm with me before any config changes
+
+---
+
+<copilot_tauri_workspace>
+project_session_id: df6f3ba4-1c63-4cdc-8c95-7d4cce61f0ea
+project_id: d31eff92-45fe-4e4a-91dc-1f66725c7b3d
+project_name: nhcx
+project_github_repo: unknown
+project_default_branch: main
+workspace_type: worktree
+workspace_name: New session
+workspace_branch: khavinshankar-laughing-memory
+workspace_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory
+repo_root: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory
+default_branch: main
+base_branch: main
+original_generated_branch: khavinshankar-laughing-memory
+current_branch: khavinshankar-laughing-memory
+</copilot_tauri_workspace>
+
+<copilot_working_context>
+container_kind: repository
+current_working_directory: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory
+current_working_directory_is_git_repo: true
+checkout_strategy: worktree
+member_repositories:
+- repo_name: nhcx
+  repo_full_name: unknown
+  main_checkout_path: /Users/khavinshankar/Documents/egov/nhcx
+  main_checkout_branch: main
+  current_checkout_kind: worktree
+  current_checkout_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory
+  current_checkout_branch: khavinshankar-laughing-memory
+</copilot_working_context>
+
+<copilot_artifacts>
+artifacts_dir: /Users/khavinshankar/.copilot/session-state/df6f3ba4-1c63-4cdc-8c95-7d4cce61f0ea/files
+Write scratch artifacts (plans, task lists, notes) in this folder instead of the repo.
+</copilot_artifacts>
+
+<branch_rename_request>
+Before creating or editing any files, call the rename_branch tool with a kebab-case version of the session name you chose.
+</branch_rename_request>
+
+Double check if the entire checkpoints contain the entire ai session or checkpoint data; don't miss out any data, track intent (initial prompt), inputs, reasoning, tool calling, mcp calls, skill reads, plans drafts and every possible metadata and data that can be tracked by entire.
+
+Test this as well and fix any inconsistencies. The goal of this project is to understand how NHCX skills help with full NHCX integration so we need to track all the decisions and agent reasoning to find the gaps. Before we start with NHCX integration, make sure that entire config is properly set for that. Confirm with me before any config changes

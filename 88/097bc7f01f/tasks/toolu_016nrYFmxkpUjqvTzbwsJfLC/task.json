@@ -1,0 +1,9 @@
+{
+  "tool_use_id": "toolu_016nrYFmxkpUjqvTzbwsJfLC",
+  "agent_id": "021183f1-6f46-4e86-a39e-fe12ef7e0f15",
+  "subagent_type": "explore",
+  "task_description": "Subagent capture probe",
+  "started_at": "2026-10-13T07:58:56.758067+05:30",
+  "completed_at": "2026-10-13T07:58:56.758604+05:30",
+  "transcript_unavailable_reason": "transcript path unresolvable"
+}
