@@ -677,6 +677,15 @@ export interface FacilityProfile {
   gstin: string | null;
 }
 
+// GET/PUT profile/: a blank hfr_id falls back to the care_abdm HIP ID.
+export interface FacilityProfileResponse extends NhcxOk {
+  profile: FacilityProfile;
+  abdm_hf_id: string | null;
+  effective_hfr_id: string | null;
+  hfr_id_source: "profile" | "abdm" | null;
+  can_edit: boolean;
+}
+
 // D2 practitioner profile
 export interface PractitionerProfile {
   user_id?: string;

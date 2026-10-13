@@ -25,6 +25,7 @@ import HealthcareServiceList from "./healthcareService/HealthcareServiceList";
 import HealthcareServiceShow from "./healthcareService/HealthcareServiceShow";
 import LocationImport from "./locations/LocationImport";
 import LocationSettings from "./locations/LocationSettings";
+import NhcxSettings from "./nhcx/NhcxSettings";
 import ObservationDefinitionForm from "./observationDefinition/ObservationDefinitionForm";
 import ObservationDefinitionList from "./observationDefinition/ObservationDefinitionList";
 import ObservationDefinitionView from "./observationDefinition/ObservationDefinitionView";
@@ -226,6 +227,7 @@ const getRoutes = (facilityId: string) => ({
   "/product/:id/edit": ({ id }: { id: string }) => (
     <ProductForm facilityId={facilityId} productId={id} />
   ),
+  "/nhcx": () => <NhcxSettings facilityId={facilityId} />,
   "/token_category": () => <TokenCategoryList facilityId={facilityId} />,
   "/token_category/new": () => <TokenCategoryForm facilityId={facilityId} />,
   "/token_category/:id": ({ id }: { id: string }) => (

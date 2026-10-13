@@ -15,6 +15,7 @@ import {
   EligibilityRequest,
   EnquiryRequest,
   FacilityProfile,
+  FacilityProfileResponse,
   LedgerRow,
   NhcxOk,
   OpenClaimRequest,
@@ -186,13 +187,13 @@ export default {
   getFacilityProfile: {
     path: `${base}/profile/`,
     method: HttpMethod.GET,
-    TRes: Type<FacilityProfile>(),
+    TRes: Type<FacilityProfileResponse>(),
   },
   updateFacilityProfile: {
     path: `${base}/profile/`,
     method: HttpMethod.PUT,
-    TRes: Type<FacilityProfile>(),
-    TBody: Type<FacilityProfile>(),
+    TRes: Type<FacilityProfileResponse>(),
+    TBody: Type<Partial<FacilityProfile>>(),
   },
 
   // outside facility scope

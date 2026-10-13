@@ -200,6 +200,10 @@ function generateFacilityLinks(
           url: `${baseUrl}/settings/tag_config`,
         },
         {
+          name: t("nhcx_settings"),
+          url: `${baseUrl}/settings/nhcx`,
+        },
+        {
           name: t("templates"),
           url: `${baseUrl}/template`,
           visibility: permissions.canListTemplate,
