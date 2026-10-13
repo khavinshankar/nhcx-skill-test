@@ -42,6 +42,7 @@ import { PLUGIN_Component } from "@/PluginEngine";
 import { ShortcutBadge } from "@/Utils/keyboardShortcutComponents";
 import query from "@/Utils/request/query";
 import { TableSkeleton } from "@/components/Common/SkeletonLoading";
+import RegisterWithAbhaButton from "@/components/Nhcx/RegisterWithAbhaButton";
 import { usePermissions } from "@/context/PermissionContext";
 import { useShortcuts, useShortcutSubContext } from "@/context/ShortcutContext";
 import { cn } from "@/lib/utils";
@@ -264,6 +265,7 @@ export default function PatientIndex({ facilityId }: { facilityId: string }) {
                 "w-full",
               )}
             />
+            <RegisterWithAbhaButton facilityId={facilityId} />
             <AddPatientButton
               facilityId={facilityId}
               identifierConfigs={allIdentifierConfigs}

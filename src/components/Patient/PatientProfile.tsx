@@ -14,11 +14,12 @@ import {
 
 import { getPermissions } from "@/common/Permissions";
 
+import PatientNhcxActions from "@/components/Nhcx/PatientNhcxActions";
+import { usePermissions } from "@/context/PermissionContext";
 import { PLUGIN_Component } from "@/PluginEngine";
+import patientApi from "@/types/emr/patient/patientApi";
 import query from "@/Utils/request/query";
 import { formatName } from "@/Utils/utils";
-import { usePermissions } from "@/context/PermissionContext";
-import patientApi from "@/types/emr/patient/patientApi";
 
 import {
   PatientDeceasedInfo,
@@ -179,6 +180,10 @@ export const PatientProfile = (props: {
                           patient={patientData}
                           facilityId={facilityId}
                           className="w-full bg-white font-semibold text-green-800 hover:bg-secondary-200"
+                        />
+                        <PatientNhcxActions
+                          patient={patientData}
+                          facilityId={facilityId}
                         />
                       </div>
                     </div>

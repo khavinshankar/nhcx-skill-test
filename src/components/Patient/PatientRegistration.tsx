@@ -4,6 +4,7 @@ import { DateTimeInput } from "@/components/Common/DateTimeInput";
 import Loading from "@/components/Common/Loading";
 import Page from "@/components/Common/Page";
 import DuplicatePatientDialog from "@/components/Facility/DuplicatePatientDialog";
+import AbhaFormButton from "@/components/Nhcx/AbhaFormButton";
 import GovtOrganizationPicker from "@/components/Organization/GovtOrganizationPicker";
 import { TagSelectorPopover } from "@/components/Tags/TagAssignmentSheet";
 import {
@@ -427,6 +428,11 @@ export const PatientRegistration = ({ patientId }: { patientId?: string }) => {
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="px-1 flex flex-col gap-6">
+                  <AbhaFormButton
+                    form={form}
+                    facility={facility}
+                    isCreate={!patientId}
+                  />
                   <PatientBasicsContent form={form} isCreate={!patientId} />
                 </AccordionContent>
               </AccordionItem>

@@ -128,6 +128,11 @@ function generateFacilityLinks(
       ],
     },
     {
+      name: t("nhcx_claims"),
+      url: `${baseUrl}/claims`,
+      icon: <CareIcon icon="l-file-shield-alt" />,
+    },
+    {
       name: t("settings"),
       url: `${baseUrl}/settings/general`,
       icon: <CareIcon icon="l-setting" />,

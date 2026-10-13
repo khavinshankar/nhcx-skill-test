@@ -20,6 +20,10 @@ import PrintInvoices from "@/pages/Facility/billing/invoice/PrintInvoices";
 import PaymentReconciliationList from "@/pages/Facility/billing/paymentReconciliation/PaymentReconciliationList";
 import PaymentReconciliationShow from "@/pages/Facility/billing/paymentReconciliation/PaymentReconciliationShow";
 import PrintPaymentReconciliation from "@/pages/Facility/billing/paymentReconciliation/PrintPaymentReconciliation";
+import BeneficiaryDiscovery from "@/pages/Facility/claims/BeneficiaryDiscovery";
+import ClaimDetail from "@/pages/Facility/claims/ClaimDetail";
+import ClaimMaster from "@/pages/Facility/claims/ClaimMaster";
+import SearchPolicy from "@/pages/Facility/claims/SearchPolicy";
 import { LocationLayout } from "@/pages/Facility/locations/LocationLayout";
 import { FacilityOverview } from "@/pages/Facility/overview";
 import FacilityServices from "@/pages/Facility/services/FacilityServices";
@@ -168,6 +172,26 @@ const FacilityRoutes: AppRoutes = {
       paymentReconciliationId={paymentReconciliationId}
     />
   ),
+  "/facility/:facilityId/claims": ({ facilityId }) => (
+    <ClaimMaster facilityId={facilityId} />
+  ),
+  "/facility/:facilityId/claims/search": ({ facilityId }) => (
+    <SearchPolicy facilityId={facilityId} />
+  ),
+  "/facility/:facilityId/claims/search/results": ({ facilityId }) => (
+    <SearchPolicy facilityId={facilityId} />
+  ),
+  "/facility/:facilityId/claims/discovery": ({ facilityId }) => (
+    <BeneficiaryDiscovery facilityId={facilityId} />
+  ),
+  "/facility/:facilityId/claims/:claimId": ({ facilityId, claimId }) => (
+    <ClaimDetail facilityId={facilityId} claimId={claimId} />
+  ),
+  "/facility/:facilityId/claims/:claimId/:tab": ({
+    facilityId,
+    claimId,
+    tab,
+  }) => <ClaimDetail facilityId={facilityId} claimId={claimId} tab={tab} />,
   "/facility/:facilityId/template": ({ facilityId }) => (
     <TemplatePage facilityId={facilityId} />
   ),

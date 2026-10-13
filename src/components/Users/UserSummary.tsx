@@ -2,6 +2,7 @@ import { developerModeAtom } from "@/atoms/developerMode";
 import CareIcon from "@/CAREUI/icons/CareIcon";
 import LanguageSelector from "@/components/Common/LanguageSelector";
 import UserColumns, { userChildProps } from "@/components/Common/UserColumns";
+import PractitionerProfileCard from "@/components/Nhcx/PractitionerProfileCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -142,6 +143,12 @@ export default function UserSummaryTab({
                 : t("contact_info_note_view")
           }
           Child={renderContactInformation}
+          childProps={userColumnsData}
+        />
+        <UserColumns
+          heading={t("nhcx_practitioner_profile")}
+          note={t("nhcx_practitioner_profile_note")}
+          Child={PractitionerProfileCard}
           childProps={userColumnsData}
         />
         {"geo_organization" in userData && (
