@@ -10,8 +10,18 @@ from typing import Any
 
 from authlib.jose import JsonWebEncryption
 from cryptography import x509
-from cryptography.hazmat.primitives import serialization
+from cryptography.exceptions import InvalidTag
+from cryptography.hazmat.primitives import (
+    constant_time,
+    hashes,
+    hmac,
+    padding,
+    serialization,
+)
+from cryptography.hazmat.primitives.asymmetric import padding as asym_padding
 from cryptography.hazmat.primitives.asymmetric import rsa
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
 OUT_ALG = "RSA-OAEP-256"
 OUT_ENC = "A256GCM"
@@ -27,6 +37,16 @@ IN_ENCS = (
 DROPPED_HEADERS = ("alg", "enc", "typ")
 NOT_COMPACT = "payload is not a compact JWE (expected five dot-separated parts)"
 COMPACT_PARTS = 5
+# Authlib refuses any JOSE segment longer than this (authlib.jose.util); larger
+# messages, such as a payer's InsurancePlan, are decrypted by _decrypt_large.
+AUTHLIB_SEGMENT_LIMIT = 256000
+_OAEP_HASH = {"RSA-OAEP-256": hashes.SHA256, "RSA-OAEP": hashes.SHA1}
+_GCM_KEY_BYTES = {"A128GCM": 16, "A192GCM": 24, "A256GCM": 32}
+_CBC_HS = {
+    "A128CBC-HS256": (32, hashes.SHA256),
+    "A192CBC-HS384": (48, hashes.SHA384),
+    "A256CBC-HS512": (64, hashes.SHA512),
+}
 
 _PEM_RE = re.compile(
     r"-----BEGIN ([A-Z0-9 ]+)-----\s*(.*?)\s*-----END \1-----", re.DOTALL
@@ -123,12 +143,64 @@ def decrypt(compact: str, private_key: Any) -> bytes:
         raise CryptoError(msg)
     if "zip" in header:
         raise CryptoError("parse JWE: compressed payloads are not accepted")
+    compact = compact.strip()
+    if any(len(part) > AUTHLIB_SEGMENT_LIMIT for part in compact.split(".")):
+        return _decrypt_large(compact, header, private_key)
     try:
-        out = _jwe_in.deserialize_compact(compact.strip(), private_key)
+        out = _jwe_in.deserialize_compact(compact, private_key)
     except Exception as e:
         msg = f"decrypt: {e}"
         raise CryptoError(msg) from e
     return out["payload"]
+
+
+def _decrypt_large(compact: str, header: dict, private_key: Any) -> bytes:
+    """RFC 7516 compact JWE decryption for messages beyond Authlib's segment cap."""
+    alg, enc = header["alg"], header["enc"]
+    protected_s, ek_s, iv_s, ct_s, tag_s = compact.split(".")
+    try:
+        ek, iv, ciphertext, tag = (_b64url_decode(x) for x in (ek_s, iv_s, ct_s, tag_s))
+    except (binascii.Error, ValueError) as e:
+        msg = f"decrypt: invalid JWE segment encoding: {e}"
+        raise CryptoError(msg) from e
+    aad = protected_s.encode("ascii")
+    hash_cls = _OAEP_HASH[alg]
+    try:
+        cek = private_key.decrypt(
+            ek,
+            asym_padding.OAEP(
+                mgf=asym_padding.MGF1(algorithm=hash_cls()),
+                algorithm=hash_cls(),
+                label=None,
+            ),
+        )
+    except Exception as e:
+        msg = f"decrypt: content key could not be unwrapped: {e}"
+        raise CryptoError(msg) from e
+    if enc in _GCM_KEY_BYTES:
+        if len(cek) != _GCM_KEY_BYTES[enc]:
+            raise CryptoError("decrypt: content key length does not match enc")
+        try:
+            return AESGCM(cek).decrypt(iv, ciphertext + tag, aad)
+        except (InvalidTag, ValueError) as e:
+            msg = "decrypt: authentication tag mismatch"
+            raise CryptoError(msg) from e
+    key_len, digest = _CBC_HS[enc]
+    if len(cek) != key_len:
+        raise CryptoError("decrypt: content key length does not match enc")
+    mac_key, enc_key = cek[: key_len // 2], cek[key_len // 2 :]
+    mac = hmac.HMAC(mac_key, digest())
+    mac.update(aad + iv + ciphertext + (len(aad) * 8).to_bytes(8, "big"))
+    if not constant_time.bytes_eq(mac.finalize()[: key_len // 2], tag):
+        raise CryptoError("decrypt: authentication tag mismatch")
+    try:
+        decryptor = Cipher(algorithms.AES(enc_key), modes.CBC(iv)).decryptor()
+        padded = decryptor.update(ciphertext) + decryptor.finalize()
+        unpadder = padding.PKCS7(algorithms.AES.block_size).unpadder()
+        return unpadder.update(padded) + unpadder.finalize()
+    except ValueError as e:
+        msg = f"decrypt: {e}"
+        raise CryptoError(msg) from e
 
 
 def decode_key_material(text: str) -> str:

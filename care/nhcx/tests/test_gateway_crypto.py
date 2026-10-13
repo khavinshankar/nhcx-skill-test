@@ -99,6 +99,40 @@ class CryptoTests(SimpleTestCase):
         with self.assertRaises(crypto.CryptoError):
             crypto.decrypt(jwe, self.priv)
 
+    def _large(self) -> bytes:
+        return b'{"x":"' + b"a" * (crypto.AUTHLIB_SEGMENT_LIMIT * 2) + b'"}'
+
+    def test_large_payload_beyond_authlib_segment_limit(self):
+        payload = self._large()
+        jwe = crypto.encrypt(payload, self.pub, {})
+        self.assertGreater(len(jwe.split(".")[3]), crypto.AUTHLIB_SEGMENT_LIMIT)
+        self.assertEqual(crypto.decrypt(jwe, self.priv), payload)
+
+    def test_large_payload_other_algorithms(self):
+        from authlib.jose import JsonWebEncryption
+
+        payload = self._large()
+        for alg in crypto.IN_ALGS:
+            for enc in crypto.IN_ENCS:
+                jwe = JsonWebEncryption(algorithms=[alg, enc]).serialize_compact(
+                    {"alg": alg, "enc": enc}, payload, self.pub
+                )
+                with self.subTest(alg=alg, enc=enc):
+                    self.assertEqual(crypto.decrypt(jwe.decode(), self.priv), payload)
+
+    def test_large_payload_tampered_or_wrong_key(self):
+        payload = self._large()
+        jwe = crypto.encrypt(payload, self.pub, {})
+        parts = jwe.split(".")
+        parts[4] = "A" * len(parts[4])
+        with self.assertRaisesMessage(crypto.CryptoError, "tag mismatch"):
+            crypto.decrypt(".".join(parts), self.priv)
+        other = crypto.encrypt(
+            payload, crypto.parse_public_key(key("payer-cert.pem")), {}
+        )
+        with self.assertRaises(crypto.CryptoError):
+            crypto.decrypt(other, self.priv)
+
     def test_not_compact(self):
         with self.assertRaisesMessage(crypto.CryptoError, crypto.NOT_COMPACT):
             crypto.decrypt("a.b.c", self.priv)
