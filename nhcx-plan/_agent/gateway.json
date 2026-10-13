@@ -1,0 +1,1776 @@
+{
+ "files": [
+  {
+   "path": "care/care/nhcx/gateway/__init__.py",
+   "status": "created",
+   "plan_step": "P1.4",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G1"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "unmatched_receive",
+     "lines": [
+      34,
+      36
+     ],
+     "implements": [
+      "G1"
+     ]
+    },
+    {
+     "name": "get_gateway",
+     "lines": [
+      109,
+      134
+     ],
+     "implements": [
+      "G1"
+     ]
+    },
+    {
+     "name": "gateway_status",
+     "lines": [
+      137,
+      142
+     ],
+     "implements": [
+      "G1"
+     ]
+    },
+    {
+     "name": "set_gateway",
+     "lines": [
+      145,
+      149
+     ],
+     "implements": [
+      "G1"
+     ]
+    },
+    {
+     "name": "reset_gateway",
+     "lines": [
+      152,
+      157
+     ],
+     "implements": [
+      "G1"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/errors.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G7",
+     "G8"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "clip",
+     "lines": [
+      11,
+      19
+     ],
+     "implements": [
+      "G7",
+      "G8"
+     ]
+    },
+    {
+     "name": "json_or_text",
+     "lines": [
+      22,
+      29
+     ],
+     "implements": [
+      "G7",
+      "G8"
+     ]
+    },
+    {
+     "name": "retryable_status",
+     "lines": [
+      32,
+      33
+     ],
+     "implements": [
+      "G7",
+      "G8"
+     ]
+    },
+    {
+     "name": "GatewayError",
+     "lines": [
+      36,
+      70
+     ],
+     "implements": [
+      "G7",
+      "G8"
+     ]
+    },
+    {
+     "name": "as_gateway_error",
+     "lines": [
+      73,
+      76
+     ],
+     "implements": [
+      "G7",
+      "G8"
+     ]
+    },
+    {
+     "name": "GatewayNotConfigured",
+     "lines": [
+      79,
+      89
+     ],
+     "implements": [
+      "G7",
+      "G8"
+     ]
+    },
+    {
+     "name": "SendError",
+     "lines": [
+      92,
+      163
+     ],
+     "implements": [
+      "G7",
+      "G8"
+     ]
+    },
+    {
+     "name": "SendInTransactionError",
+     "lines": [
+      166,
+      167
+     ],
+     "implements": [
+      "G7",
+      "G8"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/config.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G2"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "ConfigError",
+     "lines": [
+      94,
+      95
+     ],
+     "implements": [
+      "G2"
+     ]
+    },
+    {
+     "name": "ParticipantEntry",
+     "lines": [
+      133,
+      149
+     ],
+     "implements": [
+      "G2"
+     ]
+    },
+    {
+     "name": "Config",
+     "lines": [
+      153,
+      190
+     ],
+     "implements": [
+      "G2"
+     ]
+    },
+    {
+     "name": "load_config",
+     "lines": [
+      215,
+      261
+     ],
+     "implements": [
+      "G2"
+     ]
+    },
+    {
+     "name": "url_error",
+     "lines": [
+      315,
+      324
+     ],
+     "implements": [
+      "G2"
+     ]
+    },
+    {
+     "name": "validate",
+     "lines": [
+      327,
+      391
+     ],
+     "implements": [
+      "G2"
+     ]
+    },
+    {
+     "name": "validate_serve",
+     "lines": [
+      394,
+      399
+     ],
+     "implements": [
+      "G2"
+     ]
+    },
+    {
+     "name": "Profile",
+     "lines": [
+      403,
+      414
+     ],
+     "implements": [
+      "G2"
+     ]
+    },
+    {
+     "name": "Profiles",
+     "lines": [
+      417,
+      444
+     ],
+     "implements": [
+      "G2"
+     ]
+    },
+    {
+     "name": "build_profiles",
+     "lines": [
+      447,
+      461
+     ],
+     "implements": [
+      "G2"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/token.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G3"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "utc_ms_timestamp",
+     "lines": [
+      24,
+      26
+     ],
+     "implements": [
+      "G3"
+     ]
+    },
+    {
+     "name": "TokenCache",
+     "lines": [
+      52,
+      97
+     ],
+     "implements": [
+      "G3"
+     ]
+    },
+    {
+     "name": "AbdmClient",
+     "lines": [
+      100,
+      299
+     ],
+     "implements": [
+      "G3"
+     ]
+    },
+    {
+     "name": "token_payload",
+     "lines": [
+      302,
+      310
+     ],
+     "implements": [
+      "G3"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/registry.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G4"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "CertCache",
+     "lines": [
+      19,
+      24
+     ],
+     "implements": [
+      "G4"
+     ]
+    },
+    {
+     "name": "RegistryClient",
+     "lines": [
+      53,
+      187
+     ],
+     "implements": [
+      "G4"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/headers.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G5"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "normalize_code",
+     "lines": [
+      37,
+      41
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "same_code",
+     "lines": [
+      44,
+      45
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "clean_path",
+     "lines": [
+      48,
+      49
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "new_id",
+     "lines": [
+      52,
+      53
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "is_id",
+     "lines": [
+      56,
+      66
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "ensure_id",
+     "lines": [
+      69,
+      70
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "is_response_path",
+     "lines": [
+      77,
+      78
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "default_status",
+     "lines": [
+      81,
+      82
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "entity_type",
+     "lines": [
+      85,
+      94
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "get_string",
+     "lines": [
+      97,
+      101
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "build_protected_headers",
+     "lines": [
+      104,
+      127
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "timestamp",
+     "lines": [
+      130,
+      133
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "ack_timestamp",
+     "lines": [
+      136,
+      139
+     ],
+     "implements": [
+      "G5"
+     ]
+    },
+    {
+     "name": "target_url",
+     "lines": [
+      142,
+      149
+     ],
+     "implements": [
+      "G5"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/crypto.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G6"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "CryptoError",
+     "lines": [
+      39,
+      40
+     ],
+     "implements": [
+      "G6"
+     ]
+    },
+    {
+     "name": "is_compact_jwe",
+     "lines": [
+      48,
+      52
+     ],
+     "implements": [
+      "G6"
+     ]
+    },
+    {
+     "name": "flattened_to_compact",
+     "lines": [
+      55,
+      66
+     ],
+     "implements": [
+      "G6"
+     ]
+    },
+    {
+     "name": "encrypt",
+     "lines": [
+      69,
+      85
+     ],
+     "implements": [
+      "G6"
+     ]
+    },
+    {
+     "name": "parse_header",
+     "lines": [
+      88,
+      104
+     ],
+     "implements": [
+      "G6"
+     ]
+    },
+    {
+     "name": "decrypt",
+     "lines": [
+      107,
+      131
+     ],
+     "implements": [
+      "G6"
+     ]
+    },
+    {
+     "name": "decode_key_material",
+     "lines": [
+      134,
+      151
+     ],
+     "implements": [
+      "G6"
+     ]
+    },
+    {
+     "name": "parse_private_key",
+     "lines": [
+      164,
+      190
+     ],
+     "implements": [
+      "G6"
+     ]
+    },
+    {
+     "name": "parse_public_key",
+     "lines": [
+      193,
+      217
+     ],
+     "implements": [
+      "G6"
+     ]
+    },
+    {
+     "name": "public_numbers_equal",
+     "lines": [
+      220,
+      226
+     ],
+     "implements": [
+      "G6"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/send.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G7"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "OutboundRequest",
+     "lines": [
+      40,
+      43
+     ],
+     "implements": [
+      "G7"
+     ]
+    },
+    {
+     "name": "SendResult",
+     "lines": [
+      47,
+      84
+     ],
+     "implements": [
+      "G7"
+     ]
+    },
+    {
+     "name": "ensure_not_in_transaction",
+     "lines": [
+      87,
+      103
+     ],
+     "implements": [
+      "G7"
+     ]
+    },
+    {
+     "name": "parse_outbound",
+     "lines": [
+      120,
+      144
+     ],
+     "implements": [
+      "G7"
+     ]
+    },
+    {
+     "name": "dispatch",
+     "lines": [
+      166,
+      183
+     ],
+     "implements": [
+      "G7"
+     ]
+    },
+    {
+     "name": "send",
+     "lines": [
+      186,
+      312
+     ],
+     "implements": [
+      "G7"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/receive.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G8"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "Inbound",
+     "lines": [
+      38,
+      48
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "InboundAnswer",
+     "lines": [
+      52,
+      56
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "kit_type",
+     "lines": [
+      59,
+      61
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "kit_flow",
+     "lines": [
+      64,
+      65
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "normalise",
+     "lines": [
+      68,
+      73
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "acceptance",
+     "lines": [
+      76,
+      91
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "error_body",
+     "lines": [
+      94,
+      104
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "peek_headers",
+     "lines": [
+      114,
+      128
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "decrypt_for",
+     "lines": [
+      138,
+      157
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "receive",
+     "lines": [
+      160,
+      221
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "participant",
+     "lines": [
+      224,
+      229
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "deliver",
+     "lines": [
+      240,
+      293
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "record_inbound",
+     "lines": [
+      296,
+      341
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "handle_inbound",
+     "lines": [
+      344,
+      384
+     ],
+     "implements": [
+      "G8"
+     ]
+    },
+    {
+     "name": "not_open_answer",
+     "lines": [
+      387,
+      391
+     ],
+     "implements": [
+      "G8"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/ledger.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G9"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "b32",
+     "lines": [
+      77,
+      82
+     ],
+     "implements": [
+      "G9"
+     ]
+    },
+    {
+     "name": "unb32",
+     "lines": [
+      85,
+      89
+     ],
+     "implements": [
+      "G9"
+     ]
+    },
+    {
+     "name": "day_code",
+     "lines": [
+      92,
+      94
+     ],
+     "implements": [
+      "G9"
+     ]
+    },
+    {
+     "name": "day_of_id",
+     "lines": [
+      97,
+      114
+     ],
+     "implements": [
+      "G9"
+     ]
+    },
+    {
+     "name": "now_rfc3339",
+     "lines": [
+      117,
+      118
+     ],
+     "implements": [
+      "G9"
+     ]
+    },
+    {
+     "name": "parse_time",
+     "lines": [
+      121,
+      130
+     ],
+     "implements": [
+      "G9"
+     ]
+    },
+    {
+     "name": "summarize",
+     "lines": [
+      133,
+      186
+     ],
+     "implements": [
+      "G9"
+     ]
+    },
+    {
+     "name": "Ledger",
+     "lines": [
+      216,
+      578
+     ],
+     "implements": [
+      "G9"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/beneficiary.py",
+   "status": "created",
+   "plan_step": "P1.3",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G10"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "BeneficiaryRegistry",
+     "lines": [
+      15,
+      53
+     ],
+     "implements": [
+      "G10"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/checks.py",
+   "status": "created",
+   "plan_step": "P1.3",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G11"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "probe_key",
+     "lines": [
+      33,
+      35
+     ],
+     "implements": [
+      "G11"
+     ]
+    },
+    {
+     "name": "ack",
+     "lines": [
+      38,
+      39
+     ],
+     "implements": [
+      "G11"
+     ]
+    },
+    {
+     "name": "verify",
+     "lines": [
+      42,
+      43
+     ],
+     "implements": [
+      "G11"
+     ]
+    },
+    {
+     "name": "gateway_probe_key",
+     "lines": [
+      46,
+      48
+     ],
+     "implements": [
+      "G11"
+     ]
+    },
+    {
+     "name": "healthz",
+     "lines": [
+      51,
+      67
+     ],
+     "implements": [
+      "G11"
+     ]
+    },
+    {
+     "name": "readyz",
+     "lines": [
+      70,
+      73
+     ],
+     "implements": [
+      "G11"
+     ]
+    },
+    {
+     "name": "explain",
+     "lines": [
+      76,
+      81
+     ],
+     "implements": [
+      "G11"
+     ]
+    },
+    {
+     "name": "run_checks",
+     "lines": [
+      84,
+      165
+     ],
+     "implements": [
+      "G11"
+     ]
+    },
+    {
+     "name": "test_endpoint",
+     "lines": [
+      168,
+      206
+     ],
+     "implements": [
+      "G11"
+     ]
+    },
+    {
+     "name": "check",
+     "lines": [
+      209,
+      253
+     ],
+     "implements": [
+      "G11"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/embedding.py",
+   "status": "created",
+   "plan_step": "P1.4",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G1"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "Gateway",
+     "lines": [
+      37,
+      202
+     ],
+     "implements": [
+      "G1"
+     ]
+    },
+    {
+     "name": "open_gateway",
+     "lines": [
+      205,
+      231
+     ],
+     "implements": [
+      "G1"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/views.py",
+   "status": "created",
+   "plan_step": "P1.4",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G1",
+     "G8",
+     "G11"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "gateway_route",
+     "lines": [
+      59,
+      79
+     ],
+     "implements": [
+      "G1",
+      "G8",
+      "G11"
+     ]
+    },
+    {
+     "name": "inbound",
+     "lines": [
+      84,
+      102
+     ],
+     "implements": [
+      "G1",
+      "G8",
+      "G11"
+     ]
+    },
+    {
+     "name": "healthz",
+     "lines": [
+      107,
+      126
+     ],
+     "implements": [
+      "G1",
+      "G8",
+      "G11"
+     ]
+    },
+    {
+     "name": "readyz",
+     "lines": [
+      131,
+      136
+     ],
+     "implements": [
+      "G1",
+      "G8",
+      "G11"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/urls.py",
+   "status": "created",
+   "plan_step": "P1.4",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G1"
+    ]
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/tasks.py",
+   "status": "created",
+   "plan_step": "P1.4",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G1",
+     "G3",
+     "G9"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "refresh_tokens",
+     "lines": [
+      33,
+      37
+     ],
+     "implements": [
+      "G1",
+      "G3",
+      "G9"
+     ]
+    },
+    {
+     "name": "prune_ledger",
+     "lines": [
+      41,
+      45
+     ],
+     "implements": [
+      "G1",
+      "G3",
+      "G9"
+     ]
+    },
+    {
+     "name": "check_gateway",
+     "lines": [
+      49,
+      55
+     ],
+     "implements": [
+      "G1",
+      "G3",
+      "G9"
+     ]
+    },
+    {
+     "name": "setup_periodic_tasks",
+     "lines": [
+      67,
+      71
+     ],
+     "implements": [
+      "G1",
+      "G3",
+      "G9"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check + python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/config/settings/base.py",
+   "status": "modified",
+   "plan_step": "P1.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G1",
+     "G2"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "NHCX settings block",
+     "lines": [
+      745,
+      779
+     ],
+     "implements": [
+      "G1",
+      "G2"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/config/urls.py",
+   "status": "modified",
+   "plan_step": "P1.4",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G1"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "gateway url includes",
+     "lines": [
+      66,
+      68
+     ],
+     "implements": [
+      "G1"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/gateway/config.example.json",
+   "status": "created",
+   "plan_step": "P1.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G2"
+    ]
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/tests/test_gateway_config.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/tests/test_gateway_crypto.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/tests/test_gateway_send.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/tests/test_gateway_receive.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/tests/test_gateway_ledger.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/tests/test_gateway_checks.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/tests/gateway_helpers.py",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh python manage.py check",
+    "notes": ""
+   },
+   "blocked_reason": null
+  },
+  {
+   "path": "care/care/nhcx/tests/fixtures/keys/",
+   "status": "created",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G6"
+    ]
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh python manage.py check",
+    "notes": "test-only RSA key pairs (facility, payer): PKCS#8, PKCS#1, public PEM, self-signed cert"
+   },
+   "blocked_reason": null
+  }
+ ],
+ "tests": {
+  "command": "dtest.sh python manage.py test care.nhcx.tests.test_gateway_config care.nhcx.tests.test_gateway_crypto care.nhcx.tests.test_gateway_send care.nhcx.tests.test_gateway_receive care.nhcx.tests.test_gateway_ledger care.nhcx.tests.test_gateway_checks --keepdb",
+  "result": "85 tests OK (SimpleTestCase, no DB, no network); ruff check + format clean on changed files; manage.py check: no issues"
+ },
+ "corrections": [
+  {
+   "spec": "G3",
+   "what": "G3 lists live.abdm.gov.in for the production sessions URL; G2/CORE give apis.abdm.gov.in/api/hiecm/gateway/v3/sessions. Used G2 (config is the single source of defaults).",
+   "source": "G2 ENV table, CORE.md"
+  },
+  {
+   "spec": "G4",
+   "what": "G4 gives apis.abdm.gov.in/pmjay/hcx as production registry base; G2 gives apisprod.nha.gov.in/pmjay/hcx/participanthcxservice. Used G2.",
+   "source": "G2 ENV table"
+  },
+  {
+   "spec": "G8",
+   "what": "G8D prose says an unmatched message writes no row, but the G8 pseudocode/table record it as delivered. Followed the pseudocode: every inbound is recorded (status delivered, peer.outcome=unmatched).",
+   "source": "G8 pseudocode"
+  },
+  {
+   "spec": "G8",
+   "what": "Inbound also accepts a flattened JWE (protected/encrypted_key/iv/ciphertext/tag) and cleartext type:ProtocolResponse bodies (payloadType protocol).",
+   "source": "nhcx-docs MCP (protocol error responses)"
+  },
+  {
+   "spec": "G2",
+   "what": "Keys starting with $comment are allowed anywhere in the config so the example file can document every key; all other unknown keys are still rejected.",
+   "source": "implementation decision"
+  },
+  {
+   "spec": "G1",
+   "what": "In CARE the G1 background loops run as Celery beat tasks (care.nhcx.tasks.refresh_tokens every 60 s, prune_ledger hourly, check_gateway on worker_ready), only where settings.NHCX_ROLE is true. Gateway.start()/stop() keep the thread loops for hosts without Celery.",
+   "source": "SCAFFOLDING 7, task brief"
+  },
+  {
+   "spec": "G7",
+   "what": "send() refuses to run inside a caller's atomic block (SendInTransactionError, a RuntimeError, not a SendError); atomic blocks opened by Django TestCase (_from_testcase) are ignored so services stay testable.",
+   "source": "SCAFFOLDING 8"
+  },
+  {
+   "spec": "G9",
+   "what": "Ledger is safe across processes (gunicorn workers + celery): an fcntl lock on <dir>/.lock around id allocation and writes, and each reader refreshes its in-memory index incrementally from <day>/index.jsonl before queries.",
+   "source": "implementation decision (multi-process deployment)"
+  },
+  {
+   "spec": "G3",
+   "what": "Session tokens are also shared through Django's default cache (settings.NHCX_SHARED_TOKEN_CACHE, default true) so the refresher process warms tokens for web workers.",
+   "source": "implementation decision"
+  },
+  {
+   "spec": "G5",
+   "what": "x-hcx-timestamp and the acceptance timestamp use the Django time zone (Asia/Kolkata in CARE) rather than the container's process zone; @hcx suffix detection is case-insensitive.",
+   "source": "implementation decision"
+  }
+ ],
+ "notes": [
+  "Public surface: care.nhcx.gateway.get_gateway() -> Gateway (raises GatewayNotConfigured, code NOT_CONFIGURED; a failed open is retried at most every 60 s); gateway_status() -> (Gateway|None, cause|None); set_gateway(gw)/reset_gateway() for tests.",
+  "Send: get_gateway().send(path: str, envelope: dict) -> SendResult(ok, path, url, headers, gateway_status, response, duration_ms, ledger_id, txn_id, correlation_id, api_call_id, request_id; .error_code/.error_message when ok is false; .to_dict()). Raises SendError(code, message, retryable, upstream_status, upstream_body, ledger_id/txn_id, correlation_id, api_call_id, request_id, headers; .to_dict()) and SendInTransactionError. ok=false (NHCX answered non-2xx) is a result, not an exception. care.nhcx.gateway.send is the G7 module, there is no package-level send function.",
+  "Envelope keys: fhir (or payload; object or JSON string), jwe_headers, any x-hcx-* key, and aliases sender, recipient, correlation_id, request_id, api_call_id, workflow_id, status.",
+  "Ledger (gw.ledger): related(txn_id) -> [Row]; fhir(txn_id) -> {meta:{type,payloadType,path,time}, jwe_headers, fhir}; dispatch(txn_id) -> {txnId, status: dispatched|dispatch_failed|<raw>, errorCode?, errorMessage?}; list(limit=200) -> [Row] newest first; get(id) -> full entry dict | None; thread(correlation_id) -> dict|None. Row = {id, direction, status, sender, recipient, correlation_id, api_call_id, type, flow, created_at}. Errors are GatewayError with code NO_TXN_ID, TXN_NOT_FOUND, LEDGER_DISABLED, LEDGER_CORRUPT.",
+  "Beneficiary: gw.beneficiary.policies_search(query: dict) -> {status: int, body: parsed JSON or {error: text}}; query keys identifiertype/identifiervalue, or mobile, or abhaNo; raises GatewayError NO_IDENTIFIER. Also abha_link(body), abha_delink(body).",
+  "Tokens: gw.token(participant=None, refresh=False) -> {token, token_type, expires_at, expires_in, participant}; gw.refresh_token(participant).",
+  "C1 contract: receive(envelope, delivery) where envelope={meta:{type:'in',payloadType,path,ip,time,redelivery,participant}, jwe_headers, fhir} and delivery={path,type,flow,payload_kind,correlation_id,api_call_id,redelivery,participant}; return 'settled'|'unmatched'|'ignored'|'rejected' (string, enum with .value, or {outcome, detail}); anything else or an exception gives 502 RECEIVE_FAILED so NHCX redelivers. Resolved lazily from settings.NHCX_RECEIVE_HANDLER; when not importable every message is answered unmatched.",
+  "Routes (root and /api/gateway/): POST /in/<path>, POST /v1/<rest>, GET|POST /healthz, GET|POST /in/healthz, GET /readyz. Not-configured: inbound answers 202 unmatched, readyz 503.",
+  "No code commits were made by this agent (coordinator commits)."
+ ]
+}

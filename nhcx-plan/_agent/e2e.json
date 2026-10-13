@@ -1,0 +1,2727 @@
+{
+  "files": [
+    {
+      "path": "care/care/nhcx/management/__init__.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 0,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": []
+    },
+    {
+      "path": "care/care/nhcx/management/commands/__init__.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 0,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": []
+    },
+    {
+      "path": "care/care/nhcx/management/commands/nhcx_e2e.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 396,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "Command",
+          "lines": "37-354",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_runners",
+          "lines": "357-358",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_blocked",
+          "lines": "361-374",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_remove_seeds",
+          "lines": "377-388",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_exit_for",
+          "lines": "391-396",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/.gitignore",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 2,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1"
+        ]
+      },
+      "symbols": []
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/__init__.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 6,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": []
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/abdm_fake.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 106,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "AbdmFake",
+          "lines": "18-106",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/checks.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 92,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "_row",
+          "lines": "9-10",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_reachable",
+          "lines": "13-20",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "run",
+          "lines": "23-65",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_adapters",
+          "lines": "71-88",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "failed",
+          "lines": "91-92",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/cli/__init__.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 0,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": []
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/cli/runner.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 262,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "StepFailed",
+          "lines": "23-26",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "Blocked",
+          "lines": "29-32",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "Refused",
+          "lines": "35-38",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_short",
+          "lines": "41-43",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "Ctx",
+          "lines": "46-196",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_sandbox_text",
+          "lines": "210-211",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "ledger_ids",
+          "lines": "214-228",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "run_one",
+          "lines": "231-262",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/config.example.env",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 52,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1"
+        ]
+      },
+      "symbols": []
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/config.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 150,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "read_env_file",
+          "lines": "63-73",
+          "implements": [
+            "T1"
+          ]
+        },
+        {
+          "name": "write_env_value",
+          "lines": "76-86",
+          "implements": [
+            "T1"
+          ]
+        },
+        {
+          "name": "Config",
+          "lines": "90-137",
+          "implements": [
+            "T1"
+          ]
+        },
+        {
+          "name": "load",
+          "lines": "140-150",
+          "implements": [
+            "T1"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/fixtures/pmjay-plan.json",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 142,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T2",
+          "T13",
+          "T14",
+          "T15",
+          "T16",
+          "T17",
+          "T18",
+          "T19"
+        ]
+      },
+      "symbols": []
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/payer/__init__.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 0,
+      "implements": {
+        "screens": [],
+        "apis": [
+          "A14",
+          "A15"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": []
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/payer/driver.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 222,
+      "implements": {
+        "screens": [],
+        "apis": [
+          "A14",
+          "A15"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "_claim",
+          "lines": "21-24",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "read",
+          "lines": "27-34",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "auto_decided",
+          "lines": "37-40",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "read_when_there",
+          "lines": "43-62",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_not_logged_yet",
+          "lines": "68-76",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "decide",
+          "lines": "79-114",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_irdai",
+          "lines": "120-128",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_irdai_current",
+          "lines": "131-140",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "irdai_case",
+          "lines": "143-151",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_line_items",
+          "lines": "154-159",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "irdai_lines",
+          "lines": "162-193",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "irdai_pay",
+          "lines": "196-222",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/report.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 50,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "read",
+          "lines": "13-18",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "summary",
+          "lines": "21-26",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_order",
+          "lines": "29-32",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "merge",
+          "lines": "35-50",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/__init__.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 125,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "_load",
+          "lines": "95-99",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "all_scenarios",
+          "lines": "102-116",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "select",
+          "lines": "119-125",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/common.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 1031,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "Scenario",
+          "lines": "28-35",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "payer_code",
+          "lines": "38-39",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "member_id",
+          "lines": "42-47",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "search",
+          "lines": "50-59",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "patient_for",
+          "lines": "62-66",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "open_claim",
+          "lines": "69-106",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "eligibility",
+          "lines": "109-142",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_patient_with_claim_abha",
+          "lines": "145-159",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "admit",
+          "lines": "162-183",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "request_plan",
+          "lines": "186-197",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "wait_plan",
+          "lines": "200-220",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "add_line",
+          "lines": "223-235",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "first_package",
+          "lines": "238-241",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "rule",
+          "lines": "244-278",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "upload",
+          "lines": "281-299",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_answer",
+          "lines": "302-323",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "answer_forms",
+          "lines": "326-352",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "attach_required",
+          "lines": "355-363",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "fill_draft",
+          "lines": "366-392",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "preauth_row",
+          "lines": "395-398",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "submit_preauth",
+          "lines": "401-421",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "wait_preauth",
+          "lines": "424-437",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "decide",
+          "lines": "440-483",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_case_view",
+          "lines": "486-490",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "prepare_irdai",
+          "lines": "493-504",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "approved_preauth",
+          "lines": "507-518",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "discharge",
+          "lines": "521-533",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "submission_row",
+          "lines": "536-539",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "submit_claim",
+          "lines": "542-559",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "wait_claim",
+          "lines": "562-574",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "packages",
+          "lines": "580-590",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_handoff_path",
+          "lines": "593-596",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "hand_over",
+          "lines": "599-607",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "taken_over",
+          "lines": "610-615",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "wait_query",
+          "lines": "621-636",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_text",
+          "lines": "639-641",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "last_query_id",
+          "lines": "644-648",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "enquire",
+          "lines": "651-664",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "wait_enquiry",
+          "lines": "667-683",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "cancel_preauth",
+          "lines": "686-709",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "payments",
+          "lines": "712-715",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "pay",
+          "lines": "718-772",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "decide_refused",
+          "lines": "775-781",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "desk_case",
+          "lines": "784-790",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "desk_reply_view",
+          "lines": "793-802",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "preauth_history",
+          "lines": "805-807",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "item_view",
+          "lines": "810-819",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "thread_verdicts",
+          "lines": "822-843",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "open_preauths",
+          "lines": "846-863",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "free_beneficiary",
+          "lines": "866-904",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "free_beneficiary_report",
+          "lines": "907-917",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "seed_plan",
+          "lines": "928-939",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "plan_once",
+          "lines": "942-964",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "prepare_pmjay",
+          "lines": "967-978",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "program_codes",
+          "lines": "981-991",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "pmjay_decision",
+          "lines": "994-996",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "pmjay_preauth",
+          "lines": "999-1012",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "inbound",
+          "lines": "1015-1023",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "wait_ack",
+          "lines": "1026-1031",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t03_irdai_policy_and_eligibility.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 28,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T3"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "run",
+          "lines": "6-28",
+          "implements": [
+            "T3"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t04_irdai_plan_and_auth_requirements.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 26,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T4"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "run",
+          "lines": "6-26",
+          "implements": [
+            "T4"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t05_irdai_preauth_approved.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 23,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T5"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "run",
+          "lines": "6-23",
+          "implements": [
+            "T5"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t06_irdai_preauth_rejected.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 43,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T6"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "run",
+          "lines": "9-43",
+          "implements": [
+            "T6"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t07_irdai_query_answered.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 48,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T7"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "run",
+          "lines": "8-48",
+          "implements": [
+            "T7"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t08_irdai_enhancement.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 38,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T8"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "run",
+          "lines": "6-38",
+          "implements": [
+            "T8"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t09_irdai_cancel_and_status.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 58,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T9"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "run",
+          "lines": "6-58",
+          "implements": [
+            "T9"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t10_irdai_claim.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 85,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T10"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "_send",
+          "lines": "11-19",
+          "implements": [
+            "T10"
+          ]
+        },
+        {
+          "name": "run",
+          "lines": "22-85",
+          "implements": [
+            "T10"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t11_irdai_payment.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 53,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T11"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "run",
+          "lines": "10-53",
+          "implements": [
+            "T11"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t12_irdai_reprocess_and_release.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 101,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T12"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "_rejected_claim",
+          "lines": "8-28",
+          "implements": [
+            "T12"
+          ]
+        },
+        {
+          "name": "_part_paid_claim",
+          "lines": "31-47",
+          "implements": [
+            "T12"
+          ]
+        },
+        {
+          "name": "run",
+          "lines": "50-101",
+          "implements": [
+            "T12"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t13_pmjay_eligibility_and_package_master.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 48,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T13"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "run",
+          "lines": "6-48",
+          "implements": [
+            "T13"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t14_pmjay_preauth_adjudicated.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 23,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T14"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "run",
+          "lines": "6-23",
+          "implements": [
+            "T14"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t15_pmjay_query_by_resubmission.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 43,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T15"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "run",
+          "lines": "7-43",
+          "implements": [
+            "T15"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t16_pmjay_rejection_and_enhancement.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 76,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T16"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "_reject",
+          "lines": "10-31",
+          "implements": [
+            "T16"
+          ]
+        },
+        {
+          "name": "run",
+          "lines": "34-76",
+          "implements": [
+            "T16"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t17_pmjay_claim_adjudicated.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 96,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T17"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "_approved",
+          "lines": "7-17",
+          "implements": [
+            "T17"
+          ]
+        },
+        {
+          "name": "_send",
+          "lines": "20-35",
+          "implements": [
+            "T17"
+          ]
+        },
+        {
+          "name": "_no_resubmit",
+          "lines": "38-49",
+          "implements": [
+            "T17"
+          ]
+        },
+        {
+          "name": "run",
+          "lines": "52-96",
+          "implements": [
+            "T17"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t18_pmjay_payment_status_cancel.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 112,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T18"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "_answered",
+          "lines": "10-11",
+          "implements": [
+            "T18"
+          ]
+        },
+        {
+          "name": "_status_refused",
+          "lines": "14-47",
+          "implements": [
+            "T18"
+          ]
+        },
+        {
+          "name": "_payment",
+          "lines": "50-82",
+          "implements": [
+            "T18"
+          ]
+        },
+        {
+          "name": "run",
+          "lines": "85-112",
+          "implements": [
+            "T18"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/scenarios/t19_pmjay_biometric_and_abha.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 164,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T19"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "_out",
+          "lines": "20-32",
+          "implements": [
+            "T19"
+          ]
+        },
+        {
+          "name": "_consent_in",
+          "lines": "35-42",
+          "implements": [
+            "T19"
+          ]
+        },
+        {
+          "name": "_bio",
+          "lines": "45-52",
+          "implements": [
+            "T19"
+          ]
+        },
+        {
+          "name": "run",
+          "lines": "55-65",
+          "implements": [
+            "T19"
+          ]
+        },
+        {
+          "name": "_drop_stand_in_tokens",
+          "lines": "68-77",
+          "implements": [
+            "T19"
+          ]
+        },
+        {
+          "name": "_run",
+          "lines": "80-164",
+          "implements": [
+            "T19"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/seed.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 136,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "load",
+          "lines": "13-18",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_identifier",
+          "lines": "21-23",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "parsed",
+          "lines": "26-99",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "is_seeded",
+          "lines": "102-104",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "apply",
+          "lines": "107-125",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "remove",
+          "lines": "128-136",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/care/nhcx/tests/e2e/setup_data.py",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 255,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "_password",
+          "lines": "28-31",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_superuser",
+          "lines": "34-41",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_fixture_base",
+          "lines": "44-52",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_geo_org",
+          "lines": "55-66",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_facility",
+          "lines": "69-79",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "registry_hfr",
+          "lines": "82-87",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_profile",
+          "lines": "90-103",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_root_org",
+          "lines": "106-113",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_user",
+          "lines": "116-147",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_doctor_profile",
+          "lines": "150-160",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_patient",
+          "lines": "163-206",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "_policy",
+          "lines": "209-215",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "run",
+          "lines": "218-255",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care/scripts/nhcx-e2e.sh",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 74,
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": []
+    },
+    {
+      "path": "care_fe/tests/nhcx/helpers.ts",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 654,
+      "implements": {
+        "screens": [
+          "claims",
+          "Nhcx components (driven by visible labels)"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1",
+          "T2"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "E2E_DIR",
+          "lines": "9",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "ARTIFACTS",
+          "lines": "13",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "CONTAINER",
+          "lines": "14",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "CONTAINER_E2E_DIR",
+          "lines": "16",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "WAIT_MS",
+          "lines": "19",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "POLL_AFTER_MS",
+          "lines": "20",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "Stop",
+          "lines": "25",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "backend",
+          "lines": "36",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "testData",
+          "lines": "64",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "Entry",
+          "lines": "77",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "chosen",
+          "lines": "152",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "nhcx",
+          "lines": "163",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "notDriven",
+          "lines": "205",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "login",
+          "lines": "218",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "panel",
+          "lines": "229",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "stageChip",
+          "lines": "232",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "waitChip",
+          "lines": "237",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "headerError",
+          "lines": "275",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "openTab",
+          "lines": "287",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "openClaim",
+          "lines": "296",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "PURPOSE",
+          "lines": "335",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "eligibility",
+          "lines": "340",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "fetchPlan",
+          "lines": "371",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "addLine",
+          "lines": "390",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "validate",
+          "lines": "408",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "iso",
+          "lines": "431",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "fillDraft",
+          "lines": "434",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "PDF",
+          "lines": "479",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "attachDocuments",
+          "lines": "486",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "answerForms",
+          "lines": "513",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "fillQuestions",
+          "lines": "544",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "sendPreauth",
+          "lines": "575",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        },
+        {
+          "name": "payerDecides",
+          "lines": "608",
+          "implements": [
+            "T1",
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care_fe/tests/nhcx/irdai.nhcx.ts",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 118,
+      "implements": {
+        "screens": [
+          "claims",
+          "Nhcx components (driven by visible labels)"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T2",
+          "T3",
+          "T4",
+          "T5",
+          "T6",
+          "T7",
+          "T8",
+          "T9",
+          "T10",
+          "T11",
+          "T12"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "NOT_DRIVEN",
+          "lines": "22",
+          "implements": [
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "name": "quoted",
+          "lines": "25",
+          "implements": [
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "name": "nhcx T3",
+          "lines": "40",
+          "implements": [
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "name": "nhcx T4",
+          "lines": "62",
+          "implements": [
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "name": "nhcx T5",
+          "lines": "77",
+          "implements": [
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "name": "notDriven T6",
+          "lines": "97",
+          "implements": [
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "name": "notDriven T7",
+          "lines": "103",
+          "implements": [
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "name": "notDriven T8",
+          "lines": "104",
+          "implements": [
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "name": "notDriven T9",
+          "lines": "105",
+          "implements": [
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "name": "notDriven T10",
+          "lines": "106",
+          "implements": [
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "name": "notDriven T11",
+          "lines": "112",
+          "implements": [
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "name": "notDriven T12",
+          "lines": "118",
+          "implements": [
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care_fe/tests/nhcx/playwright.config.ts",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 47,
+      "implements": {
+        "screens": [
+          "claims",
+          "Nhcx components (driven by visible labels)"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T1"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "E2E_DIR",
+          "lines": "8",
+          "implements": [
+            "T1"
+          ]
+        },
+        {
+          "name": "waitSeconds",
+          "lines": "14",
+          "implements": [
+            "T1"
+          ]
+        },
+        {
+          "name": "channel",
+          "lines": "15",
+          "implements": [
+            "T1"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "care_fe/tests/nhcx/pmjay.nhcx.ts",
+      "status": "written",
+      "plan_step": "L8.2",
+      "lines": 112,
+      "implements": {
+        "screens": [
+          "claims",
+          "Nhcx components (driven by visible labels)"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": [],
+        "tests": [
+          "T2",
+          "T13",
+          "T14",
+          "T15",
+          "T16",
+          "T17",
+          "T18",
+          "T19"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "NOT_DRIVEN",
+          "lines": "24",
+          "implements": [
+            "T2",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19"
+          ]
+        },
+        {
+          "name": "freeBeneficiary",
+          "lines": "27",
+          "implements": [
+            "T2",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19"
+          ]
+        },
+        {
+          "name": "seed",
+          "lines": "35",
+          "implements": [
+            "T2",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19"
+          ]
+        },
+        {
+          "name": "nhcx T13",
+          "lines": "57",
+          "implements": [
+            "T2",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19"
+          ]
+        },
+        {
+          "name": "nhcx T14",
+          "lines": "73",
+          "implements": [
+            "T2",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19"
+          ]
+        },
+        {
+          "name": "notDriven T15",
+          "lines": "98",
+          "implements": [
+            "T2",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19"
+          ]
+        },
+        {
+          "name": "notDriven T16",
+          "lines": "99",
+          "implements": [
+            "T2",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19"
+          ]
+        },
+        {
+          "name": "notDriven T17",
+          "lines": "100",
+          "implements": [
+            "T2",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19"
+          ]
+        },
+        {
+          "name": "notDriven T18",
+          "lines": "101",
+          "implements": [
+            "T2",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19"
+          ]
+        },
+        {
+          "name": "notDriven T19",
+          "lines": "107",
+          "implements": [
+            "T2",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19"
+          ]
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "unit": "python manage.py test care.nhcx --keepdb --parallel 1: 282 OK",
+    "e2e_summary": {
+      "pass": 17,
+      "fail": 1,
+      "blocked": 4,
+      "skipped": 12
+    }
+  },
+  "corrections": [
+    {
+      "path": "care/care/nhcx/services/adjudicator.py",
+      "status": "modified",
+      "plan_step": "L8.4",
+      "implements": "A14/A15",
+      "why": "_irdai_case/irdai_role/role_for match the desk case by correlation id; _await_move(claim, found, seen, role) waits for the desk to move before the next role"
+    },
+    {
+      "path": "care/care/nhcx/callbacks/enquiry.py",
+      "status": "modified",
+      "plan_step": "L8.4",
+      "implements": "C8",
+      "why": "_verdict_after_reopen: a reopened case's status reply is read as the new verdict"
+    },
+    {
+      "path": "care/care/nhcx/services/draft.py",
+      "status": "modified",
+      "plan_step": "L8.4",
+      "implements": "A5",
+      "why": "form_answers alias and preauth_saved_at stamp"
+    },
+    {
+      "path": "care/care/nhcx/services/_gather.py",
+      "status": "modified",
+      "plan_step": "L8.4",
+      "implements": "A5/A6",
+      "why": "consent answers dropped from the payload; external_id answers kept"
+    },
+    {
+      "path": "care/care/nhcx/services/state.py",
+      "status": "modified",
+      "plan_step": "L8.4",
+      "implements": "A5",
+      "why": "form_answers, relation keys under plain names, diagnoses/care_team via _member"
+    },
+    {
+      "path": "care/care/nhcx/services/payers.py",
+      "status": "modified",
+      "plan_step": "L8.4",
+      "implements": "A5/A6/A7",
+      "why": "status_for: query answers and resubmissions on the submit paths (19, 131, 151/161) send x-hcx-status request.initiated with a new correlation (nhcx-docs flows claim-query-response, preauth-query-response; NHCX-1011 otherwise); RESPONSE_KINDS removed"
+    },
+    {
+      "path": "care/care/nhcx/tests/network_guard.py",
+      "status": "modified",
+      "plan_step": "L8.4",
+      "implements": "tests",
+      "why": "exemption for the e2e runner (unit suite stays network-free)"
+    },
+    {
+      "path": "care/care/nhcx/tests/test_gap_coverage.py",
+      "status": "modified",
+      "plan_step": "L8.4",
+      "implements": "tests",
+      "why": "d12, d17, a15, a17"
+    },
+    {
+      "path": "care/care/nhcx/tests/test_callbacks_legs.py",
+      "status": "modified",
+      "plan_step": "L8.4",
+      "implements": "tests",
+      "why": "c8"
+    },
+    {
+      "path": "care/care/nhcx/tests/test_dry_flow.py",
+      "status": "modified",
+      "plan_step": "L8.4",
+      "implements": "tests",
+      "why": "query answer goes out as request.initiated"
+    }
+  ],
+  "notes": [
+    "skill CORE.md:90 / A5 say query answers carry response.complete; nhcx-docs and the live gateway (NHCX-1011) require request.initiated on submit paths; code follows nhcx-docs",
+    "e2e modules are not named test*.py, so manage.py test never discovers them"
+  ]
+}

@@ -1,0 +1,664 @@
+{
+ "phases": [
+  {
+   "id": "P1",
+   "title": "Foundation: embedded gateway",
+   "done_when": "GET /healthz answers 200 with checks; POST /in/<path> with a sandbox-encrypted envelope decrypts and returns 202 unmatched; unit tests for crypto/headers/ledger pass",
+   "steps": [
+    {
+     "id": "P1.1",
+     "title": "Django app care.nhcx and settings",
+     "description": "Add care.nhcx to LOCAL_APPS; NHCX_GATEWAY_CONFIG, NHCX_LEDGER_DIR, NHCX_ARCHIVE_DIR env settings in config/settings/base.py",
+     "delivers": [
+      "G1",
+      "G2"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "config/settings/base.py",
+       "lines": "",
+       "change": "modify"
+      },
+      {
+       "file": "care/nhcx/apps.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/settings.py",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [],
+     "substeps": []
+    },
+    {
+     "id": "P1.2",
+     "title": "Gateway G2-G9",
+     "description": "config, token, registry, headers, crypto (authlib JWE RSA-OAEP-256/A256GCM), send, receive, ledger under care/nhcx/gateway/",
+     "delivers": [
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "care/nhcx/gateway/",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P1.1"
+     ],
+     "substeps": []
+    },
+    {
+     "id": "P1.3",
+     "title": "Beneficiary registry and checks",
+     "description": "G10 pass-through; G11 startup checks and healthz/readyz",
+     "delivers": [
+      "G10",
+      "G11"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "care/nhcx/gateway/beneficiary.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/gateway/checks.py",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P1.2"
+     ],
+     "substeps": []
+    },
+    {
+     "id": "P1.4",
+     "title": "Embedding and inbound routes",
+     "description": "G1: open gateway in AppConfig.ready (lazy), mount /in/<path>, /v1/<rest>, /healthz, /readyz in config/urls.py; Celery beat tasks for token refresh (1 min) and ledger pruning (hourly)",
+     "delivers": [
+      "G1"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "config/urls.py",
+       "lines": "",
+       "change": "modify"
+      },
+      {
+       "file": "care/nhcx/gateway/embedding.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/tasks.py",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P1.2"
+     ],
+     "substeps": []
+    }
+   ]
+  },
+  {
+   "id": "P2",
+   "title": "Data model and callback door",
+   "done_when": "migrations apply; ABHA identifier configs exist; C1 routes an archived message by type and answers unmatched for unknown correlation ids",
+   "steps": [
+    {
+     "id": "P2.1",
+     "title": "Claim tables D9-D31 and profiles",
+     "description": "Django models for D9-D31 plus FacilityProfile (D1 HFR/participant code) and PractitionerProfile (D2 HPR); migration 0001",
+     "delivers": [
+      "D9",
+      "D10",
+      "D11",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16",
+      "D17",
+      "D18",
+      "D19",
+      "D20",
+      "D21",
+      "D22",
+      "D23",
+      "D24",
+      "D25",
+      "D26",
+      "D27",
+      "D28",
+      "D29",
+      "D30",
+      "D31",
+      "D1",
+      "D2",
+      "D8"
+     ],
+     "resolves": [
+      "D1.participant_code",
+      "D1.identifier_value",
+      "D2.identifier_value",
+      "D5.icd10_code",
+      "D5.icd10_display"
+     ],
+     "changes": [
+      {
+       "file": "care/nhcx/models/",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/migrations/0001_initial.py",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P1.1"
+     ],
+     "substeps": []
+    },
+    {
+     "id": "P2.2",
+     "title": "ABHA identifier configs (D3)",
+     "description": "Data migration creating instance PatientIdentifierConfig rows for ABHA number and ABHA address systems",
+     "delivers": [
+      "D3"
+     ],
+     "resolves": [
+      "D3.abha_number",
+      "D3.abha_address"
+     ],
+     "changes": [
+      {
+       "file": "care/nhcx/migrations/0002_abha_identifier_config.py",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P2.1"
+     ],
+     "substeps": []
+    },
+    {
+     "id": "P2.3",
+     "title": "C1 dispatcher and archive",
+     "description": "callbacks/dispatch.py routing by entity type and correlation id; archive.py; stage.py",
+     "delivers": [
+      "C1"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "care/nhcx/callbacks/dispatch.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/archive.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/services/stage.py",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P2.1",
+      "P1.4"
+     ],
+     "substeps": []
+    }
+   ]
+  },
+  {
+   "id": "P3",
+   "title": "Policy and eligibility",
+   "done_when": "S1 search returns sandbox policies; S3 shows eligible after C2 settles a verdict",
+   "steps": [
+    {
+     "id": "P3.1",
+     "title": "FHIR builders common",
+     "description": "bundle, patient, practitioner, organization, coverage, codes",
+     "delivers": [
+      "F1",
+      "F15",
+      "F16",
+      "F17",
+      "F18",
+      "F19"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "care/nhcx/fhir/",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P1.1"
+     ],
+     "substeps": []
+    },
+    {
+     "id": "P3.2",
+     "title": "Eligibility",
+     "description": "A1 policy service, A2 eligibility, F2 builder, F3 parser, C2 handler, REST API, S1, S2, S3, S5, S6 shell, S17",
+     "delivers": [
+      "A1",
+      "A2",
+      "F2",
+      "F3",
+      "C2",
+      "S1",
+      "S2",
+      "S3",
+      "S5",
+      "S6",
+      "S17"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "care/nhcx/services/policy.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/services/eligibility.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/callbacks/eligibility.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/api/",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care_fe/src/pages/Facility/claims/",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P3.1",
+      "P2.3"
+     ],
+     "substeps": []
+    }
+   ]
+  },
+  {
+   "id": "P4",
+   "title": "Plan and line items",
+   "done_when": "S7 shows packages after C4 applies an InsurancePlan; S8.2 shows ruling after C3",
+   "steps": [
+    {
+     "id": "P4.1",
+     "title": "Plan and auth requirements",
+     "description": "A3, F4, F5, F6, C3, C4, S7, S8",
+     "delivers": [
+      "A3",
+      "F4",
+      "F5",
+      "F6",
+      "C3",
+      "C4",
+      "S7",
+      "S8"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "care/nhcx/services/plan.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/callbacks/plan.py",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P3.2"
+     ],
+     "substeps": []
+    }
+   ]
+  },
+  {
+   "id": "P5",
+   "title": "Pre-authorisation",
+   "done_when": "S9 shows approved after C5 applies a ClaimResponse",
+   "steps": [
+    {
+     "id": "P5.1",
+     "title": "Pre-auth",
+     "description": "A4, A6 cancel/status, F7, F8, F9, F10, C5, C7, C8, S4, S9, S18, A18",
+     "delivers": [
+      "A4",
+      "A6",
+      "F7",
+      "F8",
+      "F9",
+      "F10",
+      "C5",
+      "C7",
+      "C8",
+      "S4",
+      "S9",
+      "S18",
+      "A18"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "care/nhcx/services/preauth.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/services/biometric.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/callbacks/preauth.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/callbacks/enquiry.py",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P4.1"
+     ],
+     "substeps": []
+    }
+   ]
+  },
+  {
+   "id": "P6",
+   "title": "Payer communication",
+   "done_when": "S10 lists a query filed by C9 and the reply goes out via A7",
+   "steps": [
+    {
+     "id": "P6.1",
+     "title": "Communication",
+     "description": "A7, F11, F12, C9, S10",
+     "delivers": [
+      "A7",
+      "F11",
+      "F12",
+      "C9",
+      "S10"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "care/nhcx/services/communication.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/callbacks/communication.py",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P5.1"
+     ],
+     "substeps": []
+    }
+   ]
+  },
+  {
+   "id": "P7",
+   "title": "Claim",
+   "done_when": "S11 shows the claim verdict after C6",
+   "steps": [
+    {
+     "id": "P7.1",
+     "title": "Claim",
+     "description": "A5, A6 reprocess/release, C6, S11",
+     "delivers": [
+      "A5",
+      "C6",
+      "S11"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "care/nhcx/services/claim.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/callbacks/claim.py",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P5.1"
+     ],
+     "substeps": []
+    }
+   ]
+  },
+  {
+   "id": "P8",
+   "title": "Payment",
+   "done_when": "S12 lists a payment recorded by C10 with the acknowledgement sent",
+   "steps": [
+    {
+     "id": "P8.1",
+     "title": "Payment",
+     "description": "A8, F13, F14, C10, S12; polling A10-A13, adjudicator A14-A16, state A17",
+     "delivers": [
+      "A8",
+      "F13",
+      "F14",
+      "C10",
+      "S12",
+      "A10",
+      "A11",
+      "A12",
+      "A13",
+      "A14",
+      "A15",
+      "A16",
+      "A17"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "care/nhcx/services/payment.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/services/polling.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/services/adjudicator.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/services/state.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care/nhcx/callbacks/payment.py",
+       "lines": "",
+       "change": "add"
+      }
+     ],
+     "depends_on": [
+      "P7.1"
+     ],
+     "substeps": []
+    }
+   ]
+  },
+  {
+   "id": "P9",
+   "title": "Patient and practitioner screens",
+   "done_when": "S14 saves an ABHA number as PatientIdentifier; S13 finds patient by ABHA; S16 saves HPR id",
+   "steps": [
+    {
+     "id": "P9.1",
+     "title": "ABHA on patient screens and A19",
+     "description": "A19 abha service (server-side OTP flow) + S13/S14/S15 additions in care_fe; S16 HPR id via practitioner profile API",
+     "delivers": [
+      "A19",
+      "S13",
+      "S14",
+      "S15",
+      "S16"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "care/nhcx/services/abha.py",
+       "lines": "",
+       "change": "add"
+      },
+      {
+       "file": "care_fe/src/components/Patient/",
+       "lines": "",
+       "change": "modify"
+      },
+      {
+       "file": "care_fe/src/components/Users/",
+       "lines": "",
+       "change": "modify"
+      }
+     ],
+     "depends_on": [
+      "P2.2"
+     ],
+     "substeps": []
+    }
+   ]
+  },
+  {
+   "id": "P10",
+   "title": "Navigation",
+   "done_when": "Claims entry visible in facility sidebar and opens S5",
+   "steps": [
+    {
+     "id": "P10.1",
+     "title": "Claims sidebar entry and routes",
+     "description": "facility-nav.tsx Claims entry; FacilityRoutes claims routes",
+     "delivers": [
+      "NAV"
+     ],
+     "resolves": [],
+     "changes": [
+      {
+       "file": "care_fe/src/components/ui/sidebar/facility/facility-nav.tsx",
+       "lines": "",
+       "change": "modify"
+      },
+      {
+       "file": "care_fe/src/Routers/routes/FacilityRoutes.tsx",
+       "lines": "",
+       "change": "modify"
+      }
+     ],
+     "depends_on": [
+      "P3.2"
+     ],
+     "substeps": []
+    }
+   ]
+  }
+ ],
+ "external": [
+  {
+   "need": "NHCX participant code (sandbox)",
+   "owner": "hospital / NHCX onboarding",
+   "status": "missing"
+  },
+  {
+   "need": "ABDM client id and secret",
+   "owner": "hospital",
+   "status": "have"
+  },
+  {
+   "need": "RSA private key + registered encryption certificate",
+   "owner": "hospital",
+   "status": "missing"
+  },
+  {
+   "need": "Public HTTPS URL reachable by NHCX for /in callbacks",
+   "owner": "ops",
+   "status": "missing"
+  }
+ ],
+ "risks": [
+  {
+   "risk": "CARE runs multiple web/celery instances; gateway ledger is file-based",
+   "mitigation": "Ledger dir on a shared volume; NHCX_ROLE=1 on exactly one celery beat instance for refresher/pruner (OPERATIONS.md)"
+  },
+  {
+   "risk": "CARE conditions are SNOMED only",
+   "mitigation": "ICD-10 chosen per claim on S4 (D25)"
+  },
+  {
+   "risk": "No sandbox credentials available in this environment",
+   "mitigation": "L7 dry-run with a fake gateway; L8 blocked until credentials provided"
+  },
+  {
+   "risk": "Gateway send must never run inside a DB transaction (ATOMIC_REQUESTS)",
+   "mitigation": "Service views decorated with transaction.non_atomic_requests; tests assert not in_atomic_block"
+  }
+ ],
+ "corrections": [],
+ "decisions": [
+  "[REF] Plan files in care/nhcx-plan; tests under care/nhcx/tests (Django convention)",
+  "[REF] Background refresher/pruner as Celery beat tasks",
+  "[REF] Screens in care_fe under src/pages/Facility/claims; backend exposes JSON APIs under /api/v1/nhcx/"
+ ]
+}

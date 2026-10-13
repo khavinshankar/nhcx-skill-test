@@ -1,0 +1,586 @@
+{
+  "files": [
+    {
+      "path": "care/nhcx/models/base.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": []
+      },
+      "symbols": [
+        {
+          "name": "NhcxBaseModel",
+          "lines": "11-24",
+          "implements": [
+            "hard delete for spec delete/reinsert"
+          ]
+        },
+        {
+          "name": "field helpers",
+          "lines": "26-66",
+          "implements": []
+        },
+        {
+          "name": "LegStage",
+          "lines": "68-72",
+          "implements": [
+            "D27.stage",
+            "D28.stage"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/models/profiles.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": [
+          "D1",
+          "D2"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "FacilityProfile",
+          "lines": "31-60",
+          "implements": [
+            "D1"
+          ]
+        },
+        {
+          "name": "PractitionerProfile",
+          "lines": "68-100",
+          "implements": [
+            "D2"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/models/claim.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": [
+          "D8",
+          "D9",
+          "D30"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "ClaimStatus/ClaimStage/ClaimSubStage/SearchIdType/EligibilityPurpose/EligibilityOutcome/CaseType",
+          "lines": "16-75",
+          "implements": [
+            "D9 enums"
+          ]
+        },
+        {
+          "name": "Claim",
+          "lines": "76-155",
+          "implements": [
+            "D9 all columns + facility FK"
+          ]
+        },
+        {
+          "name": "Counter",
+          "lines": "157-165",
+          "implements": [
+            "D30"
+          ]
+        },
+        {
+          "name": "next_number/next_value",
+          "lines": "167-186",
+          "implements": [
+            "D30"
+          ]
+        },
+        {
+          "name": "to_base32/format_claim_no/allocate_claim_no",
+          "lines": "188-212",
+          "implements": [
+            "D9.claim_no"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/models/plan.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": [
+          "D10",
+          "D11",
+          "D12"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "ClaimPlan",
+          "lines": "39-64",
+          "implements": [
+            "D10"
+          ]
+        },
+        {
+          "name": "ClaimPlanBenefit",
+          "lines": "66-90",
+          "implements": [
+            "D11"
+          ]
+        },
+        {
+          "name": "ClaimPlanForm",
+          "lines": "92-105",
+          "implements": [
+            "D12"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/models/auth.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": [
+          "D13",
+          "D14",
+          "D15"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "ClaimAuth",
+          "lines": "27-49",
+          "implements": [
+            "D13"
+          ]
+        },
+        {
+          "name": "ClaimAuthItem",
+          "lines": "51-66",
+          "implements": [
+            "D14"
+          ]
+        },
+        {
+          "name": "ClaimAuthRequirement",
+          "lines": "68-84",
+          "implements": [
+            "D15"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/models/draft.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": [
+          "D16",
+          "D17",
+          "D25",
+          "D26",
+          "D27",
+          "D28"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "ClaimLine",
+          "lines": "74-97",
+          "implements": [
+            "D16"
+          ]
+        },
+        {
+          "name": "ClaimFormAnswer",
+          "lines": "99-116",
+          "implements": [
+            "D17"
+          ]
+        },
+        {
+          "name": "ClaimDiagnosis",
+          "lines": "118-132",
+          "implements": [
+            "D25"
+          ]
+        },
+        {
+          "name": "ClaimCareTeam",
+          "lines": "134-148",
+          "implements": [
+            "D26"
+          ]
+        },
+        {
+          "name": "ClaimItem",
+          "lines": "150-165",
+          "implements": [
+            "D27"
+          ]
+        },
+        {
+          "name": "ClaimDocument",
+          "lines": "167-186",
+          "implements": [
+            "D28"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/models/legs.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": [
+          "D18",
+          "D19",
+          "D20"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "ClaimPreauth",
+          "lines": "91-137",
+          "implements": [
+            "D18"
+          ]
+        },
+        {
+          "name": "ClaimPredetermination",
+          "lines": "139-170",
+          "implements": [
+            "D19"
+          ]
+        },
+        {
+          "name": "ClaimSubmission",
+          "lines": "172-215",
+          "implements": [
+            "D20"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/models/messages.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": [
+          "D21",
+          "D22",
+          "D23",
+          "D24"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "ClaimPayment",
+          "lines": "60-90",
+          "implements": [
+            "D21"
+          ]
+        },
+        {
+          "name": "ClaimPaymentDetail",
+          "lines": "92-110",
+          "implements": [
+            "D22"
+          ]
+        },
+        {
+          "name": "ClaimQuery",
+          "lines": "112-148",
+          "implements": [
+            "D23"
+          ]
+        },
+        {
+          "name": "ClaimAdjudication",
+          "lines": "150-175",
+          "implements": [
+            "D24"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/models/enquiry.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": [
+          "D29"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "ClaimEnquiry",
+          "lines": "44-73",
+          "implements": [
+            "D29"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/models/biometric.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": [
+          "D31"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "BiometricAuth",
+          "lines": "26-74",
+          "implements": [
+            "D31"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/models/abha.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": [
+          "D3"
+        ]
+      },
+      "symbols": [
+        {
+          "name": "ABHA constants/configs",
+          "lines": "20-61",
+          "implements": [
+            "D3"
+          ]
+        },
+        {
+          "name": "get_abha_number/get_abha_address",
+          "lines": "101-108",
+          "implements": [
+            "D3"
+          ]
+        },
+        {
+          "name": "find_patients_by_abha",
+          "lines": "121-135",
+          "implements": [
+            "D3 digits-only lookup"
+          ]
+        },
+        {
+          "name": "set_abha",
+          "lines": "152-167",
+          "implements": [
+            "D3 duplicate check"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/models/__init__.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": []
+      },
+      "symbols": [],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/admin.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": []
+      },
+      "symbols": [
+        {
+          "name": "admin registrations",
+          "lines": "1-18",
+          "implements": []
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/tests/test_models.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": []
+      },
+      "symbols": [],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/migrations/0001_initial.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": [
+          "D1",
+          "D2",
+          "D9-D31"
+        ]
+      },
+      "symbols": [],
+      "migrations": [
+        "nhcx.0001_initial"
+      ],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/nhcx/migrations/0002_abha_identifier_config.py",
+      "status": "done",
+      "plan_step": "P2.1",
+      "implements": {
+        "database": [
+          "D3"
+        ]
+      },
+      "symbols": [],
+      "migrations": [
+        "nhcx.0002_abha_identifier_config"
+      ],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh python manage.py makemigrations --check --dry-run nhcx; ruff check/format",
+        "notes": "No changes detected; ruff clean"
+      },
+      "blocked_reason": null
+    }
+  ],
+  "tests": {
+    "command": "dtest.sh python manage.py test care.nhcx.tests.test_models --keepdb",
+    "result": "Ran 11 tests OK"
+  },
+  "corrections": [
+    "D9 ix_claim_status prefixed with facility (multi-facility); extra index on Claim.correlation_id",
+    "D9/D31 created_at/updated_at mapped to EMRBaseModel created_date/modified_date",
+    "D1/D2 name/phone/address come from Facility/User; is_default and consultation_fee omitted",
+    "D26 practitioner FK -> users.User; D31 requested_by FK -> users.User (spec TEXT)",
+    "D30 Counter is plain models.Model with name PK (not EMRBaseModel)",
+    "Payer-sourced FHIR date strings (D9 plan_period_*, patient_dob, D21 payment_date, D22 date) kept as CharField",
+    "NhcxBaseModel.delete() is a hard delete, because specs delete and reinsert rows under unique keys"
+  ],
+  "notes": [
+    "Status columns are CharField with TextChoices for documentation only",
+    "NDHM identifier-type code system URL in profiles.py is unverified",
+    "admin registers top-level models only"
+  ]
+}

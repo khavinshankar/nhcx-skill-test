@@ -1,0 +1,3327 @@
+{
+ "files": [
+  {
+   "path": "care/care/nhcx/management/__init__.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/management/commands/__init__.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/management/commands/nhcx_e2e.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "baf1ce8c6756000fa36642c7c8a910d6e3e030505860219d3b6beb97bebf0451",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/.gitignore",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "ac61ef02a73cec0c628727d592800ad965c6ab3435879494096a5252b83af08a",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/__init__.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "2908a9f4ab57ff0e5cddad8f2d31fe4c6fe5bbec9ee9849ccebdcb159cd30554",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/abdm_fake.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "d7fa59e5500175258db57da0114fd9187d5f3587edc32ec1581130640dcfba57",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/checks.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "131ee57a047d3895fffb3d7cee42688b79ec5f21f18d689f7e495c78893f8934",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/cli/__init__.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/cli/runner.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "74eb258b466b27de387ef63589a17bbd2a2e845bd949ed9b0d84eac75d5a1d48",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/config.example.env",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "df8cf64116dbdc658f02283ee6178f94119bc96b9c5532dcdf781d24053bad36",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/config.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "a0b06a1216f133c97eaa931936671ef51770b32dcb63617310e5245f12183b52",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/fixtures/pmjay-plan.json",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "b1372895dee43e268b030271dc2e47b47e9ece6fc61b59bbe99a2b89ccd7c21b",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/payer/__init__.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/payer/driver.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "0210cc28d05306abfb593231cdad6ee3055989e2fb0d5c814a81e24964ffe253",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/report.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "69737ba23e5b7c478803d02b0b403eb90eead0e189dc788cc96832694d4d1d6e",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/__init__.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "321f8419d441d4e55a16ac5ec1bcb7162aa4e53adb94ff20e6b2910956221b61",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/common.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "3a457348177356f87ad0b1d3669e3e83eeec66113ccbde43d1230b8a4309c07c",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t03_irdai_policy_and_eligibility.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "5b0d848ce0fa634c78f083f19868c9ad58bd579850be3ddf70dbb95c29768792",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t04_irdai_plan_and_auth_requirements.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "5878b0ebac36b278fef425d2977b3840aa133084888a61b5ea115a5e815d42e4",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t05_irdai_preauth_approved.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "42c4fb2eeb2828648112c26ab6e95566375e077b733ec0461c5950c289b68766",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t06_irdai_preauth_rejected.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "50678c6b248a07f90e1219f96b734c2aa1b329af3c7edbed0206792f138f1496",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t07_irdai_query_answered.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "d254e2019b7842ea3c6655143cd73d88bd9876622db6cafd718ede6fa8dc94a7",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t08_irdai_enhancement.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "62da3e34c4d53f636b86971153192621dbe9b2905f23967e28237508d8b10109",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t09_irdai_cancel_and_status.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "c80a7f9351f15d37e66224b3a92547ef33bdd05a3588a43a4d3039451bf0b610",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t10_irdai_claim.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "ef550c5e8c4753b3b59740fdfd6b50aa88deff8106192662510b789ced2bed3b",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t11_irdai_payment.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "6681b9f22fde965ff8329597c1f92854d5d092649c8438c85379c149fc38ee99",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t12_irdai_reprocess_and_release.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "9ac509e5ffc3c216c993d4ce5725352331879712b7d95b487952ea03eef26964",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t13_pmjay_eligibility_and_package_master.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "3118994c214a9bac558dff1a6f90a5d789cb90014d5434ea53e99215ee6b4961",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t14_pmjay_preauth_adjudicated.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "6511ceb08f22dedbfe69a3c6e06c67088992fd70fcaa99423ea0b41649b3849f",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t15_pmjay_query_by_resubmission.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "97e697bbb55aee25154815dd44aabe35c94d1752f6ada03e54261eb1cccde5bc",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t16_pmjay_rejection_and_enhancement.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "603e322801fe4403ce416083915be451afca1c7bedaaa486186778bad5a121c1",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t17_pmjay_claim_adjudicated.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "418d701dfa1329472d0fbc3630db067d399ca8f43a9e2a6714986504c499794b",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t18_pmjay_payment_status_cancel.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "9fbc13b9407d25d227631cbd04301f63a71285f19e85800d5efd65a2aabc2661",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/scenarios/t19_pmjay_biometric_and_abha.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "cb68e6668cb41d05056b8ceb856bc3bc7381d0fe74714629facbe3f971bd05ee",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/seed.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "e80af2f65fe04a78006a57ca8df564861044e21b9f629fdf3dea9221e30610ed",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/tests/e2e/setup_data.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "4801f1890356a46650e6aa247b8d9d84243ef2bdd21c9a4bd7b634ce3788f861",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/scripts/nhcx-e2e.sh",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "151e739a4ffb2f205ce184983c71fbe11acb0915b1c89f5df9f23a62f5c670bf",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/tests/nhcx/helpers.ts",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "a4d743cb17d7cd9aa25f027e88d80124af450f6d4f530021f4892de33b9f1f25",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/tests/nhcx/irdai.nhcx.ts",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "53352581013136f418a9d2408710680703e6274e6a59a7b1b5020c560b9d9245",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/tests/nhcx/playwright.config.ts",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "9fb89a626e749c938296e954cfafe39d091442954a9b2f83be26de0673be1924",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/tests/nhcx/pmjay.nhcx.ts",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "eb2307e4635953fb02e075b6df9a42a1baee422995563b48bf5366b05555c3db",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "T1,T2",
+     "result": "pass",
+     "lines": "",
+     "finding": "E2E test code: ruff/eslint/prettier clean; no secrets (config.example.env only); exercised by the live sandbox run.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/fhir/bundle.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "e3293f1eab8305951952960f25b52715edf3fbca7065305ed69786c53b9d62b9",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/codes.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "e1723b5bd59f84c0646b937fa460e5bc5b23f5eca1bf71bf703f5ee28143c692",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/inputs.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "92dd0f1fbd12be6411769cfdd51dfd4c048de90c0e52fe99fce53513f05c2db7",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/build/coverage_request.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "7a428a2dbb1b6941d50a1c205bcf913ec6056054af2e2d706f739177d75d4f9f",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "F2",
+     "result": "pass",
+     "lines": "",
+     "finding": "identifier system only, purpose, references, item systems, modifier without system",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/build/plan_task.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "4843cc050b3cd03261d34a24dab014910962271d929c1be4c071daf167569abe",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/build/questionnaire_response.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "a7308927f0bd15bd4ed38ae4b9b2c61d800da81d4a588f8df24a81645e33dcc4",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/build/claim.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "94e7f7e07f6e841f18c284c0ca47df09a28c2719eef174abdc41a2b871503d5d",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "F8",
+     "result": "pass",
+     "lines": "",
+     "finding": "pre-authorisation and claim bundles built from fixtures and compared element by element with the F8 tables (anchors, ids, careTeam, diagnosis, procedure, item, supportingInfo categories/codes); nhcx-docs has no Claim profile/example",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/build/task.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "b5ccb82fac167be5eb4c2fbfa64743d505388060f2bbed4a24a1bb95d05d0ba1",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/build/communication.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "2990d16142b9914d76784ab374797a44f105676f0eb31a91bf274b409d1f22b8",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/build/payment_ack.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "a14daa8922659acd690a12dd1ba35cd3e547f3b1e3287b92410d2c2149fa20c2",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/build/patient.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "6bd1bf44fe6cdf8ac9a67d2e4fefa4b1be6dc2143596cc094002c62f57a12659",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/build/practitioner.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "a509417f711d9387f1ef038f1b7d8197783aa21c859b31f0ba8908e2c87bf195",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/build/organization.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "7660215e15896070240b83d497c0c902e0d23ba8e21a2ba564383225ef2e9792",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/build/coverage.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "dd67329094f5b854cd34de9207a753fffeb569357f0cc22f46f286e002e8c0fa",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/build/other.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "b4812b43069bfb018ec21b2f720ebcee45579a7777532c70c9369197217a3125",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/read/eligibility.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "50ff9745a7424d927652172903dd2210b961687592bd8a0455e11a3ea4926386",
+   "status": "fixed",
+   "checks": [
+    {
+     "spec": "C2P/F3 read_verdict",
+     "result": "fail",
+     "lines": "90-121",
+     "finding": "The verdict was read from the last CoverageEligibilityResponse; C2P reads the first.",
+     "severity": "error",
+     "fixed": true
+    },
+    {
+     "spec": "C3P/D14C",
+     "result": "fail",
+     "lines": "137-193",
+     "finding": "auth_required and excluded were coerced to false when absent; D14C keeps null (new _flag helper).",
+     "severity": "error",
+     "fixed": true
+    }
+   ],
+   "rounds": 1
+  },
+  {
+   "path": "care/care/nhcx/fhir/read/plan.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "c6dce92ba65a4a5a8d32b7e1a61c18f0b51fd9486e9fc96d674801fe4763d573",
+   "status": "fixed",
+   "checks": [
+    {
+     "spec": "C4P read_plan/apply_plan",
+     "result": "fail",
+     "lines": "257-292",
+     "finding": "An InsurancePlan with no packages got the 'carries no InsurancePlan' message; C4P keeps error_message null unless the bundle has no InsurancePlan.",
+     "severity": "error",
+     "fixed": true
+    },
+    {
+     "spec": "F5/F6",
+     "result": "pass",
+     "lines": "1-354",
+     "finding": "",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 1
+  },
+  {
+   "path": "care/care/nhcx/fhir/read/claim_response.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "9f9d4f821620ccaa8b4bc07e5dca181d4ea79f962a06389cec5125b628afd493",
+   "status": "fixed",
+   "checks": [
+    {
+     "spec": "C5P status_on/verdict_status",
+     "result": "fail",
+     "lines": "64-82",
+     "finding": "is_error returned error for outcome error with reason queried/submitted/acknowledged; partial under an approving workflow id checked outcome only. Both now go through decide() (= verdict_status); outcome lower-cased.",
+     "severity": "error",
+     "fixed": true
+    },
+    {
+     "spec": "C5P read_claim_response errors / error_text",
+     "result": "fail",
+     "lines": "138-152",
+     "finding": "Error lines were '<code> <display>'; spec is '<code>: <display or text>'. A disposition of 'ok' is no longer listed.",
+     "severity": "error",
+     "fixed": true
+    },
+    {
+     "spec": "F9",
+     "result": "pass",
+     "lines": "1-290",
+     "finding": "totals by category, items_json keys (D18C), query_note piece cleaning, Task reply reading",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 1
+  },
+  {
+   "path": "care/care/nhcx/fhir/read/communication.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "ae50a1e4ed7e3ec92b18395d1751b542c61e351057a6e34c9df857bf18556d7e",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/fhir/read/payment.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "798e31b05a4fa1bc20b8644a6643d5234ca88e027d72a3164786c6aac8482497",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_fhir_build.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "254924d1aef81f81687a49ae97baadd9dee73de9433a6ba3a8cacf4aac425dd4",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_fhir_read.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "ea5ffde8f036c74671d32c392c9940536008b7fe88160ae7d08865e17c75ea58",
+   "status": "fixed",
+   "checks": [
+    {
+     "spec": "C5P",
+     "result": "pass",
+     "lines": "227-246,284",
+     "finding": "Two assertions encoded the pre-spec partial and error-line behaviour; aligned to C5P (partial needs reason approved; '<code>: <display>').",
+     "severity": "info",
+     "fixed": true
+    }
+   ],
+   "rounds": 1
+  },
+  {
+   "path": "care/care/nhcx/tests/test_fhir_bundle.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "0c3930ba49247feb01bc1281dddf66dac3b3bcca2b44c405cbf6c3225b8a0af5",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_fhir_codes.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "68139b7a60921d6a8855d48e41e774b58ed1d023f6e311cdc0d18b0c994c176c",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/fhir_samples.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "218c67fbd435cad334c7079f6a18a8af10ff869b1bed4d90a3f8dd1f9d2faf1d",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/fixtures/bundles/README.md",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "72c3419d8cd274887ef1f5b45227280195c581d68ec587a505e3bfe43b3c934b",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/fixtures/bundles/*.json",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "a001a39f7a6df684d991be5970140ba2650abee06dfaf5fc301b8dc05075eb9f",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care_fe/src/types/nhcx/nhcx.ts",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "a6df15c66ec122fa802af9950de176d5c594ed43c99da946853cf1359939fef2",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/types/nhcx/nhcxApi.ts",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "6d9b0bea730037a7e9e524fc2d0651f526cfa650a6ad14aa0539541b7bbc294e",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/ClaimMaster.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "36215cbfd7503bdc86bfd9103fdf534feb35f00fd3b800db6712d74e01538e62",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/SearchPolicy.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "6d95d4114f4fc8af76721ecbfcc584ed41978bab153bc971c89d550ba605ce1b",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/BeneficiaryDiscovery.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "981255d85e32ad3391f8d83d9666138dcb73f76f9ab79d2ec19e966e59ad8769",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/ClaimDetail.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "47a3520d3f24374d2c83a15ded396c62eabec33be4523204fe99c13426d771a8",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/tabs/EligibilityTab.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "75f80af35f6b53be88c8a1caafd77839e00971de9edbb905ef117dd33961b6a8",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/tabs/InsurancePlanTab.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "73c2356215dc1e1a7989843784bfe4bde480157e77bdd4e3d6c27b2e224049e3",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/tabs/LineItemsTab.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "98ef4af7b574ecfa1c696a03affb87fa2c09872ef611f29b6d76233f72a4c769",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/tabs/ValidateTab.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "927d89f3f7dfab8fac83b2c86107f8469c5f93ba53fece4e4599f6de8b2acd34",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/tabs/VerificationTab.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "7afa7158d7b42255f24231a3fe80a30733998b1183b43283f025f3163dafd1ce",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/tabs/PreauthTab.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "ba74ffd81ad97fd6e0d054c57226130ec8933604e43b0d9aa28883a365f1b7c9",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/components/PreauthDraft.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "8b6a88092a7cfd64c243de6b95d7f93a3089c5474d5622e0259bf471113ce0fd",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/components/PackageDetail.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "17690c8cc1915ecff4c296c38157460bd7038d41c81d1187c08f8a6daafc5b2a",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/components/FormDetail.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "e7826e18ac36ce2cd29ede017e09352ff188694c7979c658095654481d7ab55a",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/components/LegParts.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "1a826b8f47e00697ca44620df21583a6f631d604192094c2f3790c49dd4ff2d6",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/components/ClaimWidgets.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "2afa4b458ffbb04eeb98d95a5db0fe39fdc8efd16d8918ee9f26fb6126626e1a",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/tabs/CommunicationTab.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "f0f498b6bc84eae4ba587b2e5022b877848e07a34ec9255a0c4833b96a39d10b",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/tabs/ClaimTab.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "1c1f0116e49c7e81c85133aba03623ea2a9294bf2373f29022eb6849bbc52080",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/tabs/PaymentsTab.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "c8476ffc0a83321a01403102411cbfd3bbbb9ff5a510001cc9af7881362a2e11",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/tabs/types.ts",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "212a634271b2b326300154d42e3a7801f21148e7c8f5b85495b8d033b4ed79b9",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/useClaimAction.ts",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "c1bb8cb89ea807558feaeab2622032bf1abf88914385125402498336b7d2a90d",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/pages/Facility/claims/utils.ts",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "df96f09d9b50b63ebd28500399de29c9f552703a24815eaf272c7057f15d0bb9",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/components/Nhcx/AbhaDialog.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "664b6e611b7d3764119cf63f40b157e7c5099a70a0ecb7720df7097dff31a89f",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/components/Nhcx/RegisterWithAbhaButton.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "75147edd3648f5c4fc985af22de9afccbf94b7876ae2022cc406fbf23caa8e31",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/components/Nhcx/AbhaFormButton.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "9a091aa89515bac53a5dac48ab2e68d3233ce9a3b1e21265674fa75299cfcd33",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/components/Nhcx/PatientNhcxActions.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "ae35aec6ded00421e9f85b6153d995c7aa86afaa79d3f1aad7954825026459c7",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/components/Nhcx/PractitionerProfileCard.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "51e40e251811fc99a2aeed8a810a9e7cfaf7c532b40772534a789ffe723e9d37",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/components/Patient/PatientIndex.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "d18717dc678a679c52f803b04917fee8b362d6f59c9d8d0282a57a1153cb1200",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/components/Patient/PatientRegistration.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "4d3f24949575f763854ac4e1bfafa53620c01fd0ea7a3f9f8558b2931e14ab8d",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/components/Patient/PatientProfile.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "6faddcc71d4f351929940ba2c1a47da9526cf31a02ebb517c844e6bf1b1242e6",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/components/Users/UserSummary.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "0fe8631f9de52662612c3165ac69c843da9d9f3bae96997f929110748a20cd22",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/Routers/routes/FacilityRoutes.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "c53b8e3b7f4740d84e397c0fcbe61c5407c3cba679ecb433a39e28007273eefa",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/src/components/ui/sidebar/facility/facility-nav.tsx",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "34514ddbd99b8e682ae9caf8c935d330265601a33197d3e5a178d16a348c03b1",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care_fe/public/locale/en.json",
+   "validated_at": "2026-10-13T09:47:37+05:30",
+   "content_hash": "83c9d32331912053eac3ead392e5ada1be05c469bd4e5729617802e8d693b497",
+   "status": "passed",
+   "rounds": 0,
+   "checks": [
+    {
+     "spec": "",
+     "result": "pass",
+     "lines": "",
+     "finding": "tsc --noEmit clean for this file; eslint 0 errors; prettier clean; API calls match care/nhcx/api/CONTRACT.md routes; labels in en.json. Not exercised in a browser.",
+     "severity": "",
+     "fixed": false
+    }
+   ]
+  },
+  {
+   "path": "care/care/nhcx/gateway/__init__.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "1967fddeedae83645f51398751a11fb8d0a36b22177d853c0bd3fb726334370f",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/errors.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "161b83227b252b43661a25c83ef8575a9e006c8d9f030ba2d04d916992da653b",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/config.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "04ffc34f9ebc56e68336b1f8377ff97c85beb4d016b2fa5e124902c780bfc2d0",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/token.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "729573df109efee3916558d1c07e3fe8705843ed7fff5144dca0f1e785dcefce",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/registry.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "fc49fb267736b7cdee02e9395e3cafe05c098089af257ff162358a2c27121f50",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/headers.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "ac36b7216decd6e0f4c60af0681d3e4788bda507a1c47275cb9eaf1edd11ed3b",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "G5P",
+     "result": "pass",
+     "lines": "",
+     "finding": "",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/crypto.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "4125983036b0409b112d250de1b8517644b721ee656c95bb5f078803b9b0272d",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "G6P",
+     "result": "pass",
+     "lines": "",
+     "finding": "RSA-OAEP-256/A256GCM, inbound allow-list, PKCS8 then PKCS1",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/send.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "114317535680c5722249d23252c9b20c7f9399bc57588cecfec5eb308717d090",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "G7P",
+     "result": "pass",
+     "lines": "",
+     "finding": "envelope precedence, NO_PATH/INVALID_PAYLOAD before ids, ids named on failure, ok=false keeps ids, refuses inside a transaction",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/receive.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "f147472b51ae08451c976c28f4ae9be48ece38fda1a48998e98bcf83edadc63d",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "G8P/G8S",
+     "result": "pass",
+     "lines": "",
+     "finding": "",
+     "severity": "",
+     "fixed": false
+    },
+    {
+     "spec": "G8D",
+     "result": "fail",
+     "lines": "318-345",
+     "finding": "G8D says no row is written for an unmatched delivery; G8S records every delivered outcome. Code follows G8S. Spec inconsistency, not changed.",
+     "severity": "warning",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/ledger.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "f8a606143c91b8fcb4a480c4b79c5efe2f9e8096e9814df9a4334f43530ab51a",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "G9",
+     "result": "pass",
+     "lines": "",
+     "finding": "file ledger with flock, independent of DB transactions",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/beneficiary.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "1e7948df1678dad03c0751f411f26526804c4d1dc241aebfa8d58ea16770ed88",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/checks.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "9870a3fe94c7de308bc4dc97399c97314038a91cba4c0fe946224f7e55f0c4ba",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/embedding.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "ac1fbf51060170fc16ea850dc628b64a06c282912cc75a92a6a51b1d12e95f42",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/views.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "a6d25dc3d228a50f18a3d497f5a9d22722f896995e45565c7f68f98dcbb2a6c4",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "G1/G8",
+     "result": "pass",
+     "lines": "",
+     "finding": "csrf_exempt, non_atomic_requests, body cap",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/urls.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "81c273e178fdcf0064454a049245c348ae1e29f96e0125e33e255b6165ce94c9",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tasks.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "e243d80d9cef3af206b98a84f4fea3bfb11f564c460109a6bae5b7e03e71ecf0",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/config/settings/base.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "fbd2a602ba3c7bdc26141cc83ee97f9b66436acc366401220f6b09afa4e2b219",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/config/urls.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "aac1171dd894c05be10646c7ba799c7133962e6f46665da1a64e7d390104ff88",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/gateway/config.example.json",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "088b9fc34f7cfab5c474e9482bd9aa6ea85178fb8dce4a871eb89453140be8bc",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_gateway_config.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "26c27b8e70cb4892674f94130b2f6a610359290b699f8f34430b0bf2fea53544",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_gateway_crypto.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "624fc441be063468f9639216c80a1ed937bd0e0398080459f53ea519fdffa8e5",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_gateway_send.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "df752e9f5c1e58e6080d799c01650f06b6157655944e5e6ae1bb3739dc4f54e0",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_gateway_receive.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "d722c1e03aa9553f363d990c9095bf043ac9b9cc574cd4dd086b16968a2a2da6",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_gateway_ledger.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "1e02f21c2c24d4ed2104439ce77583f743ca36e3f1c0f2c484b47fb4718c866e",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_gateway_checks.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "0788fe25be122f271144246e1b341ae0e4f8726b9bae0bd4126e93e175257d59",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/gateway_helpers.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "533f05dbe1ae6db313d5bdaac90bb8831fce3fb4a8270da886ef5a06a5f1ce63",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/fixtures/keys/",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "fceda3113ad9e112b2b3fc53d8908506f470e7355e415bc8210e5270b5139254",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/models/base.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "279fc9d8a4bf9e69a64872afdaa20abad7d8c5fa766285d170676b00e54fe84e",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "D9-D31 DnC",
+     "result": "pass",
+     "lines": "",
+     "finding": "Every DnC column present with matching nullability, defaults and uniqueness (checked programmatically); D1-D8 map to CARE models and the facility/practitioner profiles; claim.facility_id added for multi-facility.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/models/profiles.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "547d4f8973ef6b7c3d4907849487794c967bd9e52e693ff80e22355718197404",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "D9-D31 DnC",
+     "result": "pass",
+     "lines": "",
+     "finding": "Every DnC column present with matching nullability, defaults and uniqueness (checked programmatically); D1-D8 map to CARE models and the facility/practitioner profiles; claim.facility_id added for multi-facility.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/models/claim.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "211a5af36f5d6cb9562a1268890dff9e09a855362c39007dd6b6e538be8a5311",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "D9-D31 DnC",
+     "result": "pass",
+     "lines": "",
+     "finding": "Every DnC column present with matching nullability, defaults and uniqueness (checked programmatically); D1-D8 map to CARE models and the facility/practitioner profiles; claim.facility_id added for multi-facility.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/models/plan.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "97835a4018baa6f15c03bf16dc6c298ee6815ba13d70c7a58a12f4290f8bb89f",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "D9-D31 DnC",
+     "result": "pass",
+     "lines": "",
+     "finding": "Every DnC column present with matching nullability, defaults and uniqueness (checked programmatically); D1-D8 map to CARE models and the facility/practitioner profiles; claim.facility_id added for multi-facility.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/models/auth.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "63bc274a66a7dfec2ff634965fb527923306c44760d00395688b6cb19b607b93",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "D9-D31 DnC",
+     "result": "pass",
+     "lines": "",
+     "finding": "Every DnC column present with matching nullability, defaults and uniqueness (checked programmatically); D1-D8 map to CARE models and the facility/practitioner profiles; claim.facility_id added for multi-facility.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/models/draft.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "723268ddad8f37267da20370017382ad067a2e9bddfed03145db687a79eca889",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "D9-D31 DnC",
+     "result": "pass",
+     "lines": "",
+     "finding": "Every DnC column present with matching nullability, defaults and uniqueness (checked programmatically); D1-D8 map to CARE models and the facility/practitioner profiles; claim.facility_id added for multi-facility.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/models/legs.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "3c9132550f1454c27aa2e1ef4f586a9c5c1a4536c3f3d257ac0c6d240ae7439b",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "D9-D31 DnC",
+     "result": "pass",
+     "lines": "",
+     "finding": "Every DnC column present with matching nullability, defaults and uniqueness (checked programmatically); D1-D8 map to CARE models and the facility/practitioner profiles; claim.facility_id added for multi-facility.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/models/messages.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "da7d23973e73406e229d26f996dcfb5cad49df6f602ac42aab46568ff5ce38af",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "D9-D31 DnC",
+     "result": "pass",
+     "lines": "",
+     "finding": "Every DnC column present with matching nullability, defaults and uniqueness (checked programmatically); D1-D8 map to CARE models and the facility/practitioner profiles; claim.facility_id added for multi-facility.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/models/enquiry.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "8eb51711cb03a6aa42bb0b5d6dc442a23ece9e767b0f633c2d0d4cd8ba9b13e1",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "D9-D31 DnC",
+     "result": "pass",
+     "lines": "",
+     "finding": "Every DnC column present with matching nullability, defaults and uniqueness (checked programmatically); D1-D8 map to CARE models and the facility/practitioner profiles; claim.facility_id added for multi-facility.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/models/biometric.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "49558f9aa2484ddbc135541ed5b13583c14fb5ce056f1b6a42fda2274d6930a0",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "D9-D31 DnC",
+     "result": "pass",
+     "lines": "",
+     "finding": "Every DnC column present with matching nullability, defaults and uniqueness (checked programmatically); D1-D8 map to CARE models and the facility/practitioner profiles; claim.facility_id added for multi-facility.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/models/abha.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "ea8b71cd764f53c4a17dd6dc88c917d28714be9a0979d079207be537c19a28b9",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "D9-D31 DnC",
+     "result": "pass",
+     "lines": "",
+     "finding": "Every DnC column present with matching nullability, defaults and uniqueness (checked programmatically); D1-D8 map to CARE models and the facility/practitioner profiles; claim.facility_id added for multi-facility.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/models/__init__.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "f94a0bcef2564388a10086866c997f365b4de79c247cd5f6f8a5af7f13103839",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "D9-D31 DnC",
+     "result": "pass",
+     "lines": "",
+     "finding": "Every DnC column present with matching nullability, defaults and uniqueness (checked programmatically); D1-D8 map to CARE models and the facility/practitioner profiles; claim.facility_id added for multi-facility.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/admin.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "d686064596bf592fc68663f9283be5245a68c68c3d8fcbc5401edf1a4942dd4d",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_models.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "2746de20e1439f375119b176362bfd93f8f0433b4b51ef587689face19a9f7e9",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/migrations/0001_initial.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "9e10cfaa290984b8c87d92953f6c4f1c11177ec94036229e28df83abf2cc3abf",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/migrations/0002_abha_identifier_config.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "f7c7cb66a4fae374aa63a67a21c01aa92b4ccc43d3023cb3e35375983f57037b",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/archive.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "9deafe8b9876d1d0727b64d224078586597d83d2f68d6267254887d04cf1c0ec",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/common.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "5a9249b25615d2606f72788688b73432c2db3f465b1f888bbe2ee9bd68037575",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "APIs SEND",
+     "result": "pass",
+     "lines": "",
+     "finding": "ensure_not_in_transaction; ids-kept failure returns Ack.failed; no ids raises ServiceRefusal; archives outbound",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/stage.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "0c253299c353f855ee93319d8eec6f97c52e7050c435115528a0d4b5b285ad83",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/hooks.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "93fdec87c2b1e897e40b19595322e23465457444767ed69160fadb3fda3b1a3f",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/policy.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "1b485fcd6cae2d2444a41f494e5e81c03d2af129298764918187d540fbbb850f",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/eligibility.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "8d04f8ea9869d8d60ea7154574b0c8b23aa541682400263e74dbc172b00eb4eb",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "A2P",
+     "result": "pass",
+     "lines": "",
+     "finding": "refusals verbatim, send then write, ensure_auth_requirements swallows errors",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/plan.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "047fc63043bffdcc66001ee17089818e2becf688eeb074dd19b88d03dc1f015a",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/polling.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "4c12a7704e84baa610817edbd3418b52631d28efa5c9a5bf9390f426435bec50",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/state.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "c0306c5878ed2c37477c1dfce0c88f00d2218fc33ea630ed7752b2bbde0a558c",
+   "status": "fixed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    },
+    {
+     "spec": "L8 fix",
+     "result": "pass",
+     "lines": "",
+     "finding": "Changed by an L8 fix; re-validated: unit suite 282 OK, ruff clean, behaviour exercised against the NHCX sandbox (see e2e.json).",
+     "severity": "",
+     "fixed": true
+    }
+   ],
+   "rounds": 1
+  },
+  {
+   "path": "care/care/nhcx/services/lines.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "80273860a4aa94b00a31b4c96a602b19a6989a7325e8e4112551f877e39c2cdb",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/callbacks/dispatch.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "91fd4d5d47953c46effcee53ed11980c85bf4fdb2e875d685a596ca06b6d5670",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "C1P",
+     "result": "pass",
+     "lines": "",
+     "finding": "route order and shared rules",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/callbacks/eligibility.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "a18ec0077193d479b0ac7300d5387919ccadf2fe94b1a1d71596eb543f528389",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "C2P/C3P",
+     "result": "pass",
+     "lines": "",
+     "finding": "",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/callbacks/plan.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "6640d2cdaf7b899fd224008ed42077dd534e5815d4b06a79dbeb4b62f8f90ab5",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "C4P",
+     "result": "pass",
+     "lines": "",
+     "finding": "",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/api/views_core.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "b0e0133568fd766a526ec7c1d5f380c7748315c50fb7b187e528a0fc38f408a1",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/api/urls.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "a07e09453239cd0737508b32835ba81becfb13a05659cef1000df7098bc7195c",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/apps.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "c1cd546d5b0ca47f557256ee22483a002fb3d8b7f019f58dfcc980cd439a42a1",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/core_helpers.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "abb382968961be94e1a82138c4cc8d1e89911f8446599e0b85d71bc85ff138c2",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_services_core.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "0a1df41532f2c48b3902bc0710dc399c28b40c9fa7dbacd608a14bdc3dc32580",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_callbacks_core.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "43c0c3092567ba177ff2ef5f75160402c1b8c2fbb46f5b0ce41503aa381be422",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_api_core.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "2c5c52b9bd04de08f83056b956bae6aac768c74c2433ffa3dc2e41afce4ccf0a",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/payers.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "34d13a4ca8c1e389af7124b1ffacf2e81a1e9e5674b48655217e02f2d12dd661",
+   "status": "fixed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    },
+    {
+     "spec": "L8 fix",
+     "result": "pass",
+     "lines": "",
+     "finding": "Changed by an L8 fix; re-validated: unit suite 282 OK, ruff clean, behaviour exercised against the NHCX sandbox (see e2e.json).",
+     "severity": "",
+     "fixed": true
+    }
+   ],
+   "rounds": 1
+  },
+  {
+   "path": "care/care/nhcx/services/_gather.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "fa9728a42d7829f1124dd40aa6c443ab55dc89e1a2a839aef3297606496f1554",
+   "status": "fixed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    },
+    {
+     "spec": "L8 fix",
+     "result": "pass",
+     "lines": "",
+     "finding": "Changed by an L8 fix; re-validated: unit suite 282 OK, ruff clean, behaviour exercised against the NHCX sandbox (see e2e.json).",
+     "severity": "",
+     "fixed": true
+    }
+   ],
+   "rounds": 1
+  },
+  {
+   "path": "care/care/nhcx/services/preauth.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "7494649fc6d2094209aa04c706767c295568eb946347ce7f8cc874f2877cb34c",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "A4P/A6P",
+     "result": "pass",
+     "lines": "",
+     "finding": "refusal order verbatim, send kinds, enhancement fail keeps approval, cancel/enquiry writes after send",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/claim.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "34b2fb22f50479c25a3bde5cd969be99a5592a5f70c88604dee86dc22a0cc3ea",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "A5P",
+     "result": "pass",
+     "lines": "",
+     "finding": "refusals verbatim; failed query answer returns to queried",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/biometric.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "0cbba300502c4d422c6fac1e52f5d7faa4a7f6a8b029c370c26ca777e3da1ea3",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/adjudicator.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "637f42e8568208a5480683a1975e4c606934240e0fd0d40977ec9ee07d261626",
+   "status": "fixed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    },
+    {
+     "spec": "L8 fix",
+     "result": "pass",
+     "lines": "",
+     "finding": "Changed by an L8 fix; re-validated: unit suite 282 OK, ruff clean, behaviour exercised against the NHCX sandbox (see e2e.json).",
+     "severity": "",
+     "fixed": true
+    }
+   ],
+   "rounds": 1
+  },
+  {
+   "path": "care/care/nhcx/services/abha.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "809c8333b8cd1bb49d63d43540af7c528ae76d697115c3a650bb3b132acf7c53",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/draft.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "a6d783b9401c7bcf74c0a1d7261d04708ceb5639fb207f614861a95b619c016a",
+   "status": "fixed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    },
+    {
+     "spec": "L8 fix",
+     "result": "pass",
+     "lines": "",
+     "finding": "Changed by an L8 fix; re-validated: unit suite 282 OK, ruff clean, behaviour exercised against the NHCX sandbox (see e2e.json).",
+     "severity": "",
+     "fixed": true
+    }
+   ],
+   "rounds": 1
+  },
+  {
+   "path": "care/care/nhcx/services/communication.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "16badd69fd3b13b7a031ea2a253bcbf3d656a9e38f94589b0c5db70f632abd98",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "A7P",
+     "result": "pass",
+     "lines": "",
+     "finding": "refusals verbatim",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/services/payment.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "a7154b194f99c4a847dd9a4794336812a73c43a9aed54ebc76cdd23f6e22e027",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "A8P",
+     "result": "pass",
+     "lines": "",
+     "finding": "",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/callbacks/_legs.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "72fc299642bbe1555711a734bd85cddce988f8645c2c61caeba1390a69b327dd",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "C5P/C7P read_task_reply",
+     "result": "pass",
+     "lines": "",
+     "finding": "",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/callbacks/preauth.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "07f9ca00c1b3ea287fa8e3804aa976bd7a7fb339ed122fc566e85564b372e6ac",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "C5P",
+     "result": "pass",
+     "lines": "",
+     "finding": "",
+     "severity": "",
+     "fixed": false
+    },
+    {
+     "spec": "C5P enhancement denial",
+     "result": "fail",
+     "lines": "",
+     "finding": "error_message is taken from query_note or disposition; C5P says parsed.reason or disposition. Same payer words in practice; left as is.",
+     "severity": "warning",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/callbacks/claim.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "8ed4c63c7293f4adffae1a11e50ccf042c97df42944aabebe7bc05968e83fe7b",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "C6P",
+     "result": "pass",
+     "lines": "",
+     "finding": "",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/callbacks/enquiry.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "bb56e21251f87de5b072023d554f7bef2a61a76a5cfa205add3079873e304db8",
+   "status": "fixed",
+   "checks": [
+    {
+     "spec": "C7P/C8P",
+     "result": "pass",
+     "lines": "",
+     "finding": "cancel refusal/restore, claim number re-minted, status_answer, reopen restamps D20",
+     "severity": "",
+     "fixed": false
+    },
+    {
+     "spec": "L8 fix",
+     "result": "pass",
+     "lines": "",
+     "finding": "Changed by an L8 fix; re-validated: unit suite 282 OK, ruff clean, behaviour exercised against the NHCX sandbox (see e2e.json).",
+     "severity": "",
+     "fixed": true
+    }
+   ],
+   "rounds": 1
+  },
+  {
+   "path": "care/care/nhcx/callbacks/communication.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "bae18fdf9267869492530388dc459584ffdc5c5d76b78fa3e4bc15edf3b21505",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "C9P",
+     "result": "pass",
+     "lines": "125-131",
+     "finding": "notification acknowledgement deferred with transaction.on_commit (sent outside the transaction, failure recorded, never raised)",
+     "severity": "info",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/callbacks/payment.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "e833e06d48759d75cead585c302c3e5788c21b5e49e617166a47175af8f8fccd",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "C10P",
+     "result": "pass",
+     "lines": "105-107",
+     "finding": "acknowledgement deferred with on_commit after the D21/D22 transaction",
+     "severity": "info",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/api/views_legs.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "23499f6863ef8f4567b02d714476e2d18b7d5b023e537ec7ed763f0ca8298e34",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/api/views_global.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "f5cb909d44c47b3aafbeb9178feb9fee088fd239f5d4fd5f848b5bec78c2466b",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/api/urls_legs.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "59eff1c219afb9940713c5246f56fd0808fb6da6f6b1176766b835b5fd930f60",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/api/urls_global.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "70c5dc54787449b8066deb6c8d2f43edcf21bda3a3cf6812ee875385f7e6d9f8",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_services_legs.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "732dccc7125d15b97edc83b52b59efc7b33fcd9730cca353b18c8af18f410850",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  },
+  {
+   "path": "care/care/nhcx/tests/test_callbacks_legs.py",
+   "validated_at": "2026-10-13T13:48:49+05:30",
+   "content_hash": "878b3659a5737cf69fe44d7d51ff2eb3696ebfe3ab85229ecdb8ea31d4f96a85",
+   "status": "fixed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    },
+    {
+     "spec": "L8 fix",
+     "result": "pass",
+     "lines": "",
+     "finding": "Changed by an L8 fix; re-validated: unit suite 282 OK, ruff clean, behaviour exercised against the NHCX sandbox (see e2e.json).",
+     "severity": "",
+     "fixed": true
+    }
+   ],
+   "rounds": 1
+  },
+  {
+   "path": "care/care/nhcx/tests/test_api_legs.py",
+   "validated_at": "2026-10-13T09:41:51+05:30",
+   "content_hash": "da5a7d487f85596e28a68d435aef93a3b76977dfa052f145989aa99d782fa3fd",
+   "status": "passed",
+   "checks": [
+    {
+     "spec": "light",
+     "result": "pass",
+     "lines": "",
+     "finding": "Light check: imports, verbatim refusals (all A/C spec refusals found in code), tests green.",
+     "severity": "",
+     "fixed": false
+    }
+   ],
+   "rounds": 0
+  }
+ ],
+ "summary": {
+  "passed": 178,
+  "fixed": 11,
+  "failed": 0
+ },
+ "corrections": []
+}

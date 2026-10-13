@@ -1,0 +1,577 @@
+[
+  {
+    "item": "care/nhcx/fhir/bundle.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/codes.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/inputs.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/build/coverage_request.py",
+    "summary": "F2: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/build/plan_task.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/build/questionnaire_response.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/build/claim.py",
+    "summary": "F8: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/build/task.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/build/communication.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/build/payment_ack.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/build/patient.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/build/practitioner.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/build/organization.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/build/coverage.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/build/other.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/read/eligibility.py",
+    "summary": "C2P/F3 read_verdict: fail (The verdict was read from the last CoverageEligibilityResponse; C2P reads the first.); C3P/D14C: fail (auth_required and excluded were coerced to false when absent; D14C keeps null (new _flag helper).)",
+    "files": [
+      "care/nhcx/fhir/read/eligibility.py:90-121:The verdict was read from the last CoverageEligibilityResponse; C2P reads the first.",
+      "care/nhcx/fhir/read/eligibility.py:137-193:auth_required and excluded were coerced to false when absent; D14C keeps null (new _flag helper)."
+    ]
+  },
+  {
+    "item": "care/nhcx/fhir/read/plan.py",
+    "summary": "C4P read_plan/apply_plan: fail (An InsurancePlan with no packages got the 'carries no InsurancePlan' message; C4P keeps error_message null unless the bundle has no InsurancePlan.); F5/F6: pass",
+    "files": [
+      "care/nhcx/fhir/read/plan.py:257-292:An InsurancePlan with no packages got the 'carries no InsurancePlan' message; C4P keeps error_message null unless the bundle has no InsurancePlan."
+    ]
+  },
+  {
+    "item": "care/nhcx/fhir/read/claim_response.py",
+    "summary": "C5P status_on/verdict_status: fail (is_error returned error for outcome error with reason queried/submitted/acknowledged; partial under an approving workflow id checked outcome only. Both now go through decide() (= verdict_status); outcome lower-cased.); C5P read_claim_response errors / error_text: fail (Error lines were '<code> <display>'; spec is '<code>: <display or text>'. A disposition of 'ok' is no longer listed.); F9: pass",
+    "files": [
+      "care/nhcx/fhir/read/claim_response.py:64-82:is_error returned error for outcome error with reason queried/submitted/acknowledged; partial under an approving workflow id checked outcome only. Both now go through decide() (= verdict_status); outcome lower-cased.",
+      "care/nhcx/fhir/read/claim_response.py:138-152:Error lines were '<code> <display>'; spec is '<code>: <display or text>'. A disposition of 'ok' is no longer listed."
+    ]
+  },
+  {
+    "item": "care/nhcx/fhir/read/communication.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/fhir/read/payment.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_fhir_build.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_fhir_read.py",
+    "summary": "C5P: pass",
+    "files": [
+      "care/nhcx/tests/test_fhir_read.py:227-246,284:Two assertions encoded the pre-spec partial and error-line behaviour; aligned to C5P (partial needs reason approved; '<code>: <display>')."
+    ]
+  },
+  {
+    "item": "care/nhcx/tests/test_fhir_bundle.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_fhir_codes.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/fhir_samples.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/fixtures/bundles/README.md",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/fixtures/bundles/*.json",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/__init__.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/errors.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/config.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/token.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/registry.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/headers.py",
+    "summary": "G5P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/crypto.py",
+    "summary": "G6P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/send.py",
+    "summary": "G7P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/receive.py",
+    "summary": "G8P/G8S: pass; G8D: fail (G8D says no row is written for an unmatched delivery; G8S records every delivered outcome. Code follows G8S. Spec inconsistency, not changed.)",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/ledger.py",
+    "summary": "G9: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/beneficiary.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/checks.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/embedding.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/views.py",
+    "summary": "G1/G8: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/urls.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tasks.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "config/settings/base.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "config/urls.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/gateway/config.example.json",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_gateway_config.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_gateway_crypto.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_gateway_send.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_gateway_receive.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_gateway_ledger.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_gateway_checks.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/gateway_helpers.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/fixtures/keys/",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/models/base.py",
+    "summary": "D9-D31 DnC: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/models/profiles.py",
+    "summary": "D9-D31 DnC: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/models/claim.py",
+    "summary": "D9-D31 DnC: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/models/plan.py",
+    "summary": "D9-D31 DnC: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/models/auth.py",
+    "summary": "D9-D31 DnC: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/models/draft.py",
+    "summary": "D9-D31 DnC: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/models/legs.py",
+    "summary": "D9-D31 DnC: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/models/messages.py",
+    "summary": "D9-D31 DnC: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/models/enquiry.py",
+    "summary": "D9-D31 DnC: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/models/biometric.py",
+    "summary": "D9-D31 DnC: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/models/abha.py",
+    "summary": "D9-D31 DnC: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/models/__init__.py",
+    "summary": "D9-D31 DnC: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/admin.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_models.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/migrations/0001_initial.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/migrations/0002_abha_identifier_config.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/archive.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/common.py",
+    "summary": "APIs SEND: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/stage.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/hooks.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/policy.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/eligibility.py",
+    "summary": "A2P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/plan.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/polling.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/state.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/lines.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/callbacks/dispatch.py",
+    "summary": "C1P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/callbacks/eligibility.py",
+    "summary": "C2P/C3P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/callbacks/plan.py",
+    "summary": "C4P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/api/views_core.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/api/urls.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/apps.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/core_helpers.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_services_core.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_callbacks_core.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_api_core.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/payers.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/_gather.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/preauth.py",
+    "summary": "A4P/A6P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/claim.py",
+    "summary": "A5P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/biometric.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/adjudicator.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/abha.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/draft.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/communication.py",
+    "summary": "A7P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/services/payment.py",
+    "summary": "A8P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/callbacks/_legs.py",
+    "summary": "C5P/C7P read_task_reply: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/callbacks/preauth.py",
+    "summary": "C5P: pass; C5P enhancement denial: fail (error_message is taken from query_note or disposition; C5P says parsed.reason or disposition. Same payer words in practice; left as is.)",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/callbacks/claim.py",
+    "summary": "C6P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/callbacks/enquiry.py",
+    "summary": "C7P/C8P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/callbacks/communication.py",
+    "summary": "C9P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/callbacks/payment.py",
+    "summary": "C10P: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/api/views_legs.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/api/views_global.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/api/urls_legs.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/api/urls_global.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_services_legs.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_callbacks_legs.py",
+    "summary": "light: pass",
+    "files": []
+  },
+  {
+    "item": "care/nhcx/tests/test_api_legs.py",
+    "summary": "light: pass",
+    "files": []
+  }
+]

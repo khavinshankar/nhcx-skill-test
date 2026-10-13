@@ -1,0 +1,844 @@
+{
+ "files": [
+  {
+   "path": "care/nhcx/archive.py",
+   "status": "written",
+   "plan_step": "P-scaffold",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "SCAFFOLDING 3.7"
+    ]
+   },
+   "symbols": [
+    {
+     "name": "archive_dir",
+     "lines": "34-79",
+     "implements": [
+      "SCAFFOLDING 3.7"
+     ]
+    },
+    {
+     "name": "archive_outbound",
+     "lines": "80-115",
+     "implements": [
+      "SCAFFOLDING 3.7"
+     ]
+    },
+    {
+     "name": "archive_inbound",
+     "lines": "116-144",
+     "implements": [
+      "SCAFFOLDING 3.7"
+     ]
+    },
+    {
+     "name": "archive_note",
+     "lines": "145-154",
+     "implements": [
+      "SCAFFOLDING 3.7"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/common.py",
+   "status": "written",
+   "plan_step": "P-services",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "callbacks": [],
+    "fhir": [
+     "mapping.json inputs"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "ServiceRefusal",
+     "lines": "74-85",
+     "implements": []
+    },
+    {
+     "name": "Ack",
+     "lines": "86-114",
+     "implements": []
+    },
+    {
+     "name": "default_payer_code/recipient_code/facility_profile/headers/payer_name/adapter/get_claim",
+     "lines": "115-199",
+     "implements": []
+    },
+    {
+     "name": "facility_input/payer_input/coverage_input/patient_input/practitioner_input(s)/line_inputs",
+     "lines": "200-302",
+     "implements": [
+      "mapping.json"
+     ]
+    },
+    {
+     "name": "send",
+     "lines": "303-352",
+     "implements": [
+      "SCAFFOLDING 3.3"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/stage.py",
+   "status": "written",
+   "plan_step": "P-services",
+   "implements": {
+    "screens": [
+     "S5",
+     "S6"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D9"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "compute",
+     "lines": "65-84",
+     "implements": [
+      "D9 stage/sub_stage"
+     ]
+    },
+    {
+     "name": "recompute",
+     "lines": "85-94",
+     "implements": [
+      "D9"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/hooks.py",
+   "status": "written",
+   "plan_step": "P-services",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A17"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "register/unregister/registered/call",
+     "lines": "40-69",
+     "implements": [
+      "A17 hooks"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/policy.py",
+   "status": "written",
+   "plan_step": "P-services",
+   "implements": {
+    "screens": [
+     "S1",
+     "S2"
+    ],
+    "apis": [
+     "A1"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "search_policies",
+     "lines": "83-113",
+     "implements": [
+      "A1"
+     ]
+    },
+    {
+     "name": "open_case",
+     "lines": "114-148",
+     "implements": [
+      "A1"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/eligibility.py",
+   "status": "written",
+   "plan_step": "P-services",
+   "implements": {
+    "screens": [
+     "S2",
+     "S3"
+    ],
+    "apis": [
+     "A2"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D9",
+     "D10"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "run_check",
+     "lines": "109-175",
+     "implements": [
+      "A2"
+     ]
+    },
+    {
+     "name": "discover",
+     "lines": "192-227",
+     "implements": [
+      "A2"
+     ]
+    },
+    {
+     "name": "request_auth",
+     "lines": "233-291",
+     "implements": [
+      "A2 auth-requirements"
+     ]
+    },
+    {
+     "name": "ensure_auth_requirements",
+     "lines": "292-320",
+     "implements": [
+      "A2"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/plan.py",
+   "status": "written",
+   "plan_step": "P-services",
+   "implements": {
+    "screens": [
+     "S7"
+    ],
+    "apis": [
+     "A3"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D11"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "reuse_plan",
+     "lines": "52-104",
+     "implements": [
+      "A3"
+     ]
+    },
+    {
+     "name": "request_plan",
+     "lines": "105-161",
+     "implements": [
+      "A3"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/polling.py",
+   "status": "written",
+   "plan_step": "P-services",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A10",
+     "A11",
+     "A12",
+     "A13"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "poll",
+     "lines": "387-446",
+     "implements": [
+      "A10-A13"
+     ]
+    },
+    {
+     "name": "poll_*",
+     "lines": "447-536",
+     "implements": [
+      "A10-A13"
+     ]
+    },
+    {
+     "name": "poll_all",
+     "lines": "537-562",
+     "implements": [
+      "A10"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/state.py",
+   "status": "written",
+   "plan_step": "P-services",
+   "implements": {
+    "screens": [
+     "S5",
+     "S6"
+    ],
+    "apis": [
+     "A17"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "row",
+     "lines": "55-87",
+     "implements": [
+      "A17"
+     ]
+    },
+    {
+     "name": "admissions",
+     "lines": "88-149",
+     "implements": [
+      "A17"
+     ]
+    },
+    {
+     "name": "claim_state",
+     "lines": "150-199",
+     "implements": [
+      "A17"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/lines.py",
+   "status": "written",
+   "plan_step": "P-services",
+   "implements": {
+    "screens": [
+     "S8",
+     "S4"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D12"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "add_line/update_lines/remove_line",
+     "lines": "112-218",
+     "implements": [
+      "S8"
+     ]
+    },
+    {
+     "name": "link_admission/unlink_admission",
+     "lines": "219-246",
+     "implements": [
+      "S4"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/callbacks/dispatch.py",
+   "status": "written",
+   "plan_step": "P-callbacks",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C1"
+    ],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "payload/rejection/failed_send/revive/leg_write/already_applied",
+     "lines": "68-186",
+     "implements": [
+      "C1 shared rules"
+     ]
+    },
+    {
+     "name": "claim_for_correlation/claim_named_in",
+     "lines": "187-280",
+     "implements": [
+      "C1 matching"
+     ]
+    },
+    {
+     "name": "route",
+     "lines": "281-339",
+     "implements": [
+      "C1 routing"
+     ]
+    },
+    {
+     "name": "receive",
+     "lines": "340-349",
+     "implements": [
+      "C1"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/callbacks/eligibility.py",
+   "status": "written",
+   "plan_step": "P-callbacks",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C2",
+     "C3"
+    ],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "handle",
+     "lines": "48-63",
+     "implements": [
+      "C2",
+      "C3"
+     ]
+    },
+    {
+     "name": "on_check",
+     "lines": "64-88",
+     "implements": [
+      "C2"
+     ]
+    },
+    {
+     "name": "on_auth",
+     "lines": "89-135",
+     "implements": [
+      "C3"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/callbacks/plan.py",
+   "status": "written",
+   "plan_step": "P-callbacks",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C4"
+    ],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "apply_plan",
+     "lines": "36-74",
+     "implements": [
+      "C4"
+     ]
+    },
+    {
+     "name": "handle",
+     "lines": "75-95",
+     "implements": [
+      "C4"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/api/views_core.py",
+   "status": "written",
+   "plan_step": "P-api",
+   "implements": {
+    "screens": [
+     "S1",
+     "S2",
+     "S3",
+     "S5",
+     "S6",
+     "S7",
+     "S8",
+     "S17"
+    ],
+    "apis": [
+     "A1",
+     "A2",
+     "A3",
+     "A17"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "can_access_facility",
+     "lines": "70-89",
+     "implements": []
+    },
+    {
+     "name": "NhcxFacilityView/SendingView",
+     "lines": "90-114",
+     "implements": []
+    },
+    {
+     "name": "views",
+     "lines": "145-339",
+     "implements": [
+      "CONTRACT core"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/api/urls.py",
+   "status": "written",
+   "plan_step": "P-api",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "CONTRACT core"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "urlpatterns",
+     "lines": "1-53",
+     "implements": []
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "config/urls.py",
+   "status": "written",
+   "plan_step": "P-api",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "nhcx facility include",
+     "lines": "",
+     "implements": []
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/apps.py",
+   "status": "written",
+   "plan_step": "P-services",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "NhcxConfig.ready",
+     "lines": "5-19",
+     "implements": [
+      "hook registration"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/tests/core_helpers.py",
+   "status": "written",
+   "plan_step": "P-tests",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/tests/test_services_core.py",
+   "status": "written",
+   "plan_step": "P-tests",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/tests/test_callbacks_core.py",
+   "status": "written",
+   "plan_step": "P-tests",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/tests/test_api_core.py",
+   "status": "written",
+   "plan_step": "P-tests",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "dtest.sh ruff check/format <files>; dtest.sh python manage.py check; makemigrations --check nhcx",
+    "notes": "ruff clean; check: no issues; makemigrations: No changes detected"
+   },
+   "blocked_reason": ""
+  }
+ ],
+ "tests": {
+  "command": "dtest.sh python manage.py test care.nhcx.tests.test_services_core care.nhcx.tests.test_callbacks_core care.nhcx.tests.test_api_core --keepdb --parallel 1",
+  "result": "51 passed"
+ },
+ "corrections": [
+  {
+   "spec": "API auth",
+   "what": "Anonymous requests get 403 (not_authenticated), not 401: CARE's authenticators return an empty WWW-Authenticate header, so DRF downgrades the status platform-wide.",
+   "source": "config/authentication.py authenticate_header"
+  }
+ ],
+ "notes": [
+  "payers.py (adapter_for/workflow_id) is owned by services-legs; common.adapter() delegates to it.",
+  "Added an extra_headers hook; reads getattr settings NHCX_CLAIM_PREFIX and NHCX_DEFAULT_PAYER_CODE.",
+  "Task callbacks route to callbacks.enquiry with route C7/C8.",
+  "state.claim_state adds a required_forms alias.",
+  "C3 checks for a response before revive; ensure_auth_requirements returns False on failure; registry errors -> 400; tier_offers passed empty.",
+  "Extra core-owned module services/lines.py plus endpoints PUT claims/<id>/lines/ (bulk update), DELETE claims/<id>/lines/<line>/, POST/DELETE claims/<id>/admission/.",
+  "Ledger API is superuser-only; POST claims/ also supports discovery (payer_code/id_type).",
+  "Admissions treat 'discharged' as finished.",
+  "No model changes / migrations."
+ ]
+}

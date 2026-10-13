@@ -1,0 +1,2266 @@
+{
+ "files": [
+  {
+   "path": "care/nhcx/services/payers.py",
+   "status": "written",
+   "plan_step": "P5",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A4",
+     "A5",
+     "A6",
+     "A17"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "Adapter",
+     "lines": "62-82",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "code_key",
+     "lines": "119-123",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "configured_adapters",
+     "lines": "146-149",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "registry_name",
+     "lines": "152-160",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "adapter_for",
+     "lines": "163-172",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "adapter_for_claim",
+     "lines": "175-176",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "workflow_overrides",
+     "lines": "179-180",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "workflow_id",
+     "lines": "183-200",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "has_workflow",
+     "lines": "203-208",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "use_case_for",
+     "lines": "211-212",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "status_for",
+     "lines": "215-216",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "intimation_input",
+     "lines": "219-222",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A17"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/_gather.py",
+   "status": "written",
+   "plan_step": "P5",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A4",
+     "A5"
+    ],
+    "callbacks": [],
+    "fhir": [
+     "F8"
+    ],
+    "database": [
+     "D16",
+     "D17",
+     "D18",
+     "D25",
+     "D26"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "facility",
+     "lines": "70-74",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "check_draft",
+     "lines": "77-97",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "total",
+     "lines": "100-107",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "document_input",
+     "lines": "110-121",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "documents",
+     "lines": "124-128",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "quoted_codes",
+     "lines": "141-142",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "procedure_types",
+     "lines": "151-159",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "lama_package",
+     "lines": "162-174",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "has_token",
+     "lines": "177-180",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "biometric_headers",
+     "lines": "183-189",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "required_form_urls",
+     "lines": "192-214",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "form_inputs",
+     "lines": "241-263",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "answers",
+     "lines": "266-295",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "required_forms",
+     "lines": "298-303",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "required_documents",
+     "lines": "306-351",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    },
+    {
+     "name": "discharge_summary",
+     "lines": "360-384",
+     "implements": [
+      "A4",
+      "A5"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/preauth.py",
+   "status": "written",
+   "plan_step": "P5",
+   "implements": {
+    "screens": [
+     "S4",
+     "S9",
+     "S10"
+    ],
+    "apis": [
+     "A4",
+     "A6",
+     "A17"
+    ],
+    "callbacks": [],
+    "fhir": [
+     "F8",
+     "F10"
+    ],
+    "database": [
+     "D16",
+     "D19",
+     "D20",
+     "D29"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "existing",
+     "lines": "84-85",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "workflow_for",
+     "lines": "88-92",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "build_bundle",
+     "lines": "95-101",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "sent_codes",
+     "lines": "107-123",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "added_lines",
+     "lines": "126-129",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "send_kind",
+     "lines": "132-148",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "claim_input",
+     "lines": "154-181",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "submit_preauth",
+     "lines": "184-295",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "ask_predetermination",
+     "lines": "298-331",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "task_parties",
+     "lines": "337-340",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "leg_reference",
+     "lines": "343-354",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "send_task",
+     "lines": "357-365",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "send_enquiry",
+     "lines": "368-385",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "cancel_preauth",
+     "lines": "392-436",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "ask_status",
+     "lines": "439-449",
+     "implements": [
+      "A4",
+      "A6",
+      "A17"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/claim.py",
+   "status": "written",
+   "plan_step": "P5",
+   "implements": {
+    "screens": [
+     "S10",
+     "S11"
+    ],
+    "apis": [
+     "A5",
+     "A6",
+     "A17"
+    ],
+    "callbacks": [],
+    "fhir": [
+     "F8",
+     "F10"
+    ],
+    "database": [
+     "D21",
+     "D22",
+     "D29"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "submission",
+     "lines": "65-66",
+     "implements": [
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "send_kind",
+     "lines": "69-85",
+     "implements": [
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "is_lama",
+     "lines": "88-93",
+     "implements": [
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "record_discharge",
+     "lines": "124-169",
+     "implements": [
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "submit_claim",
+     "lines": "175-288",
+     "implements": [
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "claim_total",
+     "lines": "291-302",
+     "implements": [
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "ask_reprocess",
+     "lines": "317-368",
+     "implements": [
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "ask_release",
+     "lines": "381-419",
+     "implements": [
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "ask_status",
+     "lines": "422-423",
+     "implements": [
+      "A5",
+      "A6",
+      "A17"
+     ]
+    },
+    {
+     "name": "enquire",
+     "lines": "426-443",
+     "implements": [
+      "A5",
+      "A6",
+      "A17"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/biometric.py",
+   "status": "written",
+   "plan_step": "P5",
+   "implements": {
+    "screens": [
+     "S18"
+    ],
+    "apis": [
+     "A18"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D31"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "BiometricError",
+     "lines": "54-55",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "bio_base",
+     "lines": "62-65",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "face_base",
+     "lines": "68-71",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "face_qr",
+     "lines": "74-75",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "token_header",
+     "lines": "78-79",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "hyphenate",
+     "lines": "82-84",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "session_token",
+     "lines": "87-94",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "abdm_headers",
+     "lines": "97-105",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "face_headers",
+     "lines": "108-111",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "stage_for",
+     "lines": "154-172",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "init",
+     "lines": "175-235",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "attempt",
+     "lines": "238-251",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "capture",
+     "lines": "254-267",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "verify",
+     "lines": "277-343",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "refresh",
+     "lines": "346-369",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "current",
+     "lines": "379-387",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "headers_for",
+     "lines": "390-403",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "describe",
+     "lines": "406-427",
+     "implements": [
+      "A18"
+     ]
+    },
+    {
+     "name": "listing",
+     "lines": "430-442",
+     "implements": [
+      "A18"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/adjudicator.py",
+   "status": "written",
+   "plan_step": "P5",
+   "implements": {
+    "screens": [
+     "S16"
+    ],
+    "apis": [
+     "A14",
+     "A15",
+     "A16"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "AdjudicatorError",
+     "lines": "136-137",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "enabled",
+     "lines": "140-141",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "step_for",
+     "lines": "156-162",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "token",
+     "lines": "168-185",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "extract_role",
+     "lines": "197-213",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "extract_error",
+     "lines": "216-222",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "leg",
+     "lines": "254-289",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "role_for",
+     "lines": "301-345",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "irdai_role",
+     "lines": "413-432",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "read_role",
+     "lines": "435-440",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "process",
+     "lines": "474-531",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "irdai_process",
+     "lines": "534-564",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "cycle",
+     "lines": "567-658",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "cycle_flash",
+     "lines": "673-678",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    },
+    {
+     "name": "adjudicate",
+     "lines": "681-703",
+     "implements": [
+      "A14",
+      "A15",
+      "A16"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/abha.py",
+   "status": "written",
+   "plan_step": "P5",
+   "implements": {
+    "screens": [
+     "S13",
+     "S14",
+     "S15"
+    ],
+    "apis": [
+     "A19"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D3"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "base_url",
+     "lines": "54-55",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "call",
+     "lines": "107-138",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "certificate",
+     "lines": "144-162",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "seal",
+     "lines": "165-183",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "remember",
+     "lines": "207-210",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "recall",
+     "lines": "213-216",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "audit",
+     "lines": "219-225",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "format_abha",
+     "lines": "231-235",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "profile_from",
+     "lines": "253-273",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "account_from",
+     "lines": "276-282",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "profile_with",
+     "lines": "285-288",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "enrol_otp",
+     "lines": "294-308",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "enrol_verify",
+     "lines": "311-349",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "suggestions",
+     "lines": "352-358",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "enrol_address",
+     "lines": "361-384",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "login_otp",
+     "lines": "390-414",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "login_verify",
+     "lines": "417-457",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "login_select",
+     "lines": "478-495",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "profile",
+     "lines": "498-512",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "link",
+     "lines": "515-538",
+     "implements": [
+      "A19"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/draft.py",
+   "status": "written",
+   "plan_step": "P5",
+   "implements": {
+    "screens": [
+     "S4"
+    ],
+    "apis": [
+     "A4"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D17",
+     "D18",
+     "D25",
+     "D26"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "save_draft",
+     "lines": "127-166",
+     "implements": [
+      "A4"
+     ]
+    },
+    {
+     "name": "attach",
+     "lines": "169-181",
+     "implements": [
+      "A4"
+     ]
+    },
+    {
+     "name": "remove_document",
+     "lines": "184-188",
+     "implements": [
+      "A4"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/communication.py",
+   "status": "written",
+   "plan_step": "P5",
+   "implements": {
+    "screens": [
+     "S10",
+     "S12"
+    ],
+    "apis": [
+     "A7"
+    ],
+    "callbacks": [],
+    "fhir": [
+     "F11"
+    ],
+    "database": [
+     "D23"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "check_upload",
+     "lines": "28-39",
+     "implements": [
+      "A7"
+     ]
+    },
+    {
+     "name": "store_upload",
+     "lines": "42-55",
+     "implements": [
+      "A7"
+     ]
+    },
+    {
+     "name": "document_input",
+     "lines": "58-69",
+     "implements": [
+      "A7"
+     ]
+    },
+    {
+     "name": "reply_headers",
+     "lines": "80-90",
+     "implements": [
+      "A7"
+     ]
+    },
+    {
+     "name": "answer_query",
+     "lines": "130-193",
+     "implements": [
+      "A7"
+     ]
+    },
+    {
+     "name": "acknowledge_notification",
+     "lines": "196-229",
+     "implements": [
+      "A7"
+     ]
+    },
+    {
+     "name": "auto_acknowledge",
+     "lines": "238-248",
+     "implements": [
+      "A7"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/services/payment.py",
+   "status": "written",
+   "plan_step": "P5",
+   "implements": {
+    "screens": [
+     "S11"
+    ],
+    "apis": [
+     "A8"
+    ],
+    "callbacks": [],
+    "fhir": [
+     "F12"
+    ],
+    "database": [
+     "D27",
+     "D28"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "acknowledge_payment",
+     "lines": "31-84",
+     "implements": [
+      "A8"
+     ]
+    },
+    {
+     "name": "auto_acknowledge",
+     "lines": "87-97",
+     "implements": [
+      "A8"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/callbacks/_legs.py",
+   "status": "written",
+   "plan_step": "P6",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C5",
+     "C6",
+     "C7",
+     "C8"
+    ],
+    "fhir": [
+     "F9",
+     "F10"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "headers",
+     "lines": "30-32",
+     "implements": [
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "header",
+     "lines": "35-37",
+     "implements": [
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "result",
+     "lines": "40-41",
+     "implements": [
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "is_protocol",
+     "lines": "44-45",
+     "implements": [
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "read_claim_response",
+     "lines": "48-59",
+     "implements": [
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "error_text",
+     "lines": "62-68",
+     "implements": [
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "parsed_values",
+     "lines": "71-78",
+     "implements": [
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "read_task_reply",
+     "lines": "81-85",
+     "implements": [
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "corr_of",
+     "lines": "88-92",
+     "implements": [
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "api_call_id",
+     "lines": "95-96",
+     "implements": [
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/callbacks/preauth.py",
+   "status": "written",
+   "plan_step": "P6",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C5"
+    ],
+    "fhir": [
+     "F9"
+    ],
+    "database": [
+     "D19",
+     "D20"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "door_refusal",
+     "lines": "13-19",
+     "implements": [
+      "C5"
+     ]
+    },
+    {
+     "name": "handle",
+     "lines": "22-95",
+     "implements": [
+      "C5"
+     ]
+    },
+    {
+     "name": "quote",
+     "lines": "98-127",
+     "implements": [
+      "C5"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/callbacks/claim.py",
+   "status": "written",
+   "plan_step": "P6",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C6"
+    ],
+    "fhir": [
+     "F9"
+    ],
+    "database": [
+     "D21",
+     "D22"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "claim_door_refusal",
+     "lines": "11-18",
+     "implements": [
+      "C6"
+     ]
+    },
+    {
+     "name": "handle",
+     "lines": "21-60",
+     "implements": [
+      "C6"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/callbacks/enquiry.py",
+   "status": "written",
+   "plan_step": "P6",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C7",
+     "C8"
+    ],
+    "fhir": [
+     "F10"
+    ],
+    "database": [
+     "D19",
+     "D29"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "handle",
+     "lines": "18-27",
+     "implements": [
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "claim_prefix",
+     "lines": "39-41",
+     "implements": [
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "cancel",
+     "lines": "44-92",
+     "implements": [
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "status_answer",
+     "lines": "98-121",
+     "implements": [
+      "C7",
+      "C8"
+     ]
+    },
+    {
+     "name": "answer",
+     "lines": "136-184",
+     "implements": [
+      "C7",
+      "C8"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/callbacks/communication.py",
+   "status": "written",
+   "plan_step": "P6",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C9"
+    ],
+    "fhir": [
+     "F11"
+    ],
+    "database": [
+     "D23",
+     "D24"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "handle",
+     "lines": "23-38",
+     "implements": [
+      "C9"
+     ]
+    },
+    {
+     "name": "leg_asked_about",
+     "lines": "41-45",
+     "implements": [
+      "C9"
+     ]
+    },
+    {
+     "name": "match_claim",
+     "lines": "48-89",
+     "implements": [
+      "C9"
+     ]
+    },
+    {
+     "name": "record_query",
+     "lines": "98-131",
+     "implements": [
+      "C9"
+     ]
+    },
+    {
+     "name": "record_note",
+     "lines": "167-210",
+     "implements": [
+      "C9"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/callbacks/payment.py",
+   "status": "written",
+   "plan_step": "P6",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C10"
+    ],
+    "fhir": [
+     "F12"
+    ],
+    "database": [
+     "D27",
+     "D28"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "claim_for_reference",
+     "lines": "32-42",
+     "implements": [
+      "C10"
+     ]
+    },
+    {
+     "name": "handle",
+     "lines": "45-108",
+     "implements": [
+      "C10"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/api/views_legs.py",
+   "status": "written",
+   "plan_step": "P7",
+   "implements": {
+    "screens": [
+     "S4",
+     "S9",
+     "S10",
+     "S11",
+     "S12",
+     "S16",
+     "S18"
+    ],
+    "apis": [
+     "A4",
+     "A5",
+     "A6",
+     "A7",
+     "A8",
+     "A14",
+     "A15",
+     "A16",
+     "A18"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "DraftView",
+     "lines": "90-94",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "DocumentsView",
+     "lines": "97-113",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "DocumentDetailView",
+     "lines": "116-120",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "PreauthSubmitView",
+     "lines": "123-129",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "PredeterminationView",
+     "lines": "132-137",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "PreauthCancelView",
+     "lines": "140-148",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "EnquiryView",
+     "lines": "151-172",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "ClaimSubmitView",
+     "lines": "175-184",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "DischargeView",
+     "lines": "187-192",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "QueryReplyView",
+     "lines": "195-221",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "QueryAckView",
+     "lines": "224-232",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "PaymentAckView",
+     "lines": "253-261",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "BiometricView",
+     "lines": "264-298",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "AdjudicateView",
+     "lines": "301-317",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    },
+    {
+     "name": "FacilityProfileView",
+     "lines": "320-341",
+     "implements": [
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A14",
+      "A15",
+      "A16",
+      "A18"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/api/views_global.py",
+   "status": "written",
+   "plan_step": "P7",
+   "implements": {
+    "screens": [
+     "S13",
+     "S14",
+     "S15"
+    ],
+    "apis": [
+     "A19"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D2"
+    ],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "PractitionerProfileView",
+     "lines": "70-98",
+     "implements": [
+      "A19"
+     ]
+    },
+    {
+     "name": "AbhaView",
+     "lines": "119-163",
+     "implements": [
+      "A19"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/api/urls_legs.py",
+   "status": "written",
+   "plan_step": "P7",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A4",
+     "A5",
+     "A6",
+     "A7",
+     "A8",
+     "A14",
+     "A18"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/api/urls_global.py",
+   "status": "written",
+   "plan_step": "P7",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A19"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/tests/test_services_legs.py",
+   "status": "written",
+   "plan_step": "P8",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "refused",
+     "lines": "19-32",
+     "implements": []
+    },
+    {
+     "name": "PreauthServiceTests",
+     "lines": "35-91",
+     "implements": []
+    },
+    {
+     "name": "ClaimServiceTests",
+     "lines": "94-112",
+     "implements": []
+    },
+    {
+     "name": "DraftServiceTests",
+     "lines": "115-140",
+     "implements": []
+    },
+    {
+     "name": "SmallServiceTests",
+     "lines": "143-152",
+     "implements": []
+    },
+    {
+     "name": "FakeAbha",
+     "lines": "166-220",
+     "implements": []
+    },
+    {
+     "name": "AbhaServiceTests",
+     "lines": "223-306",
+     "implements": []
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/tests/test_callbacks_legs.py",
+   "status": "written",
+   "plan_step": "P8",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "delivery",
+     "lines": "20-31",
+     "implements": []
+    },
+    {
+     "name": "LegCallbackBase",
+     "lines": "34-41",
+     "implements": []
+    },
+    {
+     "name": "PreauthCallbackTests",
+     "lines": "44-110",
+     "implements": []
+    },
+    {
+     "name": "ClaimCallbackTests",
+     "lines": "113-170",
+     "implements": []
+    },
+    {
+     "name": "CommunicationCallbackTests",
+     "lines": "173-211",
+     "implements": []
+    },
+    {
+     "name": "PaymentCallbackTests",
+     "lines": "214-242",
+     "implements": []
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "care/nhcx/tests/test_api_legs.py",
+   "status": "written",
+   "plan_step": "P8",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "LegApiTests",
+     "lines": "14-84",
+     "implements": []
+    },
+    {
+     "name": "GlobalApiTests",
+     "lines": "87-151",
+     "implements": []
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "config/urls.py",
+   "status": "written",
+   "plan_step": "P7",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A19"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "path('api/v1/nhcx/', include('care.nhcx.api.urls_global'))",
+     "lines": "",
+     "implements": [
+      "A19"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  },
+  {
+   "path": "config/settings/base.py",
+   "status": "written",
+   "plan_step": "P5",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A17",
+     "A18"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "symbols": [
+    {
+     "name": "NHCX_PAYER_ADAPTERS, NHCX_WORKFLOW_OVERRIDES",
+     "lines": "",
+     "implements": [
+      "A17"
+     ]
+    }
+   ],
+   "migrations": [],
+   "build": {
+    "ok": true,
+    "command": "ruff format + ruff check; python manage.py check; makemigrations --check --dry-run nhcx",
+    "notes": "clean"
+   },
+   "blocked_reason": ""
+  }
+ ],
+ "tests": {
+  "command": "dtest.sh python manage.py test care.nhcx.tests.test_services_legs care.nhcx.tests.test_callbacks_legs care.nhcx.tests.test_api_legs --keepdb --parallel 1 (and whole care.nhcx suite)",
+  "result": "37 passed (own modules); 250 passed (care.nhcx suite)"
+ },
+ "corrections": [],
+ "notes": [
+  "services/payers.py is owned by services-legs (agreed with services-core): adapter_for(payer_code)/adapter_for_claim(claim)/workflow_id(adapter, kind), config-driven via settings.NHCX_PAYER_ADAPTERS and NHCX_WORKFLOW_OVERRIDES (added to config/settings/base.py, env default '').",
+  "Extra helper modules: services/_gather.py (model->FHIR inputs for A4/A5), services/draft.py (S4 draft PUT, documents attach/remove), callbacks/_legs.py (reading helpers shared by C5-C10).",
+  "services/preauth.py imports services.biometric at module end so its extra_headers hook registers (apps.ready only imports preauth and claim).",
+  "C9 notification ack and C10 payment ack run via transaction.on_commit (outside the callback transaction).",
+  "Extra routes beyond CONTRACT legs table: claims/<id>/discharge/, queries/<id>/ack/, biometric/ (GET listing) and biometric/<action>/ (init|capture|verify|refresh), abha/certificate|suggestions|address|profile|link.",
+  "Outside-facility routes: care/nhcx/api/urls_global.py included at /api/v1/nhcx/ in config/urls.py (practitioner/<user_id>/, abha/<action>/).",
+  "A19 tokens never leave the server: flow state in Django cache nhcx:abha:flow:<user_id>:<txn_id> (15 min); Aadhaar/OTP/mobile/ABHA sealed with RSA-OAEP-SHA1 under /profile/public/certificate (cached 1h); a value already sealed by the page passes through. 401 refreshes the gateway session token once.",
+  "Invented messages (no verbatim spec text found): 'Facility settings saved.', 'ABHA linked to the patient.', 'Verify or create the ABHA before linking it.', 'The ABHA service did not answer.', 'That doctor is not a user of this application.', 'Enter dates as YYYY-MM-DD.', 'Each answer names its form and question.'.",
+  "Renamed preauth helpers to public workflow_for/build_bundle (claim.py uses them); biometric.abdm_headers(payer, stage, *, with_process) and adjudicator.extract_error(payload, *, failed) keyword-only.",
+  "Bug fixed during tests: AbhaView passed service results containing 'message' into ok(message=...) -> TypeError; now _answer() pops it.",
+  "Uncertain: biometric.stage_for reading encounter fields; _gather stores file answers as document pk; adjudicator IRDAI case number source.",
+  "No model changes; makemigrations --check nhcx: No changes detected."
+ ]
+}

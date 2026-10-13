@@ -1,0 +1,14 @@
+{
+  "source": "mcp",
+  "server": "nhcx-docs",
+  "url": "https://docs.abdm.gov.in/mcp",
+  "catalogue_version": "2026.09.16",
+  "catalogue_built_at": "2026-10-09T02:31:04Z",
+  "nhcx_atoms": 536,
+  "operations": 438,
+  "checked_at": "2026-10-13T08:40:00+05:30",
+  "skill": "nhcx-full",
+  "skill_version": "1.4.0",
+  "skill_protocol_baseline": "NHCX package 1.0.0",
+  "notes": "MCP answered catalogue_info, so the GitHub package was not downloaded. validate_fhir is not used on NHCX bundles (KNOWLEDGE.md)."
+}

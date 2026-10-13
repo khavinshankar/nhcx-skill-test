@@ -1,0 +1,51 @@
+[
+  {
+    "item": "config/settings/test.py",
+    "summary": "covers L7.1 isolation: NHCX settings pinned off for every test run, 0 tests",
+    "files": [
+      "care/config/settings/test.py:modify:3,115-140:import os; pop NHCX_* env vars and pin NHCX_GATEWAY_CONFIG='', NHCX_ROLE=False, NHCX_ARCHIVE_DIR='', shared token cache/adjudicator off and payer/biometric/ABHA service URLs empty so no test opens the real gateway config or key"
+    ]
+  },
+  {
+    "item": "care/nhcx/tests/network_guard.py",
+    "summary": "covers L7.1 loopback-only network guard scoped to care.nhcx test frames, 0 tests",
+    "files": [
+      "care/care/nhcx/tests/network_guard.py:add:1-156:wraps socket.getaddrinfo/connect/connect_ex; refuses non-loopback, non-infra (DB, cache, broker) hosts when the call comes from a care/nhcx/tests frame"
+    ]
+  },
+  {
+    "item": "care/nhcx/tests/__init__.py",
+    "summary": "installs the network guard when the care.nhcx test package loads, 0 tests",
+    "files": [
+      "care/care/nhcx/tests/__init__.py:modify:1-5:docstring plus network_guard.install()"
+    ]
+  },
+  {
+    "item": "care/nhcx/tests/test_isolation.py",
+    "summary": "covers L7.1 (settings pinned, guard blocks external hosts, allows loopback/infra, scoped to nhcx tests), 11 tests",
+    "files": [
+      "care/care/nhcx/tests/test_isolation.py:add:1-106:SettingsPinnedTests and NetworkGuardTests"
+    ]
+  },
+  {
+    "item": "care/nhcx/tests/test_dry_flow.py",
+    "summary": "covers L7.7 S1-S12 through the real API with a real Gateway on a throwaway config and test keys, fake NHCX transport, inbound replies encrypted with the facility key through G8 (A1-A5, A7, A8, A17, C1-C6, C9, C10, D9-D26, G4-G10, F1-F18); generic IRDAI and PMJAY variants, 2 tests",
+    "files": [
+      "care/care/nhcx/tests/test_dry_flow.py:add:1-508:DryFlowBase, DryFlowTests.test_claim_s1_to_s12, PmjayDryFlowTests.test_pmjay_claim_with_preauth_query"
+    ]
+  },
+  {
+    "item": "care/nhcx/tests/test_gap_coverage.py",
+    "summary": "covers L7.3-L7.5 gaps: ProtocolResponse refusals for C2/C3/C6/C8, A4 predetermination and preauth send, A6 reprocess/release, A14/A15/A16 adjudicator, A18 biometric init/verify/refusal, D12, D17, D19, D24, D27, D29, D31, 14 tests",
+    "files": [
+      "care/care/nhcx/tests/test_gap_coverage.py:add:1-342:services exercised against FakeGateway and a stubbed requests.request"
+    ]
+  },
+  {
+    "item": "care/nhcx-plan/dry-run.json",
+    "summary": "L7O output: 277 tests, 277 pass, 0 fail, 0 skip; every code.json coverage id covered",
+    "files": [
+      "care/nhcx-plan/dry-run.json:add:all:generated from the verbose run log"
+    ]
+  }
+]

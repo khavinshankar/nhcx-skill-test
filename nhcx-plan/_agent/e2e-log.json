@@ -1,0 +1,1290 @@
+[
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/management/__init__.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/management/__init__.py:add:1-0:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/management/commands/__init__.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/management/commands/__init__.py:add:1-0:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/management/commands/nhcx_e2e.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/management/commands/nhcx_e2e.py:add:1-396:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/.gitignore",
+    "summary": "e2e harness file for T1",
+    "files": [
+      "care/care/nhcx/tests/e2e/.gitignore:add:1-2:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/__init__.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/tests/e2e/__init__.py:add:1-6:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/abdm_fake.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/tests/e2e/abdm_fake.py:add:1-106:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/checks.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/tests/e2e/checks.py:add:1-92:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/cli/__init__.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/tests/e2e/cli/__init__.py:add:1-0:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/cli/runner.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/tests/e2e/cli/runner.py:add:1-262:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/config.example.env",
+    "summary": "e2e harness file for T1",
+    "files": [
+      "care/care/nhcx/tests/e2e/config.example.env:add:1-52:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/config.py",
+    "summary": "e2e harness file for T1",
+    "files": [
+      "care/care/nhcx/tests/e2e/config.py:add:1-150:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/fixtures/pmjay-plan.json",
+    "summary": "e2e harness file for T2, T13, T14, T15, T16, T17, T18, T19",
+    "files": [
+      "care/care/nhcx/tests/e2e/fixtures/pmjay-plan.json:add:1-142:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/payer/__init__.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/tests/e2e/payer/__init__.py:add:1-0:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/payer/driver.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/tests/e2e/payer/driver.py:add:1-222:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/report.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/tests/e2e/report.py:add:1-50:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/__init__.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/__init__.py:add:1-125:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/common.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/common.py:add:1-1031:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t03_irdai_policy_and_eligibility.py",
+    "summary": "e2e harness file for T3",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t03_irdai_policy_and_eligibility.py:add:1-28:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t04_irdai_plan_and_auth_requirements.py",
+    "summary": "e2e harness file for T4",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t04_irdai_plan_and_auth_requirements.py:add:1-26:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t05_irdai_preauth_approved.py",
+    "summary": "e2e harness file for T5",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t05_irdai_preauth_approved.py:add:1-23:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t06_irdai_preauth_rejected.py",
+    "summary": "e2e harness file for T6",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t06_irdai_preauth_rejected.py:add:1-43:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t07_irdai_query_answered.py",
+    "summary": "e2e harness file for T7",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t07_irdai_query_answered.py:add:1-48:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t08_irdai_enhancement.py",
+    "summary": "e2e harness file for T8",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t08_irdai_enhancement.py:add:1-38:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t09_irdai_cancel_and_status.py",
+    "summary": "e2e harness file for T9",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t09_irdai_cancel_and_status.py:add:1-58:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t10_irdai_claim.py",
+    "summary": "e2e harness file for T10",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t10_irdai_claim.py:add:1-85:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t11_irdai_payment.py",
+    "summary": "e2e harness file for T11",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t11_irdai_payment.py:add:1-53:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t12_irdai_reprocess_and_release.py",
+    "summary": "e2e harness file for T12",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t12_irdai_reprocess_and_release.py:add:1-101:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t13_pmjay_eligibility_and_package_master.py",
+    "summary": "e2e harness file for T13",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t13_pmjay_eligibility_and_package_master.py:add:1-48:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t14_pmjay_preauth_adjudicated.py",
+    "summary": "e2e harness file for T14",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t14_pmjay_preauth_adjudicated.py:add:1-23:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t15_pmjay_query_by_resubmission.py",
+    "summary": "e2e harness file for T15",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t15_pmjay_query_by_resubmission.py:add:1-43:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t16_pmjay_rejection_and_enhancement.py",
+    "summary": "e2e harness file for T16",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t16_pmjay_rejection_and_enhancement.py:add:1-76:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t17_pmjay_claim_adjudicated.py",
+    "summary": "e2e harness file for T17",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t17_pmjay_claim_adjudicated.py:add:1-96:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t18_pmjay_payment_status_cancel.py",
+    "summary": "e2e harness file for T18",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t18_pmjay_payment_status_cancel.py:add:1-112:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/scenarios/t19_pmjay_biometric_and_abha.py",
+    "summary": "e2e harness file for T19",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t19_pmjay_biometric_and_abha.py:add:1-164:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/seed.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/tests/e2e/seed.py:add:1-136:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/care/nhcx/tests/e2e/setup_data.py",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/care/nhcx/tests/e2e/setup_data.py:add:1-255:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care/scripts/nhcx-e2e.sh",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care/scripts/nhcx-e2e.sh:add:1-74:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care_fe/tests/nhcx/helpers.ts",
+    "summary": "e2e harness file for T1, T2",
+    "files": [
+      "care_fe/tests/nhcx/helpers.ts:add:1-654:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care_fe/tests/nhcx/irdai.nhcx.ts",
+    "summary": "e2e harness file for T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12",
+    "files": [
+      "care_fe/tests/nhcx/irdai.nhcx.ts:add:1-118:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care_fe/tests/nhcx/playwright.config.ts",
+    "summary": "e2e harness file for T1",
+    "files": [
+      "care_fe/tests/nhcx/playwright.config.ts:add:1-47:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.2",
+    "item": "care_fe/tests/nhcx/pmjay.nhcx.ts",
+    "summary": "e2e harness file for T2, T13, T14, T15, T16, T17, T18, T19",
+    "files": [
+      "care_fe/tests/nhcx/pmjay.nhcx.ts:add:1-112:L8.2 e2e harness"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "written"
+  },
+  {
+    "substep": "L8.4",
+    "item": "T5 cli",
+    "summary": "fix (ours): IRDAI desk case picked by correlation id; wait for the desk to move between roles",
+    "files": [
+      "care/care/nhcx/services/adjudicator.py:modify:10-10,302-302,309-309,389-389,401-415,419-421,423-423,430-431,457-459,559-559,586-599,645-646:IRDAI desk case picked by correlation id; wait for the desk to move between roles"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fixed; unit suite 282 OK"
+  },
+  {
+    "substep": "L8.4",
+    "item": "T8 cli",
+    "summary": "fix (ours): status reply after a reopen read as the new verdict (c8 test)",
+    "files": [
+      "care/care/nhcx/callbacks/enquiry.py:modify:147-149,188-211:status reply after a reopen read as the new verdict (c8 test)",
+      "care/care/nhcx/tests/test_callbacks_legs.py:modify:168-191:status reply after a reopen read as the new verdict (c8 test)"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fixed; unit suite 282 OK"
+  },
+  {
+    "substep": "L8.4",
+    "item": "T4 cli",
+    "summary": "fix (ours): draft form_answers alias, preauth_saved_at, relation keys, diagnoses/care_team, consent/external_id answers (d12, d17, a15, a17 tests)",
+    "files": [
+      "care/care/nhcx/services/draft.py:modify:9-9,138-140,143-146:draft form_answers alias, preauth_saved_at, relation keys, diagnoses/care_team, consent/external_id answers (d12, d17, a15, a17 tests)",
+      "care/care/nhcx/services/state.py:modify:69-72,87-95,192-193,195-203:draft form_answers alias, preauth_saved_at, relation keys, diagnoses/care_team, consent/external_id answers (d12, d17, a15, a17 tests)",
+      "care/care/nhcx/services/_gather.py:modify:9-10,219-230,238-238,259-259,263-263,292-292,307-318:draft form_answers alias, preauth_saved_at, relation keys, diagnoses/care_team, consent/external_id answers (d12, d17, a15, a17 tests)",
+      "care/care/nhcx/tests/test_gap_coverage.py:modify:217-317,385-420:draft form_answers alias, preauth_saved_at, relation keys, diagnoses/care_team, consent/external_id answers (d12, d17, a15, a17 tests)"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fixed; unit suite 282 OK"
+  },
+  {
+    "substep": "L8.4",
+    "item": "T15/T17 cli",
+    "summary": "fix (ours): query answers sent as request.initiated (NHCX-1011 on response.complete)",
+    "files": [
+      "care/care/nhcx/services/payers.py:modify:211-214:query answers sent as request.initiated (NHCX-1011 on response.complete)",
+      "care/care/nhcx/tests/test_dry_flow.py:modify:461-463:query answers sent as request.initiated (NHCX-1011 on response.complete)"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fixed; unit suite 282 OK"
+  },
+  {
+    "substep": "L8.4",
+    "item": "unit suite",
+    "summary": "fix (ours): e2e runner exempt from the unit-test network guard",
+    "files": [
+      "care/care/nhcx/tests/network_guard.py:modify:24-25,105-106:e2e runner exempt from the unit-test network guard"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fixed; unit suite 282 OK"
+  },
+  {
+    "substep": "L8.4",
+    "item": "T7/T9 cli",
+    "summary": "harness fix: no-role desk walk end accepted as success",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/common.py:modify::no-role desk walk end accepted as success"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fixed"
+  },
+  {
+    "substep": "L8.4",
+    "item": "T17 cli",
+    "summary": "harness fix: decide() retries while PMJAY answers 'Event Meta Log not found'",
+    "files": [
+      "care/care/nhcx/tests/e2e/payer/driver.py:modify::decide() retries while PMJAY answers 'Event Meta Log not found'"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fixed"
+  },
+  {
+    "substep": "L8.4",
+    "item": "T18 cli",
+    "summary": "harness fix: NHCX_TEST_PMJAY_PAYMENT_WAIT_SECONDS (payment ~8 min after approval)",
+    "files": [
+      "care/care/nhcx/tests/e2e/config.py:modify::NHCX_TEST_PMJAY_PAYMENT_WAIT_SECONDS (payment ~8 min after approval)"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fixed"
+  },
+  {
+    "substep": "L8.4",
+    "item": "T15/T17 cli",
+    "summary": "harness fix: query answer carries a reply body",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/t17_pmjay_claim_adjudicated.py:modify::query answer carries a reply body"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fixed"
+  },
+  {
+    "substep": "L8.4",
+    "item": "T5 gui",
+    "summary": "harness fix: payer subcommand positional renamed args->rest (Django pops args)",
+    "files": [
+      "care/care/nhcx/management/commands/nhcx_e2e.py:modify::payer subcommand positional renamed args->rest (Django pops args)"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fixed"
+  },
+  {
+    "substep": "L8.4",
+    "item": "T17 cli",
+    "summary": "harness fix: open_preauths ignores claims the gateway refused (status error), so free_beneficiary cancels their pre-auth (PAYR-1238)",
+    "files": [
+      "care/care/nhcx/tests/e2e/scenarios/common.py:modify::open_preauths ignores claims the gateway refused (status error), so free_beneficiary cancels their pre-auth (PAYR-1238)"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fixed"
+  },
+  {
+    "substep": "L8.4",
+    "item": "T3..T5 gui",
+    "summary": "harness fix: selectors by visible labels and chips",
+    "files": [
+      "care_fe/tests/nhcx/helpers.ts:modify::selectors by visible labels and chips"
+    ],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fixed"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T17 cli",
+    "summary": "query answer refused synchronously NHCX-1011 (x-hcx-status response.complete) x3, incl. claim_query_response=161 override; root cause payers.status_for",
+    "files": [],
+    "correlation_ids": [
+      "b89cffdf-92d6-4837-95c2-e8e54d5fd263"
+    ],
+    "ledger_ids": [],
+    "result": "fail (ours) -> fixed"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T17 cli",
+    "summary": "after status fix: first claim refused GATEWAY_HTTP_500 by NHCX",
+    "files": [],
+    "correlation_ids": [
+      "724805a4-10a4-4eda-8989-3174dbb96bc5"
+    ],
+    "ledger_ids": [],
+    "result": "fail (sandbox)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T17 cli",
+    "summary": "registry certificate lookup refused / ABDM sessions endpoint SUSPENDED (intermittent outage)",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "blocked (sandbox/setup)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T17 cli",
+    "summary": "PAYR-1238 active pre-auth left by the 500'd claim; harness free filter fixed",
+    "files": [],
+    "correlation_ids": [
+      "11347828-4345-488c-9a81-2b4c7f9c4344"
+    ],
+    "ledger_ids": [],
+    "result": "fail (harness) -> fixed"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T14 gui",
+    "summary": "attempt 1: policy search {'error': ''} from the sandbox",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "fail (sandbox)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T3 cli",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "25291740-bf10-41d8-b156-6015b8093e49",
+      "c99960c6-b25a-4f38-842a-4d7a0d9b32eb"
+    ],
+    "ledger_ids": [
+      "7USL0001",
+      "7USL0002",
+      "7USL0003",
+      "7USL0004"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T3 gui",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "e9c58e09-ba1b-4ce0-8666-a13d1df16696"
+    ],
+    "ledger_ids": [
+      "7USL00S2",
+      "7USL00S3"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T4 cli",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "000ee460-079b-4e20-a336-0d41088824f1",
+      "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+      "2aaf1808-e95e-4c82-a53d-ebbc2c4e5182"
+    ],
+    "ledger_ids": [
+      "7USL0005",
+      "7USL0006",
+      "7USL0007",
+      "7USL0008",
+      "7USL0009",
+      "7USL000A"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T4 gui",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "8d6f42a5-3a46-4068-8170-1f0997554f67",
+      "53a2e007-90e8-4a69-9c89-5b613806d99d",
+      "6d9af49b-aabc-40a6-90d0-18e5151dd7ff"
+    ],
+    "ledger_ids": [
+      "7USL00I4",
+      "7USL00I5",
+      "7USL00I8",
+      "7USL00I9",
+      "7USL00G1",
+      "7USL00G2"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T5 cli",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "ff6c0c55-5b2d-4ee6-90ce-5ea5fc186717",
+      "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+      "5184c85b-e919-4973-9808-c8a597f4bb30",
+      "181d2787-cd27-4ed2-9202-77f7ef6f0f0b"
+    ],
+    "ledger_ids": [
+      "7USL001F",
+      "7USL001G",
+      "7USL0007",
+      "7USL0008",
+      "7USL001H",
+      "7USL001I",
+      "7USL001J",
+      "7USL001K",
+      "7USL001L"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T5 gui",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "3a3b19b1-97bc-488e-abbe-957a16e6c74b",
+      "a1868934-3f82-4159-a352-0c673beb25e3",
+      "0b7f20aa-5fb3-42b2-81e4-9f7c7d839f13",
+      "6d9af49b-aabc-40a6-90d0-18e5151dd7ff"
+    ],
+    "ledger_ids": [
+      "7USL00M6",
+      "7USL00M7",
+      "7USL00M9",
+      "7USL00MA",
+      "7USL00MB",
+      "7USL00MC",
+      "7USL00MD",
+      "7USL00G1",
+      "7USL00G2"
+    ],
+    "result": "pass (attempts 6)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T6 cli",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "c643feb9-064c-42b7-8603-972adbf0a8bb",
+      "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+      "1a55389f-3437-4ccd-8683-3973d79c82b0",
+      "2075792e-e59f-4054-b401-3c92f4888ea3",
+      "5b6b043c-8a1d-44cf-bfad-27ce770843e0"
+    ],
+    "ledger_ids": [
+      "7USL001M",
+      "7USL001N",
+      "7USL0007",
+      "7USL0008",
+      "7USL001O",
+      "7USL001P",
+      "7USL001Q",
+      "7USL001R",
+      "7USL001S",
+      "7USL001T",
+      "7USL001U",
+      "7USL001V"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T6 gui",
+    "summary": "GUI walk not written in this round; the CLI runner covers the scenario",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "skipped (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T7 cli",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "cf410936-99c6-4888-a08a-d981a91e784b",
+      "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+      "ed240d6a-6106-488b-b8fe-b8f518db6f4b",
+      "53cca990-6b0e-4e01-97e4-9ac591531fd5",
+      "0b585742-0900-471e-a7a5-ce0138f57052"
+    ],
+    "ledger_ids": [
+      "7USL0020",
+      "7USL0021",
+      "7USL0007",
+      "7USL0008",
+      "7USL0022",
+      "7USL0023",
+      "7USL0024",
+      "7USL0025",
+      "7USL0028",
+      "7USL0026",
+      "7USL0027"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T7 gui",
+    "summary": "GUI walk not written in this round; the CLI runner covers the scenario",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "skipped (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T8 cli",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "962d1c51-f875-4fab-896f-ce733e60e9d3",
+      "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+      "2ae6cbcd-faaf-476f-9f30-d046eb62852a",
+      "e92c9a5a-b39a-4489-8e82-989fe89a6934",
+      "79a980d0-beec-49bf-875b-a61629c639aa",
+      "e5f80ecd-65a7-43c0-b7f3-b5f5d7e4a1cf"
+    ],
+    "ledger_ids": [
+      "7USL0029",
+      "7USL002A",
+      "7USL0007",
+      "7USL0008",
+      "7USL002B",
+      "7USL002C",
+      "7USL002D",
+      "7USL002E",
+      "7USL002F",
+      "7USL002H",
+      "7USL002J",
+      "7USL002K",
+      "7USL002M",
+      "7USL002O",
+      "7USL002P"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T8 gui",
+    "summary": "GUI walk not written in this round; the CLI runner covers the scenario",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "skipped (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T9 cli",
+    "summary": "skipped checks: payer refuses the cancel of a decided case: the sandbox payer accepted the cancel (callback); recorded, not a pass",
+    "files": [],
+    "correlation_ids": [
+      "767ed6f3-1b48-4b1b-b29c-12f21c5d4239",
+      "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+      "40f2a260-4f5a-4ebc-8641-61be6df08014",
+      "4bb68d3d-882c-4d04-bc8e-b739322f3c3b",
+      "7e5e0c77-e8bd-4546-b4b6-850e0c657bd6",
+      "db99bfe4-e338-43f9-8c30-801242552f5e",
+      "f3097bf5-f5e4-49b3-828f-41b99eef71af",
+      "cfbbc261-ed0e-4744-b467-4715c58dca2d",
+      "ffae9b70-c045-4b41-ad88-20dbb83eeeb2",
+      "48147f03-b7ee-4650-a410-014a8f09d56d"
+    ],
+    "ledger_ids": [
+      "7USL002Q",
+      "7USL002R",
+      "7USL0007",
+      "7USL0008",
+      "7USL002S",
+      "7USL002T",
+      "7USL002U",
+      "7USL0030",
+      "7USL003B",
+      "7USL002V",
+      "7USL0031",
+      "7USL0032",
+      "7USL0033",
+      "7USL0034",
+      "7USL0036",
+      "7USL0039",
+      "7USL0035",
+      "7USL0037",
+      "7USL0038",
+      "7USL003A",
+      "7USL003C",
+      "7USL003D"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T9 gui",
+    "summary": "GUI walk not written in this round; the CLI runner covers the scenario",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "skipped (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T10 cli",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "13e880fb-a767-49b8-8211-5e65c5e261b6",
+      "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+      "9810d401-f875-4fa6-b812-e72efe68123e",
+      "948a2097-c043-4411-af36-482bb45707e3",
+      "42347d2e-a9d2-4094-9d97-3ee66072ec2f",
+      "3095924b-0936-435b-9f25-c42ea8efe578",
+      "89763e6a-662c-40bc-9228-133895b9a787",
+      "91aa9394-ed15-4fea-a128-1b3762f685e1",
+      "d3498918-7b99-4b1f-a99c-9ab33149d02d",
+      "800d3a56-2ba6-4bb1-9490-4a0b0d29c140",
+      "f68ea833-027c-423d-84da-79bb94752248",
+      "15bab85b-9c35-455c-b631-801341072b44",
+      "49d70cef-5c01-461a-bd5a-3a4834011202"
+    ],
+    "ledger_ids": [
+      "7USL0040",
+      "7USL0041",
+      "7USL0007",
+      "7USL0008",
+      "7USL0042",
+      "7USL0043",
+      "7USL0044",
+      "7USL0045",
+      "7USL0046",
+      "7USL0047",
+      "7USL0048",
+      "7USL0049",
+      "7USL004A",
+      "7USL004B",
+      "7USL004C",
+      "7USL004D",
+      "7USL004E",
+      "7USL004F",
+      "7USL004G",
+      "7USL004H",
+      "7USL004I",
+      "7USL004J",
+      "7USL004K",
+      "7USL004L",
+      "7USL004M",
+      "7USL004N",
+      "7USL004O",
+      "7USL004P",
+      "7USL004Q",
+      "7USL004R",
+      "7USL004S",
+      "7USL004T"
+    ],
+    "result": "pass (attempts 3)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T10 gui",
+    "summary": "GUI walk not written in this round; the CLI runner covers the scenario",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "skipped (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T11 cli",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "9d441377-6020-40d7-8dbc-a899b156243f",
+      "fa4edcbf-f27e-4eba-89fe-d630320c1c5f"
+    ],
+    "ledger_ids": [
+      "7USL004U",
+      "7USL004V",
+      "7USL0050",
+      "7USL0051"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T11 gui",
+    "summary": "GUI walk not written in this round; the CLI runner covers the scenario",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "skipped (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T12 cli",
+    "summary": "payer desk refuses approve: the test member's cover is used up on the sandbox (approve as Adjudicator (refused: There is not enough cover left on this policy)); free or reset the member's cover, or use another member",
+    "files": [],
+    "correlation_ids": [
+      "953fcbee-9faf-439f-a15f-9e31a2a527a2",
+      "6d9af49b-aabc-40a6-90d0-18e5151dd7ff",
+      "8e83fb3e-ce1c-40de-b1f2-d029e86da6ad",
+      "dc78b61c-d0b9-40e4-997c-662b6d8621d9",
+      "40ac4292-fdfb-4784-8809-8b4a745be598",
+      "7218576d-2cad-4e09-9917-6b86ac0b9dd8"
+    ],
+    "ledger_ids": [
+      "7USL00FV",
+      "7USL00G0",
+      "7USL00G1",
+      "7USL00G2",
+      "7USL00G3",
+      "7USL00G4",
+      "7USL00G5",
+      "7USL00G6",
+      "7USL00G7",
+      "7USL00G8",
+      "7USL00G9",
+      "7USL00GA",
+      "7USL00GB",
+      "7USL00GC"
+    ],
+    "result": "blocked (attempts 1, sandbox)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T12 gui",
+    "summary": "GUI walk not written in this round; the CLI runner covers the scenario",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "skipped (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T13 cli",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "d3a9abe0-0772-4c56-a17c-4b85c1eb1d88",
+      "de8d3047-8e0a-42b0-a848-b73a88e2d97b",
+      "3ab86ac4-5346-4b4c-8f76-6104b654c9f1",
+      "12f4b0d5-9a6b-4184-a3f5-1172b82f4cd5",
+      "aa31456e-3b00-4e48-9150-f760fd0125d8"
+    ],
+    "ledger_ids": [
+      "7USL00CC",
+      "7USL00CE",
+      "7USL00CF",
+      "7USL00CG",
+      "7USL00CH",
+      "7USL00CI",
+      "7USL00C3",
+      "7USL00CJ",
+      "7USL00CK"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T13 gui",
+    "summary": "all checks passed",
+    "files": [],
+    "correlation_ids": [
+      "07f04ac1-4925-4927-9111-7c10620f689c",
+      "eefa4f11-59eb-453c-a218-8e0ebea3f662"
+    ],
+    "ledger_ids": [
+      "7USL00RI",
+      "7USL00RJ",
+      "7USL00RK"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T14 cli",
+    "summary": "skipped checks: payer desk reads the case: sandbox auto-decided; payer desk takes approve: sandbox auto-decided",
+    "files": [],
+    "correlation_ids": [
+      "4a4908df-e83d-482d-8b4a-ae5b4c28bd86",
+      "6530fa43-fe55-4c62-b3f1-ee8900b0f79d",
+      "340d7ec4-90da-4b78-90d1-2c248ddd535c"
+    ],
+    "ledger_ids": [
+      "7USL00C4",
+      "7USL00C5",
+      "7USL00C6",
+      "7USL00C8",
+      "7USL00C9",
+      "7USL00CA"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T14 gui",
+    "summary": "blocked by the sandbox: the screens drove eligibility, seeding, the SB043F line, the draft and the pre-auth send; PMJAY refused it with PAYR-1235 Insufficient wallet balance (sandbox wallet used up by this run). Attempt 1 hit a transient policy-search error. PMJAY's decision arrives (C5): chip still \"Pre-authorisation: Refused at the door\" after 120s; PAYR-1235: Insufficient wallet balance. Hence ",
+    "files": [],
+    "correlation_ids": [
+      "32e18920-0d5d-4946-9147-2e0e0dcebead",
+      "23ab9fec-2a97-41ca-a476-bf7128b81b23",
+      "e131e6de-fea3-4604-a4e7-11cc5e962db8"
+    ],
+    "ledger_ids": [
+      "7USL00RQ",
+      "7USL00RR",
+      "7USL00RS",
+      "7USL00RT",
+      "7USL00RU",
+      "7USL00RV"
+    ],
+    "result": "blocked (attempts 2, sandbox)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T15 cli",
+    "summary": "the PMJAY sandbox auto-approves SB043F before a desk can query it; set NHCX_TEST_PMJAY_MANUAL_PACKAGE to a seeded package it does not decide by itself",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "blocked (attempts 1, sandbox)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T15 gui",
+    "summary": "GUI walk not written in this round; the CLI runner covers the scenario",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "skipped (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T16 cli",
+    "summary": "provider adds a second MG072C cycle for the enhancement: refused 400: MG072C is already on this preauth. The claim keeps one line per code (D16 ux_claim_line) and an enhancement sends only new codes, while PMJAY takes a further cycle only as a new item sequence (PAYR-1274 when the quantity of the sent item is raised instead, ledger 7USL00DM)",
+    "files": [],
+    "correlation_ids": [
+      "ecc19e03-7459-4659-a77a-fd297ae576d1",
+      "42f3f9ea-7ce6-4ef1-92b4-80d9b02d63a6",
+      "f1873e91-c001-42e4-a6f5-c0f194bf2974",
+      "23962842-a081-4d8d-991d-a619fefedb98"
+    ],
+    "ledger_ids": [
+      "7USL00DN",
+      "7USL00DO",
+      "7USL00DP",
+      "7USL00DQ",
+      "7USL00DR",
+      "7USL00DS",
+      "7USL00DT",
+      "7USL00DU"
+    ],
+    "result": "fail (attempts 1, ours)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T16 gui",
+    "summary": "GUI walk not written in this round; the CLI runner covers the scenario",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "skipped (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T17 cli",
+    "summary": "blocked by the sandbox: approve path passed end to end (role walk CEX>CPD>ACO>SHA, 18600.00 approved, correlation 67a35a2b-1f2d-455c-bf12-0da7225b27ec); query path: payer desk Forward as CEX answered Internal Server Error (cycle fc189812-f7a6-440e-8ffe-09e517b3312c), then every new pre-auth got PAYR-1235 Insufficient wallet balance. The query answer (x-hcx-status fix: request.initiated) could not ",
+    "files": [],
+    "correlation_ids": [
+      "3ce42f62-2345-47cc-9a15-c3e2ef9ae3d9",
+      "d31f607a-9f66-4d0b-9e13-8515d08c943c",
+      "3d033082-4cbd-44a8-8058-9afa7cdd143b"
+    ],
+    "ledger_ids": [
+      "7USL00R1",
+      "7USL00R2",
+      "7USL00R3",
+      "7USL00R4",
+      "7USL00R5",
+      "7USL00R6"
+    ],
+    "result": "blocked (attempts 3, sandbox)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T17 gui",
+    "summary": "GUI walk not written in this round; the CLI runner covers the scenario",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "skipped (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T18 cli",
+    "summary": "skipped checks: payer desk role read as the case's state: sandbox auto-decided",
+    "files": [],
+    "correlation_ids": [
+      "68d34639-5cc8-43ed-bd25-7931626a2006",
+      "90148ab9-6793-4b41-a4b8-040b8e4fbf99",
+      "e0cb8c57-adb9-48ad-9dfb-b279cf0f7c16",
+      "40f44cfb-5fb7-4e7c-8143-8cdf6131cabb",
+      "c8de41dd-8923-4522-909c-7cc61f5478a6",
+      "d6da583a-e81e-4b99-a540-59d31f197eb2"
+    ],
+    "ledger_ids": [
+      "7USL00LO",
+      "7USL00LP",
+      "7USL00LQ",
+      "7USL00LR",
+      "7USL00LS",
+      "7USL00LT",
+      "7USL00LU",
+      "7USL00LV",
+      "7USL00LC",
+      "7USL00LD",
+      "7USL00LE",
+      "7USL00ME",
+      "7USL00MF"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T18 gui",
+    "summary": "GUI walk not written in this round; the CLI runner covers the scenario",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "skipped (attempts 1)"
+  },
+  {
+    "substep": "L8.3",
+    "item": "T19 cli",
+    "summary": "skipped checks: ABHA verify and registration from the ABHA profile (A19): not automated: the ABHA service stand-in (A19 M1 enrolment and its sealing key) is not part of this runner; predetermination with the refreshed token, discharge face verify and claim: not automated: the face verify needs the ABHA service's sealing key (A19 stand-in)",
+    "files": [],
+    "correlation_ids": [
+      "a9f74d0c-127a-4955-bc55-3a86e5e839c5",
+      "a265e95f-583d-4d37-8b75-431bb6b85d93",
+      "a65f87d0-befe-476d-8f7d-3d591ff898c4",
+      "8211d23d-c2d4-4511-8cef-27932eacfb90",
+      "7dd63d08-439d-4cb3-a8b1-bdf0c922a0b4"
+    ],
+    "ledger_ids": [
+      "7USL00J0",
+      "7USL00J1",
+      "7USL00J2",
+      "7USL00J3",
+      "7USL00J4",
+      "7USL00J5",
+      "7USL00J6",
+      "7USL00J7",
+      "7USL00J8"
+    ],
+    "result": "pass (attempts 1)"
+  },
+  {
+    "substep": "L8.5",
+    "item": "T19 gui",
+    "summary": "GUI walk not written in this round; the CLI runner covers the scenario",
+    "files": [],
+    "correlation_ids": [],
+    "ledger_ids": [],
+    "result": "skipped (attempts 1)"
+  }
+]

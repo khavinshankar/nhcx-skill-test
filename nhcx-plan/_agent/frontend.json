@@ -1,0 +1,2718 @@
+{
+  "files": [
+    {
+      "path": "care_fe/src/types/nhcx/nhcx.ts",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [
+          "D9-D31 (claim row column names)",
+          "A17 state shape"
+        ],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "Money",
+          "lines": "5-5",
+          "implements": []
+        },
+        {
+          "name": "ClaimStatus",
+          "lines": "7-8",
+          "implements": []
+        },
+        {
+          "name": "ClaimStage",
+          "lines": "10-11",
+          "implements": []
+        },
+        {
+          "name": "ClaimSubStage",
+          "lines": "13-29",
+          "implements": []
+        },
+        {
+          "name": "SearchIdType",
+          "lines": "31-31",
+          "implements": []
+        },
+        {
+          "name": "EligibilityPurpose",
+          "lines": "33-33",
+          "implements": []
+        },
+        {
+          "name": "Claim",
+          "lines": "36-92",
+          "implements": []
+        },
+        {
+          "name": "ClaimPlan",
+          "lines": "95-110",
+          "implements": []
+        },
+        {
+          "name": "BenefitKind",
+          "lines": "112-112",
+          "implements": []
+        },
+        {
+          "name": "Benefit",
+          "lines": "115-130",
+          "implements": []
+        },
+        {
+          "name": "BenefitExtra",
+          "lines": "132-138",
+          "implements": []
+        },
+        {
+          "name": "BenefitRequirement",
+          "lines": "140-146",
+          "implements": []
+        },
+        {
+          "name": "FormQuestion",
+          "lines": "149-158",
+          "implements": []
+        },
+        {
+          "name": "ClaimForm",
+          "lines": "160-165",
+          "implements": []
+        },
+        {
+          "name": "AuthItem",
+          "lines": "168-177",
+          "implements": []
+        },
+        {
+          "name": "AuthRequirement",
+          "lines": "179-188",
+          "implements": []
+        },
+        {
+          "name": "ClaimAuth",
+          "lines": "190-204",
+          "implements": []
+        },
+        {
+          "name": "LineKind",
+          "lines": "206-206",
+          "implements": []
+        },
+        {
+          "name": "ClaimLine",
+          "lines": "209-221",
+          "implements": []
+        },
+        {
+          "name": "Diagnosis",
+          "lines": "224-231",
+          "implements": []
+        },
+        {
+          "name": "CareTeamRole",
+          "lines": "233-234",
+          "implements": []
+        },
+        {
+          "name": "CareTeamMember",
+          "lines": "237-243",
+          "implements": []
+        },
+        {
+          "name": "ClaimItem",
+          "lines": "246-254",
+          "implements": []
+        },
+        {
+          "name": "FormAnswer",
+          "lines": "257-262",
+          "implements": []
+        },
+        {
+          "name": "ClaimDocument",
+          "lines": "265-276",
+          "implements": []
+        },
+        {
+          "name": "RequiredDocument",
+          "lines": "278-284",
+          "implements": []
+        },
+        {
+          "name": "LegStatus",
+          "lines": "286-295",
+          "implements": []
+        },
+        {
+          "name": "LegBase",
+          "lines": "297-318",
+          "implements": []
+        },
+        {
+          "name": "Preauth",
+          "lines": "321-331",
+          "implements": []
+        },
+        {
+          "name": "DischargeMode",
+          "lines": "334-334",
+          "implements": []
+        },
+        {
+          "name": "DischargeStage",
+          "lines": "335-336",
+          "implements": []
+        },
+        {
+          "name": "Submission",
+          "lines": "338-345",
+          "implements": []
+        },
+        {
+          "name": "ItemVerdict",
+          "lines": "348-361",
+          "implements": []
+        },
+        {
+          "name": "Predetermination",
+          "lines": "364-377",
+          "implements": []
+        },
+        {
+          "name": "ClaimQuery",
+          "lines": "380-401",
+          "implements": []
+        },
+        {
+          "name": "PaymentDetail",
+          "lines": "404-411",
+          "implements": []
+        },
+        {
+          "name": "Payment",
+          "lines": "414-434",
+          "implements": []
+        },
+        {
+          "name": "Enquiry",
+          "lines": "437-453",
+          "implements": []
+        },
+        {
+          "name": "BiometricMethod",
+          "lines": "456-456",
+          "implements": []
+        },
+        {
+          "name": "BiometricAuth",
+          "lines": "458-472",
+          "implements": []
+        },
+        {
+          "name": "Admission",
+          "lines": "475-488",
+          "implements": []
+        },
+        {
+          "name": "NextSend",
+          "lines": "490-490",
+          "implements": []
+        },
+        {
+          "name": "ClaimState",
+          "lines": "493-531",
+          "implements": []
+        },
+        {
+          "name": "PolicyResult",
+          "lines": "534-549",
+          "implements": []
+        },
+        {
+          "name": "PolicySearchRequest",
+          "lines": "551-557",
+          "implements": []
+        },
+        {
+          "name": "PolicySearchResponse",
+          "lines": "559-564",
+          "implements": []
+        },
+        {
+          "name": "NhcxOk",
+          "lines": "566-571",
+          "implements": []
+        },
+        {
+          "name": "NhcxRefusal",
+          "lines": "573-576",
+          "implements": []
+        },
+        {
+          "name": "OpenClaimRequest",
+          "lines": "578-590",
+          "implements": []
+        },
+        {
+          "name": "EligibilityRequest",
+          "lines": "592-601",
+          "implements": []
+        },
+        {
+          "name": "AddLineRequest",
+          "lines": "603-611",
+          "implements": []
+        },
+        {
+          "name": "DraftUpdate",
+          "lines": "613-627",
+          "implements": []
+        },
+        {
+          "name": "EnquiryRequest",
+          "lines": "629-636",
+          "implements": []
+        },
+        {
+          "name": "DischargeRequest",
+          "lines": "638-644",
+          "implements": []
+        },
+        {
+          "name": "ClaimSubmitRequest",
+          "lines": "646-654",
+          "implements": []
+        },
+        {
+          "name": "BiometricRequest",
+          "lines": "656-664",
+          "implements": []
+        },
+        {
+          "name": "BiometricResponse",
+          "lines": "666-670",
+          "implements": []
+        },
+        {
+          "name": "FacilityProfile",
+          "lines": "673-678",
+          "implements": []
+        },
+        {
+          "name": "PractitionerProfile",
+          "lines": "681-697",
+          "implements": []
+        },
+        {
+          "name": "PractitionerProfileResponse",
+          "lines": "699-703",
+          "implements": []
+        },
+        {
+          "name": "AbhaAction",
+          "lines": "706-714",
+          "implements": []
+        },
+        {
+          "name": "AbhaProfile",
+          "lines": "716-724",
+          "implements": []
+        },
+        {
+          "name": "AbhaAccount",
+          "lines": "726-731",
+          "implements": []
+        },
+        {
+          "name": "AbhaRequest",
+          "lines": "733-742",
+          "implements": []
+        },
+        {
+          "name": "AbhaResponse",
+          "lines": "744-757",
+          "implements": []
+        },
+        {
+          "name": "LedgerRow",
+          "lines": "759-762",
+          "implements": []
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/types/nhcx/nhcxApi.ts",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/policy-search/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/",
+          "GET /api/v1/facility/{facilityId}/nhcx/claims/",
+          "GET /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/state/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/eligibility/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/auth-requirements/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/plan/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/lines/",
+          "DELETE /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/lines/{lineId}/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/admission/",
+          "GET /api/v1/facility/{facilityId}/nhcx/ledger/",
+          "GET /api/v1/facility/{facilityId}/nhcx/ledger/{ledgerId}/",
+          "PUT /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/draft/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/documents/",
+          "DELETE /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/documents/{documentId}/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/preauth/submit/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/preauth/predetermination/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/preauth/cancel/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/enquiry/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/claim/submit/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/discharge/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/queries/{queryId}/ack/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/queries/{queryId}/reply/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/payments/{paymentId}/ack/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/biometric/{action}/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/adjudicate/",
+          "GET /api/v1/facility/{facilityId}/nhcx/profile/",
+          "PUT /api/v1/facility/{facilityId}/nhcx/profile/",
+          "GET /api/v1/nhcx/practitioner/{userId}/",
+          "PUT /api/v1/nhcx/practitioner/{userId}/",
+          "POST /api/v1/nhcx/abha/{action}/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "nhcxApi (default export: every CONTRACT route)",
+          "lines": "31-216",
+          "implements": [
+            "S1-S18"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/ClaimMaster.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S5"
+        ],
+        "apis": [
+          "GET /api/v1/facility/{facilityId}/nhcx/claims/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "ALL",
+          "lines": "44-44",
+          "implements": [
+            "S5"
+          ]
+        },
+        {
+          "name": "ClaimMaster",
+          "lines": "46-225",
+          "implements": [
+            "S5"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/SearchPolicy.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S1",
+          "S2"
+        ],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/policy-search/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "SearchPolicy",
+          "lines": "43-301",
+          "implements": [
+            "S1",
+            "S2"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/BeneficiaryDiscovery.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S17"
+        ],
+        "apis": [
+          "GET /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/state/",
+          "GET /api/v1/facility/{facilityId}/nhcx/claims/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/eligibility/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "DISCOVERY_ID_TYPES",
+          "lines": "46-50",
+          "implements": [
+            "S17"
+          ]
+        },
+        {
+          "name": "discoveryChip",
+          "lines": "52-60",
+          "implements": [
+            "S17"
+          ]
+        },
+        {
+          "name": "BeneficiaryDiscovery",
+          "lines": "64-562",
+          "implements": [
+            "S17"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/ClaimDetail.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S6"
+        ],
+        "apis": [
+          "GET /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/state/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "NextAction",
+          "lines": "39-42",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "nextActions",
+          "lines": "45-140",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "TAB_ALIASES",
+          "lines": "142-142",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "resolveTab",
+          "lines": "144-150",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "TAB_COMPONENTS",
+          "lines": "152-165",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "ClaimDetail",
+          "lines": "168-322",
+          "implements": [
+            "S6"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/tabs/EligibilityTab.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S3"
+        ],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/eligibility/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "PURPOSES",
+          "lines": "58-62",
+          "implements": [
+            "S3"
+          ]
+        },
+        {
+          "name": "photoSrc",
+          "lines": "67-71",
+          "implements": [
+            "S3"
+          ]
+        },
+        {
+          "name": "EligibilityTab",
+          "lines": "74-417",
+          "implements": [
+            "S3"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/tabs/InsurancePlanTab.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S7"
+        ],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/plan/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "PAGE",
+          "lines": "65-65",
+          "implements": [
+            "S7"
+          ]
+        },
+        {
+          "name": "ALL",
+          "lines": "66-66",
+          "implements": [
+            "S7"
+          ]
+        },
+        {
+          "name": "PLAN_STATUS",
+          "lines": "68-73",
+          "implements": [
+            "S7"
+          ]
+        },
+        {
+          "name": "Pager",
+          "lines": "75-107",
+          "implements": [
+            "S7"
+          ]
+        },
+        {
+          "name": "allPlanForms",
+          "lines": "109-116",
+          "implements": [
+            "S7"
+          ]
+        },
+        {
+          "name": "InsurancePlanTab",
+          "lines": "119-636",
+          "implements": [
+            "S7"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/tabs/LineItemsTab.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S8"
+        ],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/lines/",
+          "DELETE /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/lines/{lineId}/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "PAGE",
+          "lines": "54-54",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "ALL",
+          "lines": "55-55",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "LINE_KIND",
+          "lines": "57-61",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "LineRow",
+          "lines": "63-67",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "groupLines",
+          "lines": "70-93",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "linesTotal",
+          "lines": "95-97",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "TierChips",
+          "lines": "101-132",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "QuotedLinesTable",
+          "lines": "135-198",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "LineItemsTab",
+          "lines": "201-245",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "ChooseLines",
+          "lines": "247-843",
+          "implements": [
+            "S8"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/tabs/ValidateTab.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S8"
+        ],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/auth-requirements/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "RULING_STATUS",
+          "lines": "44-48",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "rulingStale",
+          "lines": "52-67",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "RequirementTable",
+          "lines": "69-100",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "AuthRequirementsCard",
+          "lines": "103-272",
+          "implements": [
+            "S8"
+          ]
+        },
+        {
+          "name": "ValidateTab",
+          "lines": "275-303",
+          "implements": [
+            "S8"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/tabs/VerificationTab.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S18"
+        ],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/biometric/{action}/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "METHODS",
+          "lines": "47-51",
+          "implements": [
+            "S18"
+          ]
+        },
+        {
+          "name": "USER_TOKEN_HEADER",
+          "lines": "53-53",
+          "implements": [
+            "S18"
+          ]
+        },
+        {
+          "name": "verificationStage",
+          "lines": "56-63",
+          "implements": [
+            "S18"
+          ]
+        },
+        {
+          "name": "biometricRequired",
+          "lines": "65-67",
+          "implements": [
+            "S18"
+          ]
+        },
+        {
+          "name": "currentAuth",
+          "lines": "69-80",
+          "implements": [
+            "S18"
+          ]
+        },
+        {
+          "name": "VerificationTab",
+          "lines": "116-485",
+          "implements": [
+            "S18"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/tabs/PreauthTab.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S4",
+          "S9"
+        ],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/preauth/cancel/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/preauth/predetermination/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/preauth/submit/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/enquiry/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "CANCEL_REASONS",
+          "lines": "60-68",
+          "implements": [
+            "S4",
+            "S9"
+          ]
+        },
+        {
+          "name": "sendLabel",
+          "lines": "71-86",
+          "implements": [
+            "S4",
+            "S9"
+          ]
+        },
+        {
+          "name": "PreauthCancelForm",
+          "lines": "96-163",
+          "implements": [
+            "S4",
+            "S9"
+          ]
+        },
+        {
+          "name": "PredeterminationCard",
+          "lines": "166-275",
+          "implements": [
+            "S4",
+            "S9"
+          ]
+        },
+        {
+          "name": "CommunicationPointer",
+          "lines": "278-309",
+          "implements": [
+            "S4",
+            "S9"
+          ]
+        },
+        {
+          "name": "EnhancementBlock",
+          "lines": "311-336",
+          "implements": [
+            "S4",
+            "S9"
+          ]
+        },
+        {
+          "name": "PreauthCard",
+          "lines": "339-660",
+          "implements": [
+            "S4",
+            "S9"
+          ]
+        },
+        {
+          "name": "PreauthTab",
+          "lines": "663-683",
+          "implements": [
+            "S4",
+            "S9"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/components/PreauthDraft.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S4"
+        ],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/admission/",
+          "PUT /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/draft/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "BLANK",
+          "lines": "84-84",
+          "implements": [
+            "S4"
+          ]
+        },
+        {
+          "name": "Props",
+          "lines": "86-91",
+          "implements": [
+            "S4"
+          ]
+        },
+        {
+          "name": "CARE_TEAM_ROLES",
+          "lines": "93-99",
+          "implements": [
+            "S4"
+          ]
+        },
+        {
+          "name": "admissionPatient",
+          "lines": "101-107",
+          "implements": [
+            "S4"
+          ]
+        },
+        {
+          "name": "PatientLink",
+          "lines": "113-130",
+          "implements": [
+            "S4"
+          ]
+        },
+        {
+          "name": "AdmissionLink",
+          "lines": "132-151",
+          "implements": [
+            "S4"
+          ]
+        },
+        {
+          "name": "NotEligibleCard",
+          "lines": "154-171",
+          "implements": [
+            "S4"
+          ]
+        },
+        {
+          "name": "LinkAdmissionCard",
+          "lines": "174-284",
+          "implements": [
+            "S4"
+          ]
+        },
+        {
+          "name": "linkedAdmission",
+          "lines": "286-296",
+          "implements": [
+            "S4"
+          ]
+        },
+        {
+          "name": "LinkedAdmissionCard",
+          "lines": "299-356",
+          "implements": [
+            "S4"
+          ]
+        },
+        {
+          "name": "RowBox",
+          "lines": "358-379",
+          "implements": [
+            "S4"
+          ]
+        },
+        {
+          "name": "DraftCard",
+          "lines": "384-926",
+          "implements": [
+            "S4"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/components/PackageDetail.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S7",
+          "S8"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "IMPLANT_FLAGS",
+          "lines": "30-34",
+          "implements": [
+            "S7",
+            "S8"
+          ]
+        },
+        {
+          "name": "Section",
+          "lines": "36-51",
+          "implements": [
+            "S7",
+            "S8"
+          ]
+        },
+        {
+          "name": "PackageDetail",
+          "lines": "54-322",
+          "implements": [
+            "S7",
+            "S8"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/components/FormDetail.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S9",
+          "S11"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "FormDetail",
+          "lines": "18-65",
+          "implements": [
+            "S9",
+            "S11"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/components/LegParts.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S9",
+          "S10",
+          "S11"
+        ],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/documents/",
+          "DELETE /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/documents/{documentId}/",
+          "PUT /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/draft/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "Stage",
+          "lines": "66-66",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "BLANK",
+          "lines": "67-67",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "LegProps",
+          "lines": "69-74",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "TYPE_LABEL",
+          "lines": "76-81",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "fileSize",
+          "lines": "83-86",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "uploadError",
+          "lines": "89-97",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "DocumentLink",
+          "lines": "149-161",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "DocumentsCard",
+          "lines": "164-460",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "savedAnswers",
+          "lines": "462-478",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "QuestionField",
+          "lines": "480-588",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "FormItem",
+          "lines": "590-694",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "FormsCard",
+          "lines": "697-715",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "VERDICT_TONE",
+          "lines": "717-725",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "ItemVerdictTable",
+          "lines": "728-788",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "enquiryTone",
+          "lines": "790-798",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "EnquiryRows",
+          "lines": "801-856",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "QueryNote",
+          "lines": "859-870",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        },
+        {
+          "name": "ResubmitReply",
+          "lines": "873-913",
+          "implements": [
+            "S9",
+            "S10",
+            "S11"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/components/ClaimWidgets.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S6"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "Chip",
+          "lines": "20-34",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "CorrelationId",
+          "lines": "37-58",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "DetailItem",
+          "lines": "60-63",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "DetailList",
+          "lines": "65-93",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "StatTile",
+          "lines": "95-117",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "StatGrid",
+          "lines": "119-123",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "Muted",
+          "lines": "125-133",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "ErrorText",
+          "lines": "135-137",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "ConfirmButton",
+          "lines": "140-189",
+          "implements": [
+            "S6"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/tabs/CommunicationTab.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S10"
+        ],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/queries/{queryId}/reply/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/queries/{queryId}/ack/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "QUERY_STATUS",
+          "lines": "62-71",
+          "implements": [
+            "S10"
+          ]
+        },
+        {
+          "name": "REASONS",
+          "lines": "73-83",
+          "implements": [
+            "S10"
+          ]
+        },
+        {
+          "name": "reasonWords",
+          "lines": "86-93",
+          "implements": [
+            "S10"
+          ]
+        },
+        {
+          "name": "payerLines",
+          "lines": "98-101",
+          "implements": [
+            "S10"
+          ]
+        },
+        {
+          "name": "BaseDetails",
+          "lines": "103-141",
+          "implements": [
+            "S10"
+          ]
+        },
+        {
+          "name": "ReplyForm",
+          "lines": "143-359",
+          "implements": [
+            "S10"
+          ]
+        },
+        {
+          "name": "PayerSays",
+          "lines": "361-378",
+          "implements": [
+            "S10"
+          ]
+        },
+        {
+          "name": "QueryItem",
+          "lines": "380-560",
+          "implements": [
+            "S10"
+          ]
+        },
+        {
+          "name": "CommunicationTab",
+          "lines": "563-638",
+          "implements": [
+            "S10"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/tabs/ClaimTab.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S11"
+        ],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/discharge/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/enquiry/",
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/claim/submit/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "BLANK",
+          "lines": "69-69",
+          "implements": [
+            "S11"
+          ]
+        },
+        {
+          "name": "DISCHARGE_MODES",
+          "lines": "71-76",
+          "implements": [
+            "S11"
+          ]
+        },
+        {
+          "name": "DISCHARGE_STAGES",
+          "lines": "78-82",
+          "implements": [
+            "S11"
+          ]
+        },
+        {
+          "name": "REPROCESS_REASONS",
+          "lines": "84-88",
+          "implements": [
+            "S11"
+          ]
+        },
+        {
+          "name": "discharge",
+          "lines": "90-100",
+          "implements": [
+            "S11"
+          ]
+        },
+        {
+          "name": "claimLines",
+          "lines": "107-139",
+          "implements": [
+            "S11"
+          ]
+        },
+        {
+          "name": "DischargeCard",
+          "lines": "145-318",
+          "implements": [
+            "S11"
+          ]
+        },
+        {
+          "name": "ReprocessForm",
+          "lines": "320-425",
+          "implements": [
+            "S11"
+          ]
+        },
+        {
+          "name": "ReleaseForm",
+          "lines": "427-507",
+          "implements": [
+            "S11"
+          ]
+        },
+        {
+          "name": "claimSendLabel",
+          "lines": "509-518",
+          "implements": [
+            "S11"
+          ]
+        },
+        {
+          "name": "ClaimCard",
+          "lines": "521-756",
+          "implements": [
+            "S11"
+          ]
+        },
+        {
+          "name": "ClaimTab",
+          "lines": "759-795",
+          "implements": [
+            "S11"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/tabs/PaymentsTab.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S12"
+        ],
+        "apis": [
+          "POST /api/v1/facility/{facilityId}/nhcx/claims/{claimId}/payments/{paymentId}/ack/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "ACK_STATUS",
+          "lines": "39-44",
+          "implements": [
+            "S12"
+          ]
+        },
+        {
+          "name": "PAYMENT_TONE",
+          "lines": "46-54",
+          "implements": [
+            "S12"
+          ]
+        },
+        {
+          "name": "PaymentCard",
+          "lines": "59-174",
+          "implements": [
+            "S12"
+          ]
+        },
+        {
+          "name": "PaymentsTab",
+          "lines": "177-242",
+          "implements": [
+            "S12"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/tabs/types.ts",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S6"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "ClaimTabKey",
+          "lines": "3-12",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "CLAIM_TABS",
+          "lines": "14-24",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "ClaimTabProps",
+          "lines": "26-31",
+          "implements": [
+            "S6"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/useClaimAction.ts",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S6"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "nhcxCall",
+          "lines": "13-18",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "refusalText",
+          "lines": "20-29",
+          "implements": [
+            "S6"
+          ]
+        },
+        {
+          "name": "useClaimAction",
+          "lines": "33-59",
+          "implements": [
+            "S6"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/pages/Facility/claims/utils.ts",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S5",
+          "S6"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "Tone",
+          "lines": "14-14",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "TONE_VARIANT",
+          "lines": "16-22",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "CLAIM_STATUS",
+          "lines": "24-31",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "STAGE_LABEL",
+          "lines": "33-39",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "SUB_STAGE",
+          "lines": "41-58",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "LEG_STATUS",
+          "lines": "61-71",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "ID_TYPES",
+          "lines": "73-77",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "DOCUMENT_CODES",
+          "lines": "79-97",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "UPLOAD_TYPES",
+          "lines": "99-104",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "UPLOAD_MAX_BYTES",
+          "lines": "105-105",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "toNumber",
+          "lines": "107-111",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "formatMoney",
+          "lines": "114-118",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "formatDate",
+          "lines": "120-123",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "formatDateTime",
+          "lines": "125-136",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "formatSize",
+          "lines": "138-143",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "payerLabel",
+          "lines": "145-150",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "isRefused",
+          "lines": "152-156",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "openQueries",
+          "lines": "158-160",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "unansweredCount",
+          "lines": "162-167",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "claimBalance",
+          "lines": "169-173",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "isWaiting",
+          "lines": "176-188",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "claimForms",
+          "lines": "190-192",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "abhaDigits",
+          "lines": "194-196",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "ABHA_SYSTEM",
+          "lines": "198-198",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "ABHA_ADDRESS_SYSTEM",
+          "lines": "199-199",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "formatAbha",
+          "lines": "201-205",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "WithIdentifiers",
+          "lines": "207-210",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "isAbhaSystem",
+          "lines": "212-215",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "patientAbha",
+          "lines": "218-225",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "patientMobile",
+          "lines": "227-230",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "ANSWER_TYPE",
+          "lines": "233-247",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        },
+        {
+          "name": "answerTypeKey",
+          "lines": "249-251",
+          "implements": [
+            "S5",
+            "S6"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/components/Nhcx/AbhaDialog.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S13",
+          "S14",
+          "S15"
+        ],
+        "apis": [
+          "POST /api/v1/nhcx/abha/{action}/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "Mode",
+          "lines": "32-32",
+          "implements": [
+            "S13",
+            "S14",
+            "S15"
+          ]
+        },
+        {
+          "name": "Step",
+          "lines": "33-33",
+          "implements": [
+            "S13",
+            "S14",
+            "S15"
+          ]
+        },
+        {
+          "name": "abhaGender",
+          "lines": "37-42",
+          "implements": [
+            "S13",
+            "S14",
+            "S15"
+          ]
+        },
+        {
+          "name": "abhaPhone",
+          "lines": "44-47",
+          "implements": [
+            "S13",
+            "S14",
+            "S15"
+          ]
+        },
+        {
+          "name": "AbhaDialog",
+          "lines": "51-436",
+          "implements": [
+            "S13",
+            "S14",
+            "S15"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/components/Nhcx/RegisterWithAbhaButton.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S13"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "RegisterWithAbhaButton",
+          "lines": "24-90",
+          "implements": [
+            "S13"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/components/Nhcx/AbhaFormButton.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S14"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "IdentifierValue",
+          "lines": "20-23",
+          "implements": [
+            "S14"
+          ]
+        },
+        {
+          "name": "AbhaFillableForm",
+          "lines": "27-30",
+          "implements": [
+            "S14"
+          ]
+        },
+        {
+          "name": "IDENTIFIER_LISTS",
+          "lines": "32-32",
+          "implements": [
+            "S14"
+          ]
+        },
+        {
+          "name": "abhaConfigIds",
+          "lines": "34-43",
+          "implements": [
+            "S14"
+          ]
+        },
+        {
+          "name": "setIdentifier",
+          "lines": "45-57",
+          "implements": [
+            "S14"
+          ]
+        },
+        {
+          "name": "fillForm",
+          "lines": "61-91",
+          "implements": [
+            "S14"
+          ]
+        },
+        {
+          "name": "AbhaFormButton",
+          "lines": "94-158",
+          "implements": [
+            "S14"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/components/Nhcx/PatientNhcxActions.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S15"
+        ],
+        "apis": [
+          "POST /api/v1/nhcx/abha/{action}/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "PatientNhcxActions",
+          "lines": "23-103",
+          "implements": [
+            "S15"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/components/Nhcx/PractitionerProfileCard.tsx",
+      "status": "written",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S16"
+        ],
+        "apis": [
+          "GET /api/v1/nhcx/practitioner/{userId}/",
+          "PUT /api/v1/nhcx/practitioner/{userId}/"
+        ],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "DEPARTMENTS",
+          "lines": "29-40",
+          "implements": [
+            "S16"
+          ]
+        },
+        {
+          "name": "IDENTIFIER_TYPES",
+          "lines": "42-46",
+          "implements": [
+            "S16"
+          ]
+        },
+        {
+          "name": "NOT_STATED",
+          "lines": "48-48",
+          "implements": [
+            "S16"
+          ]
+        },
+        {
+          "name": "Draft",
+          "lines": "50-72",
+          "implements": [
+            "S16"
+          ]
+        },
+        {
+          "name": "toDraft",
+          "lines": "61-72",
+          "implements": [
+            "S16"
+          ]
+        },
+        {
+          "name": "PractitionerProfileCard",
+          "lines": "77-292",
+          "implements": [
+            "S16"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/components/Patient/PatientIndex.tsx",
+      "status": "modified",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S13"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "RegisterWithAbhaButton (usage)",
+          "lines": "268-268",
+          "implements": [
+            "S13"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/components/Patient/PatientRegistration.tsx",
+      "status": "modified",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S14"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "AbhaFormButton (usage)",
+          "lines": "431-435",
+          "implements": [
+            "S14"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/components/Patient/PatientProfile.tsx",
+      "status": "modified",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S15"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "PatientNhcxActions (usage)",
+          "lines": "184-187",
+          "implements": [
+            "S15"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/components/Users/UserSummary.tsx",
+      "status": "modified",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S16"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "PractitionerProfileCard (usage)",
+          "lines": "151-153",
+          "implements": [
+            "S16"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/Routers/routes/FacilityRoutes.tsx",
+      "status": "modified",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S1",
+          "S2",
+          "S5",
+          "S6",
+          "S17"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "ClaimMaster (usage)",
+          "lines": "176-176",
+          "implements": [
+            "S1",
+            "S2",
+            "S5",
+            "S6",
+            "S17"
+          ]
+        },
+        {
+          "name": "SearchPolicy (usage)",
+          "lines": "179-179",
+          "implements": [
+            "S1",
+            "S2",
+            "S5",
+            "S6",
+            "S17"
+          ]
+        },
+        {
+          "name": "SearchPolicy (usage)",
+          "lines": "182-182",
+          "implements": [
+            "S1",
+            "S2",
+            "S5",
+            "S6",
+            "S17"
+          ]
+        },
+        {
+          "name": "BeneficiaryDiscovery (usage)",
+          "lines": "185-185",
+          "implements": [
+            "S1",
+            "S2",
+            "S5",
+            "S6",
+            "S17"
+          ]
+        },
+        {
+          "name": "ClaimDetail (usage)",
+          "lines": "188-188",
+          "implements": [
+            "S1",
+            "S2",
+            "S5",
+            "S6",
+            "S17"
+          ]
+        },
+        {
+          "name": "ClaimDetail (usage)",
+          "lines": "194-194",
+          "implements": [
+            "S1",
+            "S2",
+            "S5",
+            "S6",
+            "S17"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/src/components/ui/sidebar/facility/facility-nav.tsx",
+      "status": "modified",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [
+          "S5"
+        ],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [
+        {
+          "name": "nhcx_claims (usage)",
+          "lines": "131-131",
+          "implements": [
+            "S5"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    },
+    {
+      "path": "care_fe/public/locale/en.json",
+      "status": "modified",
+      "plan_step": "frontend",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "npx tsc --noEmit; npx eslint <files>; npx prettier --check <files>",
+        "notes": "tsc clean apart from pre-existing src/components/ErrorPages/BrowserWarning.tsx '@/supportedBrowsers' (generated file absent); eslint 0 errors (only react-hooks/set-state-in-effect warnings, as elsewhere in care_fe); prettier clean"
+      },
+      "blocked_reason": ""
+    }
+  ],
+  "tests": {
+    "command": "cd care_fe && npx tsc --noEmit && npx eslint <changed files> && npx prettier --check <changed files>",
+    "result": "tsc: only pre-existing BrowserWarning.tsx @/supportedBrowsers error; eslint: 0 errors, 14 warnings (react-hooks/set-state-in-effect syncing server data into local form state; 2 are pre-existing lines in PatientIndex/PatientRegistration); prettier: all files formatted. No unit tests added; no browser run against a live backend."
+  },
+  "corrections": [
+    "nhcxApi.getPractitioner/updatePractitioner TRes is {ok, message, profile} (backend views_global.PractitionerProfileView), not a bare profile.",
+    "A19 actions also include 'suggestions' and 'address' (backend AbhaView) beyond the six listed in CONTRACT.md; the S14 create flow needs them to choose an ABHA address.",
+    "Backend extras used though not in CONTRACT.md: POST claims/{id}/discharge/ (S11 discharge details) and POST claims/{id}/queries/{query_id}/ack/ (S10 send acknowledgement)."
+  ],
+  "notes": [
+    "All screens read the A17 claim state (GET claims/{id}/state/); mutations go through useClaimAction which toasts the server message or the {error} refusal and invalidates the state. While any leg is waiting (checking/submitting/fetching/asking...) state refetches every 5s (user instruction, overrides S6's manual refresh).",
+    "Payer shown as payer_name, else payer_id, everywhere (utils.payerLabel). Screens never build FHIR.",
+    "Routes: /facility/:facilityId/claims (S5), /claims/search and /claims/search/results (S1/S2 single page with result state in the URL), /claims/discovery (S17), /claims/:claimId and /claims/:claimId/:tab (S6 with tabs in episode order). 'Claims' nav entry after Billing.",
+    "ABHA: the page sends plain digits (Aadhaar, OTP, ABHA number, mobile); the backend seals plain values under the ABHA certificate itself (services/abha._sealed). A19 asks for in-page sealing; if that becomes mandatory, seal in AbhaDialog.run via GET abha/certificate + WebCrypto RSA-OAEP SHA-1.",
+    "ABHA gender 'Other' is left blank on the CARE form (CARE genders are male/female/transgender/non_binary); never guessed.",
+    "S13 'Register with ABHA' searches patientApi.search with the facility's ABHA instance-identifier config (system https://healthid.abdm.gov.in) and the formatted ABHA number; a hit opens the patient verify page, otherwise patient/create?from_abha=1&abha_*=... which AbhaFormButton fills completely and labels 'Filled from ABHA <number>...'. The ABHA identifiers are written into the matching required/optional identifier rows; the ABHA address only when the facility has a config with system .../address.",
+    "S15: chip 'ABHA <number>', 'Link ABHA'/'Verify ABHA' (A19 then POST abha/link {txn_id, patient}), 'Search insurance policy' (claims/search?id_type=AbhaNumber|MobileNo&id_value&patient) and 'Claims' (claims?patient&patient_name) are placed in PatientProfile's actions sidebar. Per-row S13 actions were not added to the PatientIndex search results to keep the change isolated; they are on S15.",
+    "S16: CARE has no practitioner master; the NHCX practitioner profile card sits on the user summary page (UserSummary) via /api/v1/nhcx/practitioner/{user external id}/. Editable by the user or a superuser (backend enforces). Specialty is a code + display text pair (no SNOMED picker wired). Consultation fee/phone/email from S16 are CARE user fields, not duplicated.",
+    "Assumptions in claim tabs: unlink admission sends encounter:null; line edits re-POST lines/ with line_id and unit_price; form answers and attachments are saved through draft/; resubmit-mode query answers go via submit {kind, reply} (mode from next_send kind and adapter==='pmjay'); the status enquiry button is hidden for pmjay; biometric capture sends Aadhaar in clear to the server; S17 discovery opens via POST claims/ with purpose discovery; no document download endpoint so doc.url is linked; local HBP package is a text input; 'Withdrawn under' shows preauth.claim_ref; doctor options show user_type; diagnosis picker is SNOMED ValueSetSelect plus manual ICD-10 code; the LM100 line is computed client-side for display only; ClaimTab gate opens when preauth approved/queried or a claim submission exists.",
+    "i18n: all labels added to public/locale/en.json under nhcx_* keys, verbatim from the S specs where the spec gives the text; sorted with npm run sort-locales."
+  ]
+}

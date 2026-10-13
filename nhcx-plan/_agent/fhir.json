@@ -1,0 +1,1932 @@
+{
+  "files": [
+    {
+      "path": "care/care/nhcx/fhir/bundle.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F1"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "F1: Bundle.id per kind (KINDS), meta.profile, identifier, type=collection, timestamp, entry[0]=anchor fullUrl, absolute https://nhcx.abdm.gov.in fullUrls/references; unwrap of payload/JWE-decoded envelopes",
+      "symbols": [
+        {
+          "name": "url",
+          "lines": [
+            80,
+            82
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "ref",
+          "lines": [
+            85,
+            89
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "anchor_url",
+          "lines": [
+            92,
+            93
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "wrap",
+          "lines": [
+            96,
+            113
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "unwrap",
+          "lines": [
+            116,
+            122
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "entries",
+          "lines": [
+            125,
+            126
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "find_resources",
+          "lines": [
+            129,
+            135
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "find_resource",
+          "lines": [
+            138,
+            142
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "find_entry",
+          "lines": [
+            145,
+            153
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "resolve_reference",
+          "lines": [
+            156,
+            172
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "is_protocol_response",
+          "lines": [
+            175,
+            179
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "protocol_error",
+          "lines": [
+            182,
+            193
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "new_uuid",
+          "lines": [
+            199,
+            200
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "to_instant",
+          "lines": [
+            216,
+            223
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "to_date",
+          "lines": [
+            226,
+            229
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "now_instant",
+          "lines": [
+            232,
+            233
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "amount",
+          "lines": [
+            236,
+            241
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "money",
+          "lines": [
+            244,
+            245
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "b64",
+          "lines": [
+            248,
+            253
+          ],
+          "implements": [
+            "F1"
+          ]
+        },
+        {
+          "name": "deep_copy",
+          "lines": [
+            256,
+            257
+          ],
+          "implements": [
+            "F1"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/codes.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F1",
+          "F15",
+          "F16",
+          "F17",
+          "F18",
+          "F2",
+          "F8",
+          "F10",
+          "F12"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "code systems, NRCES profile URLs, identifier types, genders, relationship, F16 degree codes, supportingInfo categories/codes, cancel/reprocess/release/query reasons",
+      "symbols": [
+        {
+          "name": "profile",
+          "lines": [
+            46,
+            47
+          ],
+          "implements": [
+            "F1",
+            "F15",
+            "F16",
+            "F17",
+            "F18",
+            "F2",
+            "F8",
+            "F10",
+            "F12"
+          ]
+        },
+        {
+          "name": "coding",
+          "lines": [
+            71,
+            78
+          ],
+          "implements": [
+            "F1",
+            "F15",
+            "F16",
+            "F17",
+            "F18",
+            "F2",
+            "F8",
+            "F10",
+            "F12"
+          ]
+        },
+        {
+          "name": "concept",
+          "lines": [
+            81,
+            85
+          ],
+          "implements": [
+            "F1",
+            "F15",
+            "F16",
+            "F17",
+            "F18",
+            "F2",
+            "F8",
+            "F10",
+            "F12"
+          ]
+        },
+        {
+          "name": "identifier_type",
+          "lines": [
+            104,
+            106
+          ],
+          "implements": [
+            "F1",
+            "F15",
+            "F16",
+            "F17",
+            "F18",
+            "F2",
+            "F8",
+            "F10",
+            "F12"
+          ]
+        },
+        {
+          "name": "gender",
+          "lines": [
+            112,
+            115
+          ],
+          "implements": [
+            "F1",
+            "F15",
+            "F16",
+            "F17",
+            "F18",
+            "F2",
+            "F8",
+            "F10",
+            "F12"
+          ]
+        },
+        {
+          "name": "degree_code",
+          "lines": [
+            131,
+            149
+          ],
+          "implements": [
+            "F1",
+            "F15",
+            "F16",
+            "F17",
+            "F18",
+            "F2",
+            "F8",
+            "F10",
+            "F12"
+          ]
+        },
+        {
+          "name": "reason_word",
+          "lines": [
+            233,
+            235
+          ],
+          "implements": [
+            "F1",
+            "F15",
+            "F16",
+            "F17",
+            "F18",
+            "F2",
+            "F8",
+            "F10",
+            "F12"
+          ]
+        },
+        {
+          "name": "lookups",
+          "lines": [
+            238,
+            252
+          ],
+          "implements": [
+            "F1",
+            "F15",
+            "F16",
+            "F17",
+            "F18",
+            "F2",
+            "F8",
+            "F10",
+            "F12"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/inputs.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F2",
+          "F7",
+          "F8",
+          "F10",
+          "F12",
+          "F15",
+          "F16",
+          "F17",
+          "F18"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "input dataclasses named after D columns",
+      "symbols": [
+        {
+          "name": "FhirBuildError",
+          "lines": [
+            11,
+            12
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "FacilityInput",
+          "lines": [
+            16,
+            21
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "PayerInput",
+          "lines": [
+            25,
+            29
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "PatientInput",
+          "lines": [
+            33,
+            43
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "CoverageInput",
+          "lines": [
+            47,
+            51
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "PractitionerInput",
+          "lines": [
+            55,
+            64
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "LineInput",
+          "lines": [
+            68,
+            80
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "DiagnosisInput",
+          "lines": [
+            84,
+            89
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "DocumentInput",
+          "lines": [
+            93,
+            104
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "FormInput",
+          "lines": [
+            108,
+            114
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "FormAnswer",
+          "lines": [
+            118,
+            124
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "ClaimInput",
+          "lines": [
+            128,
+            166
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "EligibilityInput",
+          "lines": [
+            170,
+            180
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "TaskInput",
+          "lines": [
+            184,
+            206
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        },
+        {
+          "name": "ReplyInput",
+          "lines": [
+            210,
+            232
+          ],
+          "implements": [
+            "F2",
+            "F7",
+            "F8",
+            "F10",
+            "F12",
+            "F15",
+            "F16",
+            "F17",
+            "F18"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/build/coverage_request.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F2"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "CoverageEligibilityRequest: identifier, status, priority, purpose, patient, servicedPeriod, created, provider, insurer, insurance.coverage, item[] (productOrService, category, provider) for benefits/auth-requirements",
+      "symbols": [
+        {
+          "name": "build",
+          "lines": [
+            66,
+            110
+          ],
+          "implements": [
+            "F2"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/build/plan_task.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F4"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "Task code=poll, input policyNumber/providerId, InsurancePlan bundle",
+      "symbols": [
+        {
+          "name": "build",
+          "lines": [
+            20,
+            41
+          ],
+          "implements": [
+            "F4"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/build/questionnaire_response.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F7"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "QuestionnaireResponse.questionnaire, status, subject, authored, item[].linkId/text/answer[value*]",
+      "symbols": [
+        {
+          "name": "build",
+          "lines": [
+            75,
+            104
+          ],
+          "implements": [
+            "F7"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/build/claim.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F8"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "Claim: identifier, status, type, use, patient, billablePeriod, created, insurer, provider, priority, payee, careTeam, supportingInfo (documents, ONS/ADDD, EDT, discharge, INF/ODN, QuestionnaireResponse), diagnosis, insurance (preAuthRef), item[] (productOrService, category, unitPrice, net, detail tiers, programCode, factor), total; LAMA collapse",
+      "symbols": [
+        {
+          "name": "practitioner_path",
+          "lines": [
+            56,
+            57
+          ],
+          "implements": [
+            "F8"
+          ]
+        },
+        {
+          "name": "line_amount",
+          "lines": [
+            73,
+            77
+          ],
+          "implements": [
+            "F8"
+          ]
+        },
+        {
+          "name": "lama_collapse",
+          "lines": [
+            87,
+            110
+          ],
+          "implements": [
+            "F8"
+          ]
+        },
+        {
+          "name": "procedure_type",
+          "lines": [
+            287,
+            290
+          ],
+          "implements": [
+            "F8"
+          ]
+        },
+        {
+          "name": "build",
+          "lines": [
+            293,
+            442
+          ],
+          "implements": [
+            "F8"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/build/task.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F10"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "Task: status, intent, code (financialtaskcode cancel/status/reprocess/release), authoredOn, requester, owner, description, reasonCode, input claimNumber/intimationNumber|initimationNumber, member identifier, amount valueMoney, documents",
+      "symbols": [
+        {
+          "name": "kind_for",
+          "lines": [
+            24,
+            29
+          ],
+          "implements": [
+            "F10"
+          ]
+        },
+        {
+          "name": "description",
+          "lines": [
+            32,
+            44
+          ],
+          "implements": [
+            "F10"
+          ]
+        },
+        {
+          "name": "build",
+          "lines": [
+            70,
+            142
+          ],
+          "implements": [
+            "F10"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/build/communication.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F12"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "reply Task + CommunicationRequest + Communication(payload contentString/contentAttachment, about, basedOn) + queried leg resources; notification acknowledgement bundle",
+      "symbols": [
+        {
+          "name": "build_reply",
+          "lines": [
+            203,
+            316
+          ],
+          "implements": [
+            "F12"
+          ]
+        },
+        {
+          "name": "build_acknowledgement",
+          "lines": [
+            319,
+            421
+          ],
+          "implements": [
+            "F12"
+          ]
+        },
+        {
+          "name": "build",
+          "lines": [
+            424,
+            428
+          ],
+          "implements": [
+            "F12"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/build/payment_ack.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F14"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "Task status=completed, code=status, output[0] status/paymentack, output[1] claimNumber",
+      "symbols": [
+        {
+          "name": "build",
+          "lines": [
+            16,
+            47
+          ],
+          "implements": [
+            "F14"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/build/patient.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F15"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "Patient identifier (ABHA/member/Aadhaar/mobile), name, telecom, gender, birthDate",
+      "symbols": [
+        {
+          "name": "build",
+          "lines": [
+            11,
+            51
+          ],
+          "implements": [
+            "F15"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/build/practitioner.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F16"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "Practitioner identifier (HPID/degree/HPIN), name, qualification code (F16 degree table); PractitionerRole",
+      "symbols": [
+        {
+          "name": "build",
+          "lines": [
+            15,
+            40
+          ],
+          "implements": [
+            "F16"
+          ]
+        },
+        {
+          "name": "build_role",
+          "lines": [
+            43,
+            49
+          ],
+          "implements": [
+            "F16"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/build/organization.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F17"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "provider and payer Organization: identifier, name, type",
+      "symbols": [
+        {
+          "name": "payer_code",
+          "lines": [
+            19,
+            21
+          ],
+          "implements": [
+            "F17"
+          ]
+        },
+        {
+          "name": "build_provider",
+          "lines": [
+            24,
+            28
+          ],
+          "implements": [
+            "F17"
+          ]
+        },
+        {
+          "name": "build_payer",
+          "lines": [
+            31,
+            35
+          ],
+          "implements": [
+            "F17"
+          ]
+        },
+        {
+          "name": "build",
+          "lines": [
+            38,
+            42
+          ],
+          "implements": [
+            "F17"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/build/coverage.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F18"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "Coverage identifier, status, subscriberId, beneficiary, relationship=self, payor",
+      "symbols": [
+        {
+          "name": "build",
+          "lines": [
+            13,
+            28
+          ],
+          "implements": [
+            "F18"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/build/other.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F19"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "Procedure and Location resources",
+      "symbols": [
+        {
+          "name": "build_procedure",
+          "lines": [
+            7,
+            19
+          ],
+          "implements": [
+            "F19"
+          ]
+        },
+        {
+          "name": "build_location",
+          "lines": [
+            22,
+            27
+          ],
+          "implements": [
+            "F19"
+          ]
+        },
+        {
+          "name": "build",
+          "lines": [
+            30,
+            34
+          ],
+          "implements": [
+            "F19"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/read/eligibility.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F3"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "CoverageEligibilityResponse outcome/disposition/insurance.inforce/item.benefit allowed/used/authorizationRequired/authorizationSupporting, Patient name/gender/birthDate/address/ABHA, Coverage relationship and plan",
+      "symbols": [
+        {
+          "name": "read_verdict",
+          "lines": [
+            90,
+            121
+          ],
+          "implements": [
+            "F3"
+          ]
+        },
+        {
+          "name": "parse_requirement_text",
+          "lines": [
+            124,
+            134
+          ],
+          "implements": [
+            "F3"
+          ]
+        },
+        {
+          "name": "read_auth",
+          "lines": [
+            137,
+            193
+          ],
+          "implements": [
+            "F3"
+          ]
+        },
+        {
+          "name": "read",
+          "lines": [
+            196,
+            203
+          ],
+          "implements": [
+            "F3"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/read/plan.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F5",
+          "F6"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "InsurancePlan identifier/name/type/plan.generalCost/coverage.benefit/plan.specificCost.benefit.cost, claim-condition and supporting-info-requirement extensions; Questionnaire url/title/items flattened",
+      "symbols": [
+        {
+          "name": "conditions",
+          "lines": [
+            52,
+            69
+          ],
+          "implements": [
+            "F5",
+            "F6"
+          ]
+        },
+        {
+          "name": "requirements",
+          "lines": [
+            102,
+            115
+          ],
+          "implements": [
+            "F5",
+            "F6"
+          ]
+        },
+        {
+          "name": "read_benefits",
+          "lines": [
+            240,
+            254
+          ],
+          "implements": [
+            "F5",
+            "F6"
+          ]
+        },
+        {
+          "name": "read_plan",
+          "lines": [
+            257,
+            292
+          ],
+          "implements": [
+            "F5",
+            "F6"
+          ]
+        },
+        {
+          "name": "form_kind",
+          "lines": [
+            321,
+            323
+          ],
+          "implements": [
+            "F5",
+            "F6"
+          ]
+        },
+        {
+          "name": "read_forms",
+          "lines": [
+            326,
+            343
+          ],
+          "implements": [
+            "F5",
+            "F6"
+          ]
+        },
+        {
+          "name": "read",
+          "lines": [
+            346,
+            354
+          ],
+          "implements": [
+            "F5",
+            "F6"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/read/claim_response.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F9",
+          "F10"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "ClaimResponse outcome, extension claim-reason, disposition, preAuthRef, total(benefit/eligible/submitted), item adjudication, processNote, error, form; workflow-id status map; Task reply (status, output, ClaimResponse ref, x-hcx-status_response)",
+      "symbols": [
+        {
+          "name": "claim_reason",
+          "lines": [
+            33,
+            42
+          ],
+          "implements": [
+            "F9",
+            "F10"
+          ]
+        },
+        {
+          "name": "decide",
+          "lines": [
+            45,
+            61
+          ],
+          "implements": [
+            "F9",
+            "F10"
+          ]
+        },
+        {
+          "name": "is_error",
+          "lines": [
+            64,
+            68
+          ],
+          "implements": [
+            "F9",
+            "F10"
+          ]
+        },
+        {
+          "name": "status_for",
+          "lines": [
+            71,
+            82
+          ],
+          "implements": [
+            "F9",
+            "F10"
+          ]
+        },
+        {
+          "name": "clean_pieces",
+          "lines": [
+            85,
+            94
+          ],
+          "implements": [
+            "F9",
+            "F10"
+          ]
+        },
+        {
+          "name": "query_note",
+          "lines": [
+            125,
+            135
+          ],
+          "implements": [
+            "F9",
+            "F10"
+          ]
+        },
+        {
+          "name": "error_message",
+          "lines": [
+            138,
+            152
+          ],
+          "implements": [
+            "F9",
+            "F10"
+          ]
+        },
+        {
+          "name": "read_response",
+          "lines": [
+            155,
+            174
+          ],
+          "implements": [
+            "F9",
+            "F10"
+          ]
+        },
+        {
+          "name": "read",
+          "lines": [
+            177,
+            192
+          ],
+          "implements": [
+            "F9",
+            "F10"
+          ]
+        },
+        {
+          "name": "read_predetermination",
+          "lines": [
+            195,
+            204
+          ],
+          "implements": [
+            "F9",
+            "F10"
+          ]
+        },
+        {
+          "name": "read_task_reply",
+          "lines": [
+            240,
+            290
+          ],
+          "implements": [
+            "F9",
+            "F10"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/read/communication.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F11"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "CommunicationRequest id/identifier/about/basedOn/payload/reasonCode, Task intent/reasonCode/authoredOn; query vs notification classification",
+      "symbols": [
+        {
+          "name": "handler_for",
+          "lines": [
+            9,
+            20
+          ],
+          "implements": [
+            "F11"
+          ]
+        },
+        {
+          "name": "references",
+          "lines": [
+            23,
+            41
+          ],
+          "implements": [
+            "F11"
+          ]
+        },
+        {
+          "name": "pick_claim_ref",
+          "lines": [
+            44,
+            49
+          ],
+          "implements": [
+            "F11"
+          ]
+        },
+        {
+          "name": "reason_code",
+          "lines": [
+            60,
+            69
+          ],
+          "implements": [
+            "F11"
+          ]
+        },
+        {
+          "name": "classify",
+          "lines": [
+            72,
+            81
+          ],
+          "implements": [
+            "F11"
+          ]
+        },
+        {
+          "name": "read",
+          "lines": [
+            99,
+            128
+          ],
+          "implements": [
+            "F11"
+          ]
+        },
+        {
+          "name": "read_note",
+          "lines": [
+            131,
+            157
+          ],
+          "implements": [
+            "F11"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/fhir/read/payment.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F13"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "element_paths": "PaymentNotice/PaymentReconciliation request identifier, amount, paymentStatus, disposition, paymentDate, paymentIdentifier (UTR), detail[]",
+      "symbols": [
+        {
+          "name": "claim_number",
+          "lines": [
+            26,
+            38
+          ],
+          "implements": [
+            "F13"
+          ]
+        },
+        {
+          "name": "read",
+          "lines": [
+            41,
+            99
+          ],
+          "implements": [
+            "F13"
+          ]
+        }
+      ],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "dtest.sh ruff check care/nhcx/fhir && ruff format --check",
+        "notes": "All checks passed"
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/tests/test_fhir_build.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F1-F19 tests"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "",
+        "notes": ""
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/tests/test_fhir_read.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F1-F19 tests"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "",
+        "notes": ""
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/tests/test_fhir_bundle.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F1-F19 tests"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "",
+        "notes": ""
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/tests/test_fhir_codes.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F1-F19 tests"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "",
+        "notes": ""
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/tests/fhir_samples.py",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F1-F19 tests"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "",
+        "notes": ""
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/tests/fixtures/bundles/README.md",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F1-F19 tests"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "",
+        "notes": ""
+      },
+      "blocked_reason": null
+    },
+    {
+      "path": "care/care/nhcx/tests/fixtures/bundles/*.json",
+      "status": "created",
+      "plan_step": "P3.1",
+      "implements": {
+        "screens": [],
+        "apis": [],
+        "callbacks": [],
+        "fhir": [
+          "F3",
+          "F5",
+          "F6",
+          "F9",
+          "F10",
+          "F11",
+          "F13",
+          "F14",
+          "F2"
+        ],
+        "database": [],
+        "gateway": []
+      },
+      "symbols": [],
+      "migrations": [],
+      "build": {
+        "ok": true,
+        "command": "",
+        "notes": "20 bundles from nha-in/nhcx-package 1.0.0, sources in README.md"
+      },
+      "blocked_reason": null
+    }
+  ],
+  "tests": {
+    "command": "dtest.sh python manage.py test care.nhcx.tests.test_fhir_build care.nhcx.tests.test_fhir_read care.nhcx.tests.test_fhir_bundle care.nhcx.tests.test_fhir_codes",
+    "result": "66 tests OK (31 read); ruff check + format --check clean on care/nhcx/fhir and care/nhcx/tests"
+  },
+  "corrections": [
+    {
+      "spec": "F11",
+      "what": "claim_ref: take Task/CommunicationRequest identifier values first, then the first reference value with no '/' or ':' (the literal rule picked urn:uuid references)",
+      "source": "nhcx-package 1.0.0 fhir/C6 examples"
+    },
+    {
+      "spec": "F11",
+      "what": "request_id falls back to the CommunicationRequest fullUrl's last segment; the PMJAY notification has no id",
+      "source": "fhir/C6/C6-notification-wfN02.json"
+    },
+    {
+      "spec": "F12",
+      "what": "acknowledgement reuses the request bundle identifier only when it has a value; otherwise {payer_system, '<claim_no>-N<query_id>'}",
+      "source": "fhir/C6 PMJAY notification has identifier without value"
+    },
+    {
+      "spec": "F12",
+      "what": "B4 example carries inResponseTo; F12 omits it and F12 was followed",
+      "source": "fhir/B4 example"
+    },
+    {
+      "spec": "F9",
+      "what": "workflow id map from PAYERS.md applied before the outcome/reason table; error header/error[] always wins; partial outcome keeps an approval as partial",
+      "source": "PAYERS.md, fhir/C5,C7 examples"
+    }
+  ],
+  "notes": [
+    "validate_fhir cannot validate NHCX bundles (KNOWLEDGE.md); builders were checked against nhcx-package 1.0.0 examples instead (bundle ids, profiles, entry order, fullUrls).",
+    "FHIR package imports no models, gateway or ORM; importable without Django.",
+    "Refusals for missing diagnosis/lines, 'Query not found' and documents-not-on-claim checks are left to services (A4/A5/F12 services); builders raise FhirBuildError only for the refusals listed in the F2/F4/F10/F12 tables.",
+    "F5 generic sandbox plan prices with 'fullcoverage' costs: those benefit rows have kind None (per spec).",
+    "F7 fills unanswered boolean questions with 'yes', choice questions with the first option or initial value; attachments never defaulted.",
+    "Uncertain: Claim Patient name source (beneficiary_name preferred over patient_name), F7 time/decimal handling."
+  ]
+}

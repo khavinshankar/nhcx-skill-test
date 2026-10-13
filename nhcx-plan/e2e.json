@@ -1,0 +1,4049 @@
+{
+  "run_at": "2026-10-13T08:15:50.003002+00:00",
+  "config": {
+    "irdai_payer": "1000004957@hcx",
+    "irdai_member": "MRAJ2004001",
+    "irdai_policy": "first found",
+    "pmjay_payer": "1518@hcx",
+    "pmjay_member": "SBXSTG007",
+    "facility": "95deeee5-a4e6-4ab3-8401-13018f45c121",
+    "app_url": "",
+    "user": "nhcx_e2e_operator",
+    "password": "set",
+    "pmjay_service_token": "missing",
+    "pmjay_manual_package": "",
+    "wait_seconds": 120,
+    "poll_after_seconds": 30
+  },
+  "setup_checks": [
+    {
+      "check": "session token",
+      "result": "pass",
+      "detail": "issued by https://dev.abdm.gov.in/api/hiecm/gateway/v3/sessions"
+    },
+    {
+      "check": "participant record",
+      "result": "pass",
+      "detail": "1000004455@hcx \u00b7 TeleICU \u00b7  \u00b7 endpoint https://9k-personal.khavinshankar.dev/in"
+    },
+    {
+      "check": "encryption certificate",
+      "result": "pass",
+      "detail": "match"
+    },
+    {
+      "check": "endpoint probe",
+      "result": "pass",
+      "detail": "https://9k-personal.khavinshankar.dev/in/healthz reaches this adapter (probe acknowledged)"
+    },
+    {
+      "check": "test data",
+      "result": "pass",
+      "detail": "facility, operator and doctor set"
+    },
+    {
+      "check": "payer adapters",
+      "result": "pass",
+      "detail": "1000004957@hcx -> kyrocare, 1518@hcx -> pmjay"
+    }
+  ],
+  "tests": [
+    {
+      "id": "T3",
+      "runner": "cli",
+      "claim": "91431320-f82a-4fd6-bd1d-b4515331a9e2",
+      "correlation_ids": [
+        "25291740-bf10-41d8-b156-6015b8093e49",
+        "c99960c6-b25a-4f38-842a-4d7a0d9b32eb"
+      ],
+      "ledger_ids": [
+        "7USL0001",
+        "7USL0002",
+        "7USL0003",
+        "7USL0004"
+      ],
+      "decisions": [],
+      "steps": [
+        {
+          "at": "10:23:49",
+          "what": "policy search finds IRDAI member",
+          "result": "pass",
+          "got": "2 policies, payers ['1000004957@hcx']"
+        },
+        {
+          "at": "10:23:49",
+          "what": "claim opened",
+          "result": "pass",
+          "got": "NM-26-0VL000001, payer 1000004957@hcx, processing 1000004957@hcx"
+        },
+        {
+          "at": "10:23:49",
+          "what": "claim is addressed to the processing id",
+          "result": "pass",
+          "got": "payer 1000004957@hcx, processing 1000004957@hcx, policy POL7UQ2001"
+        },
+        {
+          "at": "10:23:50",
+          "what": "discovery check goes out",
+          "result": "pass",
+          "got": "checking, correlation 25291740-bf10-41d8-b156-6015b8093e49"
+        },
+        {
+          "at": "10:23:53",
+          "what": "payer answers the discovery check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed None"
+        },
+        {
+          "at": "10:23:53",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation c99960c6-b25a-4f38-842a-4d7a0d9b32eb"
+        },
+        {
+          "at": "10:23:56",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed 700000.00"
+        },
+        {
+          "at": "10:23:56",
+          "what": "each check travels on its own correlation id",
+          "result": "pass",
+          "got": "25291740-bf10-41d8-b156-6015b8093e49 / c99960c6-b25a-4f38-842a-4d7a0d9b32eb"
+        },
+        {
+          "at": "10:23:57",
+          "what": "unknown member id finds no policy",
+          "result": "pass",
+          "got": "0 policies (registry NHCX-1016 read as none)"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 1
+    },
+    {
+      "id": "T3",
+      "runner": "gui",
+      "claim": "9d69dcaa-904b-4c01-affa-db1e67172582",
+      "correlation_ids": [
+        "e9c58e09-ba1b-4ce0-8666-a13d1df16696"
+      ],
+      "ledger_ids": [
+        "7USL00S2",
+        "7USL00S3"
+      ],
+      "decisions": [],
+      "steps": [
+        {
+          "at": "2026-10-13T08:13:54.901Z",
+          "what": "operator signs in",
+          "result": "pass",
+          "got": "nhcx_e2e_operator"
+        },
+        {
+          "at": "2026-10-13T08:14:02.174Z",
+          "what": "policy search finds the IRDAI member",
+          "result": "pass",
+          "got": "UnknownMRAJ2004001Sandbox Production PolicyPOL7UQ2001Sandbox Payer1000004957@hcx913333222211119876543210Select"
+        },
+        {
+          "at": "2026-10-13T08:14:03.245Z",
+          "what": "provider opens the claim",
+          "result": "pass",
+          "got": "claim 9d69dcaa-904b-4c01-affa-db1e67172582"
+        },
+        {
+          "at": "2026-10-13T08:14:03.904Z",
+          "what": "provider sends the discovery check",
+          "result": "pass",
+          "got": "Discovery, find active coverage"
+        },
+        {
+          "at": "2026-10-13T08:14:11.145Z",
+          "what": "payer answers the discovery check",
+          "result": "pass",
+          "got": "Eligibility: In force after 5s"
+        },
+        {
+          "at": "2026-10-13T08:14:11.231Z",
+          "what": "discovery verdict on screen",
+          "result": "pass",
+          "got": "sum insured shown"
+        },
+        {
+          "at": "2026-10-13T08:14:11.853Z",
+          "what": "provider sends the validation check",
+          "result": "pass",
+          "got": "Validation, is the policy in force?"
+        },
+        {
+          "at": "2026-10-13T08:14:19.066Z",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "Eligibility: In force after 5s"
+        },
+        {
+          "at": "2026-10-13T08:14:19.145Z",
+          "what": "validation verdict on screen",
+          "result": "pass",
+          "got": "sum insured shown"
+        },
+        {
+          "at": "2026-10-13T08:14:21.551Z",
+          "what": "unknown member id finds no policy",
+          "result": "pass",
+          "got": "No policy matches"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 1
+    },
+    {
+      "id": "T4",
+      "runner": "cli",
+      "claim": "0b6daddd-9d44-4408-a0bb-42a818aed389",
+      "correlation_ids": [
+        "000ee460-079b-4e20-a336-0d41088824f1",
+        "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+        "2aaf1808-e95e-4c82-a53d-ebbc2c4e5182"
+      ],
+      "ledger_ids": [
+        "7USL0005",
+        "7USL0006",
+        "7USL0007",
+        "7USL0008",
+        "7USL0009",
+        "7USL000A"
+      ],
+      "decisions": [],
+      "steps": [
+        {
+          "at": "10:24:06",
+          "what": "policy search finds IRDAI member",
+          "result": "pass",
+          "got": "2 policies, payers ['1000004957@hcx']"
+        },
+        {
+          "at": "10:24:06",
+          "what": "claim opened",
+          "result": "pass",
+          "got": "NM-26-0VL000002, payer 1000004957@hcx, processing 1000004957@hcx"
+        },
+        {
+          "at": "10:24:06",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 000ee460-079b-4e20-a336-0d41088824f1"
+        },
+        {
+          "at": "10:24:09",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed 700000.00"
+        },
+        {
+          "at": "10:24:10",
+          "what": "plan request goes out",
+          "result": "pass",
+          "got": "fetching, correlation 3f8be8b1-da32-4e38-9173-bc6d1ef8b56c"
+        },
+        {
+          "at": "10:24:13",
+          "what": "payer sends the plan",
+          "result": "pass",
+          "got": "ready by callback, Sandbox Production Policy, 15 packages e.g. [('49122002', None), ('224663004', None), ('309904001', None)]"
+        },
+        {
+          "at": "10:24:13",
+          "what": "plan names the policy",
+          "result": "pass",
+          "got": "policy POL7UQ2001, plan SANDBOX-PROD-01 Sandbox Production Policy"
+        },
+        {
+          "at": "10:24:13",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "Paediatric Pneumonia PICU Management, 60000.0"
+        },
+        {
+          "at": "10:24:14",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation 2aaf1808-e95e-4c82-a53d-ebbc2c4e5182"
+        },
+        {
+          "at": "10:24:17",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on 2aaf1808-e95e-4c82-a53d-ebbc2c4e5182 (not 000ee460-079b-4e20-a336-0d41088824f1); 8 requirements: document:POI, document:DIA, document:RAD, document:HDS, document:ICU, document:MB, document:FCF, form:bdf62706-47d6-5f14-9e25-571e6d2e5443"
+        },
+        {
+          "at": "10:24:17",
+          "what": "ruling is held against the lines",
+          "result": "pass",
+          "got": "1 items, 8 requirements, next send preauth"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 1
+    },
+    {
+      "id": "T4",
+      "runner": "gui",
+      "claim": "f5402e5b-4080-4dec-8a95-64cf9c14df5a",
+      "correlation_ids": [
+        "8d6f42a5-3a46-4068-8170-1f0997554f67",
+        "53a2e007-90e8-4a69-9c89-5b613806d99d",
+        "6d9af49b-aabc-40a6-90d0-18e5151dd7ff"
+      ],
+      "ledger_ids": [
+        "7USL00I4",
+        "7USL00I5",
+        "7USL00I8",
+        "7USL00I9",
+        "7USL00G1",
+        "7USL00G2"
+      ],
+      "decisions": [],
+      "steps": [
+        {
+          "at": "2026-10-13T06:49:33.620Z",
+          "what": "operator signs in",
+          "result": "pass",
+          "got": "nhcx_e2e_operator"
+        },
+        {
+          "at": "2026-10-13T06:49:39.186Z",
+          "what": "policy search finds the IRDAI member",
+          "result": "pass",
+          "got": "UnknownMRAJ2004001Sandbox Production PolicyPOL7UQ2001Sandbox Payer1000004957@hcx913333222211119876543210Select"
+        },
+        {
+          "at": "2026-10-13T06:49:40.846Z",
+          "what": "provider opens the claim",
+          "result": "pass",
+          "got": "claim f5402e5b-4080-4dec-8a95-64cf9c14df5a"
+        },
+        {
+          "at": "2026-10-13T06:49:41.558Z",
+          "what": "provider sends the validation check",
+          "result": "pass",
+          "got": "Validation, is the policy in force?"
+        },
+        {
+          "at": "2026-10-13T06:49:48.786Z",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "Eligibility: In force after 5s"
+        },
+        {
+          "at": "2026-10-13T06:49:48.885Z",
+          "what": "validation verdict on screen",
+          "result": "pass",
+          "got": "sum insured shown"
+        },
+        {
+          "at": "2026-10-13T06:49:49.068Z",
+          "what": "provider requests the plan",
+          "result": "pass",
+          "got": "Fetch insurance plan"
+        },
+        {
+          "at": "2026-10-13T06:49:49.935Z",
+          "what": "plan is on the screen",
+          "result": "pass",
+          "got": "PlanSandbox Production PolicyPlan identifierSANDBOX-PROD-01Plan typeHospitalisation Indemnity PolicyOverall sum insured\u20b95,00,000Asked withPOL7UQ2001, IN2910001986Fetched at13 Oct 2026, 12:05 pmCorrela"
+        },
+        {
+          "at": "2026-10-13T06:49:54.352Z",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "line on the pre-authorisation"
+        },
+        {
+          "at": "2026-10-13T06:49:54.625Z",
+          "what": "provider asks for the auth requirements",
+          "result": "pass",
+          "got": "Validate procedure set"
+        },
+        {
+          "at": "2026-10-13T06:49:55.999Z",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ruling on screen"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 1
+    },
+    {
+      "id": "T5",
+      "runner": "cli",
+      "claim": "ec9a5399-221a-4948-8922-1e2db2955a12",
+      "correlation_ids": [
+        "ff6c0c55-5b2d-4ee6-90ce-5ea5fc186717",
+        "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+        "5184c85b-e919-4973-9808-c8a597f4bb30",
+        "181d2787-cd27-4ed2-9202-77f7ef6f0f0b"
+      ],
+      "ledger_ids": [
+        "7USL001F",
+        "7USL001G",
+        "7USL0007",
+        "7USL0008",
+        "7USL001H",
+        "7USL001I",
+        "7USL001J",
+        "7USL001K",
+        "7USL001L"
+      ],
+      "decisions": [
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e approval",
+          "read": {
+            "caseNumber": "NM-26-0VL000009",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1132",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": ""
+              }
+            }
+          },
+          "cycle_id": "533cb31d-d0e3-4a73-ac22-b0163cb92130",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "at": "10:27:39",
+          "what": "policy search finds IRDAI member",
+          "result": "pass",
+          "got": "2 policies, payers ['1000004957@hcx']"
+        },
+        {
+          "at": "10:27:39",
+          "what": "claim opened",
+          "result": "pass",
+          "got": "NM-26-0VL000009, payer 1000004957@hcx, processing 1000004957@hcx"
+        },
+        {
+          "at": "10:27:40",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation ff6c0c55-5b2d-4ee6-90ce-5ea5fc186717"
+        },
+        {
+          "at": "10:27:43",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed 700000.00"
+        },
+        {
+          "at": "10:27:43",
+          "what": "plan request goes out",
+          "result": "pass",
+          "got": "ready, correlation 3f8be8b1-da32-4e38-9173-bc6d1ef8b56c"
+        },
+        {
+          "at": "10:27:43",
+          "what": "payer sends the plan",
+          "result": "pass",
+          "got": "ready by callback, Sandbox Production Policy, 15 packages e.g. [('49122002', None), ('224663004', None), ('309904001', None)]"
+        },
+        {
+          "at": "10:27:43",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "Paediatric Pneumonia PICU Management, 60000.0"
+        },
+        {
+          "at": "10:27:43",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation 5184c85b-e919-4973-9808-c8a597f4bb30"
+        },
+        {
+          "at": "10:27:46",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on 5184c85b-e919-4973-9808-c8a597f4bb30 (not ff6c0c55-5b2d-4ee6-90ce-5ea5fc186717); 8 requirements: document:POI, document:DIA, document:RAD, document:HDS, document:ICU, document:MB, document:FCF, form:bdf62706-47d6-5f14-9e25-571e6d2e5443"
+        },
+        {
+          "at": "10:27:47",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['POI', 'DIA', 'RAD'], forms ['Paediatric Pneumonia PICU Management \u2014 Standard Treatment Guidelines']"
+        },
+        {
+          "at": "10:27:47",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation 181d2787-cd27-4ed2-9202-77f7ef6f0f0b, amount 60000.00"
+        },
+        {
+          "at": "10:27:48",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "NM-26-0VL000009, Adjudicator, id CASE-1132, stage preauth, adjudication {'status': 'pending', 'remarks': ''}"
+        },
+        {
+          "at": "10:27:48",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator, cycle 533cb31d-d0e3-4a73-ac22-b0163cb92130"
+        },
+        {
+          "at": "10:27:51",
+          "what": "provider receives the approval",
+          "result": "pass",
+          "got": "approved by callback, approved 60000.00 of 60000.00"
+        },
+        {
+          "at": "10:27:51",
+          "what": "decision recorded against the claim",
+          "result": "pass",
+          "got": "cycle 533cb31d-d0e3-4a73-ac22-b0163cb92130, 1 adjudications"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 1
+    },
+    {
+      "id": "T5",
+      "runner": "gui",
+      "claim": "25ef96a9-d598-4cbb-ace5-45fa3c334f19",
+      "correlation_ids": [
+        "3a3b19b1-97bc-488e-abbe-957a16e6c74b",
+        "a1868934-3f82-4159-a352-0c673beb25e3",
+        "0b7f20aa-5fb3-42b2-81e4-9f7c7d839f13",
+        "6d9af49b-aabc-40a6-90d0-18e5151dd7ff"
+      ],
+      "ledger_ids": [
+        "7USL00M6",
+        "7USL00M7",
+        "7USL00M9",
+        "7USL00MA",
+        "7USL00MB",
+        "7USL00MC",
+        "7USL00MD",
+        "7USL00G1",
+        "7USL00G2"
+      ],
+      "decisions": [
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e gui",
+          "read": {
+            "caseNumber": "CL/26/0VK000149",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1161",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": ""
+              }
+            }
+          },
+          "cycle_id": "35392adf-d37f-4abb-9d80-fce47eb0b8ab",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "at": "2026-10-13T07:19:16.954Z",
+          "what": "operator signs in",
+          "result": "pass",
+          "got": "nhcx_e2e_operator"
+        },
+        {
+          "at": "2026-10-13T07:19:22.549Z",
+          "what": "policy search finds the IRDAI member",
+          "result": "pass",
+          "got": "UnknownMRAJ2004001Sandbox Production PolicyPOL7UQ2001Sandbox Payer1000004957@hcx913333222211119876543210Select"
+        },
+        {
+          "at": "2026-10-13T07:19:23.033Z",
+          "what": "provider opens the claim",
+          "result": "pass",
+          "got": "claim 25ef96a9-d598-4cbb-ace5-45fa3c334f19"
+        },
+        {
+          "at": "2026-10-13T07:19:23.666Z",
+          "what": "provider sends the validation check",
+          "result": "pass",
+          "got": "Validation, is the policy in force?"
+        },
+        {
+          "at": "2026-10-13T07:19:30.887Z",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "Eligibility: In force after 5s"
+        },
+        {
+          "at": "2026-10-13T07:19:30.967Z",
+          "what": "validation verdict on screen",
+          "result": "pass",
+          "got": "sum insured shown"
+        },
+        {
+          "at": "2026-10-13T07:19:31.146Z",
+          "what": "provider requests the plan",
+          "result": "pass",
+          "got": "Fetch insurance plan"
+        },
+        {
+          "at": "2026-10-13T07:19:32.010Z",
+          "what": "plan is on the screen",
+          "result": "pass",
+          "got": "PlanSandbox Production PolicyPlan identifierSANDBOX-PROD-01Plan typeHospitalisation Indemnity PolicyOverall sum insured\u20b95,00,000Asked withPOL7UQ2001, IN2910001986Fetched at13 Oct 2026, 12:05 pmCorrela"
+        },
+        {
+          "at": "2026-10-13T07:19:36.047Z",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "line on the pre-authorisation"
+        },
+        {
+          "at": "2026-10-13T07:19:36.301Z",
+          "what": "provider asks for the auth requirements",
+          "result": "pass",
+          "got": "Validate procedure set"
+        },
+        {
+          "at": "2026-10-13T07:19:37.145Z",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ruling on screen"
+        },
+        {
+          "at": "2026-10-13T07:19:38.144Z",
+          "what": "provider links the admission",
+          "result": "pass",
+          "got": "Link"
+        },
+        {
+          "at": "2026-10-13T07:19:39.548Z",
+          "what": "provider saves the pre-authorisation draft",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor NHCX E2E Doctor"
+        },
+        {
+          "at": "2026-10-13T07:19:40.153Z",
+          "what": "provider answers the pre-authorisation forms",
+          "result": "pass",
+          "got": "Paediatric Pneumonia PICU Management \u2014 Standard Treatment Guidelines - 0/4 answered"
+        },
+        {
+          "at": "2026-10-13T07:19:47.942Z",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "sent"
+        },
+        {
+          "at": "2026-10-13T07:19:48.134Z",
+          "what": "pre-authorisation goes out",
+          "result": "pass",
+          "got": "Pre-authorisation: Requested after 0s"
+        },
+        {
+          "at": "2026-10-13T07:19:51.914Z",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator"
+        },
+        {
+          "at": "2026-10-13T07:19:57.118Z",
+          "what": "provider receives the approval",
+          "result": "pass",
+          "got": "Pre-authorisation: Approved after 5s"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 6
+    },
+    {
+      "id": "T6",
+      "runner": "cli",
+      "claim": "8b7af6ea-4df2-4a97-9b98-47741089e832",
+      "correlation_ids": [
+        "c643feb9-064c-42b7-8603-972adbf0a8bb",
+        "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+        "1a55389f-3437-4ccd-8683-3973d79c82b0",
+        "2075792e-e59f-4054-b401-3c92f4888ea3",
+        "5b6b043c-8a1d-44cf-bfad-27ce770843e0"
+      ],
+      "ledger_ids": [
+        "7USL001M",
+        "7USL001N",
+        "7USL0007",
+        "7USL0008",
+        "7USL001O",
+        "7USL001P",
+        "7USL001Q",
+        "7USL001R",
+        "7USL001S",
+        "7USL001T",
+        "7USL001U",
+        "7USL001V"
+      ],
+      "decisions": [
+        {
+          "stage": "preauth",
+          "decision": "reject",
+          "remarks": "",
+          "read": {
+            "caseNumber": "NM-26-0VL00000A",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1133",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": ""
+              }
+            }
+          },
+          "error": "Say why, the IRDAI payer refuses a rejection or a query that says nothing."
+        },
+        {
+          "stage": "preauth",
+          "decision": "reject",
+          "remarks": "e2e: treatment not covered under the policy",
+          "read": {
+            "caseNumber": "NM-26-0VL00000A",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1133",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": ""
+              }
+            }
+          },
+          "cycle_id": "44b35d21-b021-4b76-953b-be5a7ba38762",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "reject",
+              "success": true,
+              "error": null
+            }
+          ]
+        },
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e approval",
+          "read": {
+            "caseNumber": "NM-26-0VL00000A",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1133",
+              "stage": "rejected",
+              "adjudication": {
+                "status": "rejected",
+                "remarks": "e2e: treatment not covered under the policy",
+                "adjudicated_by": "CoronaSafe Network",
+                "adjudicated_at": "2026-10-13T05:00:33Z"
+              }
+            }
+          },
+          "cycle_id": "f0e3c0ed-9d0c-4089-bf16-9c06f90bad96",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "at": "10:30:24",
+          "what": "policy search finds IRDAI member",
+          "result": "pass",
+          "got": "2 policies, payers ['1000004957@hcx']"
+        },
+        {
+          "at": "10:30:24",
+          "what": "claim opened",
+          "result": "pass",
+          "got": "NM-26-0VL00000A, payer 1000004957@hcx, processing 1000004957@hcx"
+        },
+        {
+          "at": "10:30:25",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation c643feb9-064c-42b7-8603-972adbf0a8bb"
+        },
+        {
+          "at": "10:30:28",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed 700000.00"
+        },
+        {
+          "at": "10:30:28",
+          "what": "plan request goes out",
+          "result": "pass",
+          "got": "ready, correlation 3f8be8b1-da32-4e38-9173-bc6d1ef8b56c"
+        },
+        {
+          "at": "10:30:28",
+          "what": "payer sends the plan",
+          "result": "pass",
+          "got": "ready by callback, Sandbox Production Policy, 15 packages e.g. [('49122002', None), ('224663004', None), ('309904001', None)]"
+        },
+        {
+          "at": "10:30:28",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "Paediatric Pneumonia PICU Management, 60000.0"
+        },
+        {
+          "at": "10:30:28",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation 1a55389f-3437-4ccd-8683-3973d79c82b0"
+        },
+        {
+          "at": "10:30:31",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on 1a55389f-3437-4ccd-8683-3973d79c82b0 (not c643feb9-064c-42b7-8603-972adbf0a8bb); 8 requirements: document:POI, document:DIA, document:RAD, document:HDS, document:ICU, document:MB, document:FCF, form:bdf62706-47d6-5f14-9e25-571e6d2e5443"
+        },
+        {
+          "at": "10:30:31",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['POI', 'DIA', 'RAD'], forms ['Paediatric Pneumonia PICU Management \u2014 Standard Treatment Guidelines']"
+        },
+        {
+          "at": "10:30:32",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation 2075792e-e59f-4054-b401-3c92f4888ea3, amount 60000.00"
+        },
+        {
+          "at": "10:30:32",
+          "what": "reject without a remark is refused before any call",
+          "result": "pass",
+          "got": "Say why, the IRDAI payer refuses a rejection or a query that says nothing."
+        },
+        {
+          "at": "10:30:33",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "NM-26-0VL00000A, Adjudicator, id CASE-1133, stage preauth, adjudication {'status': 'pending', 'remarks': ''}"
+        },
+        {
+          "at": "10:30:33",
+          "what": "payer desk takes reject",
+          "result": "pass",
+          "got": "decided, reject as Adjudicator, cycle 44b35d21-b021-4b76-953b-be5a7ba38762"
+        },
+        {
+          "at": "10:30:36",
+          "what": "first leg ends rejected (not queried)",
+          "result": "pass",
+          "got": "rejected by callback: rejected"
+        },
+        {
+          "at": "10:30:36",
+          "what": "provider sends it again",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation 5b6b043c-8a1d-44cf-bfad-27ce770843e0, amount 60000.00"
+        },
+        {
+          "at": "10:30:36",
+          "what": "second send travels on a new correlation id",
+          "result": "pass",
+          "got": "2075792e-e59f-4054-b401-3c92f4888ea3 -> 5b6b043c-8a1d-44cf-bfad-27ce770843e0"
+        },
+        {
+          "at": "10:30:37",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "NM-26-0VL00000A, Adjudicator, id CASE-1133, stage rejected, adjudication {'status': 'rejected', 'remarks': 'e2e: treatment not covered under the policy', 'adjudicated_by': 'CoronaSafe Network', 'adjudicated_at': '2026-10-13T05:00:33Z'}"
+        },
+        {
+          "at": "10:30:37",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator, cycle f0e3c0ed-9d0c-4089-bf16-9c06f90bad96"
+        },
+        {
+          "at": "10:30:40",
+          "what": "second send ends approved",
+          "result": "pass",
+          "got": "approved by callback, approved 60000.00; history []"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 1
+    },
+    {
+      "id": "T6",
+      "runner": "gui",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [],
+      "result": "skipped",
+      "cause": "",
+      "detail": "GUI walk not written in this round; the CLI runner covers the scenario",
+      "attempts": 1
+    },
+    {
+      "id": "T7",
+      "runner": "cli",
+      "claim": "2ef00b9e-a632-41f8-94b9-589532cc1031",
+      "correlation_ids": [
+        "cf410936-99c6-4888-a08a-d981a91e784b",
+        "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+        "ed240d6a-6106-488b-b8fe-b8f518db6f4b",
+        "53cca990-6b0e-4e01-97e4-9ac591531fd5",
+        "0b585742-0900-471e-a7a5-ce0138f57052"
+      ],
+      "ledger_ids": [
+        "7USL0020",
+        "7USL0021",
+        "7USL0007",
+        "7USL0008",
+        "7USL0022",
+        "7USL0023",
+        "7USL0024",
+        "7USL0025",
+        "7USL0028",
+        "7USL0026",
+        "7USL0027"
+      ],
+      "decisions": [
+        {
+          "stage": "preauth",
+          "decision": "query",
+          "remarks": "e2e: please send the latest chest X-ray report",
+          "read": {
+            "caseNumber": "CL/26/0VK00013F",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1135",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": ""
+              }
+            }
+          },
+          "cycle_id": "519c4415-a22f-4efd-9ebb-3b70dfcdd8d5",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "query",
+              "success": true,
+              "error": null
+            }
+          ]
+        },
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e approval after query",
+          "read": {
+            "caseNumber": "CL/26/0VK00013F",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1135",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": "e2e: please send the latest chest X-ray report"
+              }
+            }
+          },
+          "cycle_id": "af03a3db-73cc-4ce3-907a-ca415551ab3c",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "at": "10:30:40",
+          "what": "policy search finds IRDAI member",
+          "result": "pass",
+          "got": "2 policies, payers ['1000004957@hcx']"
+        },
+        {
+          "at": "10:30:40",
+          "what": "claim opened",
+          "result": "pass",
+          "got": "NM-26-0VL00000B, payer 1000004957@hcx, processing 1000004957@hcx"
+        },
+        {
+          "at": "10:30:41",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation cf410936-99c6-4888-a08a-d981a91e784b"
+        },
+        {
+          "at": "10:30:44",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed 700000.00"
+        },
+        {
+          "at": "10:30:44",
+          "what": "plan request goes out",
+          "result": "pass",
+          "got": "ready, correlation 3f8be8b1-da32-4e38-9173-bc6d1ef8b56c"
+        },
+        {
+          "at": "10:30:44",
+          "what": "payer sends the plan",
+          "result": "pass",
+          "got": "ready by callback, Sandbox Production Policy, 15 packages e.g. [('49122002', None), ('224663004', None), ('309904001', None)]"
+        },
+        {
+          "at": "10:30:44",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "Paediatric Pneumonia PICU Management, 60000.0"
+        },
+        {
+          "at": "10:30:44",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation ed240d6a-6106-488b-b8fe-b8f518db6f4b"
+        },
+        {
+          "at": "10:30:47",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on ed240d6a-6106-488b-b8fe-b8f518db6f4b (not cf410936-99c6-4888-a08a-d981a91e784b); 8 requirements: document:POI, document:DIA, document:RAD, document:HDS, document:ICU, document:MB, document:FCF, form:bdf62706-47d6-5f14-9e25-571e6d2e5443"
+        },
+        {
+          "at": "10:30:47",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['POI', 'DIA', 'RAD'], forms ['Paediatric Pneumonia PICU Management \u2014 Standard Treatment Guidelines']"
+        },
+        {
+          "at": "10:30:48",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation 53cca990-6b0e-4e01-97e4-9ac591531fd5, amount 60000.00"
+        },
+        {
+          "at": "10:30:54",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "CL/26/0VK00013F, Adjudicator, id CASE-1135, stage preauth, adjudication {'status': 'pending', 'remarks': ''}"
+        },
+        {
+          "at": "10:30:54",
+          "what": "payer desk takes query",
+          "result": "pass",
+          "got": "decided, query as Adjudicator, cycle 519c4415-a22f-4efd-9ebb-3b70dfcdd8d5"
+        },
+        {
+          "at": "10:30:57",
+          "what": "question arrives (C9)",
+          "result": "pass",
+          "got": "query by callback, open, stage preauth, 'e2e: please send the latest chest X-ray report', correlation 0b585742-0900-471e-a7a5-ce0138f57052"
+        },
+        {
+          "at": "10:30:58",
+          "what": "reply goes out on the question's thread",
+          "result": "pass",
+          "got": "answered, reply correlation 0b585742-0900-471e-a7a5-ce0138f57052, documents [28]"
+        },
+        {
+          "at": "10:30:59",
+          "what": "payer desk shows the reply against the case",
+          "result": "pass",
+          "got": "CASE-1135: 4 timeline entries, last 'Query Answered'; 4 documents"
+        },
+        {
+          "at": "10:31:00",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "CL/26/0VK00013F, Adjudicator, id CASE-1135, stage preauth, adjudication {'status': 'pending', 'remarks': 'e2e: please send the latest chest X-ray report'}"
+        },
+        {
+          "at": "10:31:00",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator, cycle af03a3db-73cc-4ce3-907a-ca415551ab3c"
+        },
+        {
+          "at": "10:31:03",
+          "what": "leg is approved after the answer",
+          "result": "pass",
+          "got": "approved by callback, approved 60000.00"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 1
+    },
+    {
+      "id": "T7",
+      "runner": "gui",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [],
+      "result": "skipped",
+      "cause": "",
+      "detail": "GUI walk not written in this round; the CLI runner covers the scenario",
+      "attempts": 1
+    },
+    {
+      "id": "T8",
+      "runner": "cli",
+      "claim": "fb3d800a-cc8a-487e-83fb-88a5f6d3d910",
+      "correlation_ids": [
+        "962d1c51-f875-4fab-896f-ce733e60e9d3",
+        "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+        "2ae6cbcd-faaf-476f-9f30-d046eb62852a",
+        "e92c9a5a-b39a-4489-8e82-989fe89a6934",
+        "79a980d0-beec-49bf-875b-a61629c639aa",
+        "e5f80ecd-65a7-43c0-b7f3-b5f5d7e4a1cf"
+      ],
+      "ledger_ids": [
+        "7USL0029",
+        "7USL002A",
+        "7USL0007",
+        "7USL0008",
+        "7USL002B",
+        "7USL002C",
+        "7USL002D",
+        "7USL002E",
+        "7USL002F",
+        "7USL002H",
+        "7USL002J",
+        "7USL002K",
+        "7USL002M",
+        "7USL002O",
+        "7USL002P"
+      ],
+      "decisions": [
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e approval",
+          "read": {
+            "caseNumber": "CL/26/0VK00013G",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1136",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": ""
+              }
+            }
+          },
+          "cycle_id": "db0229d5-3e17-4e3b-8190-3b15e8a70816",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        },
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e enhancement approved",
+          "read": {
+            "caseNumber": "CL/26/0VK00013G",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1136",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": "e2e approval"
+              }
+            }
+          },
+          "cycle_id": "77bb1646-f136-4f0f-8b99-76ad2dd803c7",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        },
+        {
+          "stage": "preauth",
+          "decision": "reject",
+          "remarks": "e2e: enhancement not justified",
+          "read": {
+            "caseNumber": "CL/26/0VK00013G",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1136",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": "e2e enhancement approved"
+              }
+            }
+          },
+          "cycle_id": "7d569f23-a44e-4156-94ae-c35fb1c8f153",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "reject",
+              "success": true,
+              "error": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "at": "10:31:03",
+          "what": "policy search finds IRDAI member",
+          "result": "pass",
+          "got": "2 policies, payers ['1000004957@hcx']"
+        },
+        {
+          "at": "10:31:03",
+          "what": "claim opened",
+          "result": "pass",
+          "got": "NM-26-0VL00000C, payer 1000004957@hcx, processing 1000004957@hcx"
+        },
+        {
+          "at": "10:31:04",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 962d1c51-f875-4fab-896f-ce733e60e9d3"
+        },
+        {
+          "at": "10:31:07",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed 700000.00"
+        },
+        {
+          "at": "10:31:07",
+          "what": "plan request goes out",
+          "result": "pass",
+          "got": "ready, correlation 3f8be8b1-da32-4e38-9173-bc6d1ef8b56c"
+        },
+        {
+          "at": "10:31:07",
+          "what": "payer sends the plan",
+          "result": "pass",
+          "got": "ready by callback, Sandbox Production Policy, 15 packages e.g. [('49122002', None), ('224663004', None), ('309904001', None)]"
+        },
+        {
+          "at": "10:31:07",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "Paediatric Pneumonia PICU Management, 60000.0"
+        },
+        {
+          "at": "10:31:08",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation 2ae6cbcd-faaf-476f-9f30-d046eb62852a"
+        },
+        {
+          "at": "10:31:11",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on 2ae6cbcd-faaf-476f-9f30-d046eb62852a (not 962d1c51-f875-4fab-896f-ce733e60e9d3); 8 requirements: document:POI, document:DIA, document:RAD, document:HDS, document:ICU, document:MB, document:FCF, form:bdf62706-47d6-5f14-9e25-571e6d2e5443"
+        },
+        {
+          "at": "10:31:11",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['POI', 'DIA', 'RAD'], forms ['Paediatric Pneumonia PICU Management \u2014 Standard Treatment Guidelines']"
+        },
+        {
+          "at": "10:31:11",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation e92c9a5a-b39a-4489-8e82-989fe89a6934, amount 60000.00"
+        },
+        {
+          "at": "10:31:17",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "CL/26/0VK00013G, Adjudicator, id CASE-1136, stage preauth, adjudication {'status': 'pending', 'remarks': ''}"
+        },
+        {
+          "at": "10:31:17",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator, cycle db0229d5-3e17-4e3b-8190-3b15e8a70816"
+        },
+        {
+          "at": "10:31:20",
+          "what": "provider receives the approval",
+          "result": "pass",
+          "got": "approved by callback, 60000.00"
+        },
+        {
+          "at": "10:31:20",
+          "what": "provider quotes PROC-CARD-04 x1",
+          "result": "pass",
+          "got": "Percutaneous Transluminal Coronary Angioplasty (PTCA), 125000.0"
+        },
+        {
+          "at": "10:31:21",
+          "what": "provider sends the enhancement",
+          "result": "pass",
+          "got": "enhancement, submitting, workflow 13, correlation 79a980d0-beec-49bf-875b-a61629c639aa, amount 185000.00"
+        },
+        {
+          "at": "10:31:21",
+          "what": "enhancement goes out under its workflow on a new correlation id",
+          "result": "pass",
+          "got": "enhancement, workflow 13, #1"
+        },
+        {
+          "at": "10:31:22",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "CL/26/0VK00013G, Adjudicator, id CASE-1136, stage preauth, adjudication {'status': 'pending', 'remarks': 'e2e approval'}"
+        },
+        {
+          "at": "10:31:22",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator, cycle 77bb1646-f136-4f0f-8b99-76ad2dd803c7"
+        },
+        {
+          "at": "10:31:25",
+          "what": "approved enhancement raises the approved total",
+          "result": "pass",
+          "got": "approved by callback: 60000.00 -> 185000.00"
+        },
+        {
+          "at": "10:31:25",
+          "what": "provider quotes PROC-CAT-03 x1",
+          "result": "pass",
+          "got": "Cataract Surgery with Foldable IOL, 28000.0"
+        },
+        {
+          "at": "10:31:26",
+          "what": "provider sends a second enhancement",
+          "result": "pass",
+          "got": "enhancement, submitting, workflow 13, correlation e5f80ecd-65a7-43c0-b7f3-b5f5d7e4a1cf, amount 213000.00"
+        },
+        {
+          "at": "10:31:27",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "CL/26/0VK00013G, Adjudicator, id CASE-1136, stage preauth, adjudication {'status': 'pending', 'remarks': 'e2e enhancement approved'}"
+        },
+        {
+          "at": "10:31:27",
+          "what": "payer desk takes reject",
+          "result": "pass",
+          "got": "decided, reject as Adjudicator, cycle 7d569f23-a44e-4156-94ae-c35fb1c8f153"
+        },
+        {
+          "at": "10:31:30",
+          "what": "rejected enhancement leaves the total unchanged",
+          "result": "pass",
+          "got": "approved by callback: total 185000.00 (was 185000.00), submitted"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 1
+    },
+    {
+      "id": "T8",
+      "runner": "gui",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [],
+      "result": "skipped",
+      "cause": "",
+      "detail": "GUI walk not written in this round; the CLI runner covers the scenario",
+      "attempts": 1
+    },
+    {
+      "id": "T9",
+      "runner": "cli",
+      "claim": "49452739-c32c-400d-bbfd-983c2e8ff429, 01df1afb-89b1-4194-9155-dbdfdb8026db",
+      "correlation_ids": [
+        "767ed6f3-1b48-4b1b-b29c-12f21c5d4239",
+        "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+        "40f2a260-4f5a-4ebc-8641-61be6df08014",
+        "4bb68d3d-882c-4d04-bc8e-b739322f3c3b",
+        "7e5e0c77-e8bd-4546-b4b6-850e0c657bd6",
+        "db99bfe4-e338-43f9-8c30-801242552f5e",
+        "f3097bf5-f5e4-49b3-828f-41b99eef71af",
+        "cfbbc261-ed0e-4744-b467-4715c58dca2d",
+        "ffae9b70-c045-4b41-ad88-20dbb83eeeb2",
+        "48147f03-b7ee-4650-a410-014a8f09d56d"
+      ],
+      "ledger_ids": [
+        "7USL002Q",
+        "7USL002R",
+        "7USL0007",
+        "7USL0008",
+        "7USL002S",
+        "7USL002T",
+        "7USL002U",
+        "7USL0030",
+        "7USL003B",
+        "7USL002V",
+        "7USL0031",
+        "7USL0032",
+        "7USL0033",
+        "7USL0034",
+        "7USL0036",
+        "7USL0039",
+        "7USL0035",
+        "7USL0037",
+        "7USL0038",
+        "7USL003A",
+        "7USL003C",
+        "7USL003D"
+      ],
+      "decisions": [
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e approval",
+          "read": {
+            "caseNumber": "CL/26/0VK00013H",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1137",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": ""
+              }
+            }
+          },
+          "cycle_id": "5a1e9a6d-48c6-497e-b0ad-b65571b2a614",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "at": "10:32:20",
+          "what": "policy search finds IRDAI member (first)",
+          "result": "pass",
+          "got": "2 policies, payers ['1000004957@hcx']"
+        },
+        {
+          "at": "10:32:20",
+          "what": "claim opened (first)",
+          "result": "pass",
+          "got": "NM-26-0VL00000D, payer 1000004957@hcx, processing 1000004957@hcx"
+        },
+        {
+          "at": "10:32:21",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 767ed6f3-1b48-4b1b-b29c-12f21c5d4239"
+        },
+        {
+          "at": "10:32:24",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed 700000.00"
+        },
+        {
+          "at": "10:32:24",
+          "what": "plan request goes out",
+          "result": "pass",
+          "got": "ready, correlation 3f8be8b1-da32-4e38-9173-bc6d1ef8b56c"
+        },
+        {
+          "at": "10:32:24",
+          "what": "payer sends the plan",
+          "result": "pass",
+          "got": "ready by callback, Sandbox Production Policy, 15 packages e.g. [('49122002', None), ('224663004', None), ('309904001', None)]"
+        },
+        {
+          "at": "10:32:24",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "Paediatric Pneumonia PICU Management, 60000.0"
+        },
+        {
+          "at": "10:32:24",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation 40f2a260-4f5a-4ebc-8641-61be6df08014"
+        },
+        {
+          "at": "10:32:27",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on 40f2a260-4f5a-4ebc-8641-61be6df08014 (not 767ed6f3-1b48-4b1b-b29c-12f21c5d4239); 8 requirements: document:POI, document:DIA, document:RAD, document:HDS, document:ICU, document:MB, document:FCF, form:bdf62706-47d6-5f14-9e25-571e6d2e5443"
+        },
+        {
+          "at": "10:32:27",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['POI', 'DIA', 'RAD'], forms ['Paediatric Pneumonia PICU Management \u2014 Standard Treatment Guidelines']"
+        },
+        {
+          "at": "10:32:28",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation 4bb68d3d-882c-4d04-bc8e-b739322f3c3b, amount 60000.00"
+        },
+        {
+          "at": "10:32:28",
+          "what": "policy search finds IRDAI member (second)",
+          "result": "pass",
+          "got": "2 policies, payers ['1000004957@hcx']"
+        },
+        {
+          "at": "10:32:28",
+          "what": "claim opened (second)",
+          "result": "pass",
+          "got": "NM-26-0VL00000E, payer 1000004957@hcx, processing 1000004957@hcx"
+        },
+        {
+          "at": "10:32:28",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 7e5e0c77-e8bd-4546-b4b6-850e0c657bd6"
+        },
+        {
+          "at": "10:32:31",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed 700000.00"
+        },
+        {
+          "at": "10:32:31",
+          "what": "plan request goes out",
+          "result": "pass",
+          "got": "ready, correlation 3f8be8b1-da32-4e38-9173-bc6d1ef8b56c"
+        },
+        {
+          "at": "10:32:31",
+          "what": "payer sends the plan",
+          "result": "pass",
+          "got": "ready by callback, Sandbox Production Policy, 15 packages e.g. [('49122002', None), ('224663004', None), ('309904001', None)]"
+        },
+        {
+          "at": "10:32:32",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "Paediatric Pneumonia PICU Management, 60000.0"
+        },
+        {
+          "at": "10:32:32",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation db99bfe4-e338-43f9-8c30-801242552f5e"
+        },
+        {
+          "at": "10:32:35",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on db99bfe4-e338-43f9-8c30-801242552f5e (not 7e5e0c77-e8bd-4546-b4b6-850e0c657bd6); 8 requirements: document:MB, document:FCF, form:bdf62706-47d6-5f14-9e25-571e6d2e5443, document:POI, document:DIA, document:RAD, document:HDS, document:ICU"
+        },
+        {
+          "at": "10:32:35",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['POI', 'DIA', 'RAD'], forms ['Paediatric Pneumonia PICU Management \u2014 Standard Treatment Guidelines']"
+        },
+        {
+          "at": "10:32:35",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation f3097bf5-f5e4-49b3-828f-41b99eef71af, amount 60000.00"
+        },
+        {
+          "at": "10:32:36",
+          "what": "status enquiry on the first claim goes out",
+          "result": "pass",
+          "got": "status on preauth, asking, correlation cfbbc261-ed0e-4744-b467-4715c58dca2d"
+        },
+        {
+          "at": "10:32:39",
+          "what": "payer answers the status (C8)",
+          "result": "pass",
+          "got": "answered by callback: preauth-pending Pre-authorisation pending; stage: preauth; outcome: pending; total_approved: 0;\u2026"
+        },
+        {
+          "at": "10:32:39",
+          "what": "status answer leaves the leg's status alone",
+          "result": "pass",
+          "got": "submitting -> submitting; answer preauth-pending"
+        },
+        {
+          "at": "10:32:39",
+          "what": "cancel goes out",
+          "result": "pass",
+          "got": "cancelling (was submitting), correlation ffae9b70-c045-4b41-ad88-20dbb83eeeb2"
+        },
+        {
+          "at": "10:32:42",
+          "what": "second leg ends cancelled",
+          "result": "pass",
+          "got": "cancelled by callback"
+        },
+        {
+          "at": "10:32:43",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "CL/26/0VK00013H, Adjudicator, id CASE-1137, stage preauth, adjudication {'status': 'pending', 'remarks': ''}"
+        },
+        {
+          "at": "10:32:43",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator, cycle 5a1e9a6d-48c6-497e-b0ad-b65571b2a614"
+        },
+        {
+          "at": "10:32:46",
+          "what": "first leg approved",
+          "result": "pass",
+          "got": "approved by callback"
+        },
+        {
+          "at": "10:32:47",
+          "what": "cancel goes out",
+          "result": "pass",
+          "got": "cancelling (was approved), correlation 48147f03-b7ee-4650-a410-014a8f09d56d"
+        },
+        {
+          "at": "10:32:50",
+          "what": "payer refuses the cancel of a decided case",
+          "result": "skipped",
+          "got": "the sandbox payer accepted the cancel (callback); recorded, not a pass"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "skipped checks: payer refuses the cancel of a decided case: the sandbox payer accepted the cancel (callback); recorded, not a pass",
+      "attempts": 1
+    },
+    {
+      "id": "T9",
+      "runner": "gui",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [],
+      "result": "skipped",
+      "cause": "",
+      "detail": "GUI walk not written in this round; the CLI runner covers the scenario",
+      "attempts": 1
+    },
+    {
+      "id": "T10",
+      "runner": "cli",
+      "claim": "f9923d87-0c7f-48db-a3ee-6eeb159fcc54, 768b1b42-453a-44b9-bc0a-8e1b1d6d0a25, 7415918d-f381-4162-92d1-cadb60719eef",
+      "correlation_ids": [
+        "13e880fb-a767-49b8-8211-5e65c5e261b6",
+        "3f8be8b1-da32-4e38-9173-bc6d1ef8b56c",
+        "9810d401-f875-4fa6-b812-e72efe68123e",
+        "948a2097-c043-4411-af36-482bb45707e3",
+        "42347d2e-a9d2-4094-9d97-3ee66072ec2f",
+        "3095924b-0936-435b-9f25-c42ea8efe578",
+        "89763e6a-662c-40bc-9228-133895b9a787",
+        "91aa9394-ed15-4fea-a128-1b3762f685e1",
+        "d3498918-7b99-4b1f-a99c-9ab33149d02d",
+        "800d3a56-2ba6-4bb1-9490-4a0b0d29c140",
+        "f68ea833-027c-423d-84da-79bb94752248",
+        "15bab85b-9c35-455c-b631-801341072b44",
+        "49d70cef-5c01-461a-bd5a-3a4834011202"
+      ],
+      "ledger_ids": [
+        "7USL0040",
+        "7USL0041",
+        "7USL0007",
+        "7USL0008",
+        "7USL0042",
+        "7USL0043",
+        "7USL0044",
+        "7USL0045",
+        "7USL0046",
+        "7USL0047",
+        "7USL0048",
+        "7USL0049",
+        "7USL004A",
+        "7USL004B",
+        "7USL004C",
+        "7USL004D",
+        "7USL004E",
+        "7USL004F",
+        "7USL004G",
+        "7USL004H",
+        "7USL004I",
+        "7USL004J",
+        "7USL004K",
+        "7USL004L",
+        "7USL004M",
+        "7USL004N",
+        "7USL004O",
+        "7USL004P",
+        "7USL004Q",
+        "7USL004R",
+        "7USL004S",
+        "7USL004T"
+      ],
+      "decisions": [
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e approval",
+          "read": {
+            "caseNumber": "NM-26-0VL00000I",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1141",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": ""
+              }
+            }
+          },
+          "cycle_id": "45a6741c-08fe-4da4-84ca-a2ac39f869cb",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        },
+        {
+          "stage": "claim",
+          "decision": "approve",
+          "remarks": "e2e claim approved",
+          "read": {
+            "caseNumber": "NM-26-0VL00000I",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1141",
+              "stage": "claim",
+              "adjudication": {
+                "status": "approved",
+                "remarks": "e2e approval",
+                "adjudicated_by": "CoronaSafe Network",
+                "adjudicated_at": "2026-10-13T05:07:34Z"
+              }
+            }
+          },
+          "cycle_id": "c883a788-9eef-4c25-a765-7cec80a8d942",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        },
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e approval",
+          "read": {
+            "caseNumber": "CL/26/0VK00013M",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1142",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": ""
+              }
+            }
+          },
+          "cycle_id": "f0f1fa03-38b1-40f4-a656-aba8bc17320b",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        },
+        {
+          "stage": "claim",
+          "decision": "lines",
+          "case": "CASE-1142",
+          "lines": [
+            {
+              "line": "LI-ddb9e231",
+              "code": "PROC-PED-05",
+              "claimed": 60000,
+              "decision": "approved",
+              "amount": 60000.0,
+              "status": 200,
+              "error": null
+            },
+            {
+              "line": "LI-7a8a220a",
+              "code": "PROC-CARD-04",
+              "claimed": 125000,
+              "decision": "partially_approved",
+              "amount": 62500.0,
+              "status": 200,
+              "error": null
+            }
+          ],
+          "listed": 2
+        },
+        {
+          "stage": "claim",
+          "decision": "approve",
+          "remarks": "e2e claim part-approved",
+          "read": {
+            "caseNumber": "NM-26-0VL00000J",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1142",
+              "stage": "claim",
+              "adjudication": {
+                "status": "pending",
+                "remarks": "e2e approval"
+              }
+            }
+          },
+          "cycle_id": "6733597a-02ee-435b-8423-c4edea94be08",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        },
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e approval",
+          "read": {
+            "caseNumber": "CL/26/0VK00013N",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1143",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": ""
+              }
+            }
+          },
+          "cycle_id": "a6f6ff29-72a8-4702-9515-75b0710e2a96",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        },
+        {
+          "stage": "claim",
+          "decision": "reject",
+          "remarks": "e2e: bills do not match the approval",
+          "read": {
+            "caseNumber": "NM-26-0VL00000K",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1143",
+              "stage": "claim",
+              "adjudication": {
+                "status": "pending",
+                "remarks": "e2e approval"
+              }
+            }
+          },
+          "cycle_id": "882586cc-8f00-4138-9b36-a2a418132bb8",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "reject",
+              "success": true,
+              "error": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "at": "10:37:26",
+          "what": "policy search finds IRDAI member (approve)",
+          "result": "pass",
+          "got": "2 policies, payers ['1000004957@hcx']"
+        },
+        {
+          "at": "10:37:26",
+          "what": "claim opened (approve)",
+          "result": "pass",
+          "got": "NM-26-0VL00000I, payer 1000004957@hcx, processing 1000004957@hcx"
+        },
+        {
+          "at": "10:37:26",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 13e880fb-a767-49b8-8211-5e65c5e261b6"
+        },
+        {
+          "at": "10:37:29",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed 700000.00"
+        },
+        {
+          "at": "10:37:29",
+          "what": "plan request goes out",
+          "result": "pass",
+          "got": "ready, correlation 3f8be8b1-da32-4e38-9173-bc6d1ef8b56c"
+        },
+        {
+          "at": "10:37:29",
+          "what": "payer sends the plan",
+          "result": "pass",
+          "got": "ready by callback, Sandbox Production Policy, 15 packages e.g. [('49122002', None), ('224663004', None), ('309904001', None)]"
+        },
+        {
+          "at": "10:37:29",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "Paediatric Pneumonia PICU Management, 60000.0"
+        },
+        {
+          "at": "10:37:30",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation 9810d401-f875-4fa6-b812-e72efe68123e"
+        },
+        {
+          "at": "10:37:33",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on 9810d401-f875-4fa6-b812-e72efe68123e (not 13e880fb-a767-49b8-8211-5e65c5e261b6); 8 requirements: document:POI, document:DIA, document:RAD, document:HDS, document:ICU, document:MB, document:FCF, form:bdf62706-47d6-5f14-9e25-571e6d2e5443"
+        },
+        {
+          "at": "10:37:33",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['POI', 'DIA', 'RAD'], forms ['Paediatric Pneumonia PICU Management \u2014 Standard Treatment Guidelines']"
+        },
+        {
+          "at": "10:37:33",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation 948a2097-c043-4411-af36-482bb45707e3, amount 60000.00"
+        },
+        {
+          "at": "10:37:34",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "NM-26-0VL00000I, Adjudicator, id CASE-1141, stage preauth, adjudication {'status': 'pending', 'remarks': ''}"
+        },
+        {
+          "at": "10:37:34",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator, cycle 45a6741c-08fe-4da4-84ca-a2ac39f869cb"
+        },
+        {
+          "at": "10:37:37",
+          "what": "provider receives the approval",
+          "result": "pass",
+          "got": "approved by callback, 60000.00"
+        },
+        {
+          "at": "10:37:38",
+          "what": "provider sends the claim",
+          "result": "pass",
+          "got": "claim, submitting, workflow 15, correlation 42347d2e-a9d2-4094-9d97-3ee66072ec2f, preauth CL/26/0VK00013L, amount 60000.00"
+        },
+        {
+          "at": "10:37:38",
+          "what": "claim goes out under the claim workflow, referring to its pre-auth",
+          "result": "pass",
+          "got": "workflow 15, preauth CL/26/0VK00013L, 42347d2e-a9d2-4094-9d97-3ee66072ec2f"
+        },
+        {
+          "at": "10:37:39",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "NM-26-0VL00000I, Adjudicator, id CASE-1141, stage claim, adjudication {'status': 'approved', 'remarks': 'e2e approval', 'adjudicated_by': 'CoronaSafe Network', 'adjudicated_at': '2026-10-13T05:07:34Z'}"
+        },
+        {
+          "at": "10:37:39",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator, cycle c883a788-9eef-4c25-a765-7cec80a8d942"
+        },
+        {
+          "at": "10:37:42",
+          "what": "first claim approved for the claimed amount",
+          "result": "pass",
+          "got": "approved: 60000.00 of 60000.00"
+        },
+        {
+          "at": "10:37:42",
+          "what": "policy search finds IRDAI member (part)",
+          "result": "pass",
+          "got": "2 policies, payers ['1000004957@hcx']"
+        },
+        {
+          "at": "10:37:42",
+          "what": "claim opened (part)",
+          "result": "pass",
+          "got": "NM-26-0VL00000J, payer 1000004957@hcx, processing 1000004957@hcx"
+        },
+        {
+          "at": "10:37:42",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 3095924b-0936-435b-9f25-c42ea8efe578"
+        },
+        {
+          "at": "10:37:45",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed 700000.00"
+        },
+        {
+          "at": "10:37:45",
+          "what": "plan request goes out",
+          "result": "pass",
+          "got": "ready, correlation 3f8be8b1-da32-4e38-9173-bc6d1ef8b56c"
+        },
+        {
+          "at": "10:37:45",
+          "what": "payer sends the plan",
+          "result": "pass",
+          "got": "ready by callback, Sandbox Production Policy, 15 packages e.g. [('49122002', None), ('224663004', None), ('309904001', None)]"
+        },
+        {
+          "at": "10:37:45",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "Paediatric Pneumonia PICU Management, 60000.0"
+        },
+        {
+          "at": "10:37:46",
+          "what": "provider quotes PROC-CARD-04 x1",
+          "result": "pass",
+          "got": "Percutaneous Transluminal Coronary Angioplasty (PTCA), 125000.0"
+        },
+        {
+          "at": "10:37:46",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation 89763e6a-662c-40bc-9228-133895b9a787"
+        },
+        {
+          "at": "10:37:49",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on 89763e6a-662c-40bc-9228-133895b9a787 (not 3095924b-0936-435b-9f25-c42ea8efe578); 13 requirements: document:POI, document:DIA, document:RAD, document:HDS, document:ICU, document:MB, document:FCF, form:bdf62706-47d6-5f14-9e25-571e6d2e5443"
+        },
+        {
+          "at": "10:37:49",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['POI', 'DIA', 'RAD', 'ANG', 'ECG', 'EST'], forms ['Paediatric Pneumonia PICU Management \u2014 Standard Treatment Guidelines', 'Percutaneous Transluminal Coronary Angioplasty (PTCA) \u2014 Standard Treatment Guidelines']"
+        },
+        {
+          "at": "10:37:49",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation 91aa9394-ed15-4fea-a128-1b3762f685e1, amount 185000.00"
+        },
+        {
+          "at": "10:37:55",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "CL/26/0VK00013M, Adjudicator, id CASE-1142, stage preauth, adjudication {'status': 'pending', 'remarks': ''}"
+        },
+        {
+          "at": "10:37:55",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator, cycle f0f1fa03-38b1-40f4-a656-aba8bc17320b"
+        },
+        {
+          "at": "10:37:58",
+          "what": "provider receives the approval",
+          "result": "pass",
+          "got": "approved by callback, 185000.00"
+        },
+        {
+          "at": "10:37:59",
+          "what": "provider sends the claim",
+          "result": "pass",
+          "got": "claim, submitting, workflow 15, correlation d3498918-7b99-4b1f-a99c-9ab33149d02d, preauth CL/26/0VK00013M, amount 185000.00"
+        },
+        {
+          "at": "10:37:59",
+          "what": "claim goes out under the claim workflow, referring to its pre-auth",
+          "result": "pass",
+          "got": "workflow 15, preauth CL/26/0VK00013M, d3498918-7b99-4b1f-a99c-9ab33149d02d"
+        },
+        {
+          "at": "10:37:59",
+          "what": "payer desk lists both claim lines",
+          "result": "pass",
+          "got": "2 lines on CASE-1142"
+        },
+        {
+          "at": "10:38:00",
+          "what": "payer decides the lines",
+          "result": "pass",
+          "got": "PROC-PED-05 approved 60000.0 (HTTP 200); PROC-CARD-04 partially_approved 62500.0 (HTTP 200)"
+        },
+        {
+          "at": "10:38:01",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "NM-26-0VL00000J, Adjudicator, id CASE-1142, stage claim, adjudication {'status': 'pending', 'remarks': 'e2e approval'}"
+        },
+        {
+          "at": "10:38:01",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator, cycle 6733597a-02ee-435b-8423-c4edea94be08"
+        },
+        {
+          "at": "10:38:04",
+          "what": "second claim approved at the sum of the allowed lines",
+          "result": "pass",
+          "got": "partial: 122500.00 (expected 122500) of 185000.00; items None ; None "
+        },
+        {
+          "at": "10:38:04",
+          "what": "policy search finds IRDAI member (reject)",
+          "result": "pass",
+          "got": "2 policies, payers ['1000004957@hcx']"
+        },
+        {
+          "at": "10:38:04",
+          "what": "claim opened (reject)",
+          "result": "pass",
+          "got": "NM-26-0VL00000K, payer 1000004957@hcx, processing 1000004957@hcx"
+        },
+        {
+          "at": "10:38:05",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 800d3a56-2ba6-4bb1-9490-4a0b0d29c140"
+        },
+        {
+          "at": "10:38:08",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed 700000.00"
+        },
+        {
+          "at": "10:38:08",
+          "what": "plan request goes out",
+          "result": "pass",
+          "got": "ready, correlation 3f8be8b1-da32-4e38-9173-bc6d1ef8b56c"
+        },
+        {
+          "at": "10:38:08",
+          "what": "payer sends the plan",
+          "result": "pass",
+          "got": "ready by callback, Sandbox Production Policy, 15 packages e.g. [('49122002', None), ('224663004', None), ('309904001', None)]"
+        },
+        {
+          "at": "10:38:08",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "Paediatric Pneumonia PICU Management, 60000.0"
+        },
+        {
+          "at": "10:38:08",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation f68ea833-027c-423d-84da-79bb94752248"
+        },
+        {
+          "at": "10:38:11",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on f68ea833-027c-423d-84da-79bb94752248 (not 800d3a56-2ba6-4bb1-9490-4a0b0d29c140); 8 requirements: document:POI, document:DIA, document:RAD, document:HDS, document:ICU, document:MB, document:FCF, form:bdf62706-47d6-5f14-9e25-571e6d2e5443"
+        },
+        {
+          "at": "10:38:11",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['POI', 'DIA', 'RAD'], forms ['Paediatric Pneumonia PICU Management \u2014 Standard Treatment Guidelines']"
+        },
+        {
+          "at": "10:38:12",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation 15bab85b-9c35-455c-b631-801341072b44, amount 60000.00"
+        },
+        {
+          "at": "10:38:18",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "CL/26/0VK00013N, Adjudicator, id CASE-1143, stage preauth, adjudication {'status': 'pending', 'remarks': ''}"
+        },
+        {
+          "at": "10:38:18",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator, cycle a6f6ff29-72a8-4702-9515-75b0710e2a96"
+        },
+        {
+          "at": "10:38:21",
+          "what": "provider receives the approval",
+          "result": "pass",
+          "got": "approved by callback, 60000.00"
+        },
+        {
+          "at": "10:38:21",
+          "what": "provider sends the claim",
+          "result": "pass",
+          "got": "claim, submitting, workflow 15, correlation 49d70cef-5c01-461a-bd5a-3a4834011202, preauth CL/26/0VK00013N, amount 60000.00"
+        },
+        {
+          "at": "10:38:21",
+          "what": "claim goes out under the claim workflow, referring to its pre-auth",
+          "result": "pass",
+          "got": "workflow 15, preauth CL/26/0VK00013N, 49d70cef-5c01-461a-bd5a-3a4834011202"
+        },
+        {
+          "at": "10:38:22",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "NM-26-0VL00000K, Adjudicator, id CASE-1143, stage claim, adjudication {'status': 'pending', 'remarks': 'e2e approval'}"
+        },
+        {
+          "at": "10:38:22",
+          "what": "payer desk takes reject",
+          "result": "pass",
+          "got": "decided, reject as Adjudicator, cycle 882586cc-8f00-4138-9b36-a2a418132bb8"
+        },
+        {
+          "at": "10:38:25",
+          "what": "third claim rejected with its reason (outcome complete is not approval)",
+          "result": "pass",
+          "got": "rejected, outcome error: rejected"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 3
+    },
+    {
+      "id": "T10",
+      "runner": "gui",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [],
+      "result": "skipped",
+      "cause": "",
+      "detail": "GUI walk not written in this round; the CLI runner covers the scenario",
+      "attempts": 1
+    },
+    {
+      "id": "T11",
+      "runner": "cli",
+      "claim": "f9923d87-0c7f-48db-a3ee-6eeb159fcc54",
+      "correlation_ids": [
+        "9d441377-6020-40d7-8dbc-a899b156243f",
+        "fa4edcbf-f27e-4eba-89fe-d630320c1c5f"
+      ],
+      "ledger_ids": [
+        "7USL004U",
+        "7USL004V",
+        "7USL0050",
+        "7USL0051"
+      ],
+      "decisions": [
+        {
+          "stage": "payment",
+          "case": "CASE-1141",
+          "amount": 36000.0,
+          "utr": "E2EUTR1791868130A",
+          "status": 201,
+          "response": {
+            "id": "PAY-2026-0017",
+            "case_id": "CASE-1141",
+            "claim_no": "CL/26/0VK00013L",
+            "member_name": "Rajesh Kumar",
+            "hospital_name": "NHCX E2E Hospital",
+            "approved_amount": 60000,
+            "payment_amount": 36000,
+            "tds_percent": 10,
+            "tds_amount": 3600,
+            "net_payable": 32400,
+            "mode": "NEFT",
+            "beneficiary": {
+              "name": "NHCX E2E Hospital",
+              "account_no": "000123456789",
+              "ifsc": "SBIN0000001"
+            },
+            "utr_no": "E2EUTR1791868130A",
+            "status": "completed",
+            "initiated_at": "2026-10-13T05:08:51Z",
+            "completed_at": "2026-10-13T05:08:51Z",
+            "initiated_by": "CoronaSafe Network",
+            "nhcx_notice_txn_id": "7USL5CAC"
+          },
+          "error": null
+        },
+        {
+          "stage": "payment",
+          "case": "CASE-1141",
+          "amount": 24000.0,
+          "utr": "E2EUTR1791868130B",
+          "status": 201,
+          "response": {
+            "id": "PAY-2026-0018",
+            "case_id": "CASE-1141",
+            "claim_no": "CL/26/0VK00013L",
+            "member_name": "Rajesh Kumar",
+            "hospital_name": "NHCX E2E Hospital",
+            "approved_amount": 60000,
+            "payment_amount": 24000,
+            "tds_percent": 10,
+            "tds_amount": 2400,
+            "net_payable": 21600,
+            "mode": "NEFT",
+            "beneficiary": {
+              "name": "NHCX E2E Hospital",
+              "account_no": "000123456789",
+              "ifsc": "SBIN0000001"
+            },
+            "utr_no": "E2EUTR1791868130B",
+            "status": "completed",
+            "initiated_at": "2026-10-13T05:08:54Z",
+            "completed_at": "2026-10-13T05:08:54Z",
+            "initiated_by": "CoronaSafe Network",
+            "nhcx_notice_txn_id": "7USL5CAE"
+          },
+          "error": null
+        }
+      ],
+      "steps": [
+        {
+          "at": "10:38:50",
+          "what": "claim approved at the claim stage",
+          "result": "pass",
+          "got": "from T10: NM-26-0VL00000I"
+        },
+        {
+          "at": "10:38:51",
+          "what": "payer pays 36000.0 (UTR E2EUTR1791868130A)",
+          "result": "pass",
+          "got": "case CASE-1141, HTTP 201"
+        },
+        {
+          "at": "10:38:54",
+          "what": "payment notice arrives (C10)",
+          "result": "pass",
+          "got": "by callback: 32400.00 UTR E2EUTR1791868130A, paid, correlation 9d441377-6020-40d7-8dbc-a899b156243f"
+        },
+        {
+          "at": "10:38:54",
+          "what": "acknowledgement goes out (A8)",
+          "result": "pass",
+          "got": "sent, correlation 9d441377-6020-40d7-8dbc-a899b156243f"
+        },
+        {
+          "at": "10:38:54",
+          "what": "payer pays 24000.0 (UTR E2EUTR1791868130B)",
+          "result": "pass",
+          "got": "case CASE-1141, HTTP 201"
+        },
+        {
+          "at": "10:38:57",
+          "what": "payment notice arrives (C10)",
+          "result": "pass",
+          "got": "by callback: 21600.00 UTR E2EUTR1791868130B, cleared, correlation fa4edcbf-f27e-4eba-89fe-d630320c1c5f"
+        },
+        {
+          "at": "10:38:57",
+          "what": "acknowledgement goes out (A8)",
+          "result": "pass",
+          "got": "sent, correlation fa4edcbf-f27e-4eba-89fe-d630320c1c5f"
+        },
+        {
+          "at": "10:38:57",
+          "what": "second instalment recorded beside the first",
+          "result": "pass",
+          "got": "2 payments, UTRs ['E2EUTR1791868130A', 'E2EUTR1791868130B'], total 54000.00 of 60000.00"
+        },
+        {
+          "at": "10:38:58",
+          "what": "claim shows paid once the instalments cover the approval",
+          "result": "pass",
+          "got": "status eligible, payments 2"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 1
+    },
+    {
+      "id": "T11",
+      "runner": "gui",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [],
+      "result": "skipped",
+      "cause": "",
+      "detail": "GUI walk not written in this round; the CLI runner covers the scenario",
+      "attempts": 1
+    },
+    {
+      "id": "T12",
+      "runner": "cli",
+      "claim": "75731720-3247-4dea-a03d-df82f174865e",
+      "correlation_ids": [
+        "953fcbee-9faf-439f-a15f-9e31a2a527a2",
+        "6d9af49b-aabc-40a6-90d0-18e5151dd7ff",
+        "8e83fb3e-ce1c-40de-b1f2-d029e86da6ad",
+        "dc78b61c-d0b9-40e4-997c-662b6d8621d9",
+        "40ac4292-fdfb-4784-8809-8b4a745be598",
+        "7218576d-2cad-4e09-9917-6b86ac0b9dd8"
+      ],
+      "ledger_ids": [
+        "7USL00FV",
+        "7USL00G0",
+        "7USL00G1",
+        "7USL00G2",
+        "7USL00G3",
+        "7USL00G4",
+        "7USL00G5",
+        "7USL00G6",
+        "7USL00G7",
+        "7USL00G8",
+        "7USL00G9",
+        "7USL00GA",
+        "7USL00GB",
+        "7USL00GC"
+      ],
+      "decisions": [
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e approval",
+          "read": {
+            "caseNumber": "NM-26-0VL000024",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1158",
+              "stage": "preauth",
+              "adjudication": {
+                "status": "pending",
+                "remarks": ""
+              }
+            }
+          },
+          "cycle_id": "d9f43ae9-4505-48c0-8f45-04bed0ab82ea",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": true,
+              "error": null
+            }
+          ]
+        },
+        {
+          "stage": "claim",
+          "decision": "reject",
+          "remarks": "e2e: bills do not match",
+          "read": {
+            "caseNumber": "NM-26-0VL000024",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1158",
+              "stage": "claim",
+              "adjudication": {
+                "status": "pending",
+                "remarks": "e2e approval"
+              }
+            }
+          },
+          "cycle_id": "6b763ae8-d23b-4c3e-9fc0-e8b3221a154b",
+          "stopped": "decided",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "reject",
+              "success": true,
+              "error": null
+            }
+          ]
+        },
+        {
+          "stage": "claim",
+          "decision": "approve",
+          "remarks": "e2e approved on reprocess",
+          "read": {
+            "caseNumber": "NM-26-0VL000024",
+            "role": "Adjudicator",
+            "status": 200,
+            "error": null,
+            "warning": null,
+            "response": {
+              "id": "CASE-1158",
+              "stage": "claim",
+              "adjudication": {
+                "status": "pending",
+                "remarks": "claimrejected"
+              }
+            }
+          },
+          "cycle_id": "67a02887-e1de-4ae1-86fb-ef48ed7e178c",
+          "stopped": "refused",
+          "trail": [
+            {
+              "role": "Adjudicator",
+              "action": "approve",
+              "success": false,
+              "error": "There is not enough cover left on this policy"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "at": "12:05:17",
+          "what": "policy search finds IRDAI member (rejected)",
+          "result": "pass",
+          "got": "2 policies, payers ['1000004957@hcx']"
+        },
+        {
+          "at": "12:05:17",
+          "what": "claim opened (rejected)",
+          "result": "pass",
+          "got": "NM-26-0VL000024, payer 1000004957@hcx, processing 1000004957@hcx"
+        },
+        {
+          "at": "12:05:17",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 953fcbee-9faf-439f-a15f-9e31a2a527a2"
+        },
+        {
+          "at": "12:05:20",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2026-01-01T00:00:00+05:30..2026-12-31T00:00:00+05:30, allowed 700000.00"
+        },
+        {
+          "at": "12:05:21",
+          "what": "plan request goes out",
+          "result": "pass",
+          "got": "fetching, correlation 6d9af49b-aabc-40a6-90d0-18e5151dd7ff"
+        },
+        {
+          "at": "12:05:24",
+          "what": "payer sends the plan",
+          "result": "pass",
+          "got": "ready by callback, Sandbox Production Policy, 15 packages e.g. [('49122002', None), ('224663004', None), ('309904001', None)]"
+        },
+        {
+          "at": "12:05:24",
+          "what": "provider quotes PROC-PED-05 x1",
+          "result": "pass",
+          "got": "Paediatric Pneumonia PICU Management, 60000.0"
+        },
+        {
+          "at": "12:05:25",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation 8e83fb3e-ce1c-40de-b1f2-d029e86da6ad"
+        },
+        {
+          "at": "12:05:28",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on 8e83fb3e-ce1c-40de-b1f2-d029e86da6ad (not 953fcbee-9faf-439f-a15f-9e31a2a527a2); 8 requirements: document:POI, document:DIA, document:RAD, document:HDS, document:ICU, document:MB, document:FCF, form:bdf62706-47d6-5f14-9e25-571e6d2e5443"
+        },
+        {
+          "at": "12:05:28",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['POI', 'DIA', 'RAD'], forms ['Paediatric Pneumonia PICU Management \u2014 Standard Treatment Guidelines']"
+        },
+        {
+          "at": "12:05:28",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation dc78b61c-d0b9-40e4-997c-662b6d8621d9, amount 60000.00"
+        },
+        {
+          "at": "12:05:30",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "NM-26-0VL000024, Adjudicator, id CASE-1158, stage preauth, adjudication {'status': 'pending', 'remarks': ''}"
+        },
+        {
+          "at": "12:05:30",
+          "what": "payer desk takes approve",
+          "result": "pass",
+          "got": "decided, approve as Adjudicator, cycle d9f43ae9-4505-48c0-8f45-04bed0ab82ea"
+        },
+        {
+          "at": "12:05:33",
+          "what": "provider receives the approval",
+          "result": "pass",
+          "got": "approved by callback, 60000.00"
+        },
+        {
+          "at": "12:05:33",
+          "what": "provider sends the claim",
+          "result": "pass",
+          "got": "claim, submitting, workflow 15, correlation 40ac4292-fdfb-4784-8809-8b4a745be598, preauth CL/26/0VK000146, amount 60000.00"
+        },
+        {
+          "at": "12:06:40",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "NM-26-0VL000024, Adjudicator, id CASE-1158, stage claim, adjudication {'status': 'pending', 'remarks': 'e2e approval'}"
+        },
+        {
+          "at": "12:06:40",
+          "what": "payer desk takes reject",
+          "result": "pass",
+          "got": "decided, reject as Adjudicator, cycle 6b763ae8-d23b-4c3e-9fc0-e8b3221a154b"
+        },
+        {
+          "at": "12:06:43",
+          "what": "claim rejected at the claim stage",
+          "result": "pass",
+          "got": "rejected"
+        },
+        {
+          "at": "12:06:43",
+          "what": "reprocess on the rejected claim goes out",
+          "result": "pass",
+          "got": "reprocess on claim, asking, correlation 7218576d-2cad-4e09-9917-6b86ac0b9dd8"
+        },
+        {
+          "at": "12:06:46",
+          "what": "payer acknowledges the reprocess (C8)",
+          "result": "pass",
+          "got": "answered by callback: reopened Claim reopened for reprocessing (round 1) at the request of 1000004455@hcx: cla\u2026"
+        },
+        {
+          "at": "12:07:52",
+          "what": "payer desk reads the case",
+          "result": "pass",
+          "got": "NM-26-0VL000024, Adjudicator, id CASE-1158, stage claim, adjudication {'status': 'pending', 'remarks': 'claimrejected'}"
+        },
+        {
+          "at": "12:07:52",
+          "what": "payer desk takes approve",
+          "result": "blocked",
+          "got": "blocked: approve as Adjudicator (refused: There is not enough cover left on this policy)"
+        },
+        {
+          "at": "12:07:52",
+          "what": "blocked",
+          "result": "blocked",
+          "got": "payer desk refuses approve: the test member's cover is used up on the sandbox (approve as Adjudicator (refused: There is not enough cover left on this policy)); free or reset the member's cover, or use another member"
+        }
+      ],
+      "result": "blocked",
+      "cause": "sandbox",
+      "detail": "payer desk refuses approve: the test member's cover is used up on the sandbox (approve as Adjudicator (refused: There is not enough cover left on this policy)); free or reset the member's cover, or use another member",
+      "attempts": 1
+    },
+    {
+      "id": "T12",
+      "runner": "gui",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [],
+      "result": "skipped",
+      "cause": "",
+      "detail": "GUI walk not written in this round; the CLI runner covers the scenario",
+      "attempts": 1
+    },
+    {
+      "id": "T13",
+      "runner": "cli",
+      "claim": "cb81c092-4b83-4422-adc5-1da49d6813ff",
+      "correlation_ids": [
+        "d3a9abe0-0772-4c56-a17c-4b85c1eb1d88",
+        "de8d3047-8e0a-42b0-a848-b73a88e2d97b",
+        "3ab86ac4-5346-4b4c-8f76-6104b654c9f1",
+        "12f4b0d5-9a6b-4184-a3f5-1172b82f4cd5",
+        "aa31456e-3b00-4e48-9150-f760fd0125d8"
+      ],
+      "ledger_ids": [
+        "7USL00CC",
+        "7USL00CE",
+        "7USL00CF",
+        "7USL00CG",
+        "7USL00CH",
+        "7USL00CI",
+        "7USL00C3",
+        "7USL00CJ",
+        "7USL00CK"
+      ],
+      "decisions": [],
+      "steps": [
+        {
+          "at": "11:36:37",
+          "what": "free the pmjay beneficiary's open pre-authorisations",
+          "result": "pass",
+          "got": "1 open; {'NM-26-0VL00001G': 'cancelled'}"
+        },
+        {
+          "at": "11:36:38",
+          "what": "policy search finds PMJAY member",
+          "result": "pass",
+          "got": "1 policies, payers ['1518@hcx']"
+        },
+        {
+          "at": "11:36:38",
+          "what": "claim opened",
+          "result": "pass",
+          "got": "NM-26-0VL00001H, payer 1518@hcx, processing 1518@hcx"
+        },
+        {
+          "at": "11:36:38",
+          "what": "search returns the PMJAY policy with the ABHA number",
+          "result": "pass",
+          "got": "policy PMJAY/HP/S/G, member SBXSTG007, ABHA returned"
+        },
+        {
+          "at": "11:36:38",
+          "what": "claim is addressed to the processing id",
+          "result": "pass",
+          "got": "payer 1518@hcx, processing 1518@hcx"
+        },
+        {
+          "at": "11:36:38",
+          "what": "discovery check goes out",
+          "result": "pass",
+          "got": "checking, correlation de8d3047-8e0a-42b0-a848-b73a88e2d97b"
+        },
+        {
+          "at": "11:36:41",
+          "what": "payer answers the discovery check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2023-04-02T00:00:00+05:30..2028-04-02T00:00:00+05:30, allowed None"
+        },
+        {
+          "at": "11:36:41",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 3ab86ac4-5346-4b4c-8f76-6104b654c9f1"
+        },
+        {
+          "at": "11:36:47",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2023-04-02T00:00:00+05:30..2028-04-02T00:00:00+05:30, allowed 750000.00"
+        },
+        {
+          "at": "11:36:47",
+          "what": "plan request already sent this run",
+          "result": "pass",
+          "got": "correlation 12f4b0d5-9a6b-4184-a3f5-1172b82f4cd5"
+        },
+        {
+          "at": "11:36:47",
+          "what": "package master seeded",
+          "result": "pass",
+          "got": "ready, 2 packages, 7 forms"
+        },
+        {
+          "at": "11:36:47",
+          "what": "package master reads ready with the two seeded packages",
+          "result": "pass",
+          "got": "ready, packages ['MG072C', 'SB043F'], 7 forms ['questionnaire']"
+        },
+        {
+          "at": "11:36:47",
+          "what": "provider quotes SB043F x1",
+          "result": "pass",
+          "got": "Hand (Single Stage Amputation), 18600.0"
+        },
+        {
+          "at": "11:36:47",
+          "what": "SB043F priced from the package master",
+          "result": "pass",
+          "got": "Hand (Single Stage Amputation), 18600.0"
+        },
+        {
+          "at": "11:36:48",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation aa31456e-3b00-4e48-9150-f760fd0125d8"
+        },
+        {
+          "at": "11:36:54",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on aa31456e-3b00-4e48-9150-f760fd0125d8 (not 3ab86ac4-5346-4b4c-8f76-6104b654c9f1); 11 requirements: document:MAND0604, document:MAND0582, document:MAND0384, document:MAND0592, form:100003, form:100008, form:100010, form:100011"
+        },
+        {
+          "at": "11:36:54",
+          "what": "ruling lists what the package needs at pre-authorisation",
+          "result": "pass",
+          "got": "document:MAND0604, document:MAND0582, document:MAND0384, document:MAND0592, form:100003, form:100008, form:100010, form:100011, form:100020, form:100024"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 1
+    },
+    {
+      "id": "T13",
+      "runner": "gui",
+      "claim": "b30a0505-303a-40fd-8cea-b2fa8058fd82",
+      "correlation_ids": [
+        "07f04ac1-4925-4927-9111-7c10620f689c",
+        "eefa4f11-59eb-453c-a218-8e0ebea3f662"
+      ],
+      "ledger_ids": [
+        "7USL00RI",
+        "7USL00RJ",
+        "7USL00RK"
+      ],
+      "decisions": [],
+      "steps": [
+        {
+          "at": "2026-10-13T08:07:39.554Z",
+          "what": "free the PMJAY beneficiary's open pre-authorisations",
+          "result": "pass",
+          "got": "{\"irdai\":{\"NM-26-0VL00000C\":\"approved\",\"NM-26-0VL00002M\":\"cancelled\",\"NM-26-0VL00003N\":\"cancelled\",\"NM-26-0VL00003O\":\"cancelled\"},\"pmjay\":{}}"
+        },
+        {
+          "at": "2026-10-13T08:07:40.874Z",
+          "what": "operator signs in",
+          "result": "pass",
+          "got": "nhcx_e2e_operator"
+        },
+        {
+          "at": "2026-10-13T08:07:47.820Z",
+          "what": "policy search finds the PMJAY member",
+          "result": "pass",
+          "got": "UnknownSBXSTG007PMJAY for HimachalPMJAY/HP/S/GSHA HP1518@hcx507684112326569816544785Select"
+        },
+        {
+          "at": "2026-10-13T08:07:48.876Z",
+          "what": "provider opens the claim",
+          "result": "pass",
+          "got": "claim b30a0505-303a-40fd-8cea-b2fa8058fd82"
+        },
+        {
+          "at": "2026-10-13T08:07:49.556Z",
+          "what": "provider sends the discovery check",
+          "result": "pass",
+          "got": "Discovery, find active coverage"
+        },
+        {
+          "at": "2026-10-13T08:07:56.802Z",
+          "what": "payer answers the discovery check",
+          "result": "pass",
+          "got": "Eligibility: In force after 5s"
+        },
+        {
+          "at": "2026-10-13T08:07:56.881Z",
+          "what": "discovery verdict on screen",
+          "result": "pass",
+          "got": "sum insured shown"
+        },
+        {
+          "at": "2026-10-13T08:07:57.508Z",
+          "what": "provider sends the validation check",
+          "result": "pass",
+          "got": "Validation, is the policy in force?"
+        },
+        {
+          "at": "2026-10-13T08:08:04.743Z",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "Eligibility: In force after 5s"
+        },
+        {
+          "at": "2026-10-13T08:08:04.814Z",
+          "what": "validation verdict on screen",
+          "result": "pass",
+          "got": "sum insured shown"
+        },
+        {
+          "at": "2026-10-13T08:08:11.980Z",
+          "what": "package master seeded",
+          "result": "pass",
+          "got": "ready, 2 packages, 7 forms"
+        },
+        {
+          "at": "2026-10-13T08:08:13.159Z",
+          "what": "provider quotes SB043F x1",
+          "result": "pass",
+          "got": "line on the pre-authorisation"
+        },
+        {
+          "at": "2026-10-13T08:08:13.433Z",
+          "what": "provider asks for the auth requirements",
+          "result": "pass",
+          "got": "Validate procedure set"
+        },
+        {
+          "at": "2026-10-13T08:08:15.340Z",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ruling on screen"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "",
+      "attempts": 1
+    },
+    {
+      "id": "T14",
+      "runner": "cli",
+      "claim": "e51b394e-2203-4349-a314-aff2e23ef32b",
+      "correlation_ids": [
+        "4a4908df-e83d-482d-8b4a-ae5b4c28bd86",
+        "6530fa43-fe55-4c62-b3f1-ee8900b0f79d",
+        "340d7ec4-90da-4b78-90d1-2c248ddd535c"
+      ],
+      "ledger_ids": [
+        "7USL00C4",
+        "7USL00C5",
+        "7USL00C6",
+        "7USL00C8",
+        "7USL00C9",
+        "7USL00CA"
+      ],
+      "decisions": [
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e approval",
+          "read": {
+            "caseNumber": "2026101310000031",
+            "role": "",
+            "status": 200,
+            "error": "No Data found with the caseid 2026101310000031. Please use the current active case id.",
+            "warning": null,
+            "response": {
+              "currentuserrole": null,
+              "errormessage": "No Data found with the caseid 2026101310000031. Please use the current active case id."
+            }
+          },
+          "skipped": "sandbox auto-decided"
+        }
+      ],
+      "steps": [
+        {
+          "at": "11:34:50",
+          "what": "free the pmjay beneficiary's open pre-authorisations",
+          "result": "pass",
+          "got": "0 open; none"
+        },
+        {
+          "at": "11:34:50",
+          "what": "policy search finds PMJAY member",
+          "result": "pass",
+          "got": "1 policies, payers ['1518@hcx']"
+        },
+        {
+          "at": "11:34:50",
+          "what": "claim opened",
+          "result": "pass",
+          "got": "NM-26-0VL00001F, payer 1518@hcx, processing 1518@hcx"
+        },
+        {
+          "at": "11:34:50",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 4a4908df-e83d-482d-8b4a-ae5b4c28bd86"
+        },
+        {
+          "at": "11:34:56",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2023-04-02T00:00:00+05:30..2028-04-02T00:00:00+05:30, allowed 750000.00"
+        },
+        {
+          "at": "11:34:57",
+          "what": "package master seeded",
+          "result": "pass",
+          "got": "ready, 2 packages, 7 forms"
+        },
+        {
+          "at": "11:34:57",
+          "what": "provider quotes SB043F x1",
+          "result": "pass",
+          "got": "Hand (Single Stage Amputation), 18600.0"
+        },
+        {
+          "at": "11:34:57",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation 6530fa43-fe55-4c62-b3f1-ee8900b0f79d"
+        },
+        {
+          "at": "11:35:03",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on 6530fa43-fe55-4c62-b3f1-ee8900b0f79d (not 4a4908df-e83d-482d-8b4a-ae5b4c28bd86); 11 requirements: document:MAND0604, document:MAND0582, document:MAND0384, document:MAND0592, form:100003, form:100008, form:100010, form:100011"
+        },
+        {
+          "at": "11:35:03",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['MAND0604', 'MAND0582', 'MAND0384', 'MAND0592'], forms ['General Findings', 'Personal History', 'Family History', 'Admission Details', 'Authentication Consent']"
+        },
+        {
+          "at": "11:35:04",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation 340d7ec4-90da-4b78-90d1-2c248ddd535c, amount 18600.00"
+        },
+        {
+          "at": "11:35:04",
+          "what": "every line carries the AB-PMJAY programme code",
+          "result": "pass",
+          "got": "['AB-PMJAY'], workflow 12"
+        },
+        {
+          "at": "11:35:10",
+          "what": "PMJAY acknowledges the pre-authorisation",
+          "result": "pass",
+          "got": "7USL00CA response.complete by callback"
+        },
+        {
+          "at": "11:36:13",
+          "what": "payer desk reads the case",
+          "result": "skipped",
+          "got": "sandbox auto-decided"
+        },
+        {
+          "at": "11:36:13",
+          "what": "payer desk takes approve",
+          "result": "skipped",
+          "got": "sandbox auto-decided"
+        },
+        {
+          "at": "11:36:13",
+          "what": "PMJAY's decision arrives (C5)",
+          "result": "pass",
+          "got": "approved by callback, approved 18600.00 of 18600.00"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "skipped checks: payer desk reads the case: sandbox auto-decided; payer desk takes approve: sandbox auto-decided",
+      "attempts": 1
+    },
+    {
+      "id": "T14",
+      "runner": "gui",
+      "claim": "8da53b9f-3a96-45b9-9b79-2ab26a3d4502",
+      "correlation_ids": [
+        "32e18920-0d5d-4946-9147-2e0e0dcebead",
+        "23ab9fec-2a97-41ca-a476-bf7128b81b23",
+        "e131e6de-fea3-4604-a4e7-11cc5e962db8"
+      ],
+      "ledger_ids": [
+        "7USL00RQ",
+        "7USL00RR",
+        "7USL00RS",
+        "7USL00RT",
+        "7USL00RU",
+        "7USL00RV"
+      ],
+      "decisions": [
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e gui",
+          "read": {
+            "caseNumber": "NM-26-0VL00003Q",
+            "role": "",
+            "status": 200,
+            "error": "No Data found with the caseid NM-26-0VL00003Q. Please use the current active case id.",
+            "warning": null,
+            "response": {
+              "currentuserrole": null,
+              "errormessage": "No Data found with the caseid NM-26-0VL00003Q. Please use the current active case id."
+            }
+          },
+          "skipped": "sandbox auto-decided"
+        }
+      ],
+      "steps": [
+        {
+          "at": "2026-10-13T08:09:51.234Z",
+          "what": "free the PMJAY beneficiary's open pre-authorisations",
+          "result": "pass",
+          "got": "{\"irdai\":{\"NM-26-0VL00000C\":\"approved\"},\"pmjay\":{}}"
+        },
+        {
+          "at": "2026-10-13T08:09:52.562Z",
+          "what": "operator signs in",
+          "result": "pass",
+          "got": "nhcx_e2e_operator"
+        },
+        {
+          "at": "2026-10-13T08:09:58.519Z",
+          "what": "policy search finds the PMJAY member",
+          "result": "pass",
+          "got": "UnknownSBXSTG007PMJAY for HimachalPMJAY/HP/S/GSHA HP1518@hcx507684112326569816544785Select"
+        },
+        {
+          "at": "2026-10-13T08:09:59.504Z",
+          "what": "provider opens the claim",
+          "result": "pass",
+          "got": "claim 8da53b9f-3a96-45b9-9b79-2ab26a3d4502"
+        },
+        {
+          "at": "2026-10-13T08:10:00.135Z",
+          "what": "provider sends the validation check",
+          "result": "pass",
+          "got": "Validation, is the policy in force?"
+        },
+        {
+          "at": "2026-10-13T08:10:07.382Z",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "Eligibility: In force after 5s"
+        },
+        {
+          "at": "2026-10-13T08:10:07.463Z",
+          "what": "validation verdict on screen",
+          "result": "pass",
+          "got": "sum insured shown"
+        },
+        {
+          "at": "2026-10-13T08:10:12.952Z",
+          "what": "package master seeded",
+          "result": "pass",
+          "got": "ready, 2 packages, 7 forms"
+        },
+        {
+          "at": "2026-10-13T08:10:14.067Z",
+          "what": "provider quotes SB043F x1",
+          "result": "pass",
+          "got": "line on the pre-authorisation"
+        },
+        {
+          "at": "2026-10-13T08:10:14.301Z",
+          "what": "provider asks for the auth requirements",
+          "result": "pass",
+          "got": "Validate procedure set"
+        },
+        {
+          "at": "2026-10-13T08:10:15.672Z",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ruling on screen"
+        },
+        {
+          "at": "2026-10-13T08:10:16.664Z",
+          "what": "provider links the admission",
+          "result": "pass",
+          "got": "Link"
+        },
+        {
+          "at": "2026-10-13T08:10:18.056Z",
+          "what": "provider saves the pre-authorisation draft",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor NHCX E2E Doctor"
+        },
+        {
+          "at": "2026-10-13T08:10:18.671Z",
+          "what": "provider answers the pre-authorisation forms",
+          "result": "pass",
+          "got": "Authentication Consent - 0/2 answered"
+        },
+        {
+          "at": "2026-10-13T08:10:24.952Z",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "sent"
+        },
+        {
+          "at": "2026-10-13T08:10:25.093Z",
+          "what": "pre-authorisation goes out",
+          "result": "pass",
+          "got": "Pre-authorisation: Requested after 0s"
+        },
+        {
+          "at": "2026-10-13T08:11:31.187Z",
+          "what": "payer desk takes approve",
+          "result": "skipped",
+          "got": "sandbox auto-decided"
+        },
+        {
+          "at": "2026-10-13T08:13:32.308Z",
+          "what": "PMJAY's decision arrives (C5)",
+          "result": "fail",
+          "got": "chip still \"Pre-authorisation: Refused at the door\" after 120s; PAYR-1235: Insufficient wallet balance. Hence the request will not be processed."
+        }
+      ],
+      "result": "blocked",
+      "cause": "sandbox",
+      "detail": "blocked by the sandbox: the screens drove eligibility, seeding, the SB043F line, the draft and the pre-auth send; PMJAY refused it with PAYR-1235 Insufficient wallet balance (sandbox wallet used up by this run). Attempt 1 hit a transient policy-search error. PMJAY's decision arrives (C5): chip still \"Pre-authorisation: Refused at the door\" after 120s; PAYR-1235: Insufficient wallet balance. Hence the request will not be processed.",
+      "attempts": 2
+    },
+    {
+      "id": "T15",
+      "runner": "cli",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [
+        {
+          "at": "11:37:04",
+          "what": "blocked",
+          "result": "blocked",
+          "got": "the PMJAY sandbox auto-approves SB043F before a desk can query it; set NHCX_TEST_PMJAY_MANUAL_PACKAGE to a seeded package it does not decide by itself"
+        }
+      ],
+      "result": "blocked",
+      "cause": "sandbox",
+      "detail": "the PMJAY sandbox auto-approves SB043F before a desk can query it; set NHCX_TEST_PMJAY_MANUAL_PACKAGE to a seeded package it does not decide by itself",
+      "attempts": 1
+    },
+    {
+      "id": "T15",
+      "runner": "gui",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [],
+      "result": "skipped",
+      "cause": "",
+      "detail": "GUI walk not written in this round; the CLI runner covers the scenario",
+      "attempts": 1
+    },
+    {
+      "id": "T16",
+      "runner": "cli",
+      "claim": "bcccf30e-e794-4a9d-9e1e-7dd7c0a1d591",
+      "correlation_ids": [
+        "ecc19e03-7459-4659-a77a-fd297ae576d1",
+        "42f3f9ea-7ce6-4ef1-92b4-80d9b02d63a6",
+        "f1873e91-c001-42e4-a6f5-c0f194bf2974",
+        "23962842-a081-4d8d-991d-a619fefedb98"
+      ],
+      "ledger_ids": [
+        "7USL00DN",
+        "7USL00DO",
+        "7USL00DP",
+        "7USL00DQ",
+        "7USL00DR",
+        "7USL00DS",
+        "7USL00DT",
+        "7USL00DU"
+      ],
+      "decisions": [
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e approval",
+          "read": {
+            "caseNumber": "2026101310000036",
+            "role": "",
+            "status": 200,
+            "error": "No Data found with the caseid 2026101310000036. Please use the current active case id.",
+            "warning": null,
+            "response": {
+              "currentuserrole": null,
+              "errormessage": "No Data found with the caseid 2026101310000036. Please use the current active case id."
+            }
+          },
+          "skipped": "sandbox auto-decided"
+        }
+      ],
+      "steps": [
+        {
+          "at": "11:53:24",
+          "what": "payer rejects the first pre-authorisation",
+          "result": "skipped",
+          "got": "blocked (sandbox): SB043F is auto-approved before a desk can reject it; NHCX_TEST_PMJAY_MANUAL_PACKAGE is not set"
+        },
+        {
+          "at": "11:53:31",
+          "what": "free the pmjay beneficiary's open pre-authorisations",
+          "result": "pass",
+          "got": "1 open; {'NM-26-0VL00001N': 'cancelled'}"
+        },
+        {
+          "at": "11:53:31",
+          "what": "policy search finds PMJAY member (enhancement)",
+          "result": "pass",
+          "got": "1 policies, payers ['1518@hcx']"
+        },
+        {
+          "at": "11:53:31",
+          "what": "claim opened (enhancement)",
+          "result": "pass",
+          "got": "NM-26-0VL00001O, payer 1518@hcx, processing 1518@hcx"
+        },
+        {
+          "at": "11:53:32",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 42f3f9ea-7ce6-4ef1-92b4-80d9b02d63a6"
+        },
+        {
+          "at": "11:53:38",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2023-04-02T00:00:00+05:30..2028-04-02T00:00:00+05:30, allowed 750000.00"
+        },
+        {
+          "at": "11:53:38",
+          "what": "package master seeded",
+          "result": "pass",
+          "got": "ready, 2 packages, 7 forms"
+        },
+        {
+          "at": "11:53:38",
+          "what": "provider quotes MG072C x1",
+          "result": "pass",
+          "got": "Acute Haemodialysis (Acute Haemodialysis), 1500.0"
+        },
+        {
+          "at": "11:53:38",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation f1873e91-c001-42e4-a6f5-c0f194bf2974"
+        },
+        {
+          "at": "11:53:41",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on f1873e91-c001-42e4-a6f5-c0f194bf2974 (not 42f3f9ea-7ce6-4ef1-92b4-80d9b02d63a6); 9 requirements: document:MAND0409, document:MAND0408, form:100003, form:100008, form:100010, form:100011, form:100020, form:100024"
+        },
+        {
+          "at": "11:53:41",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['MAND0409', 'MAND0408'], forms ['General Findings', 'Personal History', 'Family History', 'Admission Details', 'Authentication Consent']"
+        },
+        {
+          "at": "11:53:42",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation 23962842-a081-4d8d-991d-a619fefedb98, amount 1500.00"
+        },
+        {
+          "at": "11:53:42",
+          "what": "every line carries the AB-PMJAY programme code",
+          "result": "pass",
+          "got": "['AB-PMJAY'], workflow 12"
+        },
+        {
+          "at": "11:53:48",
+          "what": "PMJAY acknowledges the pre-authorisation",
+          "result": "pass",
+          "got": "7USL00DU response.complete by callback"
+        },
+        {
+          "at": "11:54:51",
+          "what": "payer desk reads the case",
+          "result": "skipped",
+          "got": "sandbox auto-decided"
+        },
+        {
+          "at": "11:54:51",
+          "what": "payer desk takes approve",
+          "result": "skipped",
+          "got": "sandbox auto-decided"
+        },
+        {
+          "at": "11:54:51",
+          "what": "MG072C x1 approved",
+          "result": "pass",
+          "got": "approved by callback, 1500.00"
+        },
+        {
+          "at": "11:54:51",
+          "what": "provider adds a second MG072C cycle for the enhancement",
+          "result": "fail",
+          "got": "refused 400: MG072C is already on this preauth. The claim keeps one line per code (D16 ux_claim_line) and an enhancement sends only new codes, while PMJAY takes a further cycle only as a new item sequence (PAYR-1274 when the quantity of the sent item is raised instead, ledger 7USL00DM)"
+        }
+      ],
+      "result": "fail",
+      "cause": "ours",
+      "detail": "provider adds a second MG072C cycle for the enhancement: refused 400: MG072C is already on this preauth. The claim keeps one line per code (D16 ux_claim_line) and an enhancement sends only new codes, while PMJAY takes a further cycle only as a new item sequence (PAYR-1274 when the quantity of the sent item is raised instead, ledger 7USL00DM)",
+      "attempts": 1
+    },
+    {
+      "id": "T16",
+      "runner": "gui",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [],
+      "result": "skipped",
+      "cause": "",
+      "detail": "GUI walk not written in this round; the CLI runner covers the scenario",
+      "attempts": 1
+    },
+    {
+      "id": "T17",
+      "runner": "cli",
+      "claim": "c85062a6-3085-440b-beb8-e0ef300f44a4",
+      "correlation_ids": [
+        "3ce42f62-2345-47cc-9a15-c3e2ef9ae3d9",
+        "d31f607a-9f66-4d0b-9e13-8515d08c943c",
+        "3d033082-4cbd-44a8-8058-9afa7cdd143b"
+      ],
+      "ledger_ids": [
+        "7USL00R1",
+        "7USL00R2",
+        "7USL00R3",
+        "7USL00R4",
+        "7USL00R5",
+        "7USL00R6"
+      ],
+      "decisions": [
+        {
+          "stage": "preauth",
+          "decision": "approve",
+          "remarks": "e2e approval",
+          "read": {
+            "caseNumber": "NM-26-0VL00003M",
+            "role": "",
+            "status": 200,
+            "error": "No Data found with the caseid NM-26-0VL00003M. Please use the current active case id.",
+            "warning": null,
+            "response": {
+              "currentuserrole": null,
+              "errormessage": "No Data found with the caseid NM-26-0VL00003M. Please use the current active case id."
+            }
+          },
+          "skipped": "sandbox auto-decided"
+        }
+      ],
+      "steps": [
+        {
+          "at": "13:35:49",
+          "what": "free the pmjay beneficiary's open pre-authorisations",
+          "result": "pass",
+          "got": "0 open; none"
+        },
+        {
+          "at": "13:35:50",
+          "what": "policy search finds PMJAY member (approve)",
+          "result": "pass",
+          "got": "1 policies, payers ['1518@hcx']"
+        },
+        {
+          "at": "13:35:50",
+          "what": "claim opened (approve)",
+          "result": "pass",
+          "got": "NM-26-0VL00003M, payer 1518@hcx, processing 1518@hcx"
+        },
+        {
+          "at": "13:35:50",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 3ce42f62-2345-47cc-9a15-c3e2ef9ae3d9"
+        },
+        {
+          "at": "13:35:56",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2023-04-02T00:00:00+05:30..2028-04-02T00:00:00+05:30, allowed 750000.00"
+        },
+        {
+          "at": "13:35:56",
+          "what": "package master seeded",
+          "result": "pass",
+          "got": "ready, 2 packages, 7 forms"
+        },
+        {
+          "at": "13:35:56",
+          "what": "provider quotes SB043F x1",
+          "result": "pass",
+          "got": "Hand (Single Stage Amputation), 18600.0"
+        },
+        {
+          "at": "13:35:57",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation d31f607a-9f66-4d0b-9e13-8515d08c943c"
+        },
+        {
+          "at": "13:36:00",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on d31f607a-9f66-4d0b-9e13-8515d08c943c (not 3ce42f62-2345-47cc-9a15-c3e2ef9ae3d9); 11 requirements: document:MAND0604, document:MAND0582, document:MAND0384, document:MAND0592, form:100003, form:100008, form:100010, form:100011"
+        },
+        {
+          "at": "13:36:00",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['MAND0604', 'MAND0582', 'MAND0384', 'MAND0592'], forms ['General Findings', 'Personal History', 'Family History', 'Admission Details', 'Authentication Consent']"
+        },
+        {
+          "at": "13:36:00",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation 3d033082-4cbd-44a8-8058-9afa7cdd143b, amount 18600.00"
+        },
+        {
+          "at": "13:36:00",
+          "what": "every line carries the AB-PMJAY programme code",
+          "result": "pass",
+          "got": "['AB-PMJAY'], workflow 12"
+        },
+        {
+          "at": "13:36:06",
+          "what": "PMJAY acknowledges the pre-authorisation",
+          "result": "pass",
+          "got": "7USL00R6 response.error by callback"
+        },
+        {
+          "at": "13:37:09",
+          "what": "payer desk reads the case",
+          "result": "skipped",
+          "got": "sandbox auto-decided"
+        },
+        {
+          "at": "13:37:09",
+          "what": "payer desk takes approve",
+          "result": "skipped",
+          "got": "sandbox auto-decided"
+        },
+        {
+          "at": "13:37:09",
+          "what": "pre-authorisation approved (approve)",
+          "result": "fail",
+          "got": "error by callback, None, PAYR-1235: Insufficient wallet balance. Hence the request will not be processed."
+        }
+      ],
+      "result": "blocked",
+      "cause": "sandbox",
+      "detail": "blocked by the sandbox: approve path passed end to end (role walk CEX>CPD>ACO>SHA, 18600.00 approved, correlation 67a35a2b-1f2d-455c-bf12-0da7225b27ec); query path: payer desk Forward as CEX answered Internal Server Error (cycle fc189812-f7a6-440e-8ffe-09e517b3312c), then every new pre-auth got PAYR-1235 Insufficient wallet balance. The query answer (x-hcx-status fix: request.initiated) could not be exercised live. pre-authorisation approved (approve): error by callback, None, PAYR-1235: Insufficient wallet balance. Hence the request will not be processed.",
+      "attempts": 3
+    },
+    {
+      "id": "T17",
+      "runner": "gui",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [],
+      "result": "skipped",
+      "cause": "",
+      "detail": "GUI walk not written in this round; the CLI runner covers the scenario",
+      "attempts": 1
+    },
+    {
+      "id": "T18",
+      "runner": "cli",
+      "claim": "3784e213-37c1-4c42-aa60-af74ce608277, 85faf523-471a-4293-b2b3-e508c0a4fb67",
+      "correlation_ids": [
+        "68d34639-5cc8-43ed-bd25-7931626a2006",
+        "90148ab9-6793-4b41-a4b8-040b8e4fbf99",
+        "e0cb8c57-adb9-48ad-9dfb-b279cf0f7c16",
+        "40f44cfb-5fb7-4e7c-8143-8cdf6131cabb",
+        "c8de41dd-8923-4522-909c-7cc61f5478a6",
+        "d6da583a-e81e-4b99-a540-59d31f197eb2"
+      ],
+      "ledger_ids": [
+        "7USL00LO",
+        "7USL00LP",
+        "7USL00LQ",
+        "7USL00LR",
+        "7USL00LS",
+        "7USL00LT",
+        "7USL00LU",
+        "7USL00LV",
+        "7USL00LC",
+        "7USL00LD",
+        "7USL00LE",
+        "7USL00ME",
+        "7USL00MF"
+      ],
+      "decisions": [],
+      "steps": [
+        {
+          "at": "12:46:43",
+          "what": "free the pmjay beneficiary's open pre-authorisations",
+          "result": "pass",
+          "got": "0 open; none"
+        },
+        {
+          "at": "12:46:43",
+          "what": "policy search finds PMJAY member (pending)",
+          "result": "pass",
+          "got": "1 policies, payers ['1518@hcx']"
+        },
+        {
+          "at": "12:46:43",
+          "what": "claim opened (pending)",
+          "result": "pass",
+          "got": "NM-26-0VL00002V, payer 1518@hcx, processing 1518@hcx"
+        },
+        {
+          "at": "12:46:44",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation 68d34639-5cc8-43ed-bd25-7931626a2006"
+        },
+        {
+          "at": "12:46:50",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2023-04-02T00:00:00+05:30..2028-04-02T00:00:00+05:30, allowed 750000.00"
+        },
+        {
+          "at": "12:46:50",
+          "what": "package master seeded",
+          "result": "pass",
+          "got": "ready, 2 packages, 7 forms"
+        },
+        {
+          "at": "12:46:50",
+          "what": "provider quotes SB043F x1",
+          "result": "pass",
+          "got": "Hand (Single Stage Amputation), 18600.0"
+        },
+        {
+          "at": "12:46:50",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation 90148ab9-6793-4b41-a4b8-040b8e4fbf99"
+        },
+        {
+          "at": "12:46:56",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on 90148ab9-6793-4b41-a4b8-040b8e4fbf99 (not 68d34639-5cc8-43ed-bd25-7931626a2006); 11 requirements: document:MAND0604, document:MAND0582, document:MAND0384, document:MAND0592, form:100003, form:100008, form:100010, form:100011"
+        },
+        {
+          "at": "12:46:56",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['MAND0604', 'MAND0582', 'MAND0384', 'MAND0592'], forms ['General Findings', 'Personal History', 'Family History', 'Admission Details', 'Authentication Consent']"
+        },
+        {
+          "at": "12:46:57",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation e0cb8c57-adb9-48ad-9dfb-b279cf0f7c16, amount 18600.00"
+        },
+        {
+          "at": "12:47:03",
+          "what": "PMJAY acknowledges the pre-authorisation",
+          "result": "pass",
+          "got": "7USL00LT response.complete by callback"
+        },
+        {
+          "at": "12:47:03",
+          "what": "status enquiry is refused as PAYERS.md says",
+          "result": "pass",
+          "got": "refused 400: PMJAY answers no status enquiry over NHCX; read where the case stands on its own desk, and the verdict arrives on this thread."
+        },
+        {
+          "at": "12:47:03",
+          "what": "payer desk role read as the case's state",
+          "result": "skipped",
+          "got": "sandbox auto-decided"
+        },
+        {
+          "at": "12:47:04",
+          "what": "cancel goes out",
+          "result": "pass",
+          "got": "cancelling (was approved), correlation 40f44cfb-5fb7-4e7c-8143-8cdf6131cabb"
+        },
+        {
+          "at": "12:47:10",
+          "what": "pending leg ends cancelled (C7)",
+          "result": "pass",
+          "got": "cancelled by callback"
+        },
+        {
+          "at": "12:54:29",
+          "what": "payment notice matched by claim number and acknowledged (A8)",
+          "result": "pass",
+          "got": "by poll: 16740.00 UTR PMJAY/HP/S/2024/R2/2026101310000085/Normal, ack sent, notice workflow 30, ack correlation d6da583a-e81e-4b99-a540-59d31f197eb2"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "skipped checks: payer desk role read as the case's state: sandbox auto-decided",
+      "attempts": 1
+    },
+    {
+      "id": "T18",
+      "runner": "gui",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [],
+      "result": "skipped",
+      "cause": "",
+      "detail": "GUI walk not written in this round; the CLI runner covers the scenario",
+      "attempts": 1
+    },
+    {
+      "id": "T19",
+      "runner": "cli",
+      "claim": "0324ab87-7cf5-4c90-acb7-267c87c63069",
+      "correlation_ids": [
+        "a9f74d0c-127a-4955-bc55-3a86e5e839c5",
+        "a265e95f-583d-4d37-8b75-431bb6b85d93",
+        "a65f87d0-befe-476d-8f7d-3d591ff898c4",
+        "8211d23d-c2d4-4511-8cef-27932eacfb90",
+        "7dd63d08-439d-4cb3-a8b1-bdf0c922a0b4"
+      ],
+      "ledger_ids": [
+        "7USL00J0",
+        "7USL00J1",
+        "7USL00J2",
+        "7USL00J3",
+        "7USL00J4",
+        "7USL00J5",
+        "7USL00J6",
+        "7USL00J7",
+        "7USL00J8"
+      ],
+      "decisions": [],
+      "steps": [
+        {
+          "at": "12:22:23",
+          "what": "ABHA verify and registration from the ABHA profile (A19)",
+          "result": "skipped",
+          "got": "not automated: the ABHA service stand-in (A19 M1 enrolment and its sealing key) is not part of this runner"
+        },
+        {
+          "at": "12:22:23",
+          "what": "free the pmjay beneficiary's open pre-authorisations",
+          "result": "pass",
+          "got": "0 open; none"
+        },
+        {
+          "at": "12:22:23",
+          "what": "policy search finds PMJAY member",
+          "result": "pass",
+          "got": "1 policies, payers ['1518@hcx']"
+        },
+        {
+          "at": "12:22:23",
+          "what": "claim opened",
+          "result": "pass",
+          "got": "NM-26-0VL00002J, payer 1518@hcx, processing 1518@hcx"
+        },
+        {
+          "at": "12:22:24",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation a9f74d0c-127a-4955-bc55-3a86e5e839c5"
+        },
+        {
+          "at": "12:22:30",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2023-04-02T00:00:00+05:30..2028-04-02T00:00:00+05:30, allowed 750000.00"
+        },
+        {
+          "at": "12:22:30",
+          "what": "package master seeded",
+          "result": "pass",
+          "got": "ready, 2 packages, 7 forms"
+        },
+        {
+          "at": "12:22:30",
+          "what": "provider quotes SB043F x1",
+          "result": "pass",
+          "got": "Hand (Single Stage Amputation), 18600.0"
+        },
+        {
+          "at": "12:22:30",
+          "what": "auth-requirements check goes out",
+          "result": "pass",
+          "got": "checking, correlation a265e95f-583d-4d37-8b75-431bb6b85d93"
+        },
+        {
+          "at": "12:22:36",
+          "what": "payer rules on the auth requirements",
+          "result": "pass",
+          "got": "ready by callback on a265e95f-583d-4d37-8b75-431bb6b85d93 (not a9f74d0c-127a-4955-bc55-3a86e5e839c5); 11 requirements: document:MAND0604, document:MAND0582, document:MAND0384, document:MAND0592, form:100003, form:100008, form:100010, form:100011"
+        },
+        {
+          "at": "12:22:36",
+          "what": "validation check before any authentication carries no user token",
+          "result": "pass",
+          "got": "headers ['x-hcx-api_call_id', 'x-hcx-ben-abha-id', 'x-hcx-correlation_id', 'x-hcx-recipient_code', 'x-hcx-request_id', 'x-hcx-sender_code', 'x-hcx-status', 'x-hcx-timestamp', 'x-hcx-workflow_id']; consent form in bundle: False"
+        },
+        {
+          "at": "12:22:36",
+          "what": "init goes to the biometric host with Authorization, process, payerid and a hyphenated ABHA",
+          "result": "pass",
+          "got": "process Preauth, payerid 1518@hcx, loginId 24-5145-6152-7740, bearer_auth False"
+        },
+        {
+          "at": "12:22:36",
+          "what": "verify holds a live token",
+          "result": "pass",
+          "got": "verified, token live True, ABHA 24514561527740"
+        },
+        {
+          "at": "12:22:37",
+          "what": "validation check goes out",
+          "result": "pass",
+          "got": "checking, correlation a65f87d0-befe-476d-8f7d-3d591ff898c4"
+        },
+        {
+          "at": "12:22:43",
+          "what": "payer answers the validation check",
+          "result": "pass",
+          "got": "eligible by callback, inforce True, period 2023-04-02T00:00:00+05:30..2028-04-02T00:00:00+05:30, allowed 750000.00"
+        },
+        {
+          "at": "12:22:43",
+          "what": "second validation check carries the user token and the beneficiary's ABHA",
+          "result": "pass",
+          "got": "x-hcx-user-token stand-in token, x-hcx-ben-abha-id 24514561527740"
+        },
+        {
+          "at": "12:22:43",
+          "what": "pre-authorisation draft ready",
+          "result": "pass",
+          "got": "diagnosis S68.4, doctor nhcx_e2e_doctor, documents ['MAND0604', 'MAND0582', 'MAND0384', 'MAND0592'], forms ['General Findings', 'Personal History', 'Family History', 'Admission Details']"
+        },
+        {
+          "at": "12:22:43",
+          "what": "provider sends the pre-authorisation",
+          "result": "pass",
+          "got": "preauth, submitting, workflow 12, correlation 8211d23d-c2d4-4511-8cef-27932eacfb90, amount 18600.00"
+        },
+        {
+          "at": "12:22:43",
+          "what": "pre-authorisation carries the token and no Authentication Consent",
+          "result": "pass",
+          "got": "token stand-in, x-hcx-ben-abha-id 24514561527740, consent form False"
+        },
+        {
+          "at": "12:22:43",
+          "what": "refresh replaces the token",
+          "result": "pass",
+          "got": "2 tokens issued, live True"
+        },
+        {
+          "at": "12:22:43",
+          "what": "listing names the current Preauth attempt and none for Discharge",
+          "result": "pass",
+          "got": "1 attempts, stage Preauth"
+        },
+        {
+          "at": "12:22:44",
+          "what": "predetermination with the refreshed token, discharge face verify and claim",
+          "result": "skipped",
+          "got": "not automated: the face verify needs the ABHA service's sealing key (A19 stand-in)"
+        },
+        {
+          "at": "12:22:47",
+          "what": "free the pmjay beneficiary's open pre-authorisations",
+          "result": "pass",
+          "got": "1 open; {'NM-26-0VL00002J': 'submitting'}"
+        },
+        {
+          "at": "12:22:47",
+          "what": "stand-in biometric tokens dropped",
+          "result": "pass",
+          "got": "1 rows"
+        }
+      ],
+      "result": "pass",
+      "cause": "",
+      "detail": "skipped checks: ABHA verify and registration from the ABHA profile (A19): not automated: the ABHA service stand-in (A19 M1 enrolment and its sealing key) is not part of this runner; predetermination with the refreshed token, discharge face verify and claim: not automated: the face verify needs the ABHA service's sealing key (A19 stand-in)",
+      "attempts": 1
+    },
+    {
+      "id": "T19",
+      "runner": "gui",
+      "claim": "",
+      "correlation_ids": [],
+      "ledger_ids": [],
+      "decisions": [],
+      "steps": [],
+      "result": "skipped",
+      "cause": "",
+      "detail": "GUI walk not written in this round; the CLI runner covers the scenario",
+      "attempts": 1
+    }
+  ],
+  "summary": {
+    "pass": 17,
+    "fail": 1,
+    "blocked": 4,
+    "skipped": 12
+  }
+}

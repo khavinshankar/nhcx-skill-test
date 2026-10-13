@@ -1,0 +1,2912 @@
+{
+ "grouping": "by layer",
+ "conventions": [
+  {
+   "topic": "models",
+   "rule": "subclass care.emr.models.base.EMRBaseModel (external_id UUID, created/modified dates, soft delete)",
+   "example": {
+    "file": "care/emr/models/account.py",
+    "lines": "7-32"
+   }
+  },
+  {
+   "topic": "API",
+   "rule": "DRF views; pydantic specs for request validation like care/emr/resources; facility-scoped URL /api/v1/facility/<facility_external_id>/nhcx/...",
+   "example": {
+    "file": "care/emr/api/viewsets/account.py",
+    "lines": "1-80"
+   }
+  },
+  {
+   "topic": "errors",
+   "rule": "raise rest_framework ValidationError with verbatim spec messages; services return dicts",
+   "example": {
+    "file": "care/emr/api/viewsets/account.py",
+    "lines": "1-80"
+   }
+  },
+  {
+   "topic": "tests",
+   "rule": "Django TestCase / care.utils.tests.base CareAPITestBase; files test_*.py under app tests/",
+   "example": {
+    "file": "care/emr/tests/test_account_api.py",
+    "lines": "1-60"
+   }
+  },
+  {
+   "topic": "background",
+   "rule": "Celery shared_task, beat schedule in config/settings",
+   "example": {
+    "file": "config/celery_app.py",
+    "lines": "1-30"
+   }
+  },
+  {
+   "topic": "money",
+   "rule": "DecimalField(max_digits=20, decimal_places=2)",
+   "example": {
+    "file": "care/emr/models/charge_item.py",
+    "lines": "7-56"
+   }
+  },
+  {
+   "topic": "FE",
+   "rule": "TanStack Query with query()/mutate() helpers; routes object in Routers/routes; shadcn ui; i18n t() keys in public/locale/en.json",
+   "example": {
+    "file": "care_fe/src/pages/Facility/billing/",
+    "lines": ""
+   }
+  }
+ ],
+ "modules": [
+  {
+   "name": "gateway",
+   "dir": "care/nhcx/gateway",
+   "specs": [
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G5",
+    "G6",
+    "G7",
+    "G8",
+    "G9",
+    "G10",
+    "G11"
+   ]
+  },
+  {
+   "name": "fhir",
+   "dir": "care/nhcx/fhir",
+   "specs": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6",
+    "F7",
+    "F8",
+    "F9",
+    "F10",
+    "F11",
+    "F12",
+    "F13",
+    "F14",
+    "F15",
+    "F16",
+    "F17",
+    "F18",
+    "F19"
+   ]
+  },
+  {
+   "name": "services",
+   "dir": "care/nhcx/services",
+   "specs": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A10",
+    "A11",
+    "A12",
+    "A13",
+    "A14",
+    "A15",
+    "A16",
+    "A17",
+    "A18",
+    "A19"
+   ]
+  },
+  {
+   "name": "callbacks",
+   "dir": "care/nhcx/callbacks",
+   "specs": [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10"
+   ]
+  },
+  {
+   "name": "models",
+   "dir": "care/nhcx/models",
+   "specs": [
+    "D1",
+    "D2",
+    "D3",
+    "D8",
+    "D9",
+    "D10",
+    "D11",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16",
+    "D17",
+    "D18",
+    "D19",
+    "D20",
+    "D21",
+    "D22",
+    "D23",
+    "D24",
+    "D25",
+    "D26",
+    "D27",
+    "D28",
+    "D29",
+    "D30",
+    "D31"
+   ]
+  },
+  {
+   "name": "screens",
+   "dir": "care_fe/src/pages/Facility/claims",
+   "specs": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S18"
+   ]
+  }
+ ],
+ "files": [
+  {
+   "order": 1,
+   "path": "config/settings/base.py",
+   "action": "modify",
+   "plan_step": "P1.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G2"
+    ]
+   },
+   "functions": [
+    {
+     "name": "LOCAL_APPS",
+     "purpose": "add care.nhcx"
+    },
+    {
+     "name": "NHCX_*",
+     "purpose": "env settings"
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care/nhcx/tests/test_settings.py"
+  },
+  {
+   "order": 2,
+   "path": "care/nhcx/apps.py",
+   "action": "create",
+   "plan_step": "P1.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G1"
+    ]
+   },
+   "functions": [
+    {
+     "name": "NhcxConfig.ready",
+     "purpose": "open gateway lazily"
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care/nhcx/tests/test_gateway_embedding.py"
+  },
+  {
+   "order": 3,
+   "path": "care/nhcx/models/profiles.py",
+   "action": "create",
+   "plan_step": "P2.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D1",
+     "D2"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "D1",
+     "purpose": "model"
+    },
+    {
+     "name": "D2",
+     "purpose": "model"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/apps.py"
+   ],
+   "test_file": "care/nhcx/tests/test_models.py"
+  },
+  {
+   "order": 4,
+   "path": "care/nhcx/models/claim.py",
+   "action": "create",
+   "plan_step": "P2.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D9",
+     "D30"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "D9",
+     "purpose": "model"
+    },
+    {
+     "name": "D30",
+     "purpose": "model"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/apps.py"
+   ],
+   "test_file": "care/nhcx/tests/test_models.py"
+  },
+  {
+   "order": 5,
+   "path": "care/nhcx/models/plan.py",
+   "action": "create",
+   "plan_step": "P2.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D10",
+     "D11",
+     "D12"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "D10",
+     "purpose": "model"
+    },
+    {
+     "name": "D11",
+     "purpose": "model"
+    },
+    {
+     "name": "D12",
+     "purpose": "model"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/apps.py"
+   ],
+   "test_file": "care/nhcx/tests/test_models.py"
+  },
+  {
+   "order": 6,
+   "path": "care/nhcx/models/auth.py",
+   "action": "create",
+   "plan_step": "P2.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D13",
+     "D14",
+     "D15"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "D13",
+     "purpose": "model"
+    },
+    {
+     "name": "D14",
+     "purpose": "model"
+    },
+    {
+     "name": "D15",
+     "purpose": "model"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/apps.py"
+   ],
+   "test_file": "care/nhcx/tests/test_models.py"
+  },
+  {
+   "order": 7,
+   "path": "care/nhcx/models/draft.py",
+   "action": "create",
+   "plan_step": "P2.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D16",
+     "D17",
+     "D25",
+     "D26",
+     "D27",
+     "D28"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "D16",
+     "purpose": "model"
+    },
+    {
+     "name": "D17",
+     "purpose": "model"
+    },
+    {
+     "name": "D25",
+     "purpose": "model"
+    },
+    {
+     "name": "D26",
+     "purpose": "model"
+    },
+    {
+     "name": "D27",
+     "purpose": "model"
+    },
+    {
+     "name": "D28",
+     "purpose": "model"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/apps.py"
+   ],
+   "test_file": "care/nhcx/tests/test_models.py"
+  },
+  {
+   "order": 8,
+   "path": "care/nhcx/models/legs.py",
+   "action": "create",
+   "plan_step": "P2.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D18",
+     "D19",
+     "D20"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "D18",
+     "purpose": "model"
+    },
+    {
+     "name": "D19",
+     "purpose": "model"
+    },
+    {
+     "name": "D20",
+     "purpose": "model"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/apps.py"
+   ],
+   "test_file": "care/nhcx/tests/test_models.py"
+  },
+  {
+   "order": 9,
+   "path": "care/nhcx/models/messages.py",
+   "action": "create",
+   "plan_step": "P2.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D21",
+     "D22",
+     "D23",
+     "D24"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "D21",
+     "purpose": "model"
+    },
+    {
+     "name": "D22",
+     "purpose": "model"
+    },
+    {
+     "name": "D23",
+     "purpose": "model"
+    },
+    {
+     "name": "D24",
+     "purpose": "model"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/apps.py"
+   ],
+   "test_file": "care/nhcx/tests/test_models.py"
+  },
+  {
+   "order": 10,
+   "path": "care/nhcx/models/enquiry.py",
+   "action": "create",
+   "plan_step": "P2.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D29"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "D29",
+     "purpose": "model"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/apps.py"
+   ],
+   "test_file": "care/nhcx/tests/test_models.py"
+  },
+  {
+   "order": 11,
+   "path": "care/nhcx/models/biometric.py",
+   "action": "create",
+   "plan_step": "P2.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D31"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "D31",
+     "purpose": "model"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/apps.py"
+   ],
+   "test_file": "care/nhcx/tests/test_models.py"
+  },
+  {
+   "order": 12,
+   "path": "care/nhcx/migrations/0001_initial.py",
+   "action": "create",
+   "plan_step": "P2.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D1",
+     "D2",
+     "D9",
+     "D10",
+     "D11",
+     "D12",
+     "D13",
+     "D14",
+     "D15",
+     "D16",
+     "D17",
+     "D18",
+     "D19",
+     "D20",
+     "D21",
+     "D22",
+     "D23",
+     "D24",
+     "D25",
+     "D26",
+     "D27",
+     "D28",
+     "D29",
+     "D30",
+     "D31"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "Migration",
+     "purpose": "makemigrations"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/models/"
+   ],
+   "test_file": "care/nhcx/tests/test_models.py"
+  },
+  {
+   "order": 13,
+   "path": "care/nhcx/migrations/0002_abha_identifier_config.py",
+   "action": "create",
+   "plan_step": "P2.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D3",
+     "D8"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "create_abha_configs",
+     "purpose": "PatientIdentifierConfig for ABHA number/address"
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care/nhcx/tests/test_models.py"
+  },
+  {
+   "order": 14,
+   "path": "care/nhcx/gateway/config.py",
+   "action": "create",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G2"
+    ]
+   },
+   "functions": [
+    {
+     "name": "load",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/config.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_config.py"
+  },
+  {
+   "order": 15,
+   "path": "care/nhcx/gateway/token.py",
+   "action": "create",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G3"
+    ]
+   },
+   "functions": [
+    {
+     "name": "token",
+     "purpose": ""
+    },
+    {
+     "name": "post_with_token",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/config.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_token.py"
+  },
+  {
+   "order": 16,
+   "path": "care/nhcx/gateway/registry.py",
+   "action": "create",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G4"
+    ]
+   },
+   "functions": [
+    {
+     "name": "participant",
+     "purpose": ""
+    },
+    {
+     "name": "certificate",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/config.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_registry.py"
+  },
+  {
+   "order": 17,
+   "path": "care/nhcx/gateway/headers.py",
+   "action": "create",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G5"
+    ]
+   },
+   "functions": [
+    {
+     "name": "build_protected_headers",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/config.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_headers.py"
+  },
+  {
+   "order": 18,
+   "path": "care/nhcx/gateway/crypto.py",
+   "action": "create",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G6"
+    ]
+   },
+   "functions": [
+    {
+     "name": "encrypt",
+     "purpose": ""
+    },
+    {
+     "name": "decrypt",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/config.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_crypto.py"
+  },
+  {
+   "order": 19,
+   "path": "care/nhcx/gateway/send.py",
+   "action": "create",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G7"
+    ]
+   },
+   "functions": [
+    {
+     "name": "send",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/config.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_send.py"
+  },
+  {
+   "order": 20,
+   "path": "care/nhcx/gateway/receive.py",
+   "action": "create",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G8"
+    ]
+   },
+   "functions": [
+    {
+     "name": "handle",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/config.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_receive.py"
+  },
+  {
+   "order": 21,
+   "path": "care/nhcx/gateway/ledger.py",
+   "action": "create",
+   "plan_step": "P1.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G9"
+    ]
+   },
+   "functions": [
+    {
+     "name": "related",
+     "purpose": ""
+    },
+    {
+     "name": "fhir",
+     "purpose": ""
+    },
+    {
+     "name": "dispatch",
+     "purpose": ""
+    },
+    {
+     "name": "list",
+     "purpose": ""
+    },
+    {
+     "name": "get",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/config.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_ledger.py"
+  },
+  {
+   "order": 22,
+   "path": "care/nhcx/gateway/beneficiary.py",
+   "action": "create",
+   "plan_step": "P1.3",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G10"
+    ]
+   },
+   "functions": [
+    {
+     "name": "policies_search",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/config.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_beneficiary.py"
+  },
+  {
+   "order": 23,
+   "path": "care/nhcx/gateway/checks.py",
+   "action": "create",
+   "plan_step": "P1.3",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G11"
+    ]
+   },
+   "functions": [
+    {
+     "name": "check",
+     "purpose": ""
+    },
+    {
+     "name": "healthz",
+     "purpose": ""
+    },
+    {
+     "name": "readyz",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/config.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_checks.py"
+  },
+  {
+   "order": 24,
+   "path": "care/nhcx/gateway/embedding.py",
+   "action": "create",
+   "plan_step": "P1.4",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G1"
+    ]
+   },
+   "functions": [
+    {
+     "name": "open",
+     "purpose": ""
+    },
+    {
+     "name": "start",
+     "purpose": ""
+    },
+    {
+     "name": "stop",
+     "purpose": ""
+    },
+    {
+     "name": "routes",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/config.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_embedding.py"
+  },
+  {
+   "order": 25,
+   "path": "care/nhcx/gateway/views.py",
+   "action": "create",
+   "plan_step": "P1.4",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G1"
+    ]
+   },
+   "functions": [
+    {
+     "name": "inbound",
+     "purpose": "/in/<path>, /v1/<rest>"
+    },
+    {
+     "name": "healthz",
+     "purpose": ""
+    },
+    {
+     "name": "readyz",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/config.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_views.py"
+  },
+  {
+   "order": 26,
+   "path": "config/urls.py",
+   "action": "modify",
+   "plan_step": "P1.4",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G1"
+    ]
+   },
+   "functions": [
+    {
+     "name": "urlpatterns",
+     "purpose": "mount gateway views"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/views.py"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_views.py"
+  },
+  {
+   "order": 27,
+   "path": "care/nhcx/tasks.py",
+   "action": "create",
+   "plan_step": "P1.4",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": [
+     "G1",
+     "G3",
+     "G9"
+    ]
+   },
+   "functions": [
+    {
+     "name": "refresh_tokens",
+     "purpose": "every minute"
+    },
+    {
+     "name": "prune_ledger",
+     "purpose": "hourly"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/"
+   ],
+   "test_file": "care/nhcx/tests/test_gateway_embedding.py"
+  },
+  {
+   "order": 28,
+   "path": "care/nhcx/fhir/bundle.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F1"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "wrap",
+     "purpose": ""
+    },
+    {
+     "name": "unwrap",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care/nhcx/tests/test_fhir_bundle.py"
+  },
+  {
+   "order": 29,
+   "path": "care/nhcx/fhir/codes.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F8",
+     "F16"
+    ],
+    "database": [
+     "D8"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "lookups",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care/nhcx/tests/test_fhir_codes.py"
+  },
+  {
+   "order": 30,
+   "path": "care/nhcx/fhir/build/coverage_request.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F2"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "build",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_build.py"
+  },
+  {
+   "order": 31,
+   "path": "care/nhcx/fhir/build/plan_task.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F4"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "build",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_build.py"
+  },
+  {
+   "order": 32,
+   "path": "care/nhcx/fhir/build/questionnaire_response.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F7"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "build",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_build.py"
+  },
+  {
+   "order": 33,
+   "path": "care/nhcx/fhir/build/claim.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F8"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "build",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_build.py"
+  },
+  {
+   "order": 34,
+   "path": "care/nhcx/fhir/build/task.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F10"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "build",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_build.py"
+  },
+  {
+   "order": 35,
+   "path": "care/nhcx/fhir/build/communication.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F12"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "build",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_build.py"
+  },
+  {
+   "order": 36,
+   "path": "care/nhcx/fhir/build/payment_ack.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F14"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "build",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_build.py"
+  },
+  {
+   "order": 37,
+   "path": "care/nhcx/fhir/build/patient.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F15"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "build",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_build.py"
+  },
+  {
+   "order": 38,
+   "path": "care/nhcx/fhir/build/practitioner.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F16"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "build",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_build.py"
+  },
+  {
+   "order": 39,
+   "path": "care/nhcx/fhir/build/organization.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F17"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "build",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_build.py"
+  },
+  {
+   "order": 40,
+   "path": "care/nhcx/fhir/build/coverage.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F18"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "build",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_build.py"
+  },
+  {
+   "order": 41,
+   "path": "care/nhcx/fhir/build/other.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F19"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "build",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_build.py"
+  },
+  {
+   "order": 42,
+   "path": "care/nhcx/fhir/read/eligibility.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F3"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "read",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_read.py"
+  },
+  {
+   "order": 43,
+   "path": "care/nhcx/fhir/read/plan.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F5",
+     "F6"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "read",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_read.py"
+  },
+  {
+   "order": 44,
+   "path": "care/nhcx/fhir/read/claim_response.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F9"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "read",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_read.py"
+  },
+  {
+   "order": 45,
+   "path": "care/nhcx/fhir/read/communication.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F11"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "read",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_read.py"
+  },
+  {
+   "order": 46,
+   "path": "care/nhcx/fhir/read/payment.py",
+   "action": "create",
+   "plan_step": "P3.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [
+     "F13"
+    ],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "read",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/bundle.py"
+   ],
+   "test_file": "care/nhcx/tests/test_fhir_read.py"
+  },
+  {
+   "order": 47,
+   "path": "care/nhcx/archive.py",
+   "action": "create",
+   "plan_step": "P2.3",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C1"
+    ],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "archive",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care/nhcx/tests/test_callbacks.py"
+  },
+  {
+   "order": 48,
+   "path": "care/nhcx/services/stage.py",
+   "action": "create",
+   "plan_step": "P2.3",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [
+     "D9"
+    ],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "recompute",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/models/"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 49,
+   "path": "care/nhcx/services/common.py",
+   "action": "create",
+   "plan_step": "P2.3",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "send_outside_transaction",
+     "purpose": "gateway.send wrapper asserting no atomic block"
+    },
+    {
+     "name": "next_counter",
+     "purpose": "D30"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/gateway/send.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 50,
+   "path": "care/nhcx/callbacks/dispatch.py",
+   "action": "create",
+   "plan_step": "P2.3",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C1"
+    ],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "receive",
+     "purpose": "C1 entry"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/archive.py"
+   ],
+   "test_file": "care/nhcx/tests/test_callbacks.py"
+  },
+  {
+   "order": 51,
+   "path": "care/nhcx/services/policy.py",
+   "action": "create",
+   "plan_step": "P3.2",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A1"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "service",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/",
+    "care/nhcx/services/common.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 52,
+   "path": "care/nhcx/services/eligibility.py",
+   "action": "create",
+   "plan_step": "P3.2",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A2"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "service",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/",
+    "care/nhcx/services/common.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 53,
+   "path": "care/nhcx/callbacks/eligibility.py",
+   "action": "create",
+   "plan_step": "P3.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C2",
+     "C3"
+    ],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "handle",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/callbacks/dispatch.py"
+   ],
+   "test_file": "care/nhcx/tests/test_callbacks.py"
+  },
+  {
+   "order": 54,
+   "path": "care/nhcx/services/plan.py",
+   "action": "create",
+   "plan_step": "P4.1",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A3"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "service",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/",
+    "care/nhcx/services/common.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 55,
+   "path": "care/nhcx/callbacks/plan.py",
+   "action": "create",
+   "plan_step": "P4.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C4"
+    ],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "handle",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/callbacks/dispatch.py"
+   ],
+   "test_file": "care/nhcx/tests/test_callbacks.py"
+  },
+  {
+   "order": 56,
+   "path": "care/nhcx/services/polling.py",
+   "action": "create",
+   "plan_step": "P8.1",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A10",
+     "A11",
+     "A12",
+     "A13"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "service",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/",
+    "care/nhcx/services/common.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 57,
+   "path": "care/nhcx/services/state.py",
+   "action": "create",
+   "plan_step": "P8.1",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A17"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "service",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/fhir/",
+    "care/nhcx/services/common.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 58,
+   "path": "care/nhcx/api/views.py",
+   "action": "create",
+   "plan_step": "P3.2",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A1",
+     "A2",
+     "A3",
+     "A17"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "routes",
+     "purpose": "one view per AnE"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/services/"
+   ],
+   "test_file": "care/nhcx/tests/test_api.py"
+  },
+  {
+   "order": 59,
+   "path": "care/nhcx/api/urls.py",
+   "action": "create",
+   "plan_step": "P3.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "urlpatterns",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/api/views.py"
+   ],
+   "test_file": "care/nhcx/tests/test_api.py"
+  },
+  {
+   "order": 60,
+   "path": "config/api_router.py",
+   "action": "modify",
+   "plan_step": "P3.2",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "include nhcx api urls",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/api/urls.py"
+   ],
+   "test_file": "care/nhcx/tests/test_api.py"
+  },
+  {
+   "order": 61,
+   "path": "care/nhcx/services/preauth.py",
+   "action": "create",
+   "plan_step": "P5.1",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A4",
+     "A6"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "service",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/services/common.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 62,
+   "path": "care/nhcx/callbacks/preauth.py",
+   "action": "create",
+   "plan_step": "P5.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C5",
+     "C7"
+    ],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "handle",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/callbacks/dispatch.py"
+   ],
+   "test_file": "care/nhcx/tests/test_callbacks.py"
+  },
+  {
+   "order": 63,
+   "path": "care/nhcx/callbacks/enquiry.py",
+   "action": "create",
+   "plan_step": "P5.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C8"
+    ],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "handle",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/callbacks/dispatch.py"
+   ],
+   "test_file": "care/nhcx/tests/test_callbacks.py"
+  },
+  {
+   "order": 64,
+   "path": "care/nhcx/services/biometric.py",
+   "action": "create",
+   "plan_step": "P5.1",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A18"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "service",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/services/common.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 65,
+   "path": "care/nhcx/services/communication.py",
+   "action": "create",
+   "plan_step": "P6.1",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A7"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "service",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/services/common.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 66,
+   "path": "care/nhcx/callbacks/communication.py",
+   "action": "create",
+   "plan_step": "P6.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C9"
+    ],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "handle",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/callbacks/dispatch.py"
+   ],
+   "test_file": "care/nhcx/tests/test_callbacks.py"
+  },
+  {
+   "order": 67,
+   "path": "care/nhcx/services/claim.py",
+   "action": "create",
+   "plan_step": "P7.1",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A5",
+     "A6"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "service",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/services/common.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 68,
+   "path": "care/nhcx/callbacks/claim.py",
+   "action": "create",
+   "plan_step": "P7.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C6"
+    ],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "handle",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/callbacks/dispatch.py"
+   ],
+   "test_file": "care/nhcx/tests/test_callbacks.py"
+  },
+  {
+   "order": 69,
+   "path": "care/nhcx/services/payment.py",
+   "action": "create",
+   "plan_step": "P8.1",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A8"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "service",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/services/common.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 70,
+   "path": "care/nhcx/callbacks/payment.py",
+   "action": "create",
+   "plan_step": "P8.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [
+     "C10"
+    ],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "handle",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/callbacks/dispatch.py"
+   ],
+   "test_file": "care/nhcx/tests/test_callbacks.py"
+  },
+  {
+   "order": 71,
+   "path": "care/nhcx/services/adjudicator.py",
+   "action": "create",
+   "plan_step": "P8.1",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A14",
+     "A15",
+     "A16"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "service",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/services/common.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 72,
+   "path": "care/nhcx/services/abha.py",
+   "action": "create",
+   "plan_step": "P9.1",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A19"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "service",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/services/common.py"
+   ],
+   "test_file": "care/nhcx/tests/test_services.py"
+  },
+  {
+   "order": 73,
+   "path": "care_fe/src/types/nhcx/nhcxApi.ts",
+   "action": "create",
+   "plan_step": "P3.2",
+   "implements": {
+    "screens": [],
+    "apis": [
+     "A1",
+     "A2",
+     "A3",
+     "A4",
+     "A5",
+     "A6",
+     "A7",
+     "A8",
+     "A17",
+     "A18"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "nhcxApi",
+     "purpose": "query routes"
+    }
+   ],
+   "depends_on": [
+    "care/nhcx/api/urls.py"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit"
+  },
+  {
+   "order": 74,
+   "path": "care_fe/src/pages/Facility/claims/ClaimMaster.tsx",
+   "action": "create",
+   "plan_step": "P3.2",
+   "implements": {
+    "screens": [
+     "S5"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "ClaimMaster",
+     "purpose": "screen"
+    }
+   ],
+   "depends_on": [
+    "care_fe/src/types/nhcx/nhcxApi.ts"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit && npm run lint"
+  },
+  {
+   "order": 75,
+   "path": "care_fe/src/pages/Facility/claims/SearchPolicy.tsx",
+   "action": "create",
+   "plan_step": "P3.2",
+   "implements": {
+    "screens": [
+     "S1",
+     "S2"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "SearchPolicy",
+     "purpose": "screen"
+    }
+   ],
+   "depends_on": [
+    "care_fe/src/types/nhcx/nhcxApi.ts"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit && npm run lint"
+  },
+  {
+   "order": 76,
+   "path": "care_fe/src/pages/Facility/claims/BeneficiaryDiscovery.tsx",
+   "action": "create",
+   "plan_step": "P3.2",
+   "implements": {
+    "screens": [
+     "S17"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "BeneficiaryDiscovery",
+     "purpose": "screen"
+    }
+   ],
+   "depends_on": [
+    "care_fe/src/types/nhcx/nhcxApi.ts"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit && npm run lint"
+  },
+  {
+   "order": 77,
+   "path": "care_fe/src/pages/Facility/claims/ClaimDetail.tsx",
+   "action": "create",
+   "plan_step": "P3.2",
+   "implements": {
+    "screens": [
+     "S6"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "ClaimDetail",
+     "purpose": "screen"
+    }
+   ],
+   "depends_on": [
+    "care_fe/src/types/nhcx/nhcxApi.ts"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit && npm run lint"
+  },
+  {
+   "order": 78,
+   "path": "care_fe/src/pages/Facility/claims/tabs/EligibilityTab.tsx",
+   "action": "create",
+   "plan_step": "P3.2",
+   "implements": {
+    "screens": [
+     "S3"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "EligibilityTab",
+     "purpose": "screen"
+    }
+   ],
+   "depends_on": [
+    "care_fe/src/types/nhcx/nhcxApi.ts"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit && npm run lint"
+  },
+  {
+   "order": 79,
+   "path": "care_fe/src/pages/Facility/claims/tabs/InsurancePlanTab.tsx",
+   "action": "create",
+   "plan_step": "P4.1",
+   "implements": {
+    "screens": [
+     "S7"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "InsurancePlanTab",
+     "purpose": "screen"
+    }
+   ],
+   "depends_on": [
+    "care_fe/src/types/nhcx/nhcxApi.ts"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit && npm run lint"
+  },
+  {
+   "order": 80,
+   "path": "care_fe/src/pages/Facility/claims/tabs/LineItemsTab.tsx",
+   "action": "create",
+   "plan_step": "P4.1",
+   "implements": {
+    "screens": [
+     "S8"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "LineItemsTab",
+     "purpose": "screen"
+    }
+   ],
+   "depends_on": [
+    "care_fe/src/types/nhcx/nhcxApi.ts"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit && npm run lint"
+  },
+  {
+   "order": 81,
+   "path": "care_fe/src/pages/Facility/claims/tabs/VerificationTab.tsx",
+   "action": "create",
+   "plan_step": "P5.1",
+   "implements": {
+    "screens": [
+     "S18"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "VerificationTab",
+     "purpose": "screen"
+    }
+   ],
+   "depends_on": [
+    "care_fe/src/types/nhcx/nhcxApi.ts"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit && npm run lint"
+  },
+  {
+   "order": 82,
+   "path": "care_fe/src/pages/Facility/claims/tabs/PreauthTab.tsx",
+   "action": "create",
+   "plan_step": "P5.1",
+   "implements": {
+    "screens": [
+     "S4",
+     "S9"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "PreauthTab",
+     "purpose": "screen"
+    }
+   ],
+   "depends_on": [
+    "care_fe/src/types/nhcx/nhcxApi.ts"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit && npm run lint"
+  },
+  {
+   "order": 83,
+   "path": "care_fe/src/pages/Facility/claims/tabs/CommunicationTab.tsx",
+   "action": "create",
+   "plan_step": "P6.1",
+   "implements": {
+    "screens": [
+     "S10"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "CommunicationTab",
+     "purpose": "screen"
+    }
+   ],
+   "depends_on": [
+    "care_fe/src/types/nhcx/nhcxApi.ts"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit && npm run lint"
+  },
+  {
+   "order": 84,
+   "path": "care_fe/src/pages/Facility/claims/tabs/ClaimTab.tsx",
+   "action": "create",
+   "plan_step": "P7.1",
+   "implements": {
+    "screens": [
+     "S11"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "ClaimTab",
+     "purpose": "screen"
+    }
+   ],
+   "depends_on": [
+    "care_fe/src/types/nhcx/nhcxApi.ts"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit && npm run lint"
+  },
+  {
+   "order": 85,
+   "path": "care_fe/src/pages/Facility/claims/tabs/PaymentsTab.tsx",
+   "action": "create",
+   "plan_step": "P8.1",
+   "implements": {
+    "screens": [
+     "S12"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "PaymentsTab",
+     "purpose": "screen"
+    }
+   ],
+   "depends_on": [
+    "care_fe/src/types/nhcx/nhcxApi.ts"
+   ],
+   "test_file": "care_fe: npx tsc --noEmit && npm run lint"
+  },
+  {
+   "order": 86,
+   "path": "care_fe/src/Routers/routes/FacilityRoutes.tsx",
+   "action": "modify",
+   "plan_step": "P10.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "claims routes",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care_fe: tsc"
+  },
+  {
+   "order": 87,
+   "path": "care_fe/src/components/ui/sidebar/facility/facility-nav.tsx",
+   "action": "modify",
+   "plan_step": "P10.1",
+   "implements": {
+    "screens": [],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "Claims nav",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care_fe: tsc"
+  },
+  {
+   "order": 88,
+   "path": "care_fe/src/components/Patient/PatientIndex.tsx",
+   "action": "modify",
+   "plan_step": "P9.1",
+   "implements": {
+    "screens": [
+     "S13"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "ABHA/HPR additions",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care_fe: tsc"
+  },
+  {
+   "order": 89,
+   "path": "care_fe/src/components/Patient/PatientRegistration.tsx",
+   "action": "modify",
+   "plan_step": "P9.1",
+   "implements": {
+    "screens": [
+     "S14"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "ABHA/HPR additions",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care_fe: tsc"
+  },
+  {
+   "order": 90,
+   "path": "care_fe/src/pages/Patient/PatientHome.tsx",
+   "action": "modify",
+   "plan_step": "P9.1",
+   "implements": {
+    "screens": [
+     "S15"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "ABHA/HPR additions",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care_fe: tsc"
+  },
+  {
+   "order": 91,
+   "path": "care_fe/src/components/Users/UserSummary.tsx",
+   "action": "modify",
+   "plan_step": "P9.1",
+   "implements": {
+    "screens": [
+     "S16"
+    ],
+    "apis": [],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "ABHA/HPR additions",
+     "purpose": ""
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care_fe: tsc"
+  },
+  {
+   "order": 92,
+   "path": "care_fe/src/components/Patient/AbhaDialog.tsx",
+   "action": "create",
+   "plan_step": "P9.1",
+   "implements": {
+    "screens": [
+     "S13",
+     "S14",
+     "S15"
+    ],
+    "apis": [
+     "A19"
+    ],
+    "callbacks": [],
+    "fhir": [],
+    "database": [],
+    "gateway": []
+   },
+   "functions": [
+    {
+     "name": "AbhaDialog",
+     "purpose": "verify or create ABHA"
+    }
+   ],
+   "depends_on": [],
+   "test_file": "care_fe: tsc"
+  }
+ ],
+ "batches": [
+  {
+   "id": "B1",
+   "phase": "layer",
+   "files": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ]
+  },
+  {
+   "id": "B2",
+   "phase": "layer",
+   "files": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "id": "B3",
+   "phase": "layer",
+   "files": [
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46
+   ]
+  },
+  {
+   "id": "B4",
+   "phase": "layer",
+   "files": [
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60
+   ]
+  },
+  {
+   "id": "B5",
+   "phase": "layer",
+   "files": [
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72
+   ]
+  },
+  {
+   "id": "B6",
+   "phase": "layer",
+   "files": [
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87
+   ]
+  },
+  {
+   "id": "B7",
+   "phase": "layer",
+   "files": [
+    88,
+    89,
+    90,
+    91,
+    92
+   ]
+  }
+ ],
+ "corrections": []
+}

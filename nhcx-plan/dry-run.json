@@ -1,0 +1,3269 @@
+{
+  "command": "dtest.sh python manage.py test care.nhcx --keepdb --parallel 1 -v 2",
+  "run_at": "2026-10-13T09:48:23+05:30",
+  "tests": [
+    {
+      "file": "care/nhcx/tests/test_api_core.py",
+      "name": "ApiAuthTests.test_anonymous_is_refused",
+      "covers": [
+        "A13",
+        "A17",
+        "S6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_core.py",
+      "name": "ApiAuthTests.test_ledger_is_superuser_only",
+      "covers": [
+        "A13",
+        "A17",
+        "S6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_core.py",
+      "name": "ApiAuthTests.test_outsider_is_403",
+      "covers": [
+        "A13",
+        "A17",
+        "S6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_core.py",
+      "name": "ApiAuthTests.test_unknown_facility_is_404",
+      "covers": [
+        "A13",
+        "A17",
+        "S6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_core.py",
+      "name": "ApiFlowTests.test_happy_path",
+      "covers": [
+        "A1",
+        "A2",
+        "A3",
+        "A17",
+        "D16",
+        "S1",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_core.py",
+      "name": "ApiFlowTests.test_other_facility_claim_is_404",
+      "covers": [
+        "A1",
+        "A2",
+        "A3",
+        "A17",
+        "D16",
+        "S1",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_core.py",
+      "name": "ApiFlowTests.test_refusal_is_400",
+      "covers": [
+        "A1",
+        "A2",
+        "A3",
+        "A17",
+        "D16",
+        "S1",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_core.py",
+      "name": "ApiFlowTests.test_unknown_claim_is_404",
+      "covers": [
+        "A1",
+        "A2",
+        "A3",
+        "A17",
+        "D16",
+        "S1",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_legs.py",
+      "name": "GlobalApiTests.test_abha_steps",
+      "covers": [
+        "A19",
+        "D2",
+        "S13",
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_legs.py",
+      "name": "GlobalApiTests.test_needs_login",
+      "covers": [
+        "A19",
+        "D2",
+        "S13",
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_legs.py",
+      "name": "GlobalApiTests.test_practitioner_profile",
+      "covers": [
+        "A19",
+        "D2",
+        "S13",
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_legs.py",
+      "name": "LegApiTests.test_adjudicate_hidden_unless_enabled",
+      "covers": [
+        "A4",
+        "A6",
+        "A14",
+        "A15",
+        "D1",
+        "S4",
+        "S9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_legs.py",
+      "name": "LegApiTests.test_cancel_route",
+      "covers": [
+        "A4",
+        "A6",
+        "A14",
+        "D1",
+        "S4",
+        "S9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_legs.py",
+      "name": "LegApiTests.test_draft_and_refusal",
+      "covers": [
+        "A4",
+        "A6",
+        "A14",
+        "D1",
+        "S4",
+        "S9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_legs.py",
+      "name": "LegApiTests.test_facility_profile",
+      "covers": [
+        "A4",
+        "A6",
+        "A14",
+        "D1",
+        "S4",
+        "S9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_legs.py",
+      "name": "LegApiTests.test_outsider_is_403",
+      "covers": [
+        "A4",
+        "A6",
+        "A14",
+        "D1",
+        "S4",
+        "S9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_api_legs.py",
+      "name": "LegApiTests.test_submit_refused_until_eligible",
+      "covers": [
+        "A4",
+        "A6",
+        "A14",
+        "D1",
+        "S4",
+        "S9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "AuthRulingTests.test_c3_applies_ruling",
+      "covers": [
+        "C3",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "DispatchTests.test_archive_writes_inbound",
+      "covers": [
+        "C1",
+        "C2",
+        "D9",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "DispatchTests.test_c2_applies_verdict",
+      "covers": [
+        "C1",
+        "C2",
+        "D9",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "DispatchTests.test_handler_error_is_error",
+      "covers": [
+        "C1",
+        "C2",
+        "D9",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "DispatchTests.test_matching",
+      "covers": [
+        "C1",
+        "C2",
+        "D9",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "DispatchTests.test_missing_handler_is_unmatched",
+      "covers": [
+        "C1",
+        "C2",
+        "D9",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "DispatchTests.test_protocol_response_is_a_refusal",
+      "covers": [
+        "C1",
+        "C2",
+        "D9",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "DispatchTests.test_redelivery_is_idempotent",
+      "covers": [
+        "C1",
+        "C2",
+        "D9",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "DispatchTests.test_reply_reopens_failed_send",
+      "covers": [
+        "C1",
+        "C2",
+        "D9",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "DispatchTests.test_reply_without_response_is_rejected",
+      "covers": [
+        "C1",
+        "C2",
+        "D9",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "DispatchTests.test_routing_table",
+      "covers": [
+        "C1",
+        "C2",
+        "D9",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "DispatchTests.test_unmatched_and_ignored",
+      "covers": [
+        "C1",
+        "C2",
+        "D9",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "PlanCallbackTests.test_c4_applies_plan",
+      "covers": [
+        "C4",
+        "D10",
+        "D11",
+        "D12"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_core.py",
+      "name": "PlanCallbackTests.test_c4_refusal",
+      "covers": [
+        "C4",
+        "D10",
+        "D11",
+        "D12"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "ClaimCallbackTests.test_c6_approved_then_redelivery",
+      "covers": [
+        "C1",
+        "C6",
+        "D20"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "ClaimCallbackTests.test_c6_rejected",
+      "covers": [
+        "C1",
+        "C6",
+        "D20"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "ClaimCallbackTests.test_c8_reprocess_answer",
+      "covers": [
+        "C1",
+        "C6",
+        "C8",
+        "D20",
+        "D29"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "ClaimCallbackTests.test_unmatched_claim_reply",
+      "covers": [
+        "C1",
+        "C6",
+        "D20"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "CommunicationCallbackTests.test_c9_notification_acknowledged",
+      "covers": [
+        "C9",
+        "D23",
+        "F11",
+        "F12"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "CommunicationCallbackTests.test_c9_query_recorded_once",
+      "covers": [
+        "C9",
+        "D23",
+        "F11",
+        "F12"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "PaymentCallbackTests.test_c10_recorded_acknowledged_and_redelivery",
+      "covers": [
+        "C10",
+        "D21",
+        "D22",
+        "F13",
+        "F14"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "PaymentCallbackTests.test_c10_unmatched",
+      "covers": [
+        "C10",
+        "D21",
+        "D22",
+        "F13",
+        "F14"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "PreauthCallbackTests.test_c5_approved_then_redelivery",
+      "covers": [
+        "C5",
+        "D18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "PreauthCallbackTests.test_c5_protocol_refusal_keeps_ids",
+      "covers": [
+        "C5",
+        "D18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "PreauthCallbackTests.test_c5_queried",
+      "covers": [
+        "C5",
+        "D18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "PreauthCallbackTests.test_c7_cancel_accepted",
+      "covers": [
+        "A6",
+        "C5",
+        "C7",
+        "D18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_callbacks_legs.py",
+      "name": "PreauthCallbackTests.test_c7_cancel_refused_restores_status",
+      "covers": [
+        "C5",
+        "C7",
+        "D18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_dry_flow.py",
+      "name": "DryFlowTests.test_claim_s1_to_s12",
+      "covers": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A7",
+        "A8",
+        "A17",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C9",
+        "C10",
+        "D9",
+        "D10",
+        "D11",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D18",
+        "D20",
+        "D21",
+        "D22",
+        "D23",
+        "D25",
+        "D26",
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F8",
+        "F9",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "G1",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9",
+        "G10",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_dry_flow.py",
+      "name": "PmjayDryFlowTests.test_pmjay_claim_with_preauth_query",
+      "covers": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A7",
+        "A8",
+        "A17",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C9",
+        "C10",
+        "D9",
+        "D10",
+        "D11",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D18",
+        "D20",
+        "D21",
+        "D22",
+        "D23",
+        "D25",
+        "D26",
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F8",
+        "F9",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "G1",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9",
+        "G10",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "AdjudicatorTests.test_a14_role_then_a15_process",
+      "covers": [
+        "A14",
+        "A15",
+        "A16",
+        "D24"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "AdjudicatorTests.test_a15_service_error_recorded",
+      "covers": [
+        "A14",
+        "A15",
+        "A16",
+        "D24"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "AdjudicatorTests.test_a16_token_from_gateway_or_setting",
+      "covers": [
+        "A14",
+        "A15",
+        "A16",
+        "D24"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "BiometricTests.test_a18_fingerprint_init_verify_and_headers",
+      "covers": [
+        "A18",
+        "D31",
+        "S18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "BiometricTests.test_a18_service_refusal_fails_the_attempt",
+      "covers": [
+        "A18",
+        "D31",
+        "S18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "LegServiceGapTests.test_a4_preauth_submit_sends_claim_bundle",
+      "covers": [
+        "A4",
+        "D18",
+        "F8",
+        "S9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "LegServiceGapTests.test_a4_predetermination_sent",
+      "covers": [
+        "A4",
+        "D19",
+        "S9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "LegServiceGapTests.test_a6_reprocess_and_release",
+      "covers": [
+        "A6",
+        "D29",
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "LegServiceGapTests.test_d12_plan_forms",
+      "covers": [
+        "C4",
+        "D12"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "LegServiceGapTests.test_d17_d27_draft_rows",
+      "covers": [
+        "D17",
+        "D27",
+        "S4"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "ProtocolRefusalTests.test_c2_protocol_refusal_then_redelivery",
+      "covers": [
+        "C1",
+        "C2",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "ProtocolRefusalTests.test_c3_protocol_refusal",
+      "covers": [
+        "C3",
+        "D13",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "ProtocolRefusalTests.test_c6_protocol_refusal",
+      "covers": [
+        "C6",
+        "D20",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gap_coverage.py",
+      "name": "ProtocolRefusalTests.test_c8_protocol_refusal",
+      "covers": [
+        "C8",
+        "D29",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_models.py",
+      "name": "TestAbha.test_duplicate_refused",
+      "covers": [
+        "D3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_models.py",
+      "name": "TestAbha.test_roundtrip_and_digits_only_lookup",
+      "covers": [
+        "D3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_models.py",
+      "name": "TestAbha.test_update_and_remove",
+      "covers": [
+        "D3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_models.py",
+      "name": "TestClaimWithLegs.test_claim_no_unique",
+      "covers": [
+        "D9",
+        "D10",
+        "D11",
+        "D13",
+        "D16",
+        "D18",
+        "D20",
+        "D21",
+        "D22",
+        "D23",
+        "D25",
+        "D26",
+        "D28",
+        "D31"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_models.py",
+      "name": "TestClaimWithLegs.test_claim_with_children",
+      "covers": [
+        "D9",
+        "D10",
+        "D11",
+        "D13",
+        "D16",
+        "D18",
+        "D20",
+        "D21",
+        "D22",
+        "D23",
+        "D25",
+        "D26",
+        "D28",
+        "D31"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_models.py",
+      "name": "TestClaimWithLegs.test_unique_line_and_hard_delete",
+      "covers": [
+        "D9",
+        "D10",
+        "D11",
+        "D13",
+        "D16",
+        "D18",
+        "D20",
+        "D21",
+        "D22",
+        "D23",
+        "D25",
+        "D26",
+        "D28",
+        "D31"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_models.py",
+      "name": "TestCounter.test_claim_number_format",
+      "covers": [
+        "D30"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_models.py",
+      "name": "TestCounter.test_increments_from_one",
+      "covers": [
+        "D30"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_models.py",
+      "name": "TestCounter.test_rollback_does_not_use_a_number",
+      "covers": [
+        "D30"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_models.py",
+      "name": "TestMigrations.test_abha_identifier_configs_seeded_and_valid",
+      "covers": [
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_models.py",
+      "name": "TestMigrations.test_profiles",
+      "covers": [
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "EligibilityTests.test_auth_requirements_refusals_and_send",
+      "covers": [
+        "A2",
+        "D9",
+        "D13",
+        "S3",
+        "S17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "EligibilityTests.test_check_sent",
+      "covers": [
+        "A2",
+        "D9",
+        "D13",
+        "S3",
+        "S17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "EligibilityTests.test_discover_opens_case",
+      "covers": [
+        "A2",
+        "D9",
+        "D13",
+        "S3",
+        "S17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "EligibilityTests.test_ensure_auth_requirements",
+      "covers": [
+        "A2",
+        "D9",
+        "D13",
+        "S3",
+        "S17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "EligibilityTests.test_not_ok_result",
+      "covers": [
+        "A2",
+        "D9",
+        "D13",
+        "S3",
+        "S17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "EligibilityTests.test_refusal_before_ids",
+      "covers": [
+        "A2",
+        "D9",
+        "D13",
+        "S3",
+        "S17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "EligibilityTests.test_refusals",
+      "covers": [
+        "A2",
+        "D9",
+        "D13",
+        "S3",
+        "S17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "EligibilityTests.test_send_failure_keeps_ids",
+      "covers": [
+        "A2",
+        "D9",
+        "D13",
+        "S3",
+        "S17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "HookTests.test_defaults_answer_until_registered",
+      "covers": [
+        "A17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "HookTests.test_registered_and_failing_hooks",
+      "covers": [
+        "A17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "LineTests.test_add_refusals",
+      "covers": [
+        "D16",
+        "S8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "LineTests.test_add_update_remove",
+      "covers": [
+        "D16",
+        "S8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "LineTests.test_link_admission_refusals",
+      "covers": [
+        "D16",
+        "S8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PlanTests.test_refusals",
+      "covers": [
+        "A3",
+        "D10",
+        "S7"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PlanTests.test_request_and_reuse",
+      "covers": [
+        "A3",
+        "D10",
+        "S7"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PolicyTests.test_open_case",
+      "covers": [
+        "A1",
+        "G10",
+        "S1",
+        "S2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PolicyTests.test_search_normalises_and_handles_errors",
+      "covers": [
+        "A1",
+        "G10",
+        "S1",
+        "S2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PolicyTests.test_search_refusals",
+      "covers": [
+        "A1",
+        "G10",
+        "S1",
+        "S2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PollingTests.test_cancel_not_found",
+      "covers": [
+        "A10",
+        "A11",
+        "A12",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PollingTests.test_dispatch_failed",
+      "covers": [
+        "A10",
+        "A11",
+        "A12",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PollingTests.test_not_found_writes_error",
+      "covers": [
+        "A10",
+        "A11",
+        "A12",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PollingTests.test_other_errors_become_notes",
+      "covers": [
+        "A10",
+        "A11",
+        "A12",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PollingTests.test_own_reply_is_skipped",
+      "covers": [
+        "A10",
+        "A11",
+        "A12",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PollingTests.test_peer_refusal_on_preauth",
+      "covers": [
+        "A10",
+        "A11",
+        "A12",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PollingTests.test_protocol_rejection",
+      "covers": [
+        "A10",
+        "A11",
+        "A12",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "PollingTests.test_reply_found_is_applied",
+      "covers": [
+        "A10",
+        "A11",
+        "A12",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "StageTests.test_stage_follows_legs",
+      "covers": [
+        "A17",
+        "D9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "StateTests.test_admissions_match_abha",
+      "covers": [
+        "A17",
+        "S6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_core.py",
+      "name": "StateTests.test_shape",
+      "covers": [
+        "A17",
+        "S6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "AbhaServiceTests.test_create_via_aadhaar",
+      "covers": [
+        "A19",
+        "D3",
+        "S13",
+        "S14",
+        "S15"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "AbhaServiceTests.test_refusals_and_retry",
+      "covers": [
+        "A19",
+        "D3",
+        "S13",
+        "S14",
+        "S15"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "AbhaServiceTests.test_service_error_is_refusal",
+      "covers": [
+        "A19",
+        "D3",
+        "S13",
+        "S14",
+        "S15"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "AbhaServiceTests.test_verify_via_mobile",
+      "covers": [
+        "A19",
+        "D3",
+        "S13",
+        "S14",
+        "S15"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "ClaimServiceTests.test_claim_needs_discharge_and_preauth",
+      "covers": [
+        "A5",
+        "A6",
+        "D20",
+        "S11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "ClaimServiceTests.test_discharge_mode_required",
+      "covers": [
+        "A5",
+        "A6",
+        "D20",
+        "S11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "ClaimServiceTests.test_reprocess_refused_before_decision",
+      "covers": [
+        "A5",
+        "A6",
+        "D20",
+        "S11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "DraftServiceTests.test_save_and_refusals",
+      "covers": [
+        "D17",
+        "D25",
+        "D26",
+        "S4"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "PreauthServiceTests.test_cancel_refusals",
+      "covers": [
+        "A4",
+        "A6",
+        "D18",
+        "D29",
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "PreauthServiceTests.test_cancel_sends_task",
+      "covers": [
+        "A4",
+        "A6",
+        "D18",
+        "D29",
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "PreauthServiceTests.test_status_bad_stage",
+      "covers": [
+        "A4",
+        "A6",
+        "D18",
+        "D29",
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "PreauthServiceTests.test_status_send_failure_keeps_ids",
+      "covers": [
+        "A4",
+        "A6",
+        "D18",
+        "D29",
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "PreauthServiceTests.test_submit_refused_until_eligible",
+      "covers": [
+        "A4",
+        "A6",
+        "D18",
+        "D29",
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "SmallServiceTests.test_adjudicator_off_by_default",
+      "covers": [
+        "A14",
+        "A18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_services_legs.py",
+      "name": "SmallServiceTests.test_biometric_needs_patient",
+      "covers": [
+        "A14",
+        "A18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "ClaimTests.test_bundle_per_kind",
+      "covers": [
+        "D28",
+        "F8",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "F19"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "ClaimTests.test_claim_lama_collapse_and_preauth_ref",
+      "covers": [
+        "D28",
+        "F8",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "F19"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "ClaimTests.test_documents_follow_leg_stage",
+      "covers": [
+        "D28",
+        "F8",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "F19"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "ClaimTests.test_matches_example_claim_shape",
+      "covers": [
+        "D28",
+        "F8",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "F19"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "ClaimTests.test_preauth_entry_order_and_elements",
+      "covers": [
+        "D28",
+        "F8",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "F19"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "CommunicationTests.test_acknowledgement",
+      "covers": [
+        "F12"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "CommunicationTests.test_reply",
+      "covers": [
+        "F12"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "CommunicationTests.test_reply_refusals",
+      "covers": [
+        "F12"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "EligibilityRequestTests.test_bundle_per_purpose",
+      "covers": [
+        "F2",
+        "F18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "EligibilityRequestTests.test_matches_example_layout",
+      "covers": [
+        "F2",
+        "F18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "EligibilityRequestTests.test_refusals",
+      "covers": [
+        "F2",
+        "F18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "EligibilityRequestTests.test_tier_rides_on_its_procedure",
+      "covers": [
+        "F2",
+        "F18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "PaymentAckTests.test_ack",
+      "covers": [
+        "F14"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "PlanTaskTests.test_inputs",
+      "covers": [
+        "F4"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "PlanTaskTests.test_refusal",
+      "covers": [
+        "F4"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "ResourceTests.test_organizations",
+      "covers": [
+        "F7",
+        "F15",
+        "F16",
+        "F17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "ResourceTests.test_patient",
+      "covers": [
+        "F7",
+        "F15",
+        "F16",
+        "F17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "ResourceTests.test_practitioner",
+      "covers": [
+        "F7",
+        "F15",
+        "F16",
+        "F17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "ResourceTests.test_questionnaire_response",
+      "covers": [
+        "F7",
+        "F15",
+        "F16",
+        "F17"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "TaskTests.test_cancel_inputs",
+      "covers": [
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "TaskTests.test_kinds",
+      "covers": [
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "TaskTests.test_refusal",
+      "covers": [
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_build.py",
+      "name": "TaskTests.test_release_amount",
+      "covers": [
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_bundle.py",
+      "name": "BundleTests.test_kinds_have_ids_profiles_and_anchors",
+      "covers": [
+        "F1",
+        "F19"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_bundle.py",
+      "name": "BundleTests.test_protocol_response",
+      "covers": [
+        "F1",
+        "F19",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_bundle.py",
+      "name": "BundleTests.test_unwrap_and_find",
+      "covers": [
+        "F1",
+        "F19"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_bundle.py",
+      "name": "BundleTests.test_values",
+      "covers": [
+        "F1",
+        "F19"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_bundle.py",
+      "name": "BundleTests.test_wrap_puts_anchor_first_with_absolute_urls",
+      "covers": [
+        "F1",
+        "F19"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_codes.py",
+      "name": "CodesTests.test_coding_leaves_out_empty_parts",
+      "covers": [
+        "D8",
+        "F1",
+        "F8",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_codes.py",
+      "name": "CodesTests.test_degree_codes",
+      "covers": [
+        "D8",
+        "F1",
+        "F8",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_codes.py",
+      "name": "CodesTests.test_gender",
+      "covers": [
+        "D8",
+        "F1",
+        "F8",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_codes.py",
+      "name": "CodesTests.test_identifier_type",
+      "covers": [
+        "D8",
+        "F1",
+        "F8",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_codes.py",
+      "name": "CodesTests.test_lookups",
+      "covers": [
+        "D8",
+        "F1",
+        "F8",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_codes.py",
+      "name": "CodesTests.test_profile_urls",
+      "covers": [
+        "D8",
+        "F1",
+        "F8",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_codes.py",
+      "name": "CodesTests.test_reason_word",
+      "covers": [
+        "D8",
+        "F1",
+        "F8",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "ClaimResponseReadTests.test_acknowledgement_and_query_trail",
+      "covers": [
+        "F9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "ClaimResponseReadTests.test_approved",
+      "covers": [
+        "F9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "ClaimResponseReadTests.test_deduction",
+      "covers": [
+        "F9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "ClaimResponseReadTests.test_error_message",
+      "covers": [
+        "F9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "ClaimResponseReadTests.test_predetermination",
+      "covers": [
+        "D19",
+        "F9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "ClaimResponseReadTests.test_protocol_response",
+      "covers": [
+        "F9",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "ClaimResponseReadTests.test_queried_and_rejected",
+      "covers": [
+        "F9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "ClaimResponseReadTests.test_query_pieces",
+      "covers": [
+        "F9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "ClaimResponseReadTests.test_table",
+      "covers": [
+        "F9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "ClaimResponseReadTests.test_workflow_id_wins_but_error_and_partial_hold",
+      "covers": [
+        "F9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "CommunicationReadTests.test_classification",
+      "covers": [
+        "F11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "CommunicationReadTests.test_note",
+      "covers": [
+        "F11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "CommunicationReadTests.test_notification",
+      "covers": [
+        "F11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "CommunicationReadTests.test_query",
+      "covers": [
+        "F11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "EligibilityReadTests.test_no_response",
+      "covers": [
+        "F3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "EligibilityReadTests.test_requirement_text",
+      "covers": [
+        "F3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "EligibilityReadTests.test_ruling_generic_stages",
+      "covers": [
+        "F3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "EligibilityReadTests.test_ruling_pmjay",
+      "covers": [
+        "F3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "EligibilityReadTests.test_verdict_pmjay",
+      "covers": [
+        "F3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "EligibilityReadTests.test_verdict_wallet",
+      "covers": [
+        "F3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "PaymentReadTests.test_not_a_notice",
+      "covers": [
+        "F13"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "PaymentReadTests.test_notice",
+      "covers": [
+        "F13"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "PaymentReadTests.test_pmjay_notice",
+      "covers": [
+        "F13"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "PlanReadTests.test_empty",
+      "covers": [
+        "F5",
+        "F6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "PlanReadTests.test_generic_plan_with_coverage_limits",
+      "covers": [
+        "F5",
+        "F6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "PlanReadTests.test_nested_items_and_options",
+      "covers": [
+        "F5",
+        "F6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "PlanReadTests.test_pmjay_plan",
+      "covers": [
+        "F5",
+        "F6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "TaskReplyReadTests.test_cancel_accepted",
+      "covers": [
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "TaskReplyReadTests.test_cancel_refused_on_error",
+      "covers": [
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "TaskReplyReadTests.test_reprocess_reopened",
+      "covers": [
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_fhir_read.py",
+      "name": "TaskReplyReadTests.test_status_from_header_output_and_rejection",
+      "covers": [
+        "F10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "BeneficiaryTests.test_no_identifier",
+      "covers": [
+        "G10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "BeneficiaryTests.test_non_json_upstream",
+      "covers": [
+        "G10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "BeneficiaryTests.test_policies_search",
+      "covers": [
+        "G10"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "CheckTests.test_healthz_probe",
+      "covers": [
+        "G11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "CheckTests.test_readyz",
+      "covers": [
+        "G11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "CheckTests.test_run_checks",
+      "covers": [
+        "G11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "CheckTests.test_test_endpoint",
+      "covers": [
+        "G11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "TaskTests.test_noop_without_role",
+      "covers": [
+        "G1",
+        "G3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "TaskTests.test_runs_with_role",
+      "covers": [
+        "G1",
+        "G3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "ViewTests.test_get_gateway_from_settings",
+      "covers": [
+        "G1",
+        "G8",
+        "G11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "ViewTests.test_health_views",
+      "covers": [
+        "G1",
+        "G8",
+        "G11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "ViewTests.test_inbound_get_not_allowed",
+      "covers": [
+        "G1",
+        "G8",
+        "G11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "ViewTests.test_inbound_too_large",
+      "covers": [
+        "G1",
+        "G8",
+        "G11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "ViewTests.test_inbound_view",
+      "covers": [
+        "G1",
+        "G8",
+        "G11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "ViewTests.test_internal_error",
+      "covers": [
+        "G1",
+        "G8",
+        "G11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "ViewTests.test_not_configured",
+      "covers": [
+        "G1",
+        "G8",
+        "G11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_checks.py",
+      "name": "ViewTests.test_routes_resolve",
+      "covers": [
+        "G1",
+        "G8",
+        "G11"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_bad_private_key",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_code_gets_hcx_suffix",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_comment_keys_allowed",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_defaults_sandbox",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_env_expansion",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_env_override",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_example_config_documents_every_key",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_get_session_mode_url",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_guests_section",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_missing_env_listed",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_open_gateway_host_and_public_url",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_participants_inherit_and_duplicates",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_private_key_file_relative",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_private_key_inline_and_pkcs1",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_production_needs_nhcx_url",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_unknown_key_rejected",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_config.py",
+      "name": "ConfigTests.test_validation_messages",
+      "covers": [
+        "G2"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_crypto.py",
+      "name": "CryptoTests.test_disallowed_alg",
+      "covers": [
+        "G6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_crypto.py",
+      "name": "CryptoTests.test_flattened",
+      "covers": [
+        "G6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_crypto.py",
+      "name": "CryptoTests.test_key_formats",
+      "covers": [
+        "G6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_crypto.py",
+      "name": "CryptoTests.test_not_compact",
+      "covers": [
+        "G6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_crypto.py",
+      "name": "CryptoTests.test_roundtrip",
+      "covers": [
+        "G6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_crypto.py",
+      "name": "CryptoTests.test_wrong_key",
+      "covers": [
+        "G6"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_crypto.py",
+      "name": "HeaderTests.test_build_protected_headers_fills_defaults",
+      "covers": [
+        "G5"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_crypto.py",
+      "name": "HeaderTests.test_given_ids_kept",
+      "covers": [
+        "G5"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_crypto.py",
+      "name": "HeaderTests.test_normalize_code",
+      "covers": [
+        "G5"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_crypto.py",
+      "name": "HeaderTests.test_paths",
+      "covers": [
+        "G5"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_crypto.py",
+      "name": "HeaderTests.test_target_url",
+      "covers": [
+        "G5"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_crypto.py",
+      "name": "HeaderTests.test_timestamps",
+      "covers": [
+        "G5"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_ledger.py",
+      "name": "LedgerTests.test_disabled",
+      "covers": [
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_ledger.py",
+      "name": "LedgerTests.test_errors",
+      "covers": [
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_ledger.py",
+      "name": "LedgerTests.test_failed_dispatch",
+      "covers": [
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_ledger.py",
+      "name": "LedgerTests.test_ids",
+      "covers": [
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_ledger.py",
+      "name": "LedgerTests.test_queries",
+      "covers": [
+        "A13",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_ledger.py",
+      "name": "LedgerTests.test_second_instance_sees_writes",
+      "covers": [
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_ledger.py",
+      "name": "LedgerTests.test_store_bodies_off",
+      "covers": [
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_ledger.py",
+      "name": "LedgerTests.test_summarize_non_bundle",
+      "covers": [
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_ledger.py",
+      "name": "LedgerTests.test_sweep",
+      "covers": [
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_receive.py",
+      "name": "ReceiveTests.test_bad_bodies",
+      "covers": [
+        "G6",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_receive.py",
+      "name": "ReceiveTests.test_decrypt_failed",
+      "covers": [
+        "G6",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_receive.py",
+      "name": "ReceiveTests.test_delivered",
+      "covers": [
+        "G6",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_receive.py",
+      "name": "ReceiveTests.test_flattened_jwe",
+      "covers": [
+        "G6",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_receive.py",
+      "name": "ReceiveTests.test_guest_opened_with_our_key",
+      "covers": [
+        "G6",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_receive.py",
+      "name": "ReceiveTests.test_not_open_answer",
+      "covers": [
+        "G6",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_receive.py",
+      "name": "ReceiveTests.test_outcomes",
+      "covers": [
+        "G6",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_receive.py",
+      "name": "ReceiveTests.test_protocol_message",
+      "covers": [
+        "G6",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_receive.py",
+      "name": "ReceiveTests.test_receive_failure_is_502",
+      "covers": [
+        "G6",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_receive.py",
+      "name": "ReceiveTests.test_wrong_recipient",
+      "covers": [
+        "G6",
+        "G8"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_401_retried_once_with_fresh_token",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_accepted",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_cert_cached",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_cert_errors",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_invalid_envelopes_write_nothing",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_ledger_off",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_no_recipient_is_recorded",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_payload_alias_and_string",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_refuses_inside_atomic_block",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_rejected",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_response_path_threading",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_send_error_dict",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_testcase_atomic_block_ignored",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "SendTests.test_unreachable_is_failed_row",
+      "covers": [
+        "G4",
+        "G7",
+        "G9"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "TokenTests.test_refresh_all_counts_failures",
+      "covers": [
+        "A16",
+        "G3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "TokenTests.test_refresh_forces_fetch",
+      "covers": [
+        "A16",
+        "G3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "TokenTests.test_shared_store",
+      "covers": [
+        "A16",
+        "G3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "TokenTests.test_token_cached_and_payload",
+      "covers": [
+        "A16",
+        "G3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "TokenTests.test_token_errors",
+      "covers": [
+        "A16",
+        "G3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_gateway_send.py",
+      "name": "TokenTests.test_unknown_participant",
+      "covers": [
+        "A16",
+        "G3"
+      ],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_isolation.py",
+      "name": "NetworkGuardTests.test_allow_rules",
+      "covers": [],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_isolation.py",
+      "name": "NetworkGuardTests.test_external_connect_blocked",
+      "covers": [],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_isolation.py",
+      "name": "NetworkGuardTests.test_external_lookup_blocked",
+      "covers": [],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_isolation.py",
+      "name": "NetworkGuardTests.test_installed",
+      "covers": [],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_isolation.py",
+      "name": "NetworkGuardTests.test_loopback_allowed",
+      "covers": [],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_isolation.py",
+      "name": "NetworkGuardTests.test_requests_cannot_swallow_the_block",
+      "covers": [],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_isolation.py",
+      "name": "NetworkGuardTests.test_scoped_to_nhcx_tests",
+      "covers": [],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_isolation.py",
+      "name": "SettingsPinnedTests.test_env_overrides_scrubbed",
+      "covers": [],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_isolation.py",
+      "name": "SettingsPinnedTests.test_gateway_settings_off",
+      "covers": [],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_isolation.py",
+      "name": "SettingsPinnedTests.test_real_gateway_never_opens",
+      "covers": [],
+      "result": "pass",
+      "failure": ""
+    },
+    {
+      "file": "care/nhcx/tests/test_isolation.py",
+      "name": "SettingsPinnedTests.test_scheduled_work_is_off",
+      "covers": [],
+      "result": "pass",
+      "failure": ""
+    }
+  ],
+  "coverage": {
+    "S": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18"
+    ],
+    "A": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A10",
+      "A11",
+      "A12",
+      "A13",
+      "A14",
+      "A15",
+      "A16",
+      "A17",
+      "A18",
+      "A19"
+    ],
+    "C": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8",
+      "C9",
+      "C10"
+    ],
+    "F": [
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5",
+      "F6",
+      "F7",
+      "F8",
+      "F9",
+      "F10",
+      "F11",
+      "F12",
+      "F13",
+      "F14",
+      "F15",
+      "F16",
+      "F17",
+      "F18",
+      "F19"
+    ],
+    "D": [
+      "D1",
+      "D2",
+      "D3",
+      "D8",
+      "D9",
+      "D10",
+      "D11",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16",
+      "D17",
+      "D18",
+      "D19",
+      "D20",
+      "D21",
+      "D22",
+      "D23",
+      "D24",
+      "D25",
+      "D26",
+      "D27",
+      "D28",
+      "D29",
+      "D30",
+      "D31"
+    ],
+    "G": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9",
+      "G10",
+      "G11"
+    ]
+  },
+  "summary": {
+    "pass": 277,
+    "fail": 0,
+    "skip": 0
+  },
+  "corrections": [],
+  "notes": [
+    "Screen ids (S) are covered API-side by the backend tests of the endpoints that back each screen action; the screens themselves are checked by the frontend type-check, not by these tests.",
+    "ProtocolResponse (response.error) refusals apply to replies to our sends (C1-C8); C9 and C10 are payer-initiated requests, so they are covered for record-once, redelivery and acknowledgement only.",
+    "L7.1 isolation: config/settings/test.py pins every NHCX setting off (no gateway config, NHCX_ROLE False, no archive dir, empty service URLs); care/nhcx/tests/network_guard.py fails any non-loopback, non-infra connection made from a care.nhcx test frame."
+  ]
+}

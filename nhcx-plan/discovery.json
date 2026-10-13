@@ -1,0 +1,804 @@
+{
+  "target": {
+    "repo": "care (+ care_fe)",
+    "commit": "3fe704930d9b2d7b6ffdc212cbf6a6a72bfaede4",
+    "care_fe_commit": "8b50667449409928565b18a1ea3901dfc05bbb70",
+    "discovered_at": "2026-10-13T08:45:00+05:30"
+  },
+  "technology": {
+    "side": "provider",
+    "languages": [
+      {
+        "name": "Python",
+        "version": "3.13"
+      },
+      {
+        "name": "TypeScript",
+        "version": "5 (React 19)"
+      }
+    ],
+    "framework": "Django 6.0 + Django REST Framework 3.16",
+    "ui": "SPA: care_fe (React 19, Vite, TanStack Query, shadcn/ui, raviger routes), separate repo",
+    "database": "PostgreSQL 16",
+    "orm": "Django ORM",
+    "migrations": {
+      "tool": "python manage.py makemigrations",
+      "dir": "care/<app>/migrations"
+    },
+    "routing": {
+      "file": "config/api_router.py",
+      "lines": "116-200"
+    },
+    "jobs": "Celery 5.6 with celery beat (config/celery_app.py)",
+    "tests": {
+      "framework": "Django test runner (unittest)",
+      "command": "python manage.py test care.nhcx --keepdb (in the care_local docker image)"
+    },
+    "lint": "ruff check . && ruff format --check .",
+    "typecheck": "care_fe: npx tsc --noEmit; backend: none enforced",
+    "build": "care_fe: npm run build",
+    "config": "django-environ: env vars in config/settings/base.py",
+    "navigation": {
+      "file": "care_fe/src/components/ui/sidebar/facility/facility-nav.tsx",
+      "lines": "40-180"
+    }
+  },
+  "entities": [
+    {
+      "name": "facility",
+      "spec": "D1",
+      "model": "facility.Facility",
+      "file": "care/facility/models/facility.py",
+      "lines": "153-262",
+      "key": "id (external_id UUID)"
+    },
+    {
+      "name": "practitioner",
+      "spec": "D2",
+      "model": "users.User",
+      "file": "care/users/models.py",
+      "lines": "96-232",
+      "key": "id (external_id UUID)"
+    },
+    {
+      "name": "patient",
+      "spec": "D3",
+      "model": "emr.Patient",
+      "file": "care/emr/models/patient.py",
+      "lines": "16-137",
+      "key": "id (external_id UUID)"
+    },
+    {
+      "name": "encounter",
+      "spec": "D4",
+      "model": "emr.Encounter",
+      "file": "care/emr/models/encounter.py",
+      "lines": "8-64",
+      "key": "id (external_id UUID)"
+    },
+    {
+      "name": "diagnosis",
+      "spec": "D5",
+      "model": "emr.Condition",
+      "file": "care/emr/models/condition.py",
+      "lines": "6-20",
+      "key": "id"
+    },
+    {
+      "name": "billing account",
+      "spec": "D9",
+      "model": "emr.Account",
+      "file": "care/emr/models/account.py",
+      "lines": "7-32",
+      "key": "id"
+    },
+    {
+      "name": "charge item",
+      "spec": "D27",
+      "model": "emr.ChargeItem",
+      "file": "care/emr/models/charge_item.py",
+      "lines": "7-56",
+      "key": "id"
+    },
+    {
+      "name": "file upload",
+      "spec": "D28",
+      "model": "emr.FileUpload",
+      "file": "care/emr/models/file_upload.py",
+      "lines": "13-50",
+      "key": "id"
+    }
+  ],
+  "items": [
+    {
+      "spec": "S1",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Search Policy screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S2",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Select Policy screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S3",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Policy Discovery screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S4",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Claim Creation Form screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S5",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Claim Master screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S6",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Claim Detail screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S7",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Insurance Plan screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S8",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Line Items screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S9",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Pre-authorisation screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S10",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Communication screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S11",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Claim Submission screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S12",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Payments screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S17",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Beneficiary Discovery screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S18",
+      "kind": "screen",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "No Beneficiary Verification screen in care_fe"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S13",
+      "kind": "screen",
+      "status": "partial",
+      "locations": [
+        {
+          "file": "care_fe/src/components/Patient/PatientIndex.tsx",
+          "lines": "1-791",
+          "what": "template"
+        }
+      ],
+      "covers": [
+        "patient search by phone/name, list"
+      ],
+      "gaps": [
+        "search by ABHA number",
+        "Register with ABHA entry (A19)"
+      ],
+      "notes": "CARE patient list is facility-scoped"
+    },
+    {
+      "spec": "S14",
+      "kind": "screen",
+      "status": "partial",
+      "locations": [
+        {
+          "file": "care_fe/src/components/Patient/PatientRegistration.tsx",
+          "lines": "1-1198",
+          "what": "template"
+        }
+      ],
+      "covers": [
+        "name, gender, dob, phone, address, identifiers via PatientIdentifierConfig"
+      ],
+      "gaps": [
+        "ABHA number/address fields",
+        "Verify or create an ABHA (A19)"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S15",
+      "kind": "screen",
+      "status": "partial",
+      "locations": [
+        {
+          "file": "care_fe/src/pages/Patient/PatientHome.tsx",
+          "lines": "1-292",
+          "what": "template"
+        }
+      ],
+      "covers": [
+        "patient chart header, encounters"
+      ],
+      "gaps": [
+        "ABHA chip",
+        "Verify or create an ABHA",
+        "link to claims"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "S16",
+      "kind": "screen",
+      "status": "partial",
+      "locations": [
+        {
+          "file": "care_fe/src/components/Users/UserHome.tsx",
+          "lines": "1-200",
+          "what": "template"
+        }
+      ],
+      "covers": [
+        "user profile with qualification, medical council registration"
+      ],
+      "gaps": [
+        "HPR id",
+        "active flag for pickers"
+      ],
+      "notes": "Practitioners are CARE users"
+    },
+    {
+      "spec": "A*",
+      "kind": "api",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "L1.1 scan found no NHCX code"
+      ],
+      "notes": "greenfield"
+    },
+    {
+      "spec": "C*",
+      "kind": "callback",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "L1.1 scan found no NHCX code"
+      ],
+      "notes": "greenfield"
+    },
+    {
+      "spec": "F*",
+      "kind": "fhir",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "L1.1 scan found no NHCX code"
+      ],
+      "notes": "greenfield"
+    },
+    {
+      "spec": "G*",
+      "kind": "gateway",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "L1.1 scan found no NHCX code"
+      ],
+      "notes": "greenfield"
+    },
+    {
+      "spec": "D1",
+      "kind": "database",
+      "status": "partial",
+      "locations": [
+        {
+          "file": "care/facility/models/facility.py",
+          "lines": "153-262",
+          "what": "model"
+        }
+      ],
+      "covers": [
+        "name, address, phone, pincode"
+      ],
+      "gaps": [
+        "HFR id",
+        "NHCX participant code"
+      ],
+      "notes": "Use NHCX-owned one-to-one extension table keyed on facility"
+    },
+    {
+      "spec": "D2",
+      "kind": "database",
+      "status": "partial",
+      "locations": [
+        {
+          "file": "care/users/models.py",
+          "lines": "96-232",
+          "what": "model"
+        }
+      ],
+      "covers": [
+        "name, gender, qualification, doctor_medical_council_registration"
+      ],
+      "gaps": [
+        "HPR id",
+        "NHCX active flag"
+      ],
+      "notes": "Use NHCX-owned one-to-one extension table keyed on user"
+    },
+    {
+      "spec": "D3",
+      "kind": "database",
+      "status": "partial",
+      "locations": [
+        {
+          "file": "care/emr/models/patient.py",
+          "lines": "16-137",
+          "what": "model"
+        },
+        {
+          "file": "care/emr/models/patient.py",
+          "lines": "162-178",
+          "what": "model"
+        }
+      ],
+      "covers": [
+        "name, gender, dob, phone, address; PatientIdentifier mechanism"
+      ],
+      "gaps": [
+        "ABHA number and address"
+      ],
+      "notes": "ABHA number via PatientIdentifierConfig (HMIS identifier mechanism)"
+    },
+    {
+      "spec": "D4",
+      "kind": "database",
+      "status": "found",
+      "locations": [
+        {
+          "file": "care/emr/models/encounter.py",
+          "lines": "8-64",
+          "what": "model"
+        }
+      ],
+      "covers": [
+        "status, encounter_class (imp), period, hospitalization, care_team, facility"
+      ],
+      "gaps": [],
+      "notes": "current admission = encounter_class imp/emer and status in-progress"
+    },
+    {
+      "spec": "D5",
+      "kind": "database",
+      "status": "found",
+      "locations": [
+        {
+          "file": "care/emr/models/condition.py",
+          "lines": "6-20",
+          "what": "model"
+        }
+      ],
+      "covers": [
+        "code (Coding JSON), category, clinical/verification status, patient, encounter"
+      ],
+      "gaps": [
+        "ICD-10 code may be only in code.system SNOMED"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D6",
+      "kind": "database",
+      "status": "found",
+      "locations": [
+        {
+          "file": "care/emr/models/observation.py",
+          "lines": "6-58",
+          "what": "model"
+        }
+      ],
+      "covers": [
+        "code, value, effective datetime"
+      ],
+      "gaps": [],
+      "notes": ""
+    },
+    {
+      "spec": "D7",
+      "kind": "database",
+      "status": "found",
+      "locations": [
+        {
+          "file": "care/emr/models/allergy_intolerance.py",
+          "lines": "6-21",
+          "what": "model"
+        }
+      ],
+      "covers": [
+        "code, criticality"
+      ],
+      "gaps": [],
+      "notes": ""
+    },
+    {
+      "spec": "D8",
+      "kind": "database",
+      "status": "partial",
+      "locations": [
+        {
+          "file": "care/emr/models/valueset.py",
+          "lines": "12-58",
+          "what": "model"
+        }
+      ],
+      "covers": [
+        "ValueSet with compose rules for SNOMED/LOINC/ICD"
+      ],
+      "gaps": [
+        "payer adapter mapping lists"
+      ],
+      "notes": "NHCX code lists live in care/nhcx/fhir/codes.py"
+    },
+    {
+      "spec": "D9",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": "Account/ChargeItem (billing) exist but carry no payer, policy or claim leg data"
+    },
+    {
+      "spec": "D10",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D11",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D12",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D13",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D14",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D15",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D16",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D17",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D18",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D19",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D20",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D21",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D22",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D23",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D24",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D25",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D26",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D27",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": "Account/ChargeItem (billing) exist but carry no payer, policy or claim leg data"
+    },
+    {
+      "spec": "D28",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D29",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D30",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    },
+    {
+      "spec": "D31",
+      "kind": "database",
+      "status": "missing",
+      "locations": [],
+      "covers": [],
+      "gaps": [
+        "no table"
+      ],
+      "notes": ""
+    }
+  ],
+  "corrections": [],
+  "notes": [
+    "Placement chosen by the user: directly in care core (Django app care.nhcx) and care_fe, not in the care_abdm plug.",
+    "care_abdm plug (separate repo) owns ABDM M1/M2; per SCAFFOLDING 4 coexistence, NHCX keeps its own ABHA identifier config and A19 flow."
+  ]
+}
