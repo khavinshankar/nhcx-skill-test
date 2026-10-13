@@ -40,9 +40,17 @@ through an `Entire-Checkpoint` trailer.
   carries the checkpoint. The checkpoint transcript covers everything the
   agent did in every child repository.
 - Child repositories have a local `prepare-commit-msg` hook that adds
-  `Entire-Session: <session id>` to commits made from an agent session. Install
+  `Entire-Session: <session id>` to commits made from an agent session, and
+  `Entire-Subagent: <id>` when a Copilot subagent made the commit. Install
   or reinstall it with `scripts/install-child-entire-hooks.sh`. Commits made
-  outside an agent session get no trailer.
+  outside an agent session get no trailer. For Copilot the hook finds the
+  top-level session from the `inuse.<pid>.lock` that Copilot holds in
+  `~/.copilot/session-state/<id>/`. It does not use `entire session current`
+  for Copilot: that resolves by process ancestry and can return a subagent or
+  the app's title-generator session, which share the Copilot process.
+- Entire checkpoints a session only at a parent commit, and only up to that
+  commit. Turns after a session's last parent commit are never checkpointed,
+  so every prompt ends with a task-record commit (see `AGENTS.md`).
 - `care_fe` tracks its own upstream Entire settings, which push to
   `ohcnetwork/care_fe-checkpoints`. Entire is not installed in that checkout,
   so nothing is captured or pushed there. Do not run `entire enable` in
@@ -73,11 +81,51 @@ checkpoints, use the report script, which reads the same data from
 ```sh
 scripts/checkpoint-report.py <id>                         # summary + timeline
 scripts/checkpoint-report.py <id> --reasoning --results   # plus reasoning and tool output
+scripts/checkpoint-report.py <id> --system                # plus system prompt and instructions
+scripts/checkpoint-report.py --session <session-id>       # live log, incl. uncommitted turns
 ```
 
-The report lists the model, reasoning effort, premium requests, skills
-invoked, tool counts and failures, child repositories referenced, and linked
-parent and child commits.
+The report lists the models and model changes, reasoning effort, premium
+requests, skills loaded (with the SKILL.md path), MCP servers used, subagents
+with their status and tokens, errors, tool counts and failures, child
+repositories referenced, and linked parent and child commits. Its timeline
+labels subagent activity and shows each `ask_user` question with the user's
+answer. Entire's own Copilot metadata leaves `model` empty, `token_usage` at 0
+and `files_touched` null; the report reads these from the transcript instead.
+
+### What a Copilot checkpoint contains (verified 2026-10-13)
+
+`full.jsonl` is Copilot's raw `events.jsonl` from session start up to the
+commit. Each checkpoint repeats the whole log, so later checkpoints of a
+session lose nothing earlier. It records:
+
+- user prompts, the system prompt with custom instructions (`AGENTS.md`), and
+  the available skills and tools
+- assistant replies with recorded reasoning text (`reasoningText`), the model
+  per reply, model changes and reasoning effort
+- every tool call with arguments and result, including `ask_user` questions and
+  answers, `sql` todos, and plan files written with `create` or `edit`
+- MCP calls, with `mcpServerName` and the MCP tool name
+- skill loads (`skill.invoked`, with the SKILL.md path and full content)
+- subagents: start, prompt, tool calls, replies, and completion or failure
+  with tokens, all tagged with `agentId`
+- hook runs, errors, compactions and premium-request usage
+
+Gaps:
+
+- Turns after the last parent commit (see above).
+- Token totals are logged only at session end (`session.shutdown`), after the
+  last commit, so checkpoints carry premium requests but not token counts.
+  Subagent token totals are included.
+- Entire redacts secrets, and also redacts parts of `reasoningOpaque`, which
+  is encrypted and unreadable anyway. `reasoningText` is kept.
+- Files outside the repository, such as `~/.copilot/session-state/<id>/files/`
+  and `session.db`, are not stored. Their contents appear only through the
+  tool calls that wrote them.
+- Copilot subagents and the app's title generator register separate Entire
+  sessions with no transcript of their own. They show in
+  `entire session list` and are harmless: subagent activity is in the parent
+  transcript.
 
 ### Capture requirements (verified 2026-10-13)
 

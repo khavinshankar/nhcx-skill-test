@@ -24,6 +24,14 @@ For each completed task that changes files:
    and open items. Include a session ID if available; never invent one.
 4. Commit the task record in this parent repository. Do not push automatically.
 
+Entire checkpoints a session only when the parent repository gets a commit, and
+only up to that commit. Make that parent commit the last action of every
+prompt in a session, including follow-ups and question-only prompts: create or
+update the task record (a question-only prompt adds a short entry with the
+question, answer and any decision), then commit it. Put the substance of the
+final reply in the task record, because the reply that follows the commit is
+not captured.
+
 Use Asia/Kolkata dates. Questions alone do not require code commits. Record
 explanations and tradeoffs explicitly; do not claim access to hidden reasoning.
 Do not add nested repositories as gitlinks or copy their source into the parent.
