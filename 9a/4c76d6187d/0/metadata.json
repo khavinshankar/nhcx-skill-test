@@ -1,0 +1,44 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "9a4c76d6187d",
+  "session_id": "54642942-8c13-4ae7-a23f-355474803734",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-13T10:24:57.792539Z",
+  "branch": "khavinshankar-fix-insurance-plan-line-items",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "tasks/2026-10-13-fix-insurance-plan-line-items.md"
+  ],
+  "agent": "Copilot CLI",
+  "model": "",
+  "turn_id": "d18f694cac49",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 0,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "api_call_count": 0
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-10-13T10:24:57.759516Z",
+    "agent_lines": 64,
+    "agent_removed": 0,
+    "human_added": 20,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 84,
+    "total_lines_changed": 90,
+    "agent_percentage": 71.11111111111111,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    }
+  ]
+}
