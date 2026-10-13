@@ -36,7 +36,13 @@ import {
   TableRow,
 } from "@/components/Common/Table";
 
-import { AddLineRequest, ClaimLine, LineKind } from "@/types/nhcx/nhcx";
+import {
+  AddLineRequest,
+  Benefit,
+  ClaimLine,
+  LineKind,
+  UpdateLinesRequest,
+} from "@/types/nhcx/nhcx";
 import nhcxApi from "@/types/nhcx/nhcxApi";
 
 import {
@@ -252,10 +258,20 @@ function ChooseLines({
 }: ClaimTabProps & { onBack: () => void }) {
   const { t } = useTranslation();
   const { benefits, lines } = state;
-  const benefitByCode = useMemo(
-    () => new Map(benefits.map((b) => [`${b.kind}:${b.code}`, b])),
-    [benefits],
-  );
+  // A package can sit under several specialities, one plan row each: prefer
+  // the row of the line's speciality, else the first.
+  const benefitIndex = useMemo(() => {
+    const map = new Map<string, Benefit>();
+    benefits.forEach((b) => {
+      const exact = `${b.kind}:${b.code}:${b.category_code ?? ""}`;
+      if (!map.has(exact)) map.set(exact, b);
+      if (!map.has(`${b.kind}:${b.code}`)) map.set(`${b.kind}:${b.code}`, b);
+    });
+    return map;
+  }, [benefits]);
+  const benefitFor = (kind: string, code: string, category?: string | null) =>
+    benefitIndex.get(`${kind}:${code}:${category ?? ""}`) ??
+    benefitIndex.get(`${kind}:${code}`);
   const rows = groupLines(lines);
   const quoted = new Set(lines.map((l) => l.code));
 
@@ -276,11 +292,17 @@ function ChooseLines({
     );
   }, [lines]);
 
+  // Open price: the plan names no rate, or a zero rate with no ward/ICU tiers.
+  // A zero-rate package with tiers is priced through its tiers.
   const openPrice = (line: ClaimLine) => {
     if (line.kind === "Stratification") return false;
-    const b = benefitByCode.get(`${line.kind}:${line.code}`);
-    const rate = toNumber(b?.rate);
-    return !rate;
+    const b = benefitFor(line.kind, line.code, line.category_code);
+    if (!b) return false;
+    const rate = toNumber(b.rate);
+    if (rate === null) return true;
+    return (
+      rate === 0 && !(b.extras ?? []).some((e) => e.type === "Stratification")
+    );
   };
 
   const add = useClaimAction(claimId, (body: AddLineRequest) =>
@@ -299,21 +321,17 @@ function ChooseLines({
   );
   const update = useClaimAction(
     claimId,
-    (bodies: AddLineRequest[]) =>
-      Promise.all(
-        bodies.map((body) =>
-          nhcxCall(nhcxApi.addLine, {
-            pathParams: { facilityId, claimId },
-            body,
-          }),
-        ),
-      ).then((all) => all.find((r) => r.ok === false) ?? { ok: true }),
+    (body: UpdateLinesRequest) =>
+      nhcxCall(nhcxApi.updateLines, {
+        pathParams: { facilityId, claimId },
+        body,
+      }),
     t("nhcx_lines_updated"),
   );
 
   const saveLines = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const bodies: AddLineRequest[] = [];
+    const changes: UpdateLinesRequest["lines"] = [];
     for (const line of lines) {
       const edit = edits[line.id];
       if (!edit) continue;
@@ -347,21 +365,14 @@ function ChooseLines({
         unitPrice !== undefined &&
         Number(unitPrice) !== (toNumber(line.unit_price) ?? 0);
       if (quantity !== Number(line.quantity) || priceChanged) {
-        bodies.push({
-          line_id: line.id,
-          kind: line.kind,
-          code: line.code,
-          parent_code: line.parent_code || undefined,
-          quantity,
-          unit_price: unitPrice,
-        });
+        changes.push({ id: line.id, quantity, unit_price: unitPrice });
       }
     }
-    if (!bodies.length) {
+    if (!changes.length) {
       toast.success(t("nhcx_lines_updated"));
       return;
     }
-    update.mutate(bodies);
+    update.mutate({ lines: changes });
   };
 
   const addLine = (body: Omit<AddLineRequest, "quantity">) =>
@@ -376,7 +387,7 @@ function ChooseLines({
   );
   const suggestedImplants = new Map<
     string,
-    { code: string; label: string; rate: unknown }
+    { code: string; label: string; rate: unknown; category?: string }
   >();
   const suggestedTiers: {
     code: string;
@@ -385,7 +396,7 @@ function ChooseLines({
     parent: ClaimLine;
   }[] = [];
   procedures.forEach((p) => {
-    const b = benefitByCode.get(`Procedure:${p.code}`);
+    const b = benefitFor("Procedure", p.code, p.category_code);
     (b?.extras ?? []).forEach((e) => {
       if (e.type === "Implant") {
         if (!quoted.has(e.code) && !suggestedImplants.has(e.code)) {
@@ -393,6 +404,7 @@ function ChooseLines({
             code: e.code,
             label: e.label || e.code,
             rate: e.rate,
+            category: p.category_code || undefined,
           });
         }
       } else if (e.type === "Stratification") {
@@ -618,7 +630,11 @@ function ChooseLines({
                                 variant="primary"
                                 disabled={add.isPending}
                                 onClick={() =>
-                                  addLine({ kind: "Implant", code: s.code })
+                                  addLine({
+                                    kind: "Implant",
+                                    code: s.code,
+                                    category_code: s.category,
+                                  })
                                 }
                               >
                                 <Plus className="size-3" />
@@ -801,6 +817,7 @@ function ChooseLines({
                               addLine({
                                 kind: b.kind as LineKind,
                                 code: b.code,
+                                category_code: b.category_code || undefined,
                               })
                             }
                           >

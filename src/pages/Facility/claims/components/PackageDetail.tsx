@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -17,7 +18,9 @@ import {
   TableRow,
 } from "@/components/Common/Table";
 
+import query from "@/Utils/request/query";
 import { Benefit, ClaimForm } from "@/types/nhcx/nhcx";
+import nhcxApi from "@/types/nhcx/nhcxApi";
 
 import {
   Chip,
@@ -52,12 +55,16 @@ function Section({
 
 // S7.1 Package Detail: everything the payer published about one package.
 export default function PackageDetail({
-  benefit,
+  facilityId,
+  claimId,
+  benefit: listed,
   benefits,
   forms,
   planTitle,
   onOpen,
 }: {
+  facilityId: string;
+  claimId: string;
   benefit: Benefit;
   benefits: Benefit[];
   forms: ClaimForm[];
@@ -65,6 +72,16 @@ export default function PackageDetail({
   onOpen: (benefit: Benefit) => void;
 }) {
   const { t } = useTranslation();
+  // The claim state leaves out conditions and documents; fetch them per package.
+  const { data: detail, isLoading } = useQuery({
+    queryKey: ["nhcxPlanBenefit", claimId, listed.id],
+    queryFn: query(nhcxApi.getPlanBenefit, {
+      pathParams: { facilityId, claimId, benefitId: listed.id },
+      silent: true,
+    }),
+    staleTime: Infinity,
+  });
+  const benefit: Benefit = { ...listed, ...detail };
   const extras = benefit.extras ?? [];
   const conditions = Object.entries(benefit.conditions ?? {});
   const docs = benefit.supporting_info ?? [];
@@ -238,7 +255,9 @@ export default function PackageDetail({
           value="conditions"
           title={t("nhcx_claim_conditions", { n: conditions.length })}
         >
-          {conditions.length ? (
+          {isLoading ? (
+            <Muted>{t("loading")}</Muted>
+          ) : conditions.length ? (
             <Table>
               <TableHeader>
                 <TableRow>
@@ -265,7 +284,9 @@ export default function PackageDetail({
           value="docs"
           title={t("nhcx_documents_required", { n: docs.length })}
         >
-          {docs.length ? (
+          {isLoading ? (
+            <Muted>{t("loading")}</Muted>
+          ) : docs.length ? (
             <Table>
               <TableHeader>
                 <TableRow>

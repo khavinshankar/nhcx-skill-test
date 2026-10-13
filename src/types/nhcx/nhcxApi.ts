@@ -4,6 +4,7 @@ import {
   AbhaRequest,
   AbhaResponse,
   AddLineRequest,
+  Benefit,
   BiometricRequest,
   BiometricResponse,
   Claim,
@@ -23,6 +24,7 @@ import {
   PolicySearchResponse,
   PractitionerProfile,
   PractitionerProfileResponse,
+  UpdateLinesRequest,
 } from "./nhcx";
 
 const base = "/api/v1/facility/{facilityId}/nhcx";
@@ -70,6 +72,17 @@ export default {
     method: HttpMethod.POST,
     TRes: Type<NhcxOk>(),
     TBody: Type<{ refresh?: boolean }>(),
+  },
+  getPlanBenefit: {
+    path: `${claimBase}/plan/benefits/{benefitId}/`,
+    method: HttpMethod.GET,
+    TRes: Type<Benefit>(),
+  },
+  updateLines: {
+    path: `${claimBase}/lines/`,
+    method: HttpMethod.PUT,
+    TRes: Type<NhcxOk>(),
+    TBody: Type<UpdateLinesRequest>(),
   },
   addLine: {
     path: `${claimBase}/lines/`,

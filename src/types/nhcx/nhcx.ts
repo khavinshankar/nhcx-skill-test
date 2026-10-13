@@ -111,7 +111,9 @@ export interface ClaimPlan {
 
 export type BenefitKind = "Procedure" | "Implant";
 
-// D11 claim_plan_benefit, the A17 subset plus the optional detail columns.
+// D11 claim_plan_benefit. The claim state lists every column but conditions and
+// supporting_info, which come from getPlanBenefit (they run to MBs on PMJAY).
+// A package listed under several specialities has one row per speciality.
 export interface Benefit {
   id: string;
   kind: BenefitKind;
@@ -604,10 +606,14 @@ export interface AddLineRequest {
   kind: LineKind;
   code: string;
   parent_code?: string;
+  // The speciality the package was picked under.
+  category_code?: string;
   quantity: number;
-  // Update lines: the existing line and, for an open-priced line, its price.
-  line_id?: string;
-  unit_price?: string;
+}
+
+export interface UpdateLinesRequest {
+  // unit_price only for an open-priced line.
+  lines: { id: string; quantity?: number; unit_price?: string }[];
 }
 
 export interface DraftUpdate {

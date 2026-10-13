@@ -522,6 +522,8 @@ export default function InsurancePlanTab({
           </DialogHeader>
           {open && (
             <PackageDetail
+              facilityId={facilityId}
+              claimId={claimId}
               benefit={open}
               benefits={benefits}
               forms={forms}
