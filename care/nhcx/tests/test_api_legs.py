@@ -30,16 +30,53 @@ class LegApiTests(NhcxCoreTestBase):
         got = self.client.post(self.claim_url("preauth/submit/"), {}, format="json")
         self.assertEqual(got.status_code, 403)
 
+    def grant_facility_update(self, user):
+        from care.security.permissions.facility import FacilityPermissions
+
+        org = self.create_facility_organization(facility=self.facility, org_type="root")
+        role = self.create_role_with_permissions(
+            [FacilityPermissions.can_update_facility.name]
+        )
+        self.attach_role_facility_organization_user(org, user, role)
+
     def test_facility_profile(self):
         got = self.client.get(self.url("profile/"))
         self.assertEqual(got.status_code, 200, got.data)
         self.assertEqual(got.data["profile"]["hfr_id"], "IN3410000001")
+        self.assertEqual(got.data["effective_hfr_id"], "IN3410000001")
+        self.assertEqual(got.data["hfr_id_source"], "profile")
+        self.grant_facility_update(self.user)
         put = self.client.put(
             self.url("profile/"), {"email": "desk@example.org"}, format="json"
         )
         self.assertEqual(put.status_code, 200, put.data)
+        self.assertTrue(put.data["can_edit"])
         self.profile.refresh_from_db()
         self.assertEqual(self.profile.email, "desk@example.org")
+
+    def test_facility_profile_put_needs_update_permission(self):
+        got = self.client.get(self.url("profile/"))
+        self.assertEqual(got.status_code, 200, got.data)
+        self.assertFalse(got.data["can_edit"])
+        put = self.client.put(
+            self.url("profile/"), {"email": "desk@example.org"}, format="json"
+        )
+        self.assertEqual(put.status_code, 403)
+        self.profile.refresh_from_db()
+        self.assertIsNone(self.profile.email)
+
+    def test_facility_profile_reports_abdm_hip_id(self):
+        self.profile.hfr_id = None
+        self.profile.save()
+        with mock.patch(
+            "care.nhcx.api.views_legs.abdm_hf_id", return_value="IN3410000099"
+        ):
+            got = self.client.get(self.url("profile/"))
+        self.assertEqual(got.status_code, 200, got.data)
+        self.assertEqual(got.data["profile"]["hfr_id"], "")
+        self.assertEqual(got.data["abdm_hf_id"], "IN3410000099")
+        self.assertEqual(got.data["effective_hfr_id"], "IN3410000099")
+        self.assertEqual(got.data["hfr_id_source"], "abdm")
 
     def test_draft_and_refusal(self):
         got = self.client.put(

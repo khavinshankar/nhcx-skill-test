@@ -9,6 +9,7 @@ from care.nhcx.models import (
     ClaimPreauth,
 )
 from care.nhcx.services import (
+    common,
     eligibility,
     hooks,
     lines,
@@ -598,3 +599,39 @@ class StateTests(NhcxCoreTestBase):
         self.assertEqual(str(claim.admission_date), "2026-01-02")
         self.assertEqual(claim.patient_id, patient.id)
         self.assertEqual(state.admissions(self.make_claim(abha_number="")), [])
+
+
+class AbdmHipIdFallbackTests(NhcxCoreTestBase):
+    def setUp(self):
+        super().setUp()
+        self.profile.hfr_id = None
+        self.profile.save()
+
+    def health_facility(self, hf_id):
+        from django.apps import apps
+
+        try:
+            model = apps.get_model("abdm", "HealthFacility")
+        except LookupError:
+            self.skipTest("care_abdm plug is not installed")
+        return model.objects.create(facility=self.facility, hf_id=hf_id)
+
+    def test_no_plug_value_keeps_blank(self):
+        self.assertEqual(common.abdm_hf_id(self.facility), "")
+        self.assertIsNone(common.facility_profile(self.facility).hfr_id)
+
+    def test_blank_hfr_id_uses_abdm_hip_id(self):
+        self.health_facility("IN3410000077")
+        self.assertEqual(common.abdm_hf_id(self.facility), "IN3410000077")
+        self.assertEqual(common.facility_profile(self.facility).hfr_id, "IN3410000077")
+        self.assertEqual(
+            common.facility_input(self.facility).identifier_value, "IN3410000077"
+        )
+        self.profile.refresh_from_db()
+        self.assertIsNone(self.profile.hfr_id)
+
+    def test_profile_hfr_id_wins(self):
+        self.health_facility("IN3410000077")
+        self.profile.hfr_id = "IN3410000001"
+        self.profile.save()
+        self.assertEqual(common.facility_profile(self.facility).hfr_id, "IN3410000001")

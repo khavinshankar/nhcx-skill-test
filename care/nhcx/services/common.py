@@ -21,7 +21,10 @@ Sending (APIs conventions "SEND")
 - ``default_payer_code()``: ``settings.NHCX_DEFAULT_PAYER_CODE`` ("" if unset).
 
 FHIR inputs from models (nhcx-plan/mapping.json)
-- ``facility_profile(facility) -> FacilityProfile | None``
+- ``facility_profile(facility) -> FacilityProfile | None``: a blank
+  ``hfr_id`` is filled (in memory only) from the care_abdm plug's HIP ID
+- ``abdm_hf_id(facility) -> str``: the care_abdm ``HealthFacility.hf_id``, or
+  "" when the plug is not installed or the facility has none
 - ``facility_input(facility) -> FacilityInput`` (D1: HFR id, name, code)
 - ``payer_input(claim) -> PayerInput``
 - ``patient_input(claim) -> PatientInput`` (emr.Patient, claim fallbacks)
@@ -47,6 +50,7 @@ from dataclasses import dataclass, field
 from types import SimpleNamespace
 from typing import Any
 
+from django.apps import apps
 from django.conf import settings
 from django.core.cache import cache
 
@@ -120,12 +124,32 @@ def recipient_code(claim) -> str:
     return _s(claim.processing_id) or _s(claim.payer_id) or default_payer_code()
 
 
+def abdm_hf_id(facility) -> str:
+    if facility is None:
+        return ""
+    try:
+        health_facility = apps.get_model("abdm", "HealthFacility")
+    except LookupError:
+        return ""
+    found = (
+        health_facility.objects.filter(facility=facility)
+        .values_list("hf_id", flat=True)
+        .first()
+    )
+    return _s(found)
+
+
 def facility_profile(facility):
     if facility is None:
         return None
     from care.nhcx.models import FacilityProfile
 
-    return FacilityProfile.objects.filter(facility=facility).first()
+    profile = FacilityProfile.objects.filter(facility=facility).first()
+    if profile is not None and not _s(profile.hfr_id):
+        # The HFR ID and the ABDM HIP ID are the same facility registry ID;
+        # reuse the plug's value without saving it into the NHCX profile.
+        profile.hfr_id = abdm_hf_id(facility) or None
+    return profile
 
 
 def headers(claim, workflow_id, *, sender=None, status=None, extra=None) -> dict:

@@ -39,7 +39,7 @@ Conventions
 | POST | `claims/{claim_id}/payments/{payment_id}/ack/` | A8, S12 | |
 | POST | `claims/{claim_id}/biometric/{init|verify|refresh}/` | A18, S18 | per A18 |
 | POST | `claims/{claim_id}/adjudicate/` | A14/A15 (sandbox only; 404 when console off) | `{action, ...}` |
-| GET/PUT | `profile/` | D1 FacilityProfile (hfr_id, participant_code, email, gstin) | |
+| GET/PUT | `profile/` | D1 FacilityProfile (hfr_id, participant_code, email, gstin); PUT needs `can_update_facility`. A blank hfr_id falls back to the care_abdm HIP ID (`HealthFacility.hf_id`) | `{hfr_id?, participant_code?, email?, gstin?}`; answers `{profile, abdm_hf_id, effective_hfr_id, hfr_id_source: profile\|abdm\|null, can_edit}` |
 
 ## Outside facility scope
 | Method | Path | Spec |

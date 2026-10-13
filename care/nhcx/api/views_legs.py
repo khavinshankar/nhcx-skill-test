@@ -8,6 +8,7 @@ must not sit inside a transaction, and a failed send keeps its row and ids.
 from __future__ import annotations
 
 from django.http import Http404
+from rest_framework.exceptions import PermissionDenied
 
 from care.nhcx.api.views_core import (
     NhcxFacilityView,
@@ -26,7 +27,8 @@ from care.nhcx.services import (
     preauth,
 )
 from care.nhcx.services import claim as claim_service
-from care.nhcx.services.common import ServiceRefusal
+from care.nhcx.services.common import ServiceRefusal, abdm_hf_id
+from care.security.authorization import AuthorizationController
 
 EXCHANGE_FAILED = "The exchange failed."
 PREAUTH_SUBMITTED = "Pre-authorisation submitted to the payer."
@@ -41,6 +43,7 @@ ACK_SENT = "Acknowledgement sent to the payer."
 PAYMENT_ACKED = "Payment acknowledged to the payer."
 ATTACHED = "{n} document(s) attached."
 SETTINGS_SAVED = "Facility settings saved."
+NO_EDIT_ACCESS = "You do not have permission to change this facility's NHCX settings."
 NO_FILE = "Choose a PDF or image to attach."
 ENQUIRY_SENT = {
     "status": STATUS_SENT,
@@ -321,24 +324,42 @@ class FacilityProfileView(NhcxFacilityView):
     def _profile(self):
         return FacilityProfile.objects.filter(facility=self.facility).first()
 
-    def get(self, request, facility_external_id):
-        found = self._profile()
-        return ok(
-            None,
-            profile={k: _s(getattr(found, k, "")) for k in PROFILE_FIELDS},
+    def _can_edit(self, user) -> bool:
+        return AuthorizationController.call(
+            "can_update_facility_obj", user, self.facility
         )
 
+    def _answer(self, request, message, found):
+        profile = {k: _s(getattr(found, k, "")) for k in PROFILE_FIELDS}
+        abdm_id = abdm_hf_id(self.facility)
+        if profile["hfr_id"]:
+            source = "profile"
+        elif abdm_id:
+            source = "abdm"
+        else:
+            source = None
+        return ok(
+            message,
+            profile=profile,
+            abdm_hf_id=abdm_id or None,
+            effective_hfr_id=profile["hfr_id"] or abdm_id or None,
+            hfr_id_source=source,
+            can_edit=self._can_edit(request.user),
+        )
+
+    def get(self, request, facility_external_id):
+        return self._answer(request, None, self._profile())
+
     def put(self, request, facility_external_id):
+        if not self._can_edit(request.user):
+            raise PermissionDenied(NO_EDIT_ACCESS)
         data = _body(request)
         found = self._profile() or FacilityProfile(facility=self.facility)
         for k in PROFILE_FIELDS:
             if k in data:
                 setattr(found, k, _s(data.get(k)) or None)
         found.save()
-        return ok(
-            SETTINGS_SAVED,
-            profile={k: _s(getattr(found, k, "")) for k in PROFILE_FIELDS},
-        )
+        return self._answer(request, SETTINGS_SAVED, found)
 
 
 __all__ = [
