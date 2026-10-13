@@ -192,6 +192,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
+    "config.middlewares.ChunkedTransferEncodingMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -206,6 +207,11 @@ MIDDLEWARE = [
     "maintenance_mode.middleware.MaintenanceModeMiddleware",
     "care.audit_log.middleware.AuditLogMiddleware",
 ]
+
+# 100 MB
+DATA_UPLOAD_MAX_MEMORY_SIZE = 100 * 1024 * 1024
+# 100 MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 100 * 1024 * 1024
 
 # add RequestTimeLoggingMiddleware based on the environment variable
 if env.bool("ENABLE_REQUEST_TIME_LOGGING", default=False):
