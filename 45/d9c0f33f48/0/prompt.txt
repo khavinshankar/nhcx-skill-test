@@ -1,0 +1,21 @@
+also, why is token usage not captured?
+
+<canvas-context>
+- name="file:scripts/checkpoint-report.py" type="editor" title="checkpoint-report.py" panel="open" active="true" artifact="repo:scripts/checkpoint-report.py" file="/Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory/scripts/checkpoint-report.py"
+</canvas-context>
+
+---
+
+also, why is token usage not captured?
+
+<canvas-context>
+- name="file:scripts/checkpoint-report.py" type="editor" title="checkpoint-report.py" panel="open" active="true" artifact="repo:scripts/checkpoint-report.py" file="/Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory/scripts/checkpoint-report.py"
+</canvas-context>
+
+---
+
+also, why is token usage not captured?
+
+<canvas-context>
+- name="file:scripts/checkpoint-report.py" type="editor" title="checkpoint-report.py" panel="open" active="true" artifact="repo:scripts/checkpoint-report.py" file="/Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory/scripts/checkpoint-report.py"
+</canvas-context>
