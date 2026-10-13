@@ -61,3 +61,31 @@ full size.
 - Store the plan once per (payer, policy, HFR) instead of copying `response_json`
   per claim. Add a reuse TTL or refresh.
 - Re-request the plan for NM-26-0VL00003S once the fix lands.
+
+## Follow-up: chunked-body middleware and 100 MB limits (user-provided code)
+
+The user asked us to add their `ChunkedTransferEncodingMiddleware` and set
+`DATA_UPLOAD_MAX_MEMORY_SIZE`/`FILE_UPLOAD_MAX_MEMORY_SIZE` to 100 MB.
+
+- care `4acb4ded2` (worktree khavinshankar-silver-sniffle, branch nhcx-integration):
+  - The middleware is in `config/middlewares.py`. It is listed first in `MIDDLEWARE`,
+    so it buffers the body before any other middleware or view reads it.
+  - Both limits are 100 MB in `config/settings/base.py`.
+- How it works: on a chunked request with no Content-Length, if the server set
+  `wsgi.input_terminated`, it reads up to the limit + 1 bytes. It raises
+  `RequestDataTooBig` (400) if the body is over the limit. Otherwise it rebuilds
+  `request._stream`, so the gateway's `request.read()` sees the full body.
+- Validation:
+  - ruff check and format: clean.
+  - `care.nhcx.tests.test_gateway_receive`: 10 tests OK.
+  - Live :9000 after autoreload: chunked `{"a":1}` and a chunked 60 MB body are
+    accepted (previously INVALID_BODY); a plain body is unchanged.
+  - The 60 MB test ledger blob (7USL00SE.json) was deleted afterwards. Its line
+    is still in index.jsonl.
+- Still open:
+  - gzip `Content-Encoding` is not decoded.
+  - The gateway `maxBodyBytes` defaults to 100 MiB, and the new Django limit is
+    100 MB. The JWE adds about 33%, so a plan over about 75 MB is still refused.
+    Raise both caps to cover it.
+  - Cloudflare's edge body limit.
+  - The payer must resend, or we re-request, the plan for NM-26-0VL00003S.
