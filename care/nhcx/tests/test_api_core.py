@@ -131,6 +131,29 @@ class ApiFlowTests(NhcxCoreTestBase):
             {"ok": False, "error": "Choose a policy to open the claim with."},
         )
 
+    def test_open_claim_with_ui_payload(self):
+        self.gw.policies_answer = {"status": 200, "body": [POLICY]}
+        found = self.post("policy-search/", {"member_id": "PMJAY123"})
+        chosen = found.data["policies"][0]
+        bad = self.post(
+            "claims/",
+            {"policy": chosen, "id_type": "MemberId", "patient": "undefined"},
+        )
+        self.assertEqual(bad.status_code, 400)
+        self.assertEqual(
+            bad.data["error"], "Patient id 'undefined' is not a valid UUID."
+        )
+        self.assertFalse(Claim.objects.exists())
+
+        opened = self.post(
+            "claims/",
+            {"policy": chosen, "id_type": "MemberId", "id_value": "PMJAY123"},
+        )
+        self.assertEqual(opened.status_code, 200, opened.data)
+        claim = Claim.objects.get(external_id=opened.data["claim_id"])
+        self.assertEqual(claim.search_id_type, "MemberId")
+        self.assertEqual(claim.search_id_value, "PMJAY123")
+
     def test_unknown_claim_is_404(self):
         missing = "00000000-0000-0000-0000-000000000000"
         got = self.client.get(self.url(f"claims/{missing}/state/"))

@@ -12,6 +12,7 @@ Shared with views_legs (keep names stable):
 """
 
 import functools
+import uuid
 
 from django.db import transaction
 from django.db.models import Q
@@ -114,12 +115,22 @@ class SendingView(NhcxFacilityView):
     pass
 
 
+def _external_id(value, label):
+    try:
+        return uuid.UUID(str(value))
+    except ValueError:
+        message = f"{label} id {value!r} is not a valid UUID."
+        raise ServiceRefusal(message) from None
+
+
 def _patient(facility, patient_id):
     if not patient_id:
         return None
     from care.emr.models import Patient
 
-    return Patient.objects.filter(external_id=patient_id).first()
+    return Patient.objects.filter(
+        external_id=_external_id(patient_id, "Patient")
+    ).first()
 
 
 def _encounter(facility, encounter_id):
@@ -128,7 +139,9 @@ def _encounter(facility, encounter_id):
     from care.emr.models import Encounter
 
     return (
-        Encounter.objects.filter(external_id=encounter_id, facility=facility)
+        Encounter.objects.filter(
+            external_id=_external_id(encounter_id, "Encounter"), facility=facility
+        )
         .select_related("patient")
         .first()
     )
@@ -203,8 +216,8 @@ class ClaimListView(SendingView):
             claim, message = policy.open_case(
                 self.facility,
                 data["policy"],
-                data.get("identifiertype"),
-                data.get("identifiervalue"),
+                data.get("identifiertype") or data.get("id_type"),
+                data.get("identifiervalue") or data.get("id_value"),
                 patient=patient,
             )
         elif data.get("payer_code") or data.get("id_type"):
