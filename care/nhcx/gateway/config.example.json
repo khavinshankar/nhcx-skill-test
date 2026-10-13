@@ -1,0 +1,70 @@
+{
+  "$comment": "NHCX gateway configuration (G2). Point settings.NHCX_GATEWAY_CONFIG at a copy of this file. ${NAME} is replaced by environment variable NAME (unset is an error); a privateKey written as @path is read from that file, relative to this file's directory. Unknown keys are rejected; keys starting with $comment are allowed anywhere for documentation. NHCX_ENV, NHCX_URL, NHCX_PARTICIPANT_URL, NHCX_SESSIONS_URL, NHCX_PUBLIC_URL and NHCX_CM_ID override env, urls.nhcx, urls.participant, urls.sessions, publicUrl and cmId.",
+
+  "$comment_env": "sandbox (default) or production. Picks the default URLs and cmId. Production has no default urls.nhcx: set it from the onboarding letter.",
+  "env": "sandbox",
+
+  "$comment_publicUrl": "How NHCX reaches this application from outside; the value registered as endpoint_url. Inbound routes are /in/<path> and /v1/<path>, also under /api/gateway/.",
+  "publicUrl": "https://care.example.org/in",
+
+  "$comment_participant": "The default identity. participantId gets @hcx appended when missing. clientId/clientSecret are the ABDM onboarding credentials. privateKey is the RSA key of the registered encryption certificate: PEM, base64 of PEM, or @file (keep the file outside the repository).",
+  "participant": {
+    "participantId": "${NHCX_PARTICIPANT_ID}",
+    "name": "Example Hospital",
+    "clientId": "${NHCX_CLIENT_ID}",
+    "clientSecret": "${NHCX_CLIENT_SECRET}",
+    "privateKey": "@/run/secrets/nhcx-private.pem"
+  },
+
+  "$comment_participants": "Hosted identities served by the same process. Only participantId is needed: blank clientId+clientSecret and privateKey inherit the default's. settings.NHCX_HOSTED_PARTICIPANTS (code=name,...) adds more at open.",
+  "participants": [
+    {"participantId": "1000000002@hcx", "name": "Example PMJAY desk"}
+  ],
+
+  "$comment_guests": "Present turns guests on: messages for unlisted codes are taken in when one of our keys opens them. Remove to refuse them (WRONG_RECIPIENT). settings.NHCX_GUESTS overrides.",
+  "guests": {},
+
+  "$comment_ledger": "Every message sent or received is recorded as one JSON file under <dir>/<YYYY-MM-DD>/ (dir relative to this file). retentionDays 0 keeps everything; older day folders are pruned hourly by the NHCX_ROLE instance. storeBodies false keeps headers only.",
+  "ledger": {
+    "enabled": true,
+    "dir": "/var/lib/care/nhcx-ledger",
+    "retentionDays": 30,
+    "storeBodies": true
+  },
+
+  "$comment_certs": "Recipient certificate cache lifetime in hours. refuseSelfKey refuses a registry certificate that is one of our own keys for a code we do not hold (default true in production, false in sandbox).",
+  "certs": {
+    "cacheHours": 24,
+    "refuseSelfKey": false
+  },
+
+  "$comment_outboundTimeoutSeconds": "Timeout of each call to ABDM (token, registry, NHCX gateway).",
+  "outboundTimeoutSeconds": 30,
+
+  "$comment_maxBodyBytes": "Body cap on the inbound routes (claim dossiers carry documents inline). Default 100 MiB.",
+  "maxBodyBytes": 104857600,
+
+  "$comment_auth": "mode: sessions (JSON to the HIECM sessions endpoint, default) or get-session (form post to <urls.participant>/get/session). tokenTtlSeconds is assumed when the answer carries no expiry.",
+  "auth": {
+    "mode": "sessions",
+    "tokenTtlSeconds": 1200
+  },
+
+  "$comment_cmId": "X-CM-ID on the session call: sbx in sandbox, abdm in production.",
+  "cmId": "sbx",
+
+  "$comment_urls": "Absolute http(s) URLs; blank uses the env defaults (sandbox shown).",
+  "urls": {
+    "nhcx": "https://apisbx.abdm.gov.in/hcx/v1",
+    "participant": "https://apisbx.abdm.gov.in/pmjay/sbxhcx/participanthcxservice",
+    "sessions": "https://dev.abdm.gov.in/api/hiecm/gateway/v3/sessions"
+  },
+
+  "$comment_apiKey": "Optional. Only mixed into the endpoint probe key (G11); the embedded gateway takes no API key on its routes.",
+  "apiKey": "",
+
+  "$comment_log": "debug, info, warn or error.",
+  "log": {
+    "level": "info"
+  }
+}

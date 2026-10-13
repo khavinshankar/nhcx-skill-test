@@ -1,0 +1,300 @@
+{
+ "id": "coverage-authrequirements-request-generic",
+ "resourceType": "Bundle",
+ "meta": {
+  "profile": [
+   "https://nrces.in/ndhm/fhir/r4/StructureDefinition/CoverageEligibilityRequestBundle"
+  ]
+ },
+ "type": "collection",
+ "entry": [
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/coverage-eligibility/request",
+   "resource": {
+    "resourceType": "CoverageEligibilityRequest",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/CoverageEligibilityRequest"
+     ]
+    },
+    "identifier": [
+     {
+      "system": "https://nhcx.abdm.gov.in"
+     }
+    ],
+    "status": "active",
+    "priority": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+       "code": "normal",
+       "display": "Normal"
+      }
+     ]
+    },
+    "purpose": [
+     "auth-requirements"
+    ],
+    "patient": {
+     "reference": "https://nhcx.abdm.gov.in/patient"
+    },
+    "created": "2025-03-07T11:01:00+05:00",
+    "enterer": {
+     "reference": "https://nhcx.abdm.gov.in/practitioner-role"
+    },
+    "provider": {
+     "reference": "https://nhcx.abdm.gov.in/provider"
+    },
+    "insurer": {
+     "reference": "https://nhcx.abdm.gov.in/payer"
+    },
+    "facility": {
+     "reference": "https://nhcx.abdm.gov.in/location"
+    },
+    "insurance": [
+     {
+      "focal": true,
+      "coverage": {
+       "reference": "https://nhcx.abdm.gov.in/coverage"
+      }
+     }
+    ],
+    "item": [
+     {
+      "category": {
+       "coding": [
+        {
+         "system": "https://nhcx.abdm.gov.in/category-code",
+         "code": "MG",
+         "display": "General Medicine"
+        }
+       ]
+      },
+      "productOrService": {
+       "coding": [
+        {
+         "system": "https://nhcx.abdm.gov.in/product-code",
+         "code": "MG004C",
+         "display": "Dengue shock syndrome (Dengue fever)"
+        }
+       ]
+      },
+      "quantity": {
+       "value": 1
+      },
+      "modifier": [
+       {
+        "coding": [
+         {
+          "code": "STRAT006c",
+          "display": "ICU - Without Ventilator"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/patient",
+   "resource": {
+    "resourceType": "Patient",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Patient"
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-identifier-type-code",
+         "code": "PMJAY",
+         "display": "Pradhan Mantri Jan Aarogya Yojana (PMJAY) ID"
+        }
+       ]
+      },
+      "value": "MD5SLS4X5"
+     },
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "MB",
+         "display": "Member Number"
+        }
+       ]
+      },
+      "value": "MD5SLS4X5"
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/provider",
+   "resource": {
+    "resourceType": "Organization",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Organization"
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "NPI",
+         "display": "National provider identifier"
+        }
+       ]
+      },
+      "system": "https://nhcx.abdm.gov.in",
+      "value": "IN1910000151"
+     }
+    ],
+    "type": [
+     {
+      "coding": [
+       {
+        "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+        "code": "prov",
+        "display": "Healthcare Provider"
+       }
+      ]
+     }
+    ],
+    "name": "Facility Name"
+   }
+  },
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/payer",
+   "resource": {
+    "resourceType": "Organization",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Organization"
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "NIIP",
+         "display": "National Insurance Payor Identifier (Payor)"
+        }
+       ]
+      },
+      "system": "https://nhcx.abdm.gov.in",
+      "value": "1518"
+     }
+    ],
+    "type": [
+     {
+      "coding": [
+       {
+        "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+        "code": "pay",
+        "display": "Payer"
+       }
+      ]
+     }
+    ],
+    "name": "Insurance Company"
+   }
+  },
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/location",
+   "resource": {
+    "resourceType": "Location",
+    "name": "Facility Name",
+    "managingOrganization": {
+     "reference": "https://nhcx.abdm.gov.in/provider"
+    }
+   }
+  },
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/coverage",
+   "resource": {
+    "resourceType": "Coverage",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Coverage"
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "NH",
+         "display": "National Health Plan Identifier"
+        }
+       ]
+      },
+      "value": "PMJAY/HP/S/G"
+     }
+    ],
+    "status": "active",
+    "type": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+       "code": "HIP",
+       "display": "health insurance plan policy"
+      }
+     ]
+    },
+    "subscriber": {
+     "reference": "https://nhcx.abdm.gov.in/patient"
+    },
+    "subscriberId": "MD5SLS4X5",
+    "beneficiary": {
+     "reference": "https://nhcx.abdm.gov.in/patient"
+    },
+    "relationship": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+       "code": "self"
+      }
+     ]
+    },
+    "payor": [
+     {
+      "reference": "https://nhcx.abdm.gov.in/payer"
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/practitioner-role",
+   "resource": {
+    "resourceType": "PractitionerRole",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/PractitionerRole"
+     ]
+    },
+    "code": [
+     {
+      "coding": [
+       {
+        "system": "http://snomed.info/sct",
+        "code": "307988006",
+        "display": "Medical technician"
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

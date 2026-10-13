@@ -1,0 +1,3616 @@
+{
+ "resourceType": "Bundle",
+ "id": "100155-HOSP2P146514",
+ "meta": {
+  "lastUpdated": "2026-09-10T04:19:27.207+05:30",
+  "tag": [
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+    "code": "SUBSETTED",
+    "display": "Resource encoded in summary mode"
+   }
+  ]
+ },
+ "identifier": {
+  "system": "https://payer.pmjay.nha.gov.in",
+  "value": "100155-HOSP2P146514-abridged"
+ },
+ "type": "collection",
+ "timestamp": "2026-09-10T04:19:27.207+05:30",
+ "entry": [
+  {
+   "id": "https://payer.nha.gov.in/insuranceplan/v1/insuranceplan/100155-HOSP2P146514",
+   "fullUrl": "https://payer.nha.gov.in/insuranceplan/v1/insuranceplan/100155-HOSP2P146514",
+   "resource": {
+    "resourceType": "InsurancePlan",
+    "id": "100155-HOSP2P146514",
+    "meta": {
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "extension": [
+     {
+      "id": "NHCXProofOfIdentity",
+      "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+      "extension": [
+       {
+        "id": "documentcategory",
+        "url": "SupportInfoCategory",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+           "code": "POI",
+           "display": "Proof of identity"
+          }
+         ]
+        }
+       },
+       {
+        "id": "documentcode",
+        "url": "SupportInfoCode",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+           "code": "ADN",
+           "display": "Aadhaar Number"
+          }
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "id": "100005",
+      "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+      "extension": [
+       {
+        "url": "category",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+           "code": "INF",
+           "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+          }
+         ]
+        }
+       },
+       {
+        "url": "code",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+           "code": "ODN",
+           "display": "Other document"
+          }
+         ]
+        }
+       },
+       {
+        "url": "documentationUrl",
+        "valueReference": {
+         "reference": "https://payer.gov.in/policy/questionnaire/100005"
+        }
+       }
+      ]
+     },
+     {
+      "id": "100008",
+      "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+      "extension": [
+       {
+        "url": "category",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+           "code": "INF",
+           "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+          }
+         ]
+        }
+       },
+       {
+        "url": "code",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+           "code": "ODN",
+           "display": "Other document"
+          }
+         ]
+        }
+       },
+       {
+        "url": "documentationUrl",
+        "valueReference": {
+         "reference": "https://payer.gov.in/policy/questionnaire/100008"
+        }
+       }
+      ]
+     }
+    ],
+    "identifier": [
+     {
+      "system": "https://hcx.pmjay.gov.in/v1/InsurancePlan",
+      "value": "100155-HOSP2P146514"
+     },
+     {
+      "id": "100155",
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "NH",
+         "display": "National Health Plan Identifier"
+        }
+       ]
+      },
+      "system": "https://payer.nha.gov.in",
+      "value": "PMJAY/HP/S/G"
+     },
+     {
+      "id": "100185",
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "XV",
+         "display": "Health Plan Identifier"
+        }
+       ]
+      },
+      "system": "https://payer.nha.gov.in",
+      "value": "PMJAY/HP/S/2024/R2"
+     }
+    ],
+    "status": "active",
+    "type": [
+     {
+      "coding": [
+       {
+        "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-insuranceplan-type",
+        "code": "07",
+        "display": "Universal Health Policy"
+       }
+      ]
+     }
+    ],
+    "name": "PMJAY - Universal Health Policy",
+    "period": {
+     "start": "2023-04-01T00:00:00+05:30",
+     "end": "2028-04-01T00:00:00+05:30"
+    },
+    "ownedBy": {
+     "reference": "https://payer.nha.gov.in/insuranceplan/v1/insuranceplan/organization/payer/1518",
+     "display": "SHA HP"
+    },
+    "administeredBy": {
+     "reference": "https://payer.nha.gov.in/insuranceplan/v1/insuranceplan/organization/payer/1518",
+     "display": "SHA HP"
+    },
+    "coverage": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-benefitcategory",
+         "code": "MG",
+         "display": "General Medicine"
+        }
+       ]
+      },
+      "benefit": [
+       {
+        "id": "MG004A",
+        "extension": [
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition",
+          "extension": [
+           {
+            "id": "MG004A/ProcedureType",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ProcedureType",
+            "valueString": "Conservative"
+           },
+           {
+            "id": "MG004A/GovtReserved",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/GovtReserved",
+            "valueString": "N"
+           },
+           {
+            "id": "MG004A/ApprovalNotRequired",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ApprovalNotRequired",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG004A/EnhancementAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/EnhancementAllowed",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG004A/ScheduledTATApproval",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ScheduledTATApproval",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG004A/QuantityAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/QuantityAllowed",
+            "valueString": "1"
+           },
+           {
+            "id": "MG004A/IsDayCare",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/IsDayCare",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG004A/ImplantApplicable",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ImplantApplicable",
+            "valueString": "N"
+           },
+           {
+            "id": "MG004A/StratificationAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/StratificationAllowed",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG004A/MultipleImplantsAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleImplantsAllowed",
+            "valueString": "N"
+           },
+           {
+            "id": "MG004A/MultipleStratificationAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleStratificationAllowed",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG004A/MaximumImplantsAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumImplantsAllowed",
+            "valueString": "1"
+           },
+           {
+            "id": "MG004A/MaximumStratificationAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumStratificationAllowed",
+            "valueString": "1"
+           },
+           {
+            "id": "MG004A/CyclicProcedure",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/CyclicProcedure",
+            "valueString": "N"
+           },
+           {
+            "id": "MG004A/MaximumCyclesAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumCyclesAllowed",
+            "valueString": "0"
+           }
+          ]
+         },
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+          "extension": [
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG004A/100409/MAND0409",
+            "extension": [
+             {
+              "id": "MG004A/100409/MAND0409/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG004A/100409/MAND0409/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0409",
+                 "display": "any investigations done"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG004A/100064/MAND0064",
+            "extension": [
+             {
+              "id": "MG004A/100064/MAND0064/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG004A/100064/MAND0064/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0064",
+                 "display": "All investigations reports"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG004A/100006/MAND0006",
+            "extension": [
+             {
+              "id": "MG004A/100006/MAND0006/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG004A/100006/MAND0006/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0006",
+                 "display": "Detailed discharge summary"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG004A/100062/MAND0062",
+            "extension": [
+             {
+              "id": "MG004A/100062/MAND0062/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG004A/100062/MAND0062/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0062",
+                 "display": "Detailed ICPs"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG004A/100063/MAND0063",
+            "extension": [
+             {
+              "id": "MG004A/100063/MAND0063/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG004A/100063/MAND0063/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0063",
+                 "display": "Treatment details"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG004A/100408/MAND0408",
+            "extension": [
+             {
+              "id": "MG004A/100408/MAND0408/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "CD"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG004A/100408/MAND0408/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0408",
+                 "display": "Clinical notes detailing history and Admission notes showing vitals and examination findings"
+                }
+               ]
+              }
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+          "extension": [
+           {
+            "url": "category",
+            "valueCodeableConcept": {
+             "coding": [
+              {
+               "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+               "code": "INF",
+               "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+              }
+             ]
+            }
+           },
+           {
+            "url": "code",
+            "valueCodeableConcept": {
+             "coding": [
+              {
+               "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+               "code": "STG",
+               "display": "Standard Treatment Guidelines"
+              }
+             ]
+            }
+           }
+          ]
+         },
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+          "extension": [
+           {
+            "url": "category",
+            "valueCodeableConcept": {
+             "coding": [
+              {
+               "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+               "code": "INF",
+               "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+              }
+             ]
+            }
+           },
+           {
+            "url": "code",
+            "valueCodeableConcept": {
+             "coding": [
+              {
+               "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+               "code": "STG",
+               "display": "Standard Treatment Guidelines"
+              }
+             ]
+            }
+           }
+          ]
+         }
+        ],
+        "type": {
+         "coding": [
+          {
+           "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-productorservice",
+           "code": "MG004A",
+           "display": "Dengue fever (Dengue fever)"
+          }
+         ]
+        },
+        "limit": [
+         {
+          "id": "MGMG004A",
+          "value": {
+           "value": 0,
+           "unit": "INR"
+          },
+          "code": {
+           "coding": [
+            {
+             "code": "MG004A",
+             "display": "Dengue fever (Dengue fever)"
+            }
+           ]
+          }
+         },
+         {
+          "id": "MGMG004ASTRAT006a",
+          "value": {
+           "value": 1800,
+           "unit": "INR"
+          },
+          "code": {
+           "coding": [
+            {
+             "code": "STRAT006a",
+             "display": "Routine Ward"
+            }
+           ]
+          }
+         },
+         {
+          "id": "MGMG004ASTRAT006b",
+          "value": {
+           "value": 2700,
+           "unit": "INR"
+          },
+          "code": {
+           "coding": [
+            {
+             "code": "STRAT006b",
+             "display": "HDU"
+            }
+           ]
+          }
+         },
+         {
+          "id": "MGMG004ASTRAT006c",
+          "value": {
+           "value": 3600,
+           "unit": "INR"
+          },
+          "code": {
+           "coding": [
+            {
+             "code": "STRAT006c",
+             "display": "ICU - Without Ventilator"
+            }
+           ]
+          }
+         },
+         {
+          "id": "MGMG004ASTRAT006d",
+          "value": {
+           "value": 4500,
+           "unit": "INR"
+          },
+          "code": {
+           "coding": [
+            {
+             "code": "STRAT006d",
+             "display": "ICU - With Ventilator"
+            }
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "id": "MG005A",
+        "extension": [
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition",
+          "extension": [
+           {
+            "id": "MG005A/ProcedureType",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ProcedureType",
+            "valueString": "Conservative"
+           },
+           {
+            "id": "MG005A/GovtReserved",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/GovtReserved",
+            "valueString": "N"
+           },
+           {
+            "id": "MG005A/ApprovalNotRequired",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ApprovalNotRequired",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG005A/EnhancementAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/EnhancementAllowed",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG005A/ScheduledTATApproval",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ScheduledTATApproval",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG005A/QuantityAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/QuantityAllowed",
+            "valueString": "1"
+           },
+           {
+            "id": "MG005A/IsDayCare",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/IsDayCare",
+            "valueString": "N"
+           },
+           {
+            "id": "MG005A/ImplantApplicable",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ImplantApplicable",
+            "valueString": "N"
+           },
+           {
+            "id": "MG005A/StratificationAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/StratificationAllowed",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG005A/MultipleImplantsAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleImplantsAllowed",
+            "valueString": "N"
+           },
+           {
+            "id": "MG005A/MultipleStratificationAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleStratificationAllowed",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG005A/MaximumImplantsAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumImplantsAllowed",
+            "valueString": "1"
+           },
+           {
+            "id": "MG005A/MaximumStratificationAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumStratificationAllowed",
+            "valueString": "1"
+           },
+           {
+            "id": "MG005A/CyclicProcedure",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/CyclicProcedure",
+            "valueString": "N"
+           },
+           {
+            "id": "MG005A/MaximumCyclesAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumCyclesAllowed",
+            "valueString": "0"
+           }
+          ]
+         },
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+          "extension": [
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG005A/100409/MAND0409",
+            "extension": [
+             {
+              "id": "MG005A/100409/MAND0409/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG005A/100409/MAND0409/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0409",
+                 "display": "any investigations done"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG005A/100064/MAND0064",
+            "extension": [
+             {
+              "id": "MG005A/100064/MAND0064/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG005A/100064/MAND0064/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0064",
+                 "display": "All investigations reports"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG005A/100006/MAND0006",
+            "extension": [
+             {
+              "id": "MG005A/100006/MAND0006/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG005A/100006/MAND0006/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0006",
+                 "display": "Detailed discharge summary"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG005A/100062/MAND0062",
+            "extension": [
+             {
+              "id": "MG005A/100062/MAND0062/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG005A/100062/MAND0062/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0062",
+                 "display": "Detailed ICPs"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG005A/100063/MAND0063",
+            "extension": [
+             {
+              "id": "MG005A/100063/MAND0063/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG005A/100063/MAND0063/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0063",
+                 "display": "Treatment details"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG005A/100408/MAND0408",
+            "extension": [
+             {
+              "id": "MG005A/100408/MAND0408/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "CD"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG005A/100408/MAND0408/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0408",
+                 "display": "Clinical notes detailing history and Admission notes showing vitals and examination findings"
+                }
+               ]
+              }
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+          "extension": [
+           {
+            "url": "category",
+            "valueCodeableConcept": {
+             "coding": [
+              {
+               "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+               "code": "INF",
+               "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+              }
+             ]
+            }
+           },
+           {
+            "url": "code",
+            "valueCodeableConcept": {
+             "coding": [
+              {
+               "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+               "code": "STG",
+               "display": "Standard Treatment Guidelines"
+              }
+             ]
+            }
+           }
+          ]
+         },
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+          "extension": [
+           {
+            "url": "category",
+            "valueCodeableConcept": {
+             "coding": [
+              {
+               "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+               "code": "INF",
+               "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+              }
+             ]
+            }
+           },
+           {
+            "url": "code",
+            "valueCodeableConcept": {
+             "coding": [
+              {
+               "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+               "code": "STG",
+               "display": "Standard Treatment Guidelines"
+              }
+             ]
+            }
+           }
+          ]
+         }
+        ],
+        "type": {
+         "coding": [
+          {
+           "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-productorservice",
+           "code": "MG005A",
+           "display": "Chikungunya fever (Chikungunya fever)"
+          }
+         ]
+        },
+        "limit": [
+         {
+          "id": "MGMG005A",
+          "value": {
+           "value": 0,
+           "unit": "INR"
+          },
+          "code": {
+           "coding": [
+            {
+             "code": "MG005A",
+             "display": "Chikungunya fever (Chikungunya fever)"
+            }
+           ]
+          }
+         },
+         {
+          "id": "MGMG005ASTRAT006a",
+          "value": {
+           "value": 1800,
+           "unit": "INR"
+          },
+          "code": {
+           "coding": [
+            {
+             "code": "STRAT006a",
+             "display": "Routine Ward"
+            }
+           ]
+          }
+         },
+         {
+          "id": "MGMG005ASTRAT006b",
+          "value": {
+           "value": 2700,
+           "unit": "INR"
+          },
+          "code": {
+           "coding": [
+            {
+             "code": "STRAT006b",
+             "display": "HDU"
+            }
+           ]
+          }
+         },
+         {
+          "id": "MGMG005ASTRAT006c",
+          "value": {
+           "value": 3600,
+           "unit": "INR"
+          },
+          "code": {
+           "coding": [
+            {
+             "code": "STRAT006c",
+             "display": "ICU - Without Ventilator"
+            }
+           ]
+          }
+         },
+         {
+          "id": "MGMG005ASTRAT006d",
+          "value": {
+           "value": 4500,
+           "unit": "INR"
+          },
+          "code": {
+           "coding": [
+            {
+             "code": "STRAT006d",
+             "display": "ICU - With Ventilator"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-benefitcategory",
+         "code": "SG",
+         "display": "General Surgery"
+        }
+       ]
+      },
+      "benefit": [
+       {
+        "id": "ST009B",
+        "extension": [
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition",
+          "extension": [
+           {
+            "id": "ST009B/ProcedureType",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ProcedureType",
+            "valueString": "Surgical"
+           },
+           {
+            "id": "ST009B/GovtReserved",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/GovtReserved",
+            "valueString": "N"
+           },
+           {
+            "id": "ST009B/ApprovalNotRequired",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ApprovalNotRequired",
+            "valueString": "Y"
+           },
+           {
+            "id": "ST009B/EnhancementAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/EnhancementAllowed",
+            "valueString": "N"
+           },
+           {
+            "id": "ST009B/ScheduledTATApproval",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ScheduledTATApproval",
+            "valueString": "Y"
+           },
+           {
+            "id": "ST009B/QuantityAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/QuantityAllowed",
+            "valueString": "1"
+           },
+           {
+            "id": "ST009B/IsDayCare",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/IsDayCare",
+            "valueString": "N"
+           },
+           {
+            "id": "ST009B/ImplantApplicable",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ImplantApplicable",
+            "valueString": "N"
+           },
+           {
+            "id": "ST009B/StratificationAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/StratificationAllowed",
+            "valueString": "N"
+           },
+           {
+            "id": "ST009B/MultipleImplantsAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleImplantsAllowed",
+            "valueString": "N"
+           },
+           {
+            "id": "ST009B/MultipleStratificationAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleStratificationAllowed",
+            "valueString": "N"
+           },
+           {
+            "id": "ST009B/MaximumImplantsAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumImplantsAllowed",
+            "valueString": "1"
+           },
+           {
+            "id": "ST009B/MaximumStratificationAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumStratificationAllowed",
+            "valueString": "1"
+           },
+           {
+            "id": "ST009B/CyclicProcedure",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/CyclicProcedure",
+            "valueString": "N"
+           },
+           {
+            "id": "ST009B/MaximumCyclesAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumCyclesAllowed",
+            "valueString": "0"
+           }
+          ]
+         },
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+          "extension": [
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/ST009B/100952/MAND0952",
+            "extension": [
+             {
+              "id": "ST009B/100952/MAND0952/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "ST009B/100952/MAND0952/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0952",
+                 "display": "MLC/ FIR +/- Nerve conduction velocity (NCV) + /- MRI + /- MRA + /- EMG (Electromyography)"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/ST009B/100006/MAND0006",
+            "extension": [
+             {
+              "id": "ST009B/100006/MAND0006/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "ST009B/100006/MAND0006/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0006",
+                 "display": "Detailed discharge summary"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/ST009B/100300/MAND0300",
+            "extension": [
+             {
+              "id": "ST009B/100300/MAND0300/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "ST009B/100300/MAND0300/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0300",
+                 "display": "Detailed operatives notes"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/ST009B/100309/MAND0309",
+            "extension": [
+             {
+              "id": "ST009B/100309/MAND0309/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "ST009B/100309/MAND0309/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0309",
+                 "display": "Intra operative still photograph"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/ST009B/100946/MAND0946",
+            "extension": [
+             {
+              "id": "ST009B/100946/MAND0946/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "CD"
+                }
+               ]
+              }
+             },
+             {
+              "id": "ST009B/100946/MAND0946/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0946",
+                 "display": "Clinical notes detailing the injury and need of surgery"
+                }
+               ]
+              }
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+          "extension": [
+           {
+            "url": "category",
+            "valueCodeableConcept": {
+             "coding": [
+              {
+               "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+               "code": "INF",
+               "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+              }
+             ]
+            }
+           },
+           {
+            "url": "code",
+            "valueCodeableConcept": {
+             "coding": [
+              {
+               "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+               "code": "STG",
+               "display": "Standard Treatment Guidelines"
+              }
+             ]
+            }
+           }
+          ]
+         },
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+          "extension": [
+           {
+            "url": "category",
+            "valueCodeableConcept": {
+             "coding": [
+              {
+               "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+               "code": "INF",
+               "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+              }
+             ]
+            }
+           },
+           {
+            "url": "code",
+            "valueCodeableConcept": {
+             "coding": [
+              {
+               "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+               "code": "STG",
+               "display": "Standard Treatment Guidelines"
+              }
+             ]
+            }
+           }
+          ]
+         }
+        ],
+        "type": {
+         "coding": [
+          {
+           "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-productorservice",
+           "code": "ST009B",
+           "display": "Nerve and/or tendon injury. A. Wound exploration and closure. B. Nerve graft. C. Tendon graft/transfer (Management of Nerve Plexus / Tendon injuries)"
+          }
+         ]
+        },
+        "limit": [
+         {
+          "id": "SGST009B",
+          "value": {
+           "value": 50000,
+           "unit": "INR"
+          },
+          "code": {
+           "coding": [
+            {
+             "code": "ST009B",
+             "display": "Nerve and/or tendon injury. A. Wound exploration and closure. B. Nerve graft. C. Tendon graft/transfer (Management of Nerve Plexus / Tendon injuries)"
+            }
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "id": "MG072C",
+        "extension": [
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition",
+          "extension": [
+           {
+            "id": "MG072C/ProcedureType",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ProcedureType",
+            "valueString": "Medical"
+           },
+           {
+            "id": "MG072C/GovtReserved",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/GovtReserved",
+            "valueString": "N"
+           },
+           {
+            "id": "MG072C/ApprovalNotRequired",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ApprovalNotRequired",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG072C/EnhancementAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/EnhancementAllowed",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG072C/ScheduledTATApproval",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ScheduledTATApproval",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG072C/QuantityAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/QuantityAllowed",
+            "valueString": "6"
+           },
+           {
+            "id": "MG072C/IsDayCare",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/IsDayCare",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG072C/ImplantApplicable",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ImplantApplicable",
+            "valueString": "N"
+           },
+           {
+            "id": "MG072C/StratificationAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/StratificationAllowed",
+            "valueString": "N"
+           },
+           {
+            "id": "MG072C/MultipleImplantsAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleImplantsAllowed",
+            "valueString": "N"
+           },
+           {
+            "id": "MG072C/MultipleStratificationAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleStratificationAllowed",
+            "valueString": "N"
+           },
+           {
+            "id": "MG072C/MaximumImplantsAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumImplantsAllowed",
+            "valueString": "1"
+           },
+           {
+            "id": "MG072C/MaximumStratificationAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumStratificationAllowed",
+            "valueString": "1"
+           },
+           {
+            "id": "MG072C/CyclicProcedure",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/CyclicProcedure",
+            "valueString": "Y"
+           },
+           {
+            "id": "MG072C/MaximumCyclesAllowed",
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumCyclesAllowed",
+            "valueString": "6"
+           }
+          ]
+         },
+         {
+          "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+          "extension": [
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG072C/100409/MAND0409",
+            "extension": [
+             {
+              "id": "MG072C/100409/MAND0409/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG072C/100409/MAND0409/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0409",
+                 "display": "any investigations done"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG072C/100064/MAND0064",
+            "extension": [
+             {
+              "id": "MG072C/100064/MAND0064/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG072C/100064/MAND0064/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0064",
+                 "display": "All investigations reports"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG072C/100006/MAND0006",
+            "extension": [
+             {
+              "id": "MG072C/100006/MAND0006/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG072C/100006/MAND0006/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0006",
+                 "display": "Detailed discharge summary"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG072C/100062/MAND0062",
+            "extension": [
+             {
+              "id": "MG072C/100062/MAND0062/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG072C/100062/MAND0062/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0062",
+                 "display": "Detailed ICPs"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG072C/100063/MAND0063",
+            "extension": [
+             {
+              "id": "MG072C/100063/MAND0063/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "DIA",
+                 "display": "Diagnostic report"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG072C/100063/MAND0063/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0063",
+                 "display": "Treatment details"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG072C/100408/MAND0408",
+            "extension": [
+             {
+              "id": "MG072C/100408/MAND0408/category",
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "CD"
+                }
+               ]
+              }
+             },
+             {
+              "id": "MG072C/100408/MAND0408/code",
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                 "code": "MAND0408",
+                 "display": "Clinical notes detailing history and Admission notes showing vitals and examination findings"
+                }
+               ]
+              }
+             }
+            ]
+           }
+          ]
+         }
+        ],
+        "type": {
+         "coding": [
+          {
+           "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-productorservice",
+           "code": "MG072C",
+           "display": "Acute Haemodialysis (Acute Haemodialysis)"
+          }
+         ]
+        },
+        "limit": [
+         {
+          "id": "SGMG072C",
+          "value": {
+           "value": 1500,
+           "unit": "INR"
+          },
+          "code": {
+           "coding": [
+            {
+             "code": "MG072C",
+             "display": "Acute Haemodialysis (Acute Haemodialysis)"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "plan": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+         "code": "03",
+         "display": "Group"
+        }
+       ]
+      },
+      "generalCost": [
+       {
+        "cost": {
+         "value": 500000,
+         "currency": "INR"
+        }
+       }
+      ],
+      "specificCost": [
+       {
+        "id": "MG",
+        "category": {
+         "coding": [
+          {
+           "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-benefitcategory",
+           "code": "MG",
+           "display": "General Medicine"
+          }
+         ]
+        },
+        "benefit": [
+         {
+          "id": "PlanBenefit/MG004A",
+          "extension": [
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition",
+            "extension": [
+             {
+              "id": "MG004A/ProcedureType",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ProcedureType",
+              "valueString": "Conservative"
+             },
+             {
+              "id": "MG004A/GovtReserved",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/GovtReserved",
+              "valueString": "N"
+             },
+             {
+              "id": "MG004A/ApprovalNotRequired",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ApprovalNotRequired",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG004A/EnhancementAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/EnhancementAllowed",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG004A/ScheduledTATApproval",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ScheduledTATApproval",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG004A/QuantityAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/QuantityAllowed",
+              "valueString": "1"
+             },
+             {
+              "id": "MG004A/IsDayCare",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/IsDayCare",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG004A/ImplantApplicable",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ImplantApplicable",
+              "valueString": "N"
+             },
+             {
+              "id": "MG004A/StratificationAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/StratificationAllowed",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG004A/MultipleImplantsAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleImplantsAllowed",
+              "valueString": "N"
+             },
+             {
+              "id": "MG004A/MultipleStratificationAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleStratificationAllowed",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG004A/MaximumImplantsAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumImplantsAllowed",
+              "valueString": "1"
+             },
+             {
+              "id": "MG004A/MaximumStratificationAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumStratificationAllowed",
+              "valueString": "1"
+             },
+             {
+              "id": "MG004A/CyclicProcedure",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/CyclicProcedure",
+              "valueString": "N"
+             },
+             {
+              "id": "MG004A/MaximumCyclesAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumCyclesAllowed",
+              "valueString": "0"
+             },
+             {
+              "id": "MG004A/Standalone",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/Standalone",
+              "valueString": "N"
+             },
+             {
+              "id": "MG004A/ParentProcedure",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ParentProcedure",
+              "valueString": "NA"
+             },
+             {
+              "id": "MG004A/Unspecified",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/Unspecified",
+              "valueString": "N"
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+            "extension": [
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG004A/100409/MAND0409",
+              "extension": [
+               {
+                "id": "MG004A/100409/MAND0409/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG004A/100409/MAND0409/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0409",
+                   "display": "any investigations done"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG004A/100064/MAND0064",
+              "extension": [
+               {
+                "id": "MG004A/100064/MAND0064/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG004A/100064/MAND0064/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0064",
+                   "display": "All investigations reports"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG004A/100006/MAND0006",
+              "extension": [
+               {
+                "id": "MG004A/100006/MAND0006/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG004A/100006/MAND0006/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0006",
+                   "display": "Detailed discharge summary"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG004A/100062/MAND0062",
+              "extension": [
+               {
+                "id": "MG004A/100062/MAND0062/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG004A/100062/MAND0062/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0062",
+                   "display": "Detailed ICPs"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG004A/100063/MAND0063",
+              "extension": [
+               {
+                "id": "MG004A/100063/MAND0063/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG004A/100063/MAND0063/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0063",
+                   "display": "Treatment details"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG004A/100408/MAND0408",
+              "extension": [
+               {
+                "id": "MG004A/100408/MAND0408/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "CD"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG004A/100408/MAND0408/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0408",
+                   "display": "Clinical notes detailing history and Admission notes showing vitals and examination findings"
+                  }
+                 ]
+                }
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+            "extension": [
+             {
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "INF",
+                 "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+                }
+               ]
+              }
+             },
+             {
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "STG",
+                 "display": "Standard Treatment Guidelines"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+            "extension": [
+             {
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "INF",
+                 "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+                }
+               ]
+              }
+             },
+             {
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "STG",
+                 "display": "Standard Treatment Guidelines"
+                }
+               ]
+              }
+             }
+            ]
+           }
+          ],
+          "type": {
+           "coding": [
+            {
+             "system": "http://hl7.org/fhir/ValueSet/procedure-category",
+             "code": "MG004A",
+             "display": "Dengue fever (Dengue fever)"
+            }
+           ]
+          },
+          "cost": [
+           {
+            "type": {
+             "coding": [
+              {
+               "system": "https://www.nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+               "code": "Procedure",
+               "display": "Selected treatment or service or proudct is a type of procedure or package"
+              }
+             ]
+            },
+            "value": {
+             "value": 0,
+             "unit": "INR"
+            }
+           },
+           {
+            "type": {
+             "coding": [
+              {
+               "system": "https://www.nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+               "code": "Stratification",
+               "display": "Selected treatment or service or proudct is a type of stratification"
+              }
+             ]
+            },
+            "qualifiers": [
+             {
+              "coding": [
+               {
+                "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-productorservice",
+                "code": "STRAT006a",
+                "display": "Routine Ward"
+               }
+              ]
+             }
+            ],
+            "value": {
+             "value": 1800,
+             "unit": "INR"
+            }
+           },
+           {
+            "type": {
+             "coding": [
+              {
+               "system": "https://www.nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+               "code": "Stratification",
+               "display": "Selected treatment or service or proudct is a type of stratification"
+              }
+             ]
+            },
+            "qualifiers": [
+             {
+              "coding": [
+               {
+                "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-productorservice",
+                "code": "STRAT006b",
+                "display": "HDU"
+               }
+              ]
+             }
+            ],
+            "value": {
+             "value": 2700,
+             "unit": "INR"
+            }
+           },
+           {
+            "type": {
+             "coding": [
+              {
+               "system": "https://www.nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+               "code": "Stratification",
+               "display": "Selected treatment or service or proudct is a type of stratification"
+              }
+             ]
+            },
+            "qualifiers": [
+             {
+              "coding": [
+               {
+                "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-productorservice",
+                "code": "STRAT006c",
+                "display": "ICU - Without Ventilator"
+               }
+              ]
+             }
+            ],
+            "value": {
+             "value": 3600,
+             "unit": "INR"
+            }
+           },
+           {
+            "type": {
+             "coding": [
+              {
+               "system": "https://www.nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+               "code": "Stratification",
+               "display": "Selected treatment or service or proudct is a type of stratification"
+              }
+             ]
+            },
+            "qualifiers": [
+             {
+              "coding": [
+               {
+                "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-productorservice",
+                "code": "STRAT006d",
+                "display": "ICU - With Ventilator"
+               }
+              ]
+             }
+            ],
+            "value": {
+             "value": 4500,
+             "unit": "INR"
+            }
+           }
+          ]
+         },
+         {
+          "id": "PlanBenefit/MG005A",
+          "extension": [
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition",
+            "extension": [
+             {
+              "id": "MG005A/ProcedureType",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ProcedureType",
+              "valueString": "Conservative"
+             },
+             {
+              "id": "MG005A/GovtReserved",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/GovtReserved",
+              "valueString": "N"
+             },
+             {
+              "id": "MG005A/ApprovalNotRequired",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ApprovalNotRequired",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG005A/EnhancementAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/EnhancementAllowed",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG005A/ScheduledTATApproval",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ScheduledTATApproval",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG005A/QuantityAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/QuantityAllowed",
+              "valueString": "1"
+             },
+             {
+              "id": "MG005A/IsDayCare",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/IsDayCare",
+              "valueString": "N"
+             },
+             {
+              "id": "MG005A/ImplantApplicable",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ImplantApplicable",
+              "valueString": "N"
+             },
+             {
+              "id": "MG005A/StratificationAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/StratificationAllowed",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG005A/MultipleImplantsAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleImplantsAllowed",
+              "valueString": "N"
+             },
+             {
+              "id": "MG005A/MultipleStratificationAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleStratificationAllowed",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG005A/MaximumImplantsAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumImplantsAllowed",
+              "valueString": "1"
+             },
+             {
+              "id": "MG005A/MaximumStratificationAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumStratificationAllowed",
+              "valueString": "1"
+             },
+             {
+              "id": "MG005A/CyclicProcedure",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/CyclicProcedure",
+              "valueString": "N"
+             },
+             {
+              "id": "MG005A/MaximumCyclesAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumCyclesAllowed",
+              "valueString": "0"
+             },
+             {
+              "id": "MG005A/Standalone",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/Standalone",
+              "valueString": "N"
+             },
+             {
+              "id": "MG005A/ParentProcedure",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ParentProcedure",
+              "valueString": "NA"
+             },
+             {
+              "id": "MG005A/Unspecified",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/Unspecified",
+              "valueString": "N"
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+            "extension": [
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG005A/100409/MAND0409",
+              "extension": [
+               {
+                "id": "MG005A/100409/MAND0409/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG005A/100409/MAND0409/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0409",
+                   "display": "any investigations done"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG005A/100064/MAND0064",
+              "extension": [
+               {
+                "id": "MG005A/100064/MAND0064/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG005A/100064/MAND0064/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0064",
+                   "display": "All investigations reports"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG005A/100006/MAND0006",
+              "extension": [
+               {
+                "id": "MG005A/100006/MAND0006/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG005A/100006/MAND0006/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0006",
+                   "display": "Detailed discharge summary"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG005A/100062/MAND0062",
+              "extension": [
+               {
+                "id": "MG005A/100062/MAND0062/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG005A/100062/MAND0062/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0062",
+                   "display": "Detailed ICPs"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG005A/100063/MAND0063",
+              "extension": [
+               {
+                "id": "MG005A/100063/MAND0063/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG005A/100063/MAND0063/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0063",
+                   "display": "Treatment details"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG005A/100408/MAND0408",
+              "extension": [
+               {
+                "id": "MG005A/100408/MAND0408/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "CD"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG005A/100408/MAND0408/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0408",
+                   "display": "Clinical notes detailing history and Admission notes showing vitals and examination findings"
+                  }
+                 ]
+                }
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+            "extension": [
+             {
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "INF",
+                 "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+                }
+               ]
+              }
+             },
+             {
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "STG",
+                 "display": "Standard Treatment Guidelines"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+            "extension": [
+             {
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "INF",
+                 "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+                }
+               ]
+              }
+             },
+             {
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "STG",
+                 "display": "Standard Treatment Guidelines"
+                }
+               ]
+              }
+             }
+            ]
+           }
+          ],
+          "type": {
+           "coding": [
+            {
+             "system": "http://hl7.org/fhir/ValueSet/procedure-category",
+             "code": "MG005A",
+             "display": "Chikungunya fever (Chikungunya fever)"
+            }
+           ]
+          },
+          "cost": [
+           {
+            "type": {
+             "coding": [
+              {
+               "system": "https://www.nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+               "code": "Procedure",
+               "display": "Selected treatment or service or proudct is a type of procedure or package"
+              }
+             ]
+            },
+            "value": {
+             "value": 0,
+             "unit": "INR"
+            }
+           },
+           {
+            "type": {
+             "coding": [
+              {
+               "system": "https://www.nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+               "code": "Stratification",
+               "display": "Selected treatment or service or proudct is a type of stratification"
+              }
+             ]
+            },
+            "qualifiers": [
+             {
+              "coding": [
+               {
+                "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-productorservice",
+                "code": "STRAT006a",
+                "display": "Routine Ward"
+               }
+              ]
+             }
+            ],
+            "value": {
+             "value": 1800,
+             "unit": "INR"
+            }
+           },
+           {
+            "type": {
+             "coding": [
+              {
+               "system": "https://www.nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+               "code": "Stratification",
+               "display": "Selected treatment or service or proudct is a type of stratification"
+              }
+             ]
+            },
+            "qualifiers": [
+             {
+              "coding": [
+               {
+                "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-productorservice",
+                "code": "STRAT006b",
+                "display": "HDU"
+               }
+              ]
+             }
+            ],
+            "value": {
+             "value": 2700,
+             "unit": "INR"
+            }
+           },
+           {
+            "type": {
+             "coding": [
+              {
+               "system": "https://www.nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+               "code": "Stratification",
+               "display": "Selected treatment or service or proudct is a type of stratification"
+              }
+             ]
+            },
+            "qualifiers": [
+             {
+              "coding": [
+               {
+                "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-productorservice",
+                "code": "STRAT006c",
+                "display": "ICU - Without Ventilator"
+               }
+              ]
+             }
+            ],
+            "value": {
+             "value": 3600,
+             "unit": "INR"
+            }
+           },
+           {
+            "type": {
+             "coding": [
+              {
+               "system": "https://www.nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+               "code": "Stratification",
+               "display": "Selected treatment or service or proudct is a type of stratification"
+              }
+             ]
+            },
+            "qualifiers": [
+             {
+              "coding": [
+               {
+                "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-productorservice",
+                "code": "STRAT006d",
+                "display": "ICU - With Ventilator"
+               }
+              ]
+             }
+            ],
+            "value": {
+             "value": 4500,
+             "unit": "INR"
+            }
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "SG",
+        "category": {
+         "coding": [
+          {
+           "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-benefitcategory",
+           "code": "SG",
+           "display": "General Surgery"
+          }
+         ]
+        },
+        "benefit": [
+         {
+          "id": "PlanBenefit/ST009B",
+          "extension": [
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition",
+            "extension": [
+             {
+              "id": "ST009B/ProcedureType",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ProcedureType",
+              "valueString": "Surgical"
+             },
+             {
+              "id": "ST009B/GovtReserved",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/GovtReserved",
+              "valueString": "N"
+             },
+             {
+              "id": "ST009B/ApprovalNotRequired",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ApprovalNotRequired",
+              "valueString": "Y"
+             },
+             {
+              "id": "ST009B/EnhancementAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/EnhancementAllowed",
+              "valueString": "N"
+             },
+             {
+              "id": "ST009B/ScheduledTATApproval",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ScheduledTATApproval",
+              "valueString": "Y"
+             },
+             {
+              "id": "ST009B/QuantityAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/QuantityAllowed",
+              "valueString": "1"
+             },
+             {
+              "id": "ST009B/IsDayCare",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/IsDayCare",
+              "valueString": "N"
+             },
+             {
+              "id": "ST009B/ImplantApplicable",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ImplantApplicable",
+              "valueString": "N"
+             },
+             {
+              "id": "ST009B/StratificationAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/StratificationAllowed",
+              "valueString": "N"
+             },
+             {
+              "id": "ST009B/MultipleImplantsAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleImplantsAllowed",
+              "valueString": "N"
+             },
+             {
+              "id": "ST009B/MultipleStratificationAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleStratificationAllowed",
+              "valueString": "N"
+             },
+             {
+              "id": "ST009B/MaximumImplantsAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumImplantsAllowed",
+              "valueString": "1"
+             },
+             {
+              "id": "ST009B/MaximumStratificationAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumStratificationAllowed",
+              "valueString": "1"
+             },
+             {
+              "id": "ST009B/CyclicProcedure",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/CyclicProcedure",
+              "valueString": "N"
+             },
+             {
+              "id": "ST009B/MaximumCyclesAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumCyclesAllowed",
+              "valueString": "0"
+             },
+             {
+              "id": "ST009B/Standalone",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/Standalone",
+              "valueString": "N"
+             },
+             {
+              "id": "ST009B/ParentProcedure",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ParentProcedure",
+              "valueString": "NA"
+             },
+             {
+              "id": "ST009B/Unspecified",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/Unspecified",
+              "valueString": "N"
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+            "extension": [
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/ST009B/100952/MAND0952",
+              "extension": [
+               {
+                "id": "ST009B/100952/MAND0952/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "ST009B/100952/MAND0952/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0952",
+                   "display": "MLC/ FIR +/- Nerve conduction velocity (NCV) + /- MRI + /- MRA + /- EMG (Electromyography)"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/ST009B/100006/MAND0006",
+              "extension": [
+               {
+                "id": "ST009B/100006/MAND0006/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "ST009B/100006/MAND0006/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0006",
+                   "display": "Detailed discharge summary"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/ST009B/100300/MAND0300",
+              "extension": [
+               {
+                "id": "ST009B/100300/MAND0300/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "ST009B/100300/MAND0300/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0300",
+                   "display": "Detailed operatives notes"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/ST009B/100309/MAND0309",
+              "extension": [
+               {
+                "id": "ST009B/100309/MAND0309/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "ST009B/100309/MAND0309/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0309",
+                   "display": "Intra operative still photograph"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/ST009B/100946/MAND0946",
+              "extension": [
+               {
+                "id": "ST009B/100946/MAND0946/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "CD"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "ST009B/100946/MAND0946/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0946",
+                   "display": "Clinical notes detailing the injury and need of surgery"
+                  }
+                 ]
+                }
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+            "extension": [
+             {
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "INF",
+                 "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+                }
+               ]
+              }
+             },
+             {
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "STG",
+                 "display": "Standard Treatment Guidelines"
+                }
+               ]
+              }
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+            "extension": [
+             {
+              "url": "category",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "INF",
+                 "display": "Additional info related to claim ( conveying additional situation and condition information.)"
+                }
+               ]
+              }
+             },
+             {
+              "url": "code",
+              "valueCodeableConcept": {
+               "coding": [
+                {
+                 "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                 "code": "STG",
+                 "display": "Standard Treatment Guidelines"
+                }
+               ]
+              }
+             }
+            ]
+           }
+          ],
+          "type": {
+           "coding": [
+            {
+             "system": "http://hl7.org/fhir/ValueSet/procedure-category",
+             "code": "ST009B",
+             "display": "Nerve and/or tendon injury. A. Wound exploration and closure. B. Nerve graft. C. Tendon graft/transfer (Management of Nerve Plexus / Tendon injuries)"
+            }
+           ]
+          },
+          "cost": [
+           {
+            "type": {
+             "coding": [
+              {
+               "system": "https://www.nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+               "code": "Procedure",
+               "display": "Selected treatment or service or proudct is a type of procedure or package"
+              }
+             ]
+            },
+            "value": {
+             "value": 50000,
+             "unit": "INR"
+            }
+           }
+          ]
+         },
+         {
+          "id": "PlanBenefit/MG072C",
+          "extension": [
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition",
+            "extension": [
+             {
+              "id": "MG072C/ProcedureType",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ProcedureType",
+              "valueString": "Medical"
+             },
+             {
+              "id": "MG072C/GovtReserved",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/GovtReserved",
+              "valueString": "N"
+             },
+             {
+              "id": "MG072C/ApprovalNotRequired",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ApprovalNotRequired",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG072C/EnhancementAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/EnhancementAllowed",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG072C/ScheduledTATApproval",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ScheduledTATApproval",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG072C/QuantityAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/QuantityAllowed",
+              "valueString": "6"
+             },
+             {
+              "id": "MG072C/IsDayCare",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/IsDayCare",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG072C/ImplantApplicable",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ImplantApplicable",
+              "valueString": "N"
+             },
+             {
+              "id": "MG072C/StratificationAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/StratificationAllowed",
+              "valueString": "N"
+             },
+             {
+              "id": "MG072C/MultipleImplantsAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleImplantsAllowed",
+              "valueString": "N"
+             },
+             {
+              "id": "MG072C/MultipleStratificationAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MultipleStratificationAllowed",
+              "valueString": "N"
+             },
+             {
+              "id": "MG072C/MaximumImplantsAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumImplantsAllowed",
+              "valueString": "1"
+             },
+             {
+              "id": "MG072C/MaximumStratificationAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumStratificationAllowed",
+              "valueString": "1"
+             },
+             {
+              "id": "MG072C/CyclicProcedure",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/CyclicProcedure",
+              "valueString": "Y"
+             },
+             {
+              "id": "MG072C/MaximumCyclesAllowed",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/MaximumCyclesAllowed",
+              "valueString": "6"
+             },
+             {
+              "id": "MG072C/Standalone",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/Standalone",
+              "valueString": "N"
+             },
+             {
+              "id": "MG072C/ParentProcedure",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/ParentProcedure",
+              "valueString": "NA"
+             },
+             {
+              "id": "MG072C/Unspecified",
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-Condition/Unspecified",
+              "valueString": "N"
+             }
+            ]
+           },
+           {
+            "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement",
+            "extension": [
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG072C/100409/MAND0409",
+              "extension": [
+               {
+                "id": "MG072C/100409/MAND0409/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG072C/100409/MAND0409/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0409",
+                   "display": "any investigations done"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG072C/100064/MAND0064",
+              "extension": [
+               {
+                "id": "MG072C/100064/MAND0064/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG072C/100064/MAND0064/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0064",
+                   "display": "All investigations reports"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG072C/100006/MAND0006",
+              "extension": [
+               {
+                "id": "MG072C/100006/MAND0006/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG072C/100006/MAND0006/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0006",
+                   "display": "Detailed discharge summary"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG072C/100062/MAND0062",
+              "extension": [
+               {
+                "id": "MG072C/100062/MAND0062/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG072C/100062/MAND0062/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0062",
+                   "display": "Detailed ICPs"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG072C/100063/MAND0063",
+              "extension": [
+               {
+                "id": "MG072C/100063/MAND0063/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "DIA",
+                   "display": "Diagnostic report"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG072C/100063/MAND0063/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0063",
+                   "display": "Treatment details"
+                  }
+                 ]
+                }
+               }
+              ]
+             },
+             {
+              "url": "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim-SupportingInfoRequirement/MG072C/100408/MAND0408",
+              "extension": [
+               {
+                "id": "MG072C/100408/MAND0408/category",
+                "url": "category",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-supportinginfo-category",
+                   "code": "CD"
+                  }
+                 ]
+                }
+               },
+               {
+                "id": "MG072C/100408/MAND0408/code",
+                "url": "code",
+                "valueCodeableConcept": {
+                 "coding": [
+                  {
+                   "system": "https://nrces.in/ndhm/fhir/r4/ValueSet/ndhm-supportinginfo-code",
+                   "code": "MAND0408",
+                   "display": "Clinical notes detailing history and Admission notes showing vitals and examination findings"
+                  }
+                 ]
+                }
+               }
+              ]
+             }
+            ]
+           }
+          ],
+          "type": {
+           "coding": [
+            {
+             "system": "http://hl7.org/fhir/ValueSet/procedure-category",
+             "code": "MG072C",
+             "display": "Acute Haemodialysis (Acute Haemodialysis)"
+            }
+           ]
+          },
+          "cost": [
+           {
+            "type": {
+             "coding": [
+              {
+               "system": "https://www.nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-plan-type",
+               "code": "Procedure",
+               "display": "Selected treatment or service or proudct is a type of procedure or package"
+              }
+             ]
+            },
+            "value": {
+             "value": 1500,
+             "unit": "INR"
+            }
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "https://payer.nha.gov.in/insuranceplan/v1/insuranceplan/organization/payer/1518",
+   "fullUrl": "https://payer.nha.gov.in/insuranceplan/v1/insuranceplan/organization/payer/1518",
+   "resource": {
+    "resourceType": "Organization",
+    "id": "1518",
+    "meta": {
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "NIIP",
+         "display": "National Insurance Payor Identifier (Payor)"
+        }
+       ]
+      },
+      "system": "https://facility.abdm.gov.in",
+      "value": "1518"
+     }
+    ],
+    "active": true,
+    "type": [
+     {
+      "coding": [
+       {
+        "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+        "code": "pay",
+        "display": "Payer"
+       }
+      ]
+     }
+    ],
+    "name": "SHA HP",
+    "contact": [
+     {
+      "telecom": [
+       {
+        "system": "phone",
+        "value": "9000000003"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "https://payer.gov.in/policy/questionnaire/100005",
+   "resource": {
+    "resourceType": "Questionnaire",
+    "id": "100005",
+    "meta": {
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "url": "https://payer.gov.in/policy/questionnaire/100005",
+    "name": "Discharge Information",
+    "title": "Discharge Information",
+    "status": "active",
+    "item": [
+     {
+      "linkId": "100097",
+      "text": "Post Treatment Photo with Doctor/PMAM",
+      "type": "attachment",
+      "required": true
+     },
+     {
+      "linkId": "100096",
+      "text": "Discharge Summary",
+      "type": "attachment",
+      "required": true
+     },
+     {
+      "linkId": "101799",
+      "text": "Discharge Stage",
+      "type": "choice",
+      "required": true,
+      "answerOption": [
+       {
+        "valueString": "After Surgery/Treatment",
+        "initialSelected": true
+       }
+      ]
+     },
+     {
+      "linkId": "100101",
+      "text": "Surgery/Treatment Date",
+      "type": "dateTime",
+      "required": true
+     },
+     {
+      "linkId": "100012",
+      "text": "Discharge Date",
+      "type": "dateTime",
+      "required": true
+     },
+     {
+      "linkId": "103045",
+      "text": "Feedback Form",
+      "type": "attachment",
+      "required": true
+     },
+     {
+      "linkId": "103119",
+      "text": "Have Hospital provided the medicines during treatment/for post operative care?",
+      "type": "choice",
+      "required": true,
+      "answerOption": [
+       {
+        "valueString": "Yes",
+        "initialSelected": false
+       },
+       {
+        "valueString": "No",
+        "initialSelected": false
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "https://payer.gov.in/policy/questionnaire/100008",
+   "resource": {
+    "resourceType": "Questionnaire",
+    "id": "100008",
+    "meta": {
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "url": "https://payer.gov.in/policy/questionnaire/100008",
+    "name": "General Findings",
+    "title": "General Findings",
+    "status": "active",
+    "item": [
+     {
+      "linkId": "100019",
+      "text": "Temperature",
+      "type": "string",
+      "required": false
+     },
+     {
+      "linkId": "100020",
+      "text": "Pulse Rate Per Minute",
+      "type": "string",
+      "required": false
+     },
+     {
+      "linkId": "100021",
+      "text": "Height(in CM)",
+      "type": "string",
+      "required": false
+     },
+     {
+      "linkId": "100022",
+      "text": "Weight(in KG)",
+      "type": "string",
+      "required": false
+     },
+     {
+      "linkId": "100023",
+      "text": "BMI",
+      "type": "string",
+      "required": false
+     },
+     {
+      "linkId": "100024",
+      "text": "Cyanosis",
+      "type": "choice",
+      "required": false,
+      "answerOption": [
+       {
+        "valueString": "Yes",
+        "initialSelected": false
+       },
+       {
+        "valueString": "No",
+        "initialSelected": false
+       }
+      ]
+     },
+     {
+      "linkId": "100025",
+      "text": "Pallor",
+      "type": "choice",
+      "required": false,
+      "answerOption": [
+       {
+        "valueString": "Yes",
+        "initialSelected": false
+       },
+       {
+        "valueString": "No",
+        "initialSelected": false
+       }
+      ]
+     },
+     {
+      "linkId": "100027",
+      "text": "Malnutrition",
+      "type": "choice",
+      "required": false,
+      "answerOption": [
+       {
+        "valueString": "Yes",
+        "initialSelected": false
+       },
+       {
+        "valueString": "No",
+        "initialSelected": false
+       }
+      ]
+     },
+     {
+      "linkId": "100029",
+      "text": "Oedema in Feet",
+      "type": "choice",
+      "required": false,
+      "answerOption": [
+       {
+        "valueString": "Yes",
+        "initialSelected": false
+       },
+       {
+        "valueString": "No",
+        "initialSelected": false
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

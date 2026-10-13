@@ -137,6 +137,7 @@ LOCAL_APPS = [
     "care.users",
     "care.audit_log",
     "care.emr",
+    "care.nhcx",
 ]
 
 PLUGIN_APPS = manager.get_apps()
@@ -740,3 +741,39 @@ TOTP_DISABLED_EMAIL_TEMPLATE_PATH = env(
 
 # Cleanup incomplete file uploads, set to 0 to disable
 FILE_UPLOAD_EXPIRY_HOURS = env.int("FILE_UPLOAD_EXPIRY_HOURS", default=24)
+
+# NHCX
+# ------------------------------------------------------------------------------
+# Embedded NHCX gateway (care.nhcx.gateway). Everything protocol-side (participant,
+# credentials, keys, URLs, ledger) lives in the gateway config file; these are the
+# module settings around it. See care/nhcx/gateway/config.example.json.
+NHCX_GATEWAY_CONFIG = env("NHCX_GATEWAY_CONFIG", default="")
+NHCX_RECEIVE_HANDLER = env(
+    "NHCX_RECEIVE_HANDLER", default="care.nhcx.callbacks.dispatch.receive"
+)
+# extra participant codes the gateway answers for: "code=name,code=name"
+NHCX_HOSTED_PARTICIPANTS = env("NHCX_HOSTED_PARTICIPANTS", default="")
+# unset keeps the config file's `guests` section; true/false overrides it
+NHCX_GUESTS = (
+    env.bool("NHCX_GUESTS") if env("NHCX_GUESTS", default="").strip() else None
+)
+NHCX_VERSION = env("NHCX_VERSION", default="embedded")
+# share session tokens across processes through the default cache
+NHCX_SHARED_TOKEN_CACHE = env.bool("NHCX_SHARED_TOKEN_CACHE", default=True)
+# only the instance with NHCX_ROLE runs the token refresher and the ledger pruner
+NHCX_ROLE = env.bool("NHCX_ROLE", default=False)
+NHCX_ARCHIVE_DIR = env("NHCX_ARCHIVE_DIR", default="")
+NHCX_ELIGIBILITY_WORKFLOW_ID = env("NHCX_ELIGIBILITY_WORKFLOW_ID", default="11")
+# adjudicator console and payer service (sandbox only, off in production)
+NHCX_ADJUDICATOR_CONSOLE = env.bool("NHCX_ADJUDICATOR_CONSOLE", default=False)
+NHCX_PAYER_SERVICE_TOKEN = env("NHCX_PAYER_SERVICE_TOKEN", default="")
+NHCX_PAYER_SERVICE_USER_ROLE_URL = env("NHCX_PAYER_SERVICE_USER_ROLE_URL", default="")
+NHCX_PAYER_SERVICE_PROCESS_CASE_URL = env(
+    "NHCX_PAYER_SERVICE_PROCESS_CASE_URL", default=""
+)
+# biometric and ABHA services
+NHCX_BIOMETRIC_BASE_URL = env("NHCX_BIOMETRIC_BASE_URL", default="")
+NHCX_FACEAUTH_BASE_URL = env("NHCX_FACEAUTH_BASE_URL", default="")
+NHCX_FACEAUTH_QR_URL = env("NHCX_FACEAUTH_QR_URL", default="")
+NHCX_BIOMETRIC_TOKEN_HEADER = env("NHCX_BIOMETRIC_TOKEN_HEADER", default="")
+NHCX_ABHA_BASE_URL = env("NHCX_ABHA_BASE_URL", default="")

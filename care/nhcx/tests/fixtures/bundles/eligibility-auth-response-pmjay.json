@@ -1,0 +1,1022 @@
+{
+ "resourceType": "Bundle",
+ "id": "request",
+ "meta": {
+  "lastUpdated": "2026-09-11T00:32:42.788+05:30",
+  "tag": [
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+    "code": "SUBSETTED",
+    "display": "Resource encoded in summary mode"
+   }
+  ]
+ },
+ "identifier": {
+  "system": "https://payer.pmajy.nha.gov.in",
+  "value": "https://nhcx.abdm.gov.in/coverage-eligibility/request"
+ },
+ "type": "collection",
+ "timestamp": "2026-09-11T00:32:42.788+05:30",
+ "entry": [
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/coverage-eligibility/request",
+   "resource": {
+    "resourceType": "CoverageEligibilityRequest",
+    "id": "request",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/CoverageEligibilityRequest"
+     ],
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "identifier": [
+     {
+      "system": "https://nhcx.abdm.gov.in"
+     }
+    ],
+    "status": "active",
+    "priority": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+       "code": "normal",
+       "display": "Normal"
+      }
+     ]
+    },
+    "purpose": [
+     "auth-requirements"
+    ],
+    "patient": {
+     "reference": "https://nhcx.abdm.gov.in/patient"
+    },
+    "created": "2026-09-11T00:32:39+05:30",
+    "enterer": {
+     "reference": "https://nhcx.abdm.gov.in/practitioner-role"
+    },
+    "provider": {
+     "reference": "https://nhcx.abdm.gov.in/provider"
+    },
+    "insurer": {
+     "reference": "https://nhcx.abdm.gov.in/payer"
+    },
+    "facility": {
+     "reference": "https://nhcx.abdm.gov.in/location"
+    },
+    "insurance": [
+     {
+      "focal": true,
+      "coverage": {
+       "reference": "https://nhcx.abdm.gov.in/coverage"
+      }
+     }
+    ],
+    "item": [
+     {
+      "category": {
+       "coding": [
+        {
+         "system": "https://nhcx.abdm.gov.in/category-code",
+         "code": "MG",
+         "display": "General Medicine"
+        }
+       ]
+      },
+      "productOrService": {
+       "coding": [
+        {
+         "system": "https://nhcx.abdm.gov.in/product-code",
+         "code": "MG0111A",
+         "display": "Pleural Effusion (Pleural Effusion)"
+        }
+       ]
+      },
+      "modifier": [
+       {
+        "coding": [
+         {
+          "code": "STRAT006a",
+          "display": "Routine Ward"
+         }
+        ]
+       }
+      ],
+      "quantity": {
+       "value": 1
+      }
+     },
+     {
+      "category": {
+       "coding": [
+        {
+         "system": "https://nhcx.abdm.gov.in/category-code",
+         "code": "MG",
+         "display": "General Medicine"
+        }
+       ]
+      },
+      "productOrService": {
+       "coding": [
+        {
+         "system": "https://nhcx.abdm.gov.in/product-code",
+         "code": "MG072C",
+         "display": "Acute Haemodialysis (Acute Haemodialysis)"
+        }
+       ]
+      },
+      "quantity": {
+       "value": 1
+      }
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/patient",
+   "resource": {
+    "resourceType": "Patient",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Patient"
+     ],
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-identifier-type-code",
+         "code": "PMJAY",
+         "display": "Pradhan Mantri Jan Aarogya Yojana (PMJAY) ID"
+        }
+       ]
+      },
+      "value": "PMJAY0000X"
+     },
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "MB",
+         "display": "Member Number"
+        }
+       ]
+      },
+      "value": "PMJAY0000X"
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/provider",
+   "resource": {
+    "resourceType": "Organization",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Organization"
+     ],
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "NPI",
+         "display": "National provider identifier"
+        }
+       ]
+      },
+      "system": "https://nhcx.abdm.gov.in",
+      "value": "IN1910000151"
+     }
+    ],
+    "type": [
+     {
+      "coding": [
+       {
+        "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+        "code": "prov",
+        "display": "Healthcare Provider"
+       }
+      ]
+     }
+    ],
+    "name": "KyroCare Multispeciality Hospital"
+   }
+  },
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/payer",
+   "resource": {
+    "resourceType": "Organization",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Organization"
+     ],
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "NIIP",
+         "display": "National Insurance Payor Identifier (Payor)"
+        }
+       ]
+      },
+      "system": "https://nhcx.abdm.gov.in",
+      "value": "1518"
+     }
+    ],
+    "type": [
+     {
+      "coding": [
+       {
+        "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+        "code": "pay",
+        "display": "Payer"
+       }
+      ]
+     }
+    ],
+    "name": "PMJAY / Ayushman Bharat"
+   }
+  },
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/location",
+   "resource": {
+    "resourceType": "Location",
+    "meta": {
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "name": "KyroCare Multispeciality Hospital",
+    "managingOrganization": {
+     "reference": "https://nhcx.abdm.gov.in/provider"
+    }
+   }
+  },
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/coverage",
+   "resource": {
+    "resourceType": "Coverage",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Coverage"
+     ],
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "NH",
+         "display": "National Health Plan Identifier"
+        }
+       ]
+      },
+      "value": "PMJAY/HP/S/G"
+     }
+    ],
+    "status": "active",
+    "type": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+       "code": "HIP",
+       "display": "health insurance plan policy"
+      }
+     ]
+    },
+    "subscriber": {
+     "reference": "https://nhcx.abdm.gov.in/patient"
+    },
+    "subscriberId": "PMJAY0000X",
+    "beneficiary": {
+     "reference": "https://nhcx.abdm.gov.in/patient"
+    },
+    "relationship": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+       "code": "self"
+      }
+     ]
+    },
+    "payor": [
+     {
+      "reference": "https://nhcx.abdm.gov.in/payer"
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "https://nhcx.abdm.gov.in/practitioner-role",
+   "resource": {
+    "resourceType": "PractitionerRole",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/PractitionerRole"
+     ],
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "code": [
+     {
+      "coding": [
+       {
+        "system": "http://snomed.info/sct",
+        "code": "307988006",
+        "display": "Medical technician"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/PMJAY0000X",
+   "fullUrl": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/PMJAY0000X",
+   "resource": {
+    "resourceType": "CoverageEligibilityResponse",
+    "id": "PMJAY0000X-IN1910000151",
+    "meta": {
+     "profile": [
+      "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse"
+     ],
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "identifier": [
+     {
+      "system": "https://hcx.pmjay.gov.in/v1/coverageeligibility/check",
+      "value": "PMJAY0000X-IN1910000151"
+     }
+    ],
+    "status": "active",
+    "purpose": [
+     "auth-requirements"
+    ],
+    "patient": {
+     "reference": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/patient/PMJAY0000X"
+    },
+    "created": "2026-09-11T00:32:42+05:30",
+    "requestor": {
+     "reference": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/organization/provider/IN1910000151"
+    },
+    "request": {
+     "reference": "https://nhcx.abdm.gov.in/coverage-eligibility/request"
+    },
+    "outcome": "complete",
+    "disposition": "Policy is currently in-force",
+    "insurer": {
+     "reference": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/organization/payer/1518"
+    },
+    "insurance": [
+     {
+      "coverage": {
+       "reference": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/coverage/100155PMJAY0000X"
+      },
+      "inforce": true,
+      "item": [
+       {
+        "category": {
+         "coding": [
+          {
+           "code": "MG",
+           "display": "General Medicine"
+          }
+         ]
+        },
+        "productOrService": {
+         "coding": [
+          {
+           "code": "MG0111A",
+           "display": "Pleural Effusion (Pleural Effusion)"
+          }
+         ]
+        },
+        "excluded": false,
+        "benefit": [
+         {
+          "type": {
+           "coding": [
+            {
+             "system": "https://hl7.org/fhir/R4/codesystem-benefit-type.html",
+             "code": "Procedure",
+             "display": "Procedure"
+            }
+           ]
+          },
+          "allowedMoney": {
+           "value": 2070,
+           "currency": "INR"
+          }
+         }
+        ],
+        "authorizationRequired": true,
+        "authorizationSupporting": [
+         {
+          "coding": [
+           {
+            "code": "MAND0409",
+            "display": "any investigations done"
+           }
+          ],
+          "text": "Type: pre\n Procedure Code:MG0111A"
+         },
+         {
+          "coding": [
+           {
+            "code": "MAND0408",
+            "display": "Clinical notes detailing history and Admission notes showing vitals and examination findings"
+           }
+          ],
+          "text": "Type: pre\n Procedure Code:MG0111A"
+         },
+         {
+          "coding": [
+           {
+            "code": "MAND0455",
+            "display": "CXR PA view or CECT chest abdomen and pelvis"
+           }
+          ],
+          "text": "Type: pre\n Procedure Code:MG0111A"
+         },
+         {
+          "coding": [
+           {
+            "code": "MAND0570",
+            "display": "Planned line of management"
+           }
+          ],
+          "text": "Type: pre\n Procedure Code:MG0111A"
+         },
+         {
+          "coding": [
+           {
+            "code": "100003",
+            "display": "Approver Checklist"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100003"
+         },
+         {
+          "coding": [
+           {
+            "code": "100008",
+            "display": "General Findings"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100008"
+         },
+         {
+          "coding": [
+           {
+            "code": "100010",
+            "display": "Personal History"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100010"
+         },
+         {
+          "coding": [
+           {
+            "code": "100011",
+            "display": "Family History"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100011"
+         },
+         {
+          "coding": [
+           {
+            "code": "100020",
+            "display": "Admission Details"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100020"
+         },
+         {
+          "coding": [
+           {
+            "code": "100024",
+            "display": "Authentication Consent"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100024"
+         },
+         {
+          "coding": [
+           {
+            "code": "100209",
+            "display": "General Medicine"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100209"
+         },
+         {
+          "coding": [
+           {
+            "code": "106329",
+            "display": "Patient Payment Consent"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/106329"
+         }
+        ]
+       },
+       {
+        "category": {
+         "coding": [
+          {
+           "code": "MG",
+           "display": "General Medicine"
+          }
+         ]
+        },
+        "productOrService": {
+         "coding": [
+          {
+           "code": "MG072C",
+           "display": "Acute Haemodialysis (Acute Haemodialysis)"
+          }
+         ]
+        },
+        "excluded": false,
+        "benefit": [
+         {
+          "type": {
+           "coding": [
+            {
+             "system": "https://hl7.org/fhir/R4/codesystem-benefit-type.html",
+             "code": "Procedure",
+             "display": "Procedure"
+            }
+           ]
+          },
+          "allowedMoney": {
+           "value": 1725,
+           "currency": "INR"
+          }
+         }
+        ],
+        "authorizationRequired": true,
+        "authorizationSupporting": [
+         {
+          "coding": [
+           {
+            "code": "MAND0409",
+            "display": "any investigations done"
+           }
+          ],
+          "text": "Type: pre\n Procedure Code:MG072C"
+         },
+         {
+          "coding": [
+           {
+            "code": "MAND0408",
+            "display": "Clinical notes detailing history and Admission notes showing vitals and examination findings"
+           }
+          ],
+          "text": "Type: pre\n Procedure Code:MG072C"
+         },
+         {
+          "coding": [
+           {
+            "code": "100003",
+            "display": "Approver Checklist"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100003"
+         },
+         {
+          "coding": [
+           {
+            "code": "100008",
+            "display": "General Findings"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100008"
+         },
+         {
+          "coding": [
+           {
+            "code": "100010",
+            "display": "Personal History"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100010"
+         },
+         {
+          "coding": [
+           {
+            "code": "100011",
+            "display": "Family History"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100011"
+         },
+         {
+          "coding": [
+           {
+            "code": "100020",
+            "display": "Admission Details"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100020"
+         },
+         {
+          "coding": [
+           {
+            "code": "100024",
+            "display": "Authentication Consent"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100024"
+         },
+         {
+          "coding": [
+           {
+            "code": "100209",
+            "display": "General Medicine"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/100209"
+         },
+         {
+          "coding": [
+           {
+            "code": "106329",
+            "display": "Patient Payment Consent"
+           }
+          ],
+          "text": "fullUrl: https://payer.gov.in/policy/questionnaire/106329"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/patient/PMJAY0000X",
+   "fullUrl": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/patient/PMJAY0000X",
+   "resource": {
+    "resourceType": "Patient",
+    "id": "PMJAY0000X",
+    "meta": {
+     "versionId": "1",
+     "lastUpdated": "2026-09-11T00:32:42.844+05:30",
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-identifier-type-code",
+         "code": "PMJAY",
+         "display": "Pradhan Mantri Jan Aarogya Yojana (PMJAY) ID"
+        }
+       ]
+      },
+      "system": "https://bis.pmjay.gov.in",
+      "value": "PMJAY0000X"
+     },
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "JHN",
+         "display": "Jurisdictional health number"
+        }
+       ]
+      },
+      "system": "https://bis.pmjay.gov.in",
+      "value": "000000000000000000000000"
+     },
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "PI",
+         "display": "Patient internal identifier"
+        }
+       ]
+      },
+      "system": "https://provider.pmjay.gov.in",
+      "value": "4e344847-86b3-4f65-bd75-351213c536b3"
+     },
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-identifier-type-code",
+         "code": "ABHA",
+         "display": "Ayushman Bharat Health Account (ABHA) ID"
+        }
+       ]
+      },
+      "system": "https://bis.pmjay.gov.in",
+      "value": "91-0000-0000-0000"
+     },
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-identifier-type-code",
+         "code": "ADN",
+         "display": "Adhaar number"
+        }
+       ]
+      },
+      "system": "https://bis.pmjay.gov.in",
+      "value": "ENCRYPTED-AADHAAR-PLACEHOLDER"
+     }
+    ],
+    "name": [
+     {
+      "text": "PALLVI",
+      "family": "PALLVI",
+      "given": [
+       "PALLVI"
+      ]
+     }
+    ],
+    "telecom": [
+     {
+      "system": "phone",
+      "use": "home"
+     }
+    ],
+    "gender": "female",
+    "birthDate": "2002-01-01",
+    "deceasedBoolean": false,
+    "address": [
+     {
+      "use": "home",
+      "type": "both",
+      "line": [
+       "ISPUR"
+      ],
+      "district": "UNA",
+      "state": "HIMACHAL PRADESH",
+      "postalCode": "177202"
+     }
+    ]
+   }
+  },
+  {
+   "id": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/coverage/100155PMJAY0000X",
+   "fullUrl": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/coverage/100155PMJAY0000X",
+   "resource": {
+    "resourceType": "Coverage",
+    "id": "100155",
+    "meta": {
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "NH",
+         "display": "National Health Plan Identifier"
+        }
+       ]
+      },
+      "system": "https://payer.pmjay.gov.in",
+      "value": "PMJAY/HP/S/G"
+     }
+    ],
+    "status": "active",
+    "type": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+       "code": "HIP",
+       "display": "health insurance plan policy"
+      }
+     ]
+    },
+    "subscriber": {
+     "reference": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/patient/PMJAY0000X"
+    },
+    "beneficiary": {
+     "reference": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/patient/PMJAY0000X"
+    },
+    "relationship": {
+     "coding": [
+      {
+       "system": "https://terminology.hl7.org/6.5.0/CodeSystem-subscriber-relationship.html",
+       "code": "child",
+       "display": "Child"
+      }
+     ]
+    },
+    "period": {
+     "start": "2023-04-02T00:00:00+05:30",
+     "end": "2028-04-02T00:00:00+05:30"
+    },
+    "payor": [
+     {
+      "reference": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/organization/payer/1518"
+     }
+    ],
+    "class": [
+     {
+      "id": "100185",
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "XV",
+         "display": "Health Plan Identifier"
+        }
+       ]
+      },
+      "value": "PMJAY/HP/S/2024/R2",
+      "name": "PMJAY for Himachal"
+     }
+    ]
+   }
+  },
+  {
+   "id": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/organization/payer/1518",
+   "fullUrl": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/organization/payer/1518",
+   "resource": {
+    "resourceType": "Organization",
+    "meta": {
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "NIIP",
+         "display": "National Insurance Payor Identifier (Payor)"
+        }
+       ]
+      },
+      "system": "https://facility.abdm.gov.in",
+      "value": "1518@hcx"
+     }
+    ],
+    "active": true,
+    "type": [
+     {
+      "coding": [
+       {
+        "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+        "code": "pay",
+        "display": "Payer"
+       }
+      ]
+     }
+    ],
+    "name": "SHA HP",
+    "contact": [
+     {
+      "telecom": [
+       {
+        "system": "phone",
+        "value": "9000000001"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/organization/provider/IN1910000151",
+   "fullUrl": "https://payer.nha.gov.in/coverageeligibility/v1/coverageeligibility/on_check/coverageeligibilityresponse/organization/provider/IN1910000151",
+   "resource": {
+    "resourceType": "Organization",
+    "meta": {
+     "tag": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+       "code": "SUBSETTED",
+       "display": "Resource encoded in summary mode"
+      }
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "NPI",
+         "display": "National provider identifier"
+        }
+       ]
+      },
+      "system": "https://facility.abdm.gov.in",
+      "value": "IN1910000151"
+     }
+    ],
+    "active": true,
+    "type": [
+     {
+      "coding": [
+       {
+        "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+        "code": "prov",
+        "display": "Healthcare Provider"
+       }
+      ]
+     }
+    ],
+    "name": "KyroCare Multispeciality Hospital",
+    "contact": [
+     {
+      "telecom": [
+       {
+        "system": "phone",
+        "value": "NA"
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

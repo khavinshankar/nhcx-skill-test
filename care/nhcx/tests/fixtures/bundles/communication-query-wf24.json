@@ -1,0 +1,470 @@
+{
+ "resourceType": "Bundle",
+ "id": "6e6f3b04-b7d9-502c-914d-b2d81efe4f82",
+ "meta": {
+  "profile": [
+   "https://nrces.in/ndhm/fhir/r4/StructureDefinition/TaskBundle"
+  ],
+  "security": [
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+    "code": "V",
+    "display": "very restricted"
+   }
+  ]
+ },
+ "identifier": {
+  "value": "6e6f3b04-b7d9-502c-914d-b2d81efe4f82"
+ },
+ "type": "collection",
+ "timestamp": "2026-09-10T23:51:47.261+05:30",
+ "entry": [
+  {
+   "fullUrl": "urn:uuid:4adde8bb-8f66-5cfa-b3ff-3059b057f9a3",
+   "resource": {
+    "resourceType": "Task",
+    "id": "4adde8bb-8f66-5cfa-b3ff-3059b057f9a3",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Task"
+     ]
+    },
+    "status": "requested",
+    "intent": "order",
+    "reasonCode": {
+     "coding": [
+      {
+       "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-reason-code",
+       "code": "additionalinfo",
+       "display": "Additional Information Request"
+      }
+     ]
+    },
+    "code": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/financialtaskcode",
+       "code": "poll"
+      }
+     ]
+    },
+    "description": "Share the pre-operative X-ray and the clinical notes.",
+    "authoredOn": "2026-09-10T23:51:47+05:30",
+    "requester": {
+     "reference": "urn:uuid:39cd4b51-bddd-5cc1-a65a-6fa4a2a83cb5",
+     "display": "Organization"
+    },
+    "owner": {
+     "reference": "urn:uuid:84d112ec-041c-57f8-986c-6619ccd8245e",
+     "display": "Organization"
+    },
+    "input": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/financialtaskinputtype",
+         "code": "include"
+        }
+       ]
+      },
+      "valueReference": {
+       "reference": "urn:uuid:4b35a6eb-3f99-5d0c-b0c8-5b2f049fdbde",
+       "display": "CommunicationRequest"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:4b35a6eb-3f99-5d0c-b0c8-5b2f049fdbde",
+   "resource": {
+    "resourceType": "CommunicationRequest",
+    "id": "4b35a6eb-3f99-5d0c-b0c8-5b2f049fdbde",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/CommunicationRequest"
+     ]
+    },
+    "identifier": [
+     {
+      "value": "NM-26-0SE00002I"
+     }
+    ],
+    "basedOn": [
+     {
+      "reference": "urn:uuid:c1a17d6e-c718-58de-8d3d-fd4c0607d729",
+      "display": "Claim-preauth"
+     }
+    ],
+    "status": "active",
+    "category": [
+     {
+      "coding": [
+       {
+        "system": "http://terminology.hl7.org/CodeSystem/communication-category",
+        "code": "alert"
+       }
+      ]
+     }
+    ],
+    "priority": "routine",
+    "payload": [
+     {
+      "contentString": "Share the pre-operative X-ray and the clinical notes."
+     }
+    ],
+    "authoredOn": "2026-09-10T23:51:47+05:30",
+    "requester": {
+     "reference": "urn:uuid:39cd4b51-bddd-5cc1-a65a-6fa4a2a83cb5",
+     "display": "Organization"
+    },
+    "recipient": [
+     {
+      "reference": "urn:uuid:84d112ec-041c-57f8-986c-6619ccd8245e",
+      "display": "Organization"
+     }
+    ],
+    "sender": {
+     "reference": "urn:uuid:39cd4b51-bddd-5cc1-a65a-6fa4a2a83cb5",
+     "display": "Organization"
+    },
+    "reasonCode": [
+     {
+      "coding": [
+       {
+        "system": "https://nrces.in/ndhm/fhir/r4/CodeSystem/ndhm-reason-code",
+        "code": "additionalinfo",
+        "display": "Additional Information Request"
+       }
+      ],
+      "text": "Share the pre-operative X-ray and the clinical notes."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:c1a17d6e-c718-58de-8d3d-fd4c0607d729",
+   "resource": {
+    "resourceType": "Claim",
+    "id": "c1a17d6e-c718-58de-8d3d-fd4c0607d729",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Claim"
+     ]
+    },
+    "identifier": [
+     {
+      "value": "NM-26-0SE00002I"
+     },
+     {
+      "value": "CL/26/0SE000105"
+     }
+    ],
+    "status": "active",
+    "type": {
+     "coding": [
+      {
+       "system": "http://snomed.info/sct",
+       "code": "737481003",
+       "display": "Inpatient care management (procedure)"
+      }
+     ]
+    },
+    "use": "preauthorization",
+    "patient": {
+     "reference": "urn:uuid:89aac2db-25ae-5b55-90a7-886c6be48ca7",
+     "display": "Patient"
+    },
+    "billablePeriod": {
+     "start": "2026-09-10T00:00:00+05:30"
+    },
+    "created": "2026-09-10T18:21:42Z",
+    "insurer": {
+     "reference": "urn:uuid:39cd4b51-bddd-5cc1-a65a-6fa4a2a83cb5",
+     "display": "Organization"
+    },
+    "provider": {
+     "reference": "urn:uuid:84d112ec-041c-57f8-986c-6619ccd8245e",
+     "display": "Organization"
+    },
+    "priority": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+       "code": "normal"
+      }
+     ]
+    },
+    "careTeam": [
+     {
+      "sequence": 1,
+      "provider": {
+       "reference": "urn:uuid:345b01fe-05e7-5b65-8e62-6532fbb228cb",
+       "display": "Practitioner"
+      },
+      "role": {
+       "coding": [
+        {
+         "system": "http://snomed.info/sct",
+         "code": "223366009",
+         "display": "Healthcare professional (occupation)"
+        }
+       ]
+      },
+      "qualification": {
+       "coding": [
+        {
+         "system": "http://snomed.info/sct",
+         "code": "394658006",
+         "display": "Clinical specialty (qualifier value)"
+        }
+       ],
+       "text": "Doctor of Medicine"
+      }
+     }
+    ],
+    "diagnosis": [
+     {
+      "sequence": 1,
+      "diagnosisCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10",
+         "code": "E11.9",
+         "display": "Type 2 diabetes mellitus without complications"
+        }
+       ]
+      }
+     }
+    ],
+    "procedure": [
+     {
+      "sequence": 1,
+      "procedureCodeableConcept": {
+       "coding": [
+        {
+         "system": "https://kyro.care/fhir/CodeSystem/procedure",
+         "code": "PROC-KNEE-01",
+         "display": "Total Knee Replacement (Unilateral)"
+        }
+       ]
+      }
+     }
+    ],
+    "insurance": [
+     {
+      "sequence": 1,
+      "focal": true,
+      "coverage": {
+       "reference": "urn:uuid:966d4b2b-591b-50b6-bbbb-d504d3c6897f",
+       "display": "Coverage"
+      }
+     }
+    ],
+    "item": [
+     {
+      "sequence": 1,
+      "careTeamSequence": [
+       1
+      ],
+      "productOrService": {
+       "coding": [
+        {
+         "system": "https://kyro.care/fhir/CodeSystem/procedure",
+         "code": "PROC-KNEE-01",
+         "display": "Total Knee Replacement (Unilateral)"
+        }
+       ]
+      },
+      "unitPrice": {
+       "value": 150000,
+       "currency": "INR"
+      },
+      "net": {
+       "value": 150000,
+       "currency": "INR"
+      }
+     }
+    ],
+    "total": {
+     "value": 150000,
+     "currency": "INR"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:89aac2db-25ae-5b55-90a7-886c6be48ca7",
+   "resource": {
+    "resourceType": "Patient",
+    "id": "89aac2db-25ae-5b55-90a7-886c6be48ca7",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Patient"
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "MB",
+         "display": "Member Number"
+        }
+       ]
+      },
+      "system": "https://kyro.care/fhir/Member",
+      "value": "MRAV1985001"
+     }
+    ],
+    "name": [
+     {
+      "text": "Ravi Kumar"
+     }
+    ],
+    "gender": "male"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:39cd4b51-bddd-5cc1-a65a-6fa4a2a83cb5",
+   "resource": {
+    "resourceType": "Organization",
+    "id": "39cd4b51-bddd-5cc1-a65a-6fa4a2a83cb5",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Organization"
+     ]
+    },
+    "type": [
+     {
+      "coding": [
+       {
+        "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+        "code": "ins",
+        "display": "Insurance Company"
+       }
+      ]
+     }
+    ],
+    "name": "Sandbox Payer"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:84d112ec-041c-57f8-986c-6619ccd8245e",
+   "resource": {
+    "resourceType": "Organization",
+    "id": "84d112ec-041c-57f8-986c-6619ccd8245e",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Organization"
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "PRN",
+         "display": "Provider number"
+        }
+       ]
+      },
+      "system": "https://facility.ndhm.gov.in",
+      "value": "IN1910000151"
+     }
+    ],
+    "type": [
+     {
+      "coding": [
+       {
+        "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+        "code": "prov",
+        "display": "Healthcare Provider"
+       }
+      ]
+     }
+    ],
+    "name": "KyroCare Multispeciality Hospital"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:345b01fe-05e7-5b65-8e62-6532fbb228cb",
+   "resource": {
+    "resourceType": "Practitioner",
+    "id": "345b01fe-05e7-5b65-8e62-6532fbb228cb",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Practitioner"
+     ]
+    },
+    "identifier": [
+     {
+      "type": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+         "code": "MD",
+         "display": "Medical License number"
+        }
+       ]
+      },
+      "system": "https://doctor.ndhm.gov.in",
+      "value": "71-8422-5818-7201"
+     }
+    ],
+    "name": [
+     {
+      "text": "Dr. Ananya Rao"
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:966d4b2b-591b-50b6-bbbb-d504d3c6897f",
+   "resource": {
+    "resourceType": "Coverage",
+    "id": "966d4b2b-591b-50b6-bbbb-d504d3c6897f",
+    "meta": {
+     "profile": [
+      "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Coverage"
+     ]
+    },
+    "status": "active",
+    "type": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+       "code": "HIP",
+       "display": "health insurance plan policy"
+      }
+     ]
+    },
+    "subscriber": {
+     "reference": "urn:uuid:89aac2db-25ae-5b55-90a7-886c6be48ca7",
+     "display": "Patient"
+    },
+    "subscriberId": "MRAV1985001",
+    "beneficiary": {
+     "reference": "urn:uuid:89aac2db-25ae-5b55-90a7-886c6be48ca7",
+     "display": "Patient"
+    },
+    "relationship": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+       "code": "self"
+      }
+     ]
+    },
+    "payor": [
+     {
+      "reference": "urn:uuid:39cd4b51-bddd-5cc1-a65a-6fa4a2a83cb5",
+      "display": "Organization"
+     }
+    ]
+   }
+  }
+ ]
+}
