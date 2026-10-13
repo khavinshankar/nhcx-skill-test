@@ -88,3 +88,46 @@ Open items:
   Set one with the ABDM plugin's "Configure Health Facility" to see it.
 - The care_fe commit has no `Entire-Session` trailer, because the child hook did not run under care_fe's husky hooks.
 - The screen has not been walked through in a browser; it needs a login.
+
+## Follow-up: was ABDM implemented again inside NHCX?
+
+Question: "Was ABDM implementation done again while doing NHCX implementation?"
+
+Answer: partly, yes. The first NHCX implementation (session b76b6c16) built `care.nhcx` without reusing care_abdm.
+It reimplements several ABDM pieces that the plug already provides.
+
+**Duplicated:**
+- **ABHA create and verify (ABDM M1):**
+  - Backend: `care/nhcx/services/abha.py` (538 lines) calls the ABHA v3 APIs directly.
+    These include `/enrollment/request/otp`, `/enrollment/enrol/byAadhaar`, `/enrollment/enrol/abha-address`,
+    `/profile/login/*`, `/profile/account` and `/profile/public/certificate`.
+    care_abdm already covers them in `abdm/service/v3/health_id.py`.
+  - Frontend: `care_fe/src/components/Nhcx/` duplicates the care_abdm_fe `LinkAbhaNumber` flow:
+    `AbhaDialog.tsx`, `AbhaFormButton.tsx` and `RegisterWithAbhaButton.tsx`, about 680 lines.
+- **ABHA storage (a real divergence):**
+  - NHCX stores ABHA as `PatientIdentifier` under the systems `https://healthid.abdm.gov.in` and `.../address`.
+  - care_abdm stores it in its `AbhaNumber` model and in its own `PatientIdentifier` configs.
+    The configs use `ABDM_ABHA_NUMBER_IDENTIFIER_SYSTEM_SYSTEM`; in the dev DB they are `abdm/abha-number` and `abdm/abha-address`.
+  - The dev DB now has both pairs of configs: ids 3–4 belong to care_abdm and ids 5–6 to NHCX.
+  - So an ABHA linked through the ABDM plugin is not seen by NHCX, and the reverse is also true.
+- **ABDM gateway session token:**
+  - `care/nhcx/gateway/token.py` fetches `/api/hiecm/gateway/v3/sessions` with the same ABDM client and keeps its own cache.
+  - care_abdm `abdm/service/request.py` does the same under the cache key `abdm_token`.
+  - This is a small duplicate, but there are two token caches for one client.
+
+**Not duplicated, NHCX-specific:**
+- the NHCX gateway (JWE, x-hcx headers, registry, callbacks);
+- the claim FHIR bundles, which use separate NRCES claim profiles from care_abdm's HIP compositions;
+- biometric auth: `services/biometric.py` calls the HCX/PMJAY biometric hosts
+  (`apisbx.abdm.gov.in/hcx/abha/biometric` and the PMJAY face proxy).
+  care_abdm's bio and face flows are for ABHA enrolment, not claim verification.
+
+Why it happened: the task record shows the first implementation followed the nhcx-full skill, with the code in CARE core and no plugin.
+care_abdm was mounted but treated as separate. The task record does not say whether reusing care_abdm was considered.
+
+Suggested consolidation, not done and awaiting a decision:
+- Read and write ABHA through care_abdm when it is installed.
+  This means care_abdm's identifier system and `AbhaNumber` model, falling back to the NHCX identifier otherwise.
+  The FHIR system `https://healthid.abdm.gov.in` stays only in the outbound payloads.
+- Drop the NHCX ABHA dialogs in favour of the care_abdm_fe flow.
+- Optionally reuse care_abdm's session token.
