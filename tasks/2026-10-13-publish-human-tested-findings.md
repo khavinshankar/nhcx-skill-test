@@ -33,4 +33,14 @@ Start with findings.md and the README. Please review how well the AI followed th
 
 ## Publication
 
-Prepared for explicit push and remote verification. Final publication results will be recorded after verification.
+Published successfully to https://github.com/khavinshankar/nhcx-skill-test.git:
+
+- Parent main publication commit: b297548 (plus this final results record).
+- All four code branches match the pinned SHA values in review/repositories.json, verified with git ls-remote.
+- Entire checkpoint branch was pushed and its remote tip matched the local tip at verification.
+- A fresh GitHub clone, with no Entire on PATH and empty HOME/CODEX_HOME, generated the exact requested session report (14,590 characters) and the original NHCX checkpoint report (579,412 characters).
+- GitHub accepted the backend history with a non-blocking warning about an existing approximately 50 MB medibase.json file. No force push or history rewriting was used.
+- Parent origin now points to the requested repository. Child repository remotes were not changed; their pinned histories were pushed directly to the requested URL.
+- Final response: All 13 human-tested findings are documented and published. Parent, four nested code histories, checkpoint data and the requested portable session export are available. README explains restoring the nested layout. Share the concise review message above (also review/share-message.md).
+
+Remaining limitations: beneficiary patches are work in progress, ignored runtime configuration is intentionally excluded, and the underlying product gaps listed in findings.md are not resolved by this documentation/publication task.
