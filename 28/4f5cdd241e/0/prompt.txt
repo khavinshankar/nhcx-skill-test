@@ -1,0 +1,24 @@
+1. Set it up in a way that when ever we commit, checkpoints are also directly recorded in main.
+2. When I do full, the transcripts are failing to parse, lets fix that, and also for each checkpoint, will a new file be created?
+
+<canvas-context>
+- name="file:tasks/2026-10-13-entire-checkpoint-audit.md" type="editor" title="2026-10-13-entire-checkpoint-audit.md" panel="open" active="true" artifact="repo:tasks/2026-10-13-entire-checkpoint-audit.md" file="/Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory/tasks/2026-10-13-entire-checkpoint-audit.md" media="text/markdown"
+</canvas-context>
+
+---
+
+1. Set it up in a way that when ever we commit, checkpoints are also directly recorded in main.
+2. When I do full, the transcripts are failing to parse, lets fix that, and also for each checkpoint, will a new file be created?
+
+<canvas-context>
+- name="file:tasks/2026-10-13-entire-checkpoint-audit.md" type="editor" title="2026-10-13-entire-checkpoint-audit.md" panel="open" active="true" artifact="repo:tasks/2026-10-13-entire-checkpoint-audit.md" file="/Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory/tasks/2026-10-13-entire-checkpoint-audit.md" media="text/markdown"
+</canvas-context>
+
+---
+
+1. Set it up in a way that when ever we commit, checkpoints are also directly recorded in main.
+2. When I do full, the transcripts are failing to parse, lets fix that, and also for each checkpoint, will a new file be created?
+
+<canvas-context>
+- name="file:tasks/2026-10-13-entire-checkpoint-audit.md" type="editor" title="2026-10-13-entire-checkpoint-audit.md" panel="open" active="true" artifact="repo:tasks/2026-10-13-entire-checkpoint-audit.md" file="/Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-laughing-memory/tasks/2026-10-13-entire-checkpoint-audit.md" media="text/markdown"
+</canvas-context>
