@@ -1,0 +1,477 @@
+class ChunkedTransferEncodingMiddleware:
+
+"""
+
+Normalize requests that arrive with \`\`Transfer-Encoding: chunked\`\` and no
+
+\`\`Content-Length\`\`.
+
+
+
+
+Django's \`\`WSGIRequest\`\` wraps \`\`wsgi.input\`\` in a \`\`LimitedStream\`\` bounded
+
+by \`\`CONTENT\_LENGTH\`\`. If the client (e.g. NHCX) sends a chunked body without
+
+\`\`Content-Length\`\`, Django reads 0 bytes even though the WSGI server
+
+(Gunicorn / werkzeug) has already dechunked the payload and signalled
+
+\`\`wsgi.input\_terminated\`\`. This middleware buffers the real body and rewires
+
+the request so \`\`request.body\`\` / \`\`request.data\`\` work as expected.
+
+"""
+
+
+
+
+def \_\_init\_\_(self, get\_response):
+
+self.get\_response = get\_response
+
+self.logger = logging.getLogger("chunked\_transfer\_middleware")
+
+
+
+
+def \_\_call\_\_(self, request: HttpRequest):
+
+if self.\_needs\_rewiring(request):
+
+self.\_buffer\_body(request)
+
+return self.get\_response(request)
+
+
+
+
+@staticmethod
+
+def \_needs\_rewiring(request: HttpRequest) -> bool:
+
+transfer\_encoding = request.META.get("HTTP\_TRANSFER\_ENCODING", "").lower()
+
+if "chunked" not in transfer\_encoding:
+
+return False
+
+try:
+
+content\_length = int(request.META.get("CONTENT\_LENGTH") or 0)
+
+except (TypeError, ValueError):
+
+content\_length = 0
+
+return content\_length <= 0
+
+
+
+
+def \_buffer\_body(self, request: HttpRequest) -> None:
+
+wsgi\_input = request.META.get("wsgi.input")
+
+if wsgi\_input is None:
+
+return
+
+
+
+
+# Only safe to read to EOF when the WSGI server promises it has
+
+# already dechunked the body. Gunicorn and werkzeug both set this;
+
+# the stdlib wsgiref dev server does not support chunked requests.
+
+if not request.META.get("wsgi.input\_terminated"):
+
+self.logger.warning(
+
+"Chunked request received but wsgi.input\_terminated is not set; "
+
+"server does not support chunked transfer encoding."
+
+)
+
+return
+
+
+
+
+max\_size = getattr(settings, "DATA\_UPLOAD\_MAX\_MEMORY\_SIZE", None)
+
+# Read one extra byte so we can detect overflow deterministically.
+
+read\_limit = (max\_size + 1) if max\_size else -1
+
+body = wsgi\_input.read(read\_limit)
+
+if max\_size is not None and len(body) > max\_size:
+
+raise RequestDataTooBig(
+
+"Request body exceeded settings.DATA\_UPLOAD\_MAX\_MEMORY\_SIZE."
+
+)
+
+
+
+
+buffered = io.BytesIO(body)
+
+request.META["CONTENT\_LENGTH"] = str(len(body))
+
+request.META["wsgi.input"] = buffered
+
+request.\_stream = LimitedStream(buffered, len(body))
+
+# Reset any cached parsing so DRF / form parsers re-read the new stream.
+
+for attr in ("\_body", "\_post", "\_files", "\_read\_started"):
+
+if hasattr(request, attr):
+
+try:
+
+delattr(request, attr)
+
+except AttributeError:
+
+pass
+
+request.\_read\_started = False
+
+add this to handle incoming insurance plan correctly.
+
+add these as well to allow huge incoming bodies
+
+# 100 MB
+
+DATA\_UPLOAD\_MAX\_MEMORY\_SIZE = 100 \* 1024 \* 1024
+
+# 100 MB
+
+FILE\_UPLOAD\_MAX\_MEMORY\_SIZE = 100 \* 1024 \* 1024
+
+---
+
+class ChunkedTransferEncodingMiddleware:
+
+"""
+
+Normalize requests that arrive with \`\`Transfer-Encoding: chunked\`\` and no
+
+\`\`Content-Length\`\`.
+
+
+
+
+Django's \`\`WSGIRequest\`\` wraps \`\`wsgi.input\`\` in a \`\`LimitedStream\`\` bounded
+
+by \`\`CONTENT\_LENGTH\`\`. If the client (e.g. NHCX) sends a chunked body without
+
+\`\`Content-Length\`\`, Django reads 0 bytes even though the WSGI server
+
+(Gunicorn / werkzeug) has already dechunked the payload and signalled
+
+\`\`wsgi.input\_terminated\`\`. This middleware buffers the real body and rewires
+
+the request so \`\`request.body\`\` / \`\`request.data\`\` work as expected.
+
+"""
+
+
+
+
+def \_\_init\_\_(self, get\_response):
+
+self.get\_response = get\_response
+
+self.logger = logging.getLogger("chunked\_transfer\_middleware")
+
+
+
+
+def \_\_call\_\_(self, request: HttpRequest):
+
+if self.\_needs\_rewiring(request):
+
+self.\_buffer\_body(request)
+
+return self.get\_response(request)
+
+
+
+
+@staticmethod
+
+def \_needs\_rewiring(request: HttpRequest) -> bool:
+
+transfer\_encoding = request.META.get("HTTP\_TRANSFER\_ENCODING", "").lower()
+
+if "chunked" not in transfer\_encoding:
+
+return False
+
+try:
+
+content\_length = int(request.META.get("CONTENT\_LENGTH") or 0)
+
+except (TypeError, ValueError):
+
+content\_length = 0
+
+return content\_length <= 0
+
+
+
+
+def \_buffer\_body(self, request: HttpRequest) -> None:
+
+wsgi\_input = request.META.get("wsgi.input")
+
+if wsgi\_input is None:
+
+return
+
+
+
+
+# Only safe to read to EOF when the WSGI server promises it has
+
+# already dechunked the body. Gunicorn and werkzeug both set this;
+
+# the stdlib wsgiref dev server does not support chunked requests.
+
+if not request.META.get("wsgi.input\_terminated"):
+
+self.logger.warning(
+
+"Chunked request received but wsgi.input\_terminated is not set; "
+
+"server does not support chunked transfer encoding."
+
+)
+
+return
+
+
+
+
+max\_size = getattr(settings, "DATA\_UPLOAD\_MAX\_MEMORY\_SIZE", None)
+
+# Read one extra byte so we can detect overflow deterministically.
+
+read\_limit = (max\_size + 1) if max\_size else -1
+
+body = wsgi\_input.read(read\_limit)
+
+if max\_size is not None and len(body) > max\_size:
+
+raise RequestDataTooBig(
+
+"Request body exceeded settings.DATA\_UPLOAD\_MAX\_MEMORY\_SIZE."
+
+)
+
+
+
+
+buffered = io.BytesIO(body)
+
+request.META["CONTENT\_LENGTH"] = str(len(body))
+
+request.META["wsgi.input"] = buffered
+
+request.\_stream = LimitedStream(buffered, len(body))
+
+# Reset any cached parsing so DRF / form parsers re-read the new stream.
+
+for attr in ("\_body", "\_post", "\_files", "\_read\_started"):
+
+if hasattr(request, attr):
+
+try:
+
+delattr(request, attr)
+
+except AttributeError:
+
+pass
+
+request.\_read\_started = False
+
+add this to handle incoming insurance plan correctly.
+
+add these as well to allow huge incoming bodies
+
+# 100 MB
+
+DATA\_UPLOAD\_MAX\_MEMORY\_SIZE = 100 \* 1024 \* 1024
+
+# 100 MB
+
+FILE\_UPLOAD\_MAX\_MEMORY\_SIZE = 100 \* 1024 \* 1024
+
+---
+
+class ChunkedTransferEncodingMiddleware:
+
+"""
+
+Normalize requests that arrive with \`\`Transfer-Encoding: chunked\`\` and no
+
+\`\`Content-Length\`\`.
+
+
+
+
+Django's \`\`WSGIRequest\`\` wraps \`\`wsgi.input\`\` in a \`\`LimitedStream\`\` bounded
+
+by \`\`CONTENT\_LENGTH\`\`. If the client (e.g. NHCX) sends a chunked body without
+
+\`\`Content-Length\`\`, Django reads 0 bytes even though the WSGI server
+
+(Gunicorn / werkzeug) has already dechunked the payload and signalled
+
+\`\`wsgi.input\_terminated\`\`. This middleware buffers the real body and rewires
+
+the request so \`\`request.body\`\` / \`\`request.data\`\` work as expected.
+
+"""
+
+
+
+
+def \_\_init\_\_(self, get\_response):
+
+self.get\_response = get\_response
+
+self.logger = logging.getLogger("chunked\_transfer\_middleware")
+
+
+
+
+def \_\_call\_\_(self, request: HttpRequest):
+
+if self.\_needs\_rewiring(request):
+
+self.\_buffer\_body(request)
+
+return self.get\_response(request)
+
+
+
+
+@staticmethod
+
+def \_needs\_rewiring(request: HttpRequest) -> bool:
+
+transfer\_encoding = request.META.get("HTTP\_TRANSFER\_ENCODING", "").lower()
+
+if "chunked" not in transfer\_encoding:
+
+return False
+
+try:
+
+content\_length = int(request.META.get("CONTENT\_LENGTH") or 0)
+
+except (TypeError, ValueError):
+
+content\_length = 0
+
+return content\_length <= 0
+
+
+
+
+def \_buffer\_body(self, request: HttpRequest) -> None:
+
+wsgi\_input = request.META.get("wsgi.input")
+
+if wsgi\_input is None:
+
+return
+
+
+
+
+# Only safe to read to EOF when the WSGI server promises it has
+
+# already dechunked the body. Gunicorn and werkzeug both set this;
+
+# the stdlib wsgiref dev server does not support chunked requests.
+
+if not request.META.get("wsgi.input\_terminated"):
+
+self.logger.warning(
+
+"Chunked request received but wsgi.input\_terminated is not set; "
+
+"server does not support chunked transfer encoding."
+
+)
+
+return
+
+
+
+
+max\_size = getattr(settings, "DATA\_UPLOAD\_MAX\_MEMORY\_SIZE", None)
+
+# Read one extra byte so we can detect overflow deterministically.
+
+read\_limit = (max\_size + 1) if max\_size else -1
+
+body = wsgi\_input.read(read\_limit)
+
+if max\_size is not None and len(body) > max\_size:
+
+raise RequestDataTooBig(
+
+"Request body exceeded settings.DATA\_UPLOAD\_MAX\_MEMORY\_SIZE."
+
+)
+
+
+
+
+buffered = io.BytesIO(body)
+
+request.META["CONTENT\_LENGTH"] = str(len(body))
+
+request.META["wsgi.input"] = buffered
+
+request.\_stream = LimitedStream(buffered, len(body))
+
+# Reset any cached parsing so DRF / form parsers re-read the new stream.
+
+for attr in ("\_body", "\_post", "\_files", "\_read\_started"):
+
+if hasattr(request, attr):
+
+try:
+
+delattr(request, attr)
+
+except AttributeError:
+
+pass
+
+request.\_read\_started = False
+
+add this to handle incoming insurance plan correctly.
+
+add these as well to allow huge incoming bodies
+
+# 100 MB
+
+DATA\_UPLOAD\_MAX\_MEMORY\_SIZE = 100 \* 1024 \* 1024
+
+# 100 MB
+
+FILE\_UPLOAD\_MAX\_MEMORY\_SIZE = 100 \* 1024 \* 1024
