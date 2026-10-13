@@ -64,8 +64,20 @@ entire session list
 git -C care_fe log --grep 'Entire-Session: <session-id>'  # child commits
 ```
 
-`--full` shows prompts, replies and tool calls. Reasoning summaries are only in
-the raw transcript.
+Entire 0.11.4 stores Copilot transcripts in full but cannot display them:
+`explain` shows only the first prompt, and `--full` prints "failed to parse
+transcript". Claude Code and the other agents render normally. For Copilot
+checkpoints, use the report script, which reads the same data from
+`entire/checkpoints/v1`:
+
+```sh
+scripts/checkpoint-report.py <id>                         # summary + timeline
+scripts/checkpoint-report.py <id> --reasoning --results   # plus reasoning and tool output
+```
+
+The report lists the model, reasoning effort, premium requests, skills
+invoked, tool counts and failures, child repositories referenced, and linked
+parent and child commits.
 
 ### Capture requirements (verified 2026-10-13)
 
