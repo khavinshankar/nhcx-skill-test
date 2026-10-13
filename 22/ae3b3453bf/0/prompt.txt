@@ -1,0 +1,39 @@
+WARNING 2026-10-13 15:26:03,230 receive 27224 281473198535040 nhcx: inbound refused path=v1/insuranceplan/on\_request code=DECRYPT\_FAILED
+
+INFO 2026-10-13 15:26:03,233 middleware 27224 281473198535040 POST /in/v1/insuranceplan/on\_request 422 User:[None|AnonymousUser]
+
+Unprocessable Content: /in/v1/insuranceplan/on\_request
+
+WARNING 2026-10-13 15:26:03,233 log 27224 281473198535040 Unprocessable Content: /in/v1/insuranceplan/on\_request
+
+172.18.0.1 - - [13/Oct/2026 15:26:03] "POST /in/v1/insuranceplan/on\_request HTTP/1.1" 422 -
+
+why is decryption failing? did we not use the same key? coverage eligibility decryption worked why not insurance plan
+
+---
+
+WARNING 2026-10-13 15:26:03,230 receive 27224 281473198535040 nhcx: inbound refused path=v1/insuranceplan/on\_request code=DECRYPT\_FAILED
+
+INFO 2026-10-13 15:26:03,233 middleware 27224 281473198535040 POST /in/v1/insuranceplan/on\_request 422 User:[None|AnonymousUser]
+
+Unprocessable Content: /in/v1/insuranceplan/on\_request
+
+WARNING 2026-10-13 15:26:03,233 log 27224 281473198535040 Unprocessable Content: /in/v1/insuranceplan/on\_request
+
+172.18.0.1 - - [13/Oct/2026 15:26:03] "POST /in/v1/insuranceplan/on\_request HTTP/1.1" 422 -
+
+why is decryption failing? did we not use the same key? coverage eligibility decryption worked why not insurance plan
+
+---
+
+WARNING 2026-10-13 15:26:03,230 receive 27224 281473198535040 nhcx: inbound refused path=v1/insuranceplan/on\_request code=DECRYPT\_FAILED
+
+INFO 2026-10-13 15:26:03,233 middleware 27224 281473198535040 POST /in/v1/insuranceplan/on\_request 422 User:[None|AnonymousUser]
+
+Unprocessable Content: /in/v1/insuranceplan/on\_request
+
+WARNING 2026-10-13 15:26:03,233 log 27224 281473198535040 Unprocessable Content: /in/v1/insuranceplan/on\_request
+
+172.18.0.1 - - [13/Oct/2026 15:26:03] "POST /in/v1/insuranceplan/on\_request HTTP/1.1" 422 -
+
+why is decryption failing? did we not use the same key? coverage eligibility decryption worked why not insurance plan
