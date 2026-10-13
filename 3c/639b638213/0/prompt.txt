@@ -1,0 +1,144 @@
+<copilot_tauri_workspace>
+project_session_id: afb9f59a-c984-46a8-83b1-fc23c81a1f78
+project_id: d31eff92-45fe-4e4a-91dc-1f66725c7b3d
+project_name: nhcx
+project_github_repo: unknown
+project_default_branch: main
+workspace_type: worktree
+workspace_name: New session
+workspace_branch: khavinshankar-psychic-carnival
+workspace_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-psychic-carnival
+repo_root: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-psychic-carnival
+default_branch: main
+base_branch: main
+original_generated_branch: khavinshankar-psychic-carnival
+current_branch: khavinshankar-psychic-carnival
+</copilot_tauri_workspace>
+
+<copilot_working_context>
+container_kind: repository
+current_working_directory: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-psychic-carnival
+current_working_directory_is_git_repo: true
+checkout_strategy: worktree
+member_repositories:
+- repo_name: nhcx
+  repo_full_name: unknown
+  main_checkout_path: /Users/khavinshankar/Documents/egov/nhcx
+  main_checkout_branch: main
+  current_checkout_kind: worktree
+  current_checkout_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-psychic-carnival
+  current_checkout_branch: khavinshankar-psychic-carnival
+</copilot_working_context>
+
+<copilot_artifacts>
+artifacts_dir: /Users/khavinshankar/.copilot/session-state/afb9f59a-c984-46a8-83b1-fc23c81a1f78/files
+Write scratch artifacts (plans, task lists, notes) in this folder instead of the repo.
+</copilot_artifacts>
+
+<branch_rename_request>
+Before creating or editing any files, call the rename_branch tool with a kebab-case version of the session name you chose.
+</branch_rename_request>
+
+I requested for the insurance plan in claim NM-26-0VL00003S, not yet recieved, I want u to check
+
+1. if we have recieved the insurance plan from the payer, check the logs in docker too, if anything came in via the insurance plan callback route
+2. if the insurance plan is huge, around 60-100mb, are we equipped to handle that, django rejects huge payloads by default, have we enabled right envs and have middleware to parse such huge data
+3. also, is the insuarnce plan fetched every claim or for every patient or for every facility?
+
+---
+
+<copilot_tauri_workspace>
+project_session_id: afb9f59a-c984-46a8-83b1-fc23c81a1f78
+project_id: d31eff92-45fe-4e4a-91dc-1f66725c7b3d
+project_name: nhcx
+project_github_repo: unknown
+project_default_branch: main
+workspace_type: worktree
+workspace_name: New session
+workspace_branch: khavinshankar-psychic-carnival
+workspace_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-psychic-carnival
+repo_root: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-psychic-carnival
+default_branch: main
+base_branch: main
+original_generated_branch: khavinshankar-psychic-carnival
+current_branch: khavinshankar-psychic-carnival
+</copilot_tauri_workspace>
+
+<copilot_working_context>
+container_kind: repository
+current_working_directory: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-psychic-carnival
+current_working_directory_is_git_repo: true
+checkout_strategy: worktree
+member_repositories:
+- repo_name: nhcx
+  repo_full_name: unknown
+  main_checkout_path: /Users/khavinshankar/Documents/egov/nhcx
+  main_checkout_branch: main
+  current_checkout_kind: worktree
+  current_checkout_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-psychic-carnival
+  current_checkout_branch: khavinshankar-psychic-carnival
+</copilot_working_context>
+
+<copilot_artifacts>
+artifacts_dir: /Users/khavinshankar/.copilot/session-state/afb9f59a-c984-46a8-83b1-fc23c81a1f78/files
+Write scratch artifacts (plans, task lists, notes) in this folder instead of the repo.
+</copilot_artifacts>
+
+<branch_rename_request>
+Before creating or editing any files, call the rename_branch tool with a kebab-case version of the session name you chose.
+</branch_rename_request>
+
+I requested for the insurance plan in claim NM-26-0VL00003S, not yet recieved, I want u to check
+
+1. if we have recieved the insurance plan from the payer, check the logs in docker too, if anything came in via the insurance plan callback route
+2. if the insurance plan is huge, around 60-100mb, are we equipped to handle that, django rejects huge payloads by default, have we enabled right envs and have middleware to parse such huge data
+3. also, is the insuarnce plan fetched every claim or for every patient or for every facility?
+
+---
+
+<copilot_tauri_workspace>
+project_session_id: afb9f59a-c984-46a8-83b1-fc23c81a1f78
+project_id: d31eff92-45fe-4e4a-91dc-1f66725c7b3d
+project_name: nhcx
+project_github_repo: unknown
+project_default_branch: main
+workspace_type: worktree
+workspace_name: New session
+workspace_branch: khavinshankar-psychic-carnival
+workspace_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-psychic-carnival
+repo_root: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-psychic-carnival
+default_branch: main
+base_branch: main
+original_generated_branch: khavinshankar-psychic-carnival
+current_branch: khavinshankar-psychic-carnival
+</copilot_tauri_workspace>
+
+<copilot_working_context>
+container_kind: repository
+current_working_directory: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-psychic-carnival
+current_working_directory_is_git_repo: true
+checkout_strategy: worktree
+member_repositories:
+- repo_name: nhcx
+  repo_full_name: unknown
+  main_checkout_path: /Users/khavinshankar/Documents/egov/nhcx
+  main_checkout_branch: main
+  current_checkout_kind: worktree
+  current_checkout_path: /Users/khavinshankar/.copilot/repos/copilot-worktrees/nhcx/khavinshankar-psychic-carnival
+  current_checkout_branch: khavinshankar-psychic-carnival
+</copilot_working_context>
+
+<copilot_artifacts>
+artifacts_dir: /Users/khavinshankar/.copilot/session-state/afb9f59a-c984-46a8-83b1-fc23c81a1f78/files
+Write scratch artifacts (plans, task lists, notes) in this folder instead of the repo.
+</copilot_artifacts>
+
+<branch_rename_request>
+Before creating or editing any files, call the rename_branch tool with a kebab-case version of the session name you chose.
+</branch_rename_request>
+
+I requested for the insurance plan in claim NM-26-0VL00003S, not yet recieved, I want u to check
+
+1. if we have recieved the insurance plan from the payer, check the logs in docker too, if anything came in via the insurance plan callback route
+2. if the insurance plan is huge, around 60-100mb, are we equipped to handle that, django rejects huge payloads by default, have we enabled right envs and have middleware to parse such huge data
+3. also, is the insuarnce plan fetched every claim or for every patient or for every facility?
