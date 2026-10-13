@@ -132,3 +132,51 @@ checkpoint backend were left unchanged.
 - **Decision.** The user approved fast-forwarding `main` to this branch: no merge
   commit and no push. Fast-forwarding keeps the commit IDs, so the
   `Entire-Checkpoint` trailers stay valid. A squash or rebase would orphan them.
+
+## Follow-up: checkpoints on `main` automatically, and `--full` (08:16 IST)
+
+- **Request.**
+  1. Record checkpoints directly on `main` with every commit.
+  2. Fix "failed to parse transcript" in `entire checkpoint explain <id> --full`.
+  3. Answer whether each checkpoint creates a new file.
+- **Main (user chose option A over "branch" workspace sessions).**
+  - New `scripts/ff-main.sh` runs from the shared parent `post-commit` hook
+    after Entire's step and fast-forwards `main` to the new commit. It updates
+    the main checkout with `merge --ff-only`, or uses `update-ref` if `main`
+    isn't checked out anywhere.
+  - It never merges, rebases or pushes, and never fails a commit. It skips with
+    a warning if `main` has diverged or the main checkout has uncommitted
+    tracked changes.
+  - Disable it with `git config nhcx.autoFastForwardMain false`.
+  - `scripts/install-parent-hooks.sh` appends the hook line once; rerun it
+    after `entire enable` or an Entire upgrade.
+  - Rejected option B: working directly on `main`. It needs no hook, but
+    parallel sessions would share one checkout.
+- **`--full` parse failure.** This is an Entire bug, still present upstream at
+  `entireio/cli@4203b3d`.
+  - `summarize.BuildCondensedTranscriptFromBytes` has no Copilot case, so it
+    sends Copilot's raw `events.jsonl` to the Claude-format parser. The compact
+    fallback expects already-compacted input. Entire's own Copilot compactor
+    (`transcript/compact/copilot.go`) is never called on this path.
+  - Fixing it needs a rebuilt binary, and Go isn't installed. The user chose
+    not to patch, and to keep using `scripts/checkpoint-report.py`. The report
+    now also accepts a commit (and uses its `Entire-Checkpoint` trailer), like
+    `explain <commit>`.
+- **Storage answer.** Each checkpoint adds one directory, `<id[:2]>/<id[2:]>/0/`,
+  on the `entire/checkpoints/v1` branch only, not in the working tree. It holds
+  `full.jsonl` (the raw log from session start), `transcript.jsonl` (compact),
+  `metadata.json`, `prompt.txt` and `content_hash.txt`.
+  - At the end of each turn, Entire's "Finalize transcript" commit rewrites
+    that turn's checkpoints to the full turn transcript. So `88097bc7f01f` and
+    `bdb6d0438632` have identical 1.2 MB / 719-event logs, which git stores
+    once. `cacc67ea1c19` has 767 events.
+  - Growth per checkpoint is the session's log size so far; git compresses the
+    repeated content.
+- **Validation.**
+  - A scratch repo with a worktree tested 7 cases: fast-forward, dirty main
+    checkout skipped, catch-up, diverged main skipped, commit on main is a
+    no-op, `update-ref` when `main` isn't checked out, and disabled by config.
+    All passed after one fix: the hook now runs the script with `sh`, because a
+    non-executable script was being skipped.
+  - The report resolves commit `0daf11b` to checkpoint `cacc67ea1c19`.
+  - Real hook: this record's commit should print `ff-main: main -> <sha>`.

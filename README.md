@@ -59,8 +59,21 @@ through an `Entire-Checkpoint` trailer.
 ### Viewing checkpoints
 
 Entire 0.11 replaced `entire explain` with `entire checkpoint ...`. Listing is
-scoped to the current branch, so merge task branches into `main` to see them
-there.
+scoped to the current branch. Copilot app sessions commit on their own worktree
+branches, so the parent `post-commit` hook runs `scripts/ff-main.sh` after
+Entire's step. It fast-forwards `main` to each new commit, which makes the
+checkpoint appear in `entire checkpoint list` on `main`.
+
+- The hook never merges, rebases or pushes. It skips with a warning when
+  `main` has commits the branch lacks (such as a parallel session's work) or
+  when the main checkout has uncommitted tracked changes. Merge those branches
+  manually without squashing or rebasing, so the `Entire-Checkpoint` trailers
+  stay on `main`.
+- Install the hook with `scripts/install-parent-hooks.sh`. Rerun it after
+  `entire enable` or an Entire upgrade, because those rewrite the hooks.
+- Disable it with `git config nhcx.autoFastForwardMain false`.
+- This applies only to the parent repository. Child repositories have no
+  checkpoints.
 
 ```sh
 entire checkpoint list                      # checkpoints on this branch
@@ -74,12 +87,16 @@ git -C care_fe log --grep 'Entire-Session: <session-id>'  # child commits
 
 Entire 0.11.4 stores Copilot transcripts in full but cannot display them:
 `explain` shows only the first prompt, and `--full` prints "failed to parse
-transcript". Claude Code and the other agents render normally. For Copilot
+transcript". That's an Entire bug, still present upstream at `4203b3d`
+(2026-10-12). `explain --full` sends Copilot's raw event log to the
+Claude-format parser. Entire's Copilot compactor (`transcript/compact/copilot.go`)
+would parse it, but the display path never calls it. The user chose not to
+build a patched binary. Claude Code and the other agents render normally. For Copilot
 checkpoints, use the report script, which reads the same data from
 `entire/checkpoints/v1`:
 
 ```sh
-scripts/checkpoint-report.py <id>                         # summary + timeline
+scripts/checkpoint-report.py <id|commit>                  # summary + timeline
 scripts/checkpoint-report.py <id> --reasoning --results   # plus reasoning and tool output
 scripts/checkpoint-report.py <id> --system                # plus system prompt and instructions
 scripts/checkpoint-report.py --session <session-id>       # live log, incl. uncommitted turns

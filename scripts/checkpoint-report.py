@@ -44,6 +44,12 @@ def find_checkpoint(prefix, ref):
     ids = sorted({p.split("/")[0] + p.split("/")[1] for p in git("ls-tree", "-r", "--name-only", ref).splitlines()
                   if p.endswith("/metadata.json") and p.count("/") == 2})
     matches = [i for i in ids if i.startswith(prefix)]
+    if not matches:
+        try:
+            trailer = git("log", "-1", "--format=%(trailers:key=Entire-Checkpoint,valueonly)", prefix, "--").strip()
+        except subprocess.CalledProcessError:
+            trailer = ""
+        matches = [i for i in ids if trailer and i == trailer.splitlines()[0]]
     if len(matches) != 1:
         sys.exit(f"{len(matches)} checkpoints match {prefix!r}: {', '.join(matches[:10])}")
     return matches[0]
